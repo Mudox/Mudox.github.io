@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
 
     
-    <link href="http://localhost:1313/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="http://mudox.github.io/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
@@ -90,16 +90,16 @@
     <nav id=sidebar-menu-wall>
       
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+        <a class="top-menu-item" href="http://mudox.github.io/note/">NOTES</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/memo/">MEMOS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/project/">PROJECTS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/post/">POSTS</a>
       </li>
     </nav>
 
@@ -148,10 +148,18 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          fadeIn: 1983,
+          dragControl: true,
+          dragThreshold: 4,
+          decel: 0.985,
+          clickToFront: 600,
           textColour: '#ffffff',
           outlineThickness: 0.5,
-          maxSpeed: 0.03,
-          depth: 0.75
+          maxSpeed: 0.018,
+          minSpeed: 0.002,
+          outlineMethod:'size',
+          outlineIncrease: 4,
+          depth: 0.55
         })) {
         $('#tagCloud').hide();
       }
@@ -179,7 +187,7 @@
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/setup_my_archlinux_environment/">
+          <a href="http://mudox.github.io/memo/setup_my_archlinux_environment/">
             SETUP MY ARCH LINUX ENVIRONMENT
           </a>
         </h1>
@@ -562,7 +570,7 @@ alias vpoff='sudo ~/.bin/vpn.sh off'
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/setup_my_vim_environment/">
+          <a href="http://mudox.github.io/memo/setup_my_vim_environment/">
             SETUP MY VIM ENVIRONMENT
           </a>
         </h1>
@@ -705,28 +713,7 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <ul>
-<li>body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://localhost:1313/memo/error_collection_javascript/">
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
         </h1>
@@ -755,7 +742,28 @@ function init() {
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/setup_my_zsh_environment/">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <ul>
+<li>body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/setup_my_zsh_environment/">
             SETUP MY ZSH ENVIRONMENT
           </a>
         </h1>
@@ -775,7 +783,7 @@ Windows/Cygwin).</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/setup_my_aweseome_wm_environment/">
+          <a href="http://mudox.github.io/memo/setup_my_aweseome_wm_environment/">
             SETUP MY AWESOME WM ENVIRONMENT
           </a>
         </h1>
@@ -811,7 +819,7 @@ git submodule update --init --recursive
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/setup_my_cygwin_environment/">
+          <a href="http://mudox.github.io/memo/setup_my_cygwin_environment/">
             SETUP MY CYGWIN ENVIRONMENT
           </a>
         </h1>
@@ -874,7 +882,7 @@ gvim --remote-tab /path/of/file
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/post/about_my_site/">
+          <a href="http://mudox.github.io/post/about_my_site/">
             ABOUT MY SITE
           </a>
         </h1>
@@ -960,7 +968,7 @@ based tag cloud.</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/my_vim_customization_policy/">
+          <a href="http://mudox.github.io/memo/my_vim_customization_policy/">
             MY VIM CUSTOMIZATION POLICY
           </a>
         </h1>
@@ -1016,7 +1024,7 @@ when a single click of <Cr> is needed, you will feel a noticeable response lag.<
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/swift_oo/">
+          <a href="http://mudox.github.io/note/swift_oo/">
             SWIFT OJECT-ORIENTED FEATURE
           </a>
         </h1>
@@ -1073,7 +1081,7 @@ are both value types.</p></li>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/javascript_type_conversions/">
+          <a href="http://mudox.github.io/note/javascript_type_conversions/">
             JAVASCRIPT TYPE CONVERSIONS
           </a>
         </h1>
@@ -1224,7 +1232,7 @@ different policy. There are <strong>5</strong> falsey value in JavaScript:</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/web_page_layouts/">
+          <a href="http://mudox.github.io/note/web_page_layouts/">
             WEB PAGE LAYOUTS
           </a>
         </h1>
@@ -1274,7 +1282,7 @@ elements into an invisible table.</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/swift_features/">
+          <a href="http://mudox.github.io/note/swift_features/">
             SWIFT FEATURES
           </a>
         </h1>
@@ -1486,7 +1494,7 @@ acounted type).</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/post/about/">
+          <a href="http://mudox.github.io/post/about/">
             ABOUT ME
           </a>
         </h1>
@@ -1499,7 +1507,7 @@ acounted type).</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/git/">
+          <a href="http://mudox.github.io/note/git/">
             GIT MISC
           </a>
         </h1>
@@ -1737,7 +1745,7 @@ commits.</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/compile_macvim_and_ycm_on_osx/">
+          <a href="http://mudox.github.io/memo/compile_macvim_and_ycm_on_osx/">
             COMPILE MACVIM &amp; YCM ON OSX
           </a>
         </h1>
@@ -1790,7 +1798,7 @@ make
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/memo/vim_chameleon_startup_menu/">
+          <a href="http://mudox.github.io/memo/vim_chameleon_startup_menu/">
             VIM CHAMELEON STARTUP MENU
           </a>
         </h1>
@@ -1847,7 +1855,7 @@ make
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/git_flow/">
+          <a href="http://mudox.github.io/note/git_flow/">
             GIT FLOW
           </a>
         </h1>
@@ -1942,7 +1950,7 @@ git merge --no-ff hotfix-&lt;version number&gt;
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/go_stdlib_template/">
+          <a href="http://mudox.github.io/note/go_stdlib_template/">
             GO&#39;S TEMPLATE LIBRARY
           </a>
         </h1>
@@ -2045,7 +2053,7 @@ create a good static website.</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/cocoa_concurrency/">
+          <a href="http://mudox.github.io/note/cocoa_concurrency/">
             COCOA CONCURRENCY
           </a>
         </h1>
@@ -2090,7 +2098,7 @@ create a good static website.</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://localhost:1313/note/cocoa_threading/">
+          <a href="http://mudox.github.io/note/cocoa_threading/">
             COCOA THREADING
           </a>
         </h1>
@@ -2301,8 +2309,5 @@ loop object.</p></li>
     </div>
   </div>
 
-<script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>

@@ -90,16 +90,16 @@
     <nav id=sidebar-menu-wall>
       
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+        <a class="top-menu-item" href="http://mudox.github.io/note/">NOTES</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/memo/">MEMOS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/project/">PROJECTS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/post/">POSTS</a>
       </li>
     </nav>
 
@@ -148,10 +148,18 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          fadeIn: 1983,
+          dragControl: true,
+          dragThreshold: 4,
+          decel: 0.985,
+          clickToFront: 600,
           textColour: '#ffffff',
           outlineThickness: 0.5,
-          maxSpeed: 0.03,
-          depth: 0.75
+          maxSpeed: 0.018,
+          minSpeed: 0.002,
+          outlineMethod:'size',
+          outlineIncrease: 4,
+          depth: 0.55
         })) {
         $('#tagCloud').hide();
       }
@@ -240,8 +248,5 @@
         </div>
     </div>
 
-<script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>

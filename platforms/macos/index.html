@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
 
     
-    <link href="http://localhost:1313/platforms/macos/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="http://mudox.github.io/platforms/macos/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
@@ -90,16 +90,16 @@
     <nav id=sidebar-menu-wall>
       
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+        <a class="top-menu-item" href="http://mudox.github.io/note/">NOTES</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/memo/">MEMOS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/project/">PROJECTS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/post/">POSTS</a>
       </li>
     </nav>
 
@@ -148,10 +148,18 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          fadeIn: 1983,
+          dragControl: true,
+          dragThreshold: 4,
+          decel: 0.985,
+          clickToFront: 600,
           textColour: '#ffffff',
           outlineThickness: 0.5,
-          maxSpeed: 0.03,
-          depth: 0.75
+          maxSpeed: 0.018,
+          minSpeed: 0.002,
+          outlineMethod:'size',
+          outlineIncrease: 4,
+          depth: 0.55
         })) {
         $('#tagCloud').hide();
       }
@@ -177,7 +185,7 @@
     <ul class="posts">
         
         <li>
-          <span><a href="http://localhost:1313/memo/setup_my_vim_environment/">SETUP MY VIM ENVIRONMENT</a>
+          <span><a href="http://mudox.github.io/memo/setup_my_vim_environment/">SETUP MY VIM ENVIRONMENT</a>
             <time class="pull-right post-list">Sat, Nov 8, 2014</time></span>
           <p><p>Steps of setting up my Vim environment on my systems (Arch Linux, MacOS,
 Windows).</p>
@@ -185,13 +193,13 @@ Windows).</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/memo/error_collection_sh/">ERROR COLLECTION - BASH</a>
+          <span><a href="http://mudox.github.io/memo/error_collection_sh/">ERROR COLLECTION - BASH</a>
             <time class="pull-right post-list">Fri, Nov 7, 2014</time></span>
           <p>body of select constructs need a break; to quit the selection loop. select answer in #choices#; do #body# break; # &lt;- go out of selection loop. done</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENT</a>
+          <span><a href="http://mudox.github.io/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENT</a>
             <time class="pull-right post-list">Wed, Nov 5, 2014</time></span>
           <p><p>Steps of setting up zsh environment on my systems (Arch Linux, MacOS,
 Windows/Cygwin).</p>
@@ -199,49 +207,49 @@ Windows/Cygwin).</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/memo/my_vim_customization_policy/">MY VIM CUSTOMIZATION POLICY</a>
+          <span><a href="http://mudox.github.io/memo/my_vim_customization_policy/">MY VIM CUSTOMIZATION POLICY</a>
             <time class="pull-right post-list">Thu, Oct 30, 2014</time></span>
           <p>About Mapping Good prefixes for normal mode mappings The comma , use 2 ~ 3 suffix characters, then we can get more candidates key combinations for mapping. The backslash \ different keyboard layouts have different locations for \, so it should be used less frequently than ,. The space &lt;Space&gt; the &lt;Space&gt; is the best prefix for normal mappings I&rsquo;ve ever found. It spans a long distance at the bottom of the keyboard, which makes it&rsquo;s very easy and comfortable to touch.</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/swift_oo/">SWIFT OJECT-ORIENTED FEATURE</a>
+          <span><a href="http://mudox.github.io/note/swift_oo/">SWIFT OJECT-ORIENTED FEATURE</a>
             <time class="pull-right post-list">Wed, Oct 29, 2014</time></span>
           <p>Class Like Constructs In Swift In Swift, enum, struct, class all can: have properties to keep states. have methods to perform actions. define subscript operators to let user access their properties through subscript syntax. define initializers to have a reasonable initial state. be extended to have additional behaviors beyond their default implementations. conform to protocols. Only class can: have inheritance capability. have deinitializer. be referenced by mutiple variable or constants. the struct and enum are both value types.</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/swift_features/">SWIFT FEATURES</a>
+          <span><a href="http://mudox.github.io/note/swift_features/">SWIFT FEATURES</a>
             <time class="pull-right post-list">Tue, Oct 14, 2014</time></span>
           <p>Powerful switch Statement no implicitly fallthrough match multiple conditions in one case statement. match against range. match against tuple. value binding. where clause can provide more conditions. break &amp; continue can jump further (to some label) var aPoint = (x: 2, y: -1) // labeled `swtich` // NOTE: only loop statements and 'switch' statement can labeled. theSwitch: switch aPoint { // against tuple case (0, 0): println(&quot;origin point&quot;) // against multiple conditions separated by comma case (1, 1), (2, 2): println(&quot;(1, 1) or (2, 2)&quot;) // '_' means 'any value is ok' case (_, 0): // the `break` here is just like the `pass` in python, acting as a // 'placeholder statement', nullifing this case branch.</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/git/">GIT MISC</a>
+          <span><a href="http://mudox.github.io/note/git/">GIT MISC</a>
             <time class="pull-right post-list">Thu, Oct 2, 2014</time></span>
           <p>Alias working tree, working directory index, staging area, cache, staged snapshot commit[ted] history, commit[ted] snapshot The add &amp; rm &amp; reset &amp; commit &amp; checkout Sub-commands. between the committed history &amp; staging area commit submit changes from staging area to committed history reset revert changes from committed history back to staging area between the staging area &amp; working tree. add submit changes from working tree to staging area, preparing for committing.</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/memo/compile_macvim_and_ycm_on_osx/">COMPILE MACVIM &amp; YCM ON OSX</a>
+          <span><a href="http://mudox.github.io/memo/compile_macvim_and_ycm_on_osx/">COMPILE MACVIM &amp; YCM ON OSX</a>
             <time class="pull-right post-list">Mon, Sep 29, 2014</time></span>
           <p>Preparation disable pyenv run brew unlink pyenv (brew link pyenv after compilation) restart shell (e.g. itemr2) reset develop directory of Xcode sudo xcode-select -r Compile YCM cd /to/ycm/root/directory/ ./install.sh --clang-completer --system-libclang Compile MacVim make distclean ./configure \ --with-features=huge \ -with-macarchs=x86_64 \ --enable-perlinterp \ --enable-rubyinterp \ --enable-pythoninterp \ --enable-luainterp \ --enable-perlinterp \ --enable-cscope \ --with-lua-prefix=/usr/local/Cellar/lua/&lt;current_version&gt; &gt;/tmp/log make</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/memo/vim_chameleon_startup_menu/">VIM CHAMELEON STARTUP MENU</a>
+          <span><a href="http://mudox.github.io/memo/vim_chameleon_startup_menu/">VIM CHAMELEON STARTUP MENU</a>
             <time class="pull-right post-list">Mon, Sep 29, 2014</time></span>
           <p>On Windows: create a shortcut from gVim.exe. right click on the shorcut to open it&rsquo;s property dialog. append the following lines (concatenated into one line) to the target field. --cmd &quot;let g:mdx_chameleon_cur_mode = 'startup'&quot; --cmd &quot;set lines=9 columns=32&quot; --cmd &quot;winpos 475 320&quot; -c &quot;let &amp;titlestring='Happy Vimming!'&quot; -c &quot;ChamStartup&quot; optionally, put this shortcut under paths listed in system&rsquo;s $PATH environment variable. On Mac OSX: the MacVim.app does not accepts arguemnts above, we should use: /Applications/MacVim.app/Contents/MacOS/Vim -g instead.</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/git_flow/">GIT FLOW</a>
+          <span><a href="http://mudox.github.io/note/git_flow/">GIT FLOW</a>
             <time class="pull-right post-list">Sun, Sep 28, 2014</time></span>
           <p>1. Main Branches the main branch keeps the official release history (usually with version nubmer tags attached). i.e. every commits in master is a new release. all branches merged back into master must have a new incremental version number. the develop branch serves as an integration branch for features. nitghly build built from it. 2. Supporting Branches 2.1 feature (or topic) branches branch off from: develop branch merge into: develop branch naming convention: any name except master, develop, relase[/-]*, hotfix[/-]* # Branch A New Feature Branch Off From Develop Branch git checkout -b some-feature develop # Add Feature Commits To Branch Some-feature ...</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/go_stdlib_template/">GO&#39;S TEMPLATE LIBRARY</a>
+          <span><a href="http://mudox.github.io/note/go_stdlib_template/">GO&#39;S TEMPLATE LIBRARY</a>
             <time class="pull-right post-list">Fri, Sep 26, 2014</time></span>
           <p><p>I come across this library when I started to use <a href="http://gohugo.io">Hugo</a>,
 which says:</p>
@@ -255,21 +263,18 @@ create a good static website.</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/cocoa_concurrency/">COCOA CONCURRENCY</a>
+          <span><a href="http://mudox.github.io/note/cocoa_concurrency/">COCOA CONCURRENCY</a>
             <time class="pull-right post-list">Wed, Sep 24, 2014</time></span>
           <p>Members Of Cocoa Concurrency Operation Queue abstract base class NSOperation concrete subclass NSInvocation concrete subclass NSBlockOperation Dispatch Queue Dispatch Source Operation Queue Features graph-based dependencies completion block execution status monitoring prioritizeing canceling</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/cocoa_threading/">COCOA THREADING</a>
+          <span><a href="http://mudox.github.io/note/cocoa_threading/">COCOA THREADING</a>
             <time class="pull-right post-list">Wed, Sep 24, 2014</time></span>
           <p>Run Loop 4 roles participate in the run loop game: Run Loop which is represented by NSRun Loop &amp; CFRunLoop. Run Loop Mode which is represented by CFStringRef associated to each instance of run loop object. Run Loop Source which is represented by CFRunloopSource. Input source Port-based source Perform selctor on other threads Custom source Timer which is represented by CFRunloopTimerRef. Explictly defined timer Perform selector on current thread with delay Perform selector Run Loop Observer 4 ways to kill a run loop iteration: no sources exists since some system routines may install certain input sources to the run loop implictly, we should not kill a run loop iteration by clearing &lsquo;all&lsquo; sources we known.</p>
         </li>
         
     </ul>
   </div>
-<script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>

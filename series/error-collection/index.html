@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
 
     
-    <link href="http://localhost:1313/series/error-collection/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="http://mudox.github.io/series/error-collection/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
@@ -90,16 +90,16 @@
     <nav id=sidebar-menu-wall>
       
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+        <a class="top-menu-item" href="http://mudox.github.io/note/">NOTES</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/memo/">MEMOS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/project/">PROJECTS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/post/">POSTS</a>
       </li>
     </nav>
 
@@ -148,10 +148,18 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          fadeIn: 1983,
+          dragControl: true,
+          dragThreshold: 4,
+          decel: 0.985,
+          clickToFront: 600,
           textColour: '#ffffff',
           outlineThickness: 0.5,
-          maxSpeed: 0.03,
-          depth: 0.75
+          maxSpeed: 0.018,
+          minSpeed: 0.002,
+          outlineMethod:'size',
+          outlineIncrease: 4,
+          depth: 0.55
         })) {
         $('#tagCloud').hide();
       }
@@ -177,21 +185,18 @@
     <ul class="posts">
         
         <li>
-          <span><a href="http://localhost:1313/memo/error_collection_sh/">ERROR COLLECTION - BASH</a>
+          <span><a href="http://mudox.github.io/memo/error_collection_sh/">ERROR COLLECTION - BASH</a>
             <time class="pull-right post-list">Fri, Nov 7, 2014</time></span>
           <p>body of select constructs need a break; to quit the selection loop. select answer in #choices#; do #body# break; # &lt;- go out of selection loop. done</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/memo/error_collection_javascript/">ERROR COLLECTION - JAVASCRIPT</a>
+          <span><a href="http://mudox.github.io/memo/error_collection_javascript/">ERROR COLLECTION - JAVASCRIPT</a>
             <time class="pull-right post-list">Fri, Nov 7, 2014</time></span>
           <p>when assign a function to a event property, appending () to the function name. window.onload = init/*()*/ function init() { // ... } appending () to a property name. var x = Math.floor(Math.random() * canvas.width/*()*/</p>
         </li>
         
     </ul>
   </div>
-<script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>

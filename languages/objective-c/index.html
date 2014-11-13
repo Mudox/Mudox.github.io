@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
 
     
-    <link href="http://localhost:1313/languages/objective-c/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="http://mudox.github.io/languages/objective-c/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
@@ -90,16 +90,16 @@
     <nav id=sidebar-menu-wall>
       
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+        <a class="top-menu-item" href="http://mudox.github.io/note/">NOTES</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/memo/">MEMOS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/project/">PROJECTS</a>
       </li>
       <li class="top-menu-item">
-        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+        <a class="top-menu-item" href="http://mudox.github.io/post/">POSTS</a>
       </li>
     </nav>
 
@@ -148,10 +148,18 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          fadeIn: 1983,
+          dragControl: true,
+          dragThreshold: 4,
+          decel: 0.985,
+          clickToFront: 600,
           textColour: '#ffffff',
           outlineThickness: 0.5,
-          maxSpeed: 0.03,
-          depth: 0.75
+          maxSpeed: 0.018,
+          minSpeed: 0.002,
+          outlineMethod:'size',
+          outlineIncrease: 4,
+          depth: 0.55
         })) {
         $('#tagCloud').hide();
       }
@@ -177,21 +185,18 @@
     <ul class="posts">
         
         <li>
-          <span><a href="http://localhost:1313/note/cocoa_concurrency/">COCOA CONCURRENCY</a>
+          <span><a href="http://mudox.github.io/note/cocoa_concurrency/">COCOA CONCURRENCY</a>
             <time class="pull-right post-list">Wed, Sep 24, 2014</time></span>
           <p>Members Of Cocoa Concurrency Operation Queue abstract base class NSOperation concrete subclass NSInvocation concrete subclass NSBlockOperation Dispatch Queue Dispatch Source Operation Queue Features graph-based dependencies completion block execution status monitoring prioritizeing canceling</p>
         </li>
         
         <li>
-          <span><a href="http://localhost:1313/note/cocoa_threading/">COCOA THREADING</a>
+          <span><a href="http://mudox.github.io/note/cocoa_threading/">COCOA THREADING</a>
             <time class="pull-right post-list">Wed, Sep 24, 2014</time></span>
           <p>Run Loop 4 roles participate in the run loop game: Run Loop which is represented by NSRun Loop &amp; CFRunLoop. Run Loop Mode which is represented by CFStringRef associated to each instance of run loop object. Run Loop Source which is represented by CFRunloopSource. Input source Port-based source Perform selctor on other threads Custom source Timer which is represented by CFRunloopTimerRef. Explictly defined timer Perform selector on current thread with delay Perform selector Run Loop Observer 4 ways to kill a run loop iteration: no sources exists since some system routines may install certain input sources to the run loop implictly, we should not kill a run loop iteration by clearing &lsquo;all&lsquo; sources we known.</p>
         </li>
         
     </ul>
   </div>
-<script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>
