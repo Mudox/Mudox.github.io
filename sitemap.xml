@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2014-11-08T22:33:51+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/setup_my_archlinux_environment/</loc>
+    <lastmod>2014-11-08T22:33:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/setup_my_vim_environment/</loc>
+    <lastmod>2014-11-08T17:40:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/error_collection_sh/</loc>
+    <lastmod>2014-11-07T09:24:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/error_collection_javascript/</loc>
+    <lastmod>2014-11-07T09:24:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/setup_my_zsh_environment/</loc>
+    <lastmod>2014-11-05T09:34:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</loc>
+    <lastmod>2014-11-05T09:28:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/setup_my_cygwin_environment/</loc>
+    <lastmod>2014-11-05T09:26:59+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/about_my_site/</loc>
+    <lastmod>2014-11-05T09:26:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/my_vim_customization_policy/</loc>
+    <lastmod>2014-10-30T10:15:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/swift_oo/</loc>
+    <lastmod>2014-10-29T21:43:56+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/javascript_type_conversions/</loc>
+    <lastmod>2014-10-28T11:33:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/web_page_layouts/</loc>
+    <lastmod>2014-10-26T21:36:29+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/swift_features/</loc>
+    <lastmod>2014-10-14T21:43:56+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/about/</loc>
+    <lastmod>2014-10-02T03:56:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/git/</loc>
+    <lastmod>2014-10-02T03:36:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/compile_macvim_and_ycm_on_osx/</loc>
+    <lastmod>2014-09-29T18:00:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/memo/vim_chameleon_startup_menu/</loc>
+    <lastmod>2014-09-29T15:57:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/git_flow/</loc>
+    <lastmod>2014-09-28T16:38:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/go_stdlib_template/</loc>
+    <lastmod>2014-09-26T14:52:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/cocoa_concurrency/</loc>
+    <lastmod>2014-09-24T22:18:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/note/cocoa_threading/</loc>
+    <lastmod>2014-09-24T21:19:59+08:00</lastmod>
+  </url>
+  
+</urlset>

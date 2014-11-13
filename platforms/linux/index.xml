@@ -1,0 +1,1135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Linux on Mudox </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/platforms/linux/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 08 Nov 2014 22:33:51 CST</updated>
+    
+    <item>
+      <title>SETUP MY ARCH LINUX ENVIRONMENT</title>
+      <link>http://localhost:1313/memo/setup_my_archlinux_environment/</link>
+      <pubDate>Sat, 08 Nov 2014 22:33:51 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/setup_my_archlinux_environment/</guid>
+      <description>
+
+&lt;p&gt;The marason of installing &amp;amp; tunning the Arch Linux to my flavor.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Mouse acceleration&lt;/h1&gt;
+
+&lt;p&gt;Type &lt;code&gt;xset q | grep Pointer&lt;/code&gt; to see current mouse acceleration setting.&lt;/p&gt;
+
+&lt;p&gt;Try &lt;code&gt;xset m &amp;lt;acceleration&amp;gt; &amp;lt;threshold&amp;gt;&lt;/code&gt; with different values to find the best
+combination for your feeling.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;where acceleration defines how many times faster the cursor will move than
+the default speed. threshold is the velocity required for acceleration to
+become effective, usually measured in device units per 10ms. acceleration can
+be a fraction, so if you want to slow down the mouse you can use &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;, &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;,
+&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;4&lt;/sub&gt;, &amp;hellip; if you want to make it faster you can use &lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt;, &lt;sup&gt;3&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt;, &lt;sup&gt;4&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt;, &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Threshold defines the point at which acceleration should occur in pixels per
+10 ms.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I found my lucky combiantion is &lt;code&gt;1/4 8&lt;/code&gt; and I add the setting command into
+&lt;em&gt;rc.lua&lt;/em&gt; of &lt;a href=&#34;http://awesome.naquadah.org&#34;&gt;Awesome WM&lt;/a&gt; to apply the setting on each startup.&lt;/p&gt;
+
+&lt;p&gt;reference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Mouse_acceleration&#34;&gt;Mouse acceleration from ArchWiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Input Method&lt;/h1&gt;
+
+&lt;p&gt;The &lt;strong&gt;ibus + isbus-rime&lt;/strong&gt; combinations works nicely on my Arch Linux.&lt;/p&gt;
+
+&lt;p&gt;After ibus gets installed, run &lt;code&gt;ibus-setup&lt;/code&gt;, it will show a setting guide
+window where you can adjust ibus settings to adapt to &lt;a href=&#34;awesome&#34;&gt;Awesome WM&lt;/a&gt;
+environment.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I prefer to change the keyboard shortcut of switching to next input method to
+&lt;code&gt;&amp;lt;Atl&amp;gt;&amp;lt;Shift&amp;gt;space&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check off the &lt;em&gt;Embed preedit text in application window&lt;/em&gt; option, because I
+found it does not run properly in some applications (e.g. Vim).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On  environments, ibus-daemon can not be loaded automatically on
+startup, so we need to manually run it. There are many ways to auto-start
+applications on linux platform, I choose to let &lt;a href=&#34;awesome&#34;&gt;Awesome WM&lt;/a&gt; to start it by adding
+auto-start code in &lt;em&gt;rc.lua&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For ibus-rime, it is in tranditional chinese mode by default. To switch to
+simplified chinese mode, press &lt;code&gt;Ctrl-~&lt;/code&gt; when ibus-rime is active to open setup
+candiate menu and choose &lt;em&gt;朙月拼音-简化字&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo pacman -S ibus ibus-qt ibus-rime
+
+ibus-setup
+
+# manually staRt ibus daemon for this session.
+# this command has been added in my Awesome config file &#39;rc.lua&#39; to auto-start
+# it in the beginning of each Awesome session.
+ibus-daemon -drx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;reference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Ibus&#34;&gt;IBus from ArchWiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;Window Manager&lt;/h1&gt;
+
+&lt;p&gt;On Linux platforms, I prefer WMs to DEs.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://awesome.naquadah.org&#34;&gt;Awesome WM&lt;/a&gt; is my favorite window manager.&lt;/p&gt;
+
+&lt;p&gt;see &lt;a href=&#34;/memo/setup_my_aweseome_wm_environment/&#34;&gt;SETUP MY AWESOME WM ENVIRONMENT&lt;/a&gt;
+for details.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_3&#34;&gt;Shell Environment&lt;/h1&gt;
+
+&lt;p&gt;I have used several terminal emulators (gnome-terminal, xvrt &amp;hellip;), and finally
+I settled myself on &lt;strong&gt;xterm&lt;/strong&gt;, which I feel it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;consume the smallest resource among other terminal emulators.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;starts up very fast.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;is much more robust.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;is the standard shell for the X Window System, which bring a great
+compatiblity.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As to shells, I become a &lt;strong&gt;zsh&lt;/strong&gt; fan soon after played with it as well as
+bash &amp;amp; fish shells. the reason is obvious:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;it is powerfull than bash, whose syntax is completely covered by zsh.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;it provides more flexibility in configuration than fish shell.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;there already exist quite a many user contributed resources on the net, e.g:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh&#34;&gt;on-my-zsh&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/zsh-users/antigen&#34;&gt;antigen&lt;/a&gt; plugin manager.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Pull down dot-files repo&lt;/h2&gt;
+
+&lt;p&gt;My configuration resource related to termianl emulator &amp;amp; shells are managed in
+a github repo &amp;ndash; &lt;a href=&#34;https://github.com/Mudox/dot-files.git&#34;&gt;dot-files&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ~/Git # ~/Git is the place I assemble most of my github repos.
+git clone https://github.com/Mudox/dot-files.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Setup xterm&lt;/h2&gt;
+
+&lt;p&gt;First, install xterm from Arch Linux&amp;rsquo;s official repository.&lt;/p&gt;
+
+&lt;p&gt;Then, link out the .Xresources file from my &lt;a href=&#34;https://github.com/Mudox/dot-files.git&#34;&gt;dot-files&lt;/a&gt; repo. It is
+the configuration file that hold my xterm settings (colors, cursors, fonts
+etc.) among other x utility setttings.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo pacman -S xterm
+cd ~
+ln -sf Git/dot-files/Xresources .Xresources
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;Setup zsh&lt;/h2&gt;
+
+&lt;p&gt;see &lt;a href=&#34;/memo/setup_my_zsh_environment/&#34;&gt;SETUP MY ZSH ENVIRONMENTS&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;Setup Virtualbox&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;Installing virutalbox&lt;/h2&gt;
+
+&lt;p&gt;First, from the official repository, install &lt;em&gt;vitualbox&lt;/em&gt; package, which comes
+with &lt;em&gt;virtualbox-host-modules&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then we need to add the basic &lt;strong&gt;vboxdrv&lt;/strong&gt; kernel module to host kernel.&lt;/p&gt;
+
+&lt;p&gt;Finally, add my user name to the &lt;strong&gt;vboxusers&lt;/strong&gt; group in order to use USB port in
+virtual machines.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo pacman -S virtualbox
+
+# manually add vboxdrv to host kernel for one time.
+sudo modeprobe vboxdrv
+
+# auto-load vboxdrv on every system startup.
+sudo echo &#39;vboxdrv&#39; &amp;gt; /etc/modules-load.d/virtualbox.conf
+
+# add user name in vboxusers group to use USB ports in vitual machines.
+sudo gpasswd -a &amp;quot;${USER}&amp;quot; vboxusers
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_9&#34;&gt;Confiuring virtualbox&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Set &lt;em&gt;Host Key Combination&lt;/em&gt; to &lt;code&gt;right &amp;lt;winkey&amp;gt;&lt;/code&gt; which is consistent with
+&lt;a href=&#34;awesome&#34;&gt;Awesome WM&lt;/a&gt;&amp;rsquo;s keyboads shortcuts, it&amp;rsquo;s in
+&lt;em&gt;File-&amp;gt;Preference-&amp;gt;Input-&amp;gt;Virtual Machine&lt;/em&gt; of &lt;em&gt;Oracle VM VitualBox Manager&lt;/em&gt;
+window.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enalbe &lt;em&gt;Bidiretional clipboard&lt;/em&gt;, it&amp;rsquo;s in &lt;em&gt;Devices-&amp;gt;Shared
+Clipboard-&amp;gt;Bidirectional&lt;/em&gt; of virtual machine window.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;reference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Virtualbox&#34;&gt;Virtualbox from ArchWiki&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Kernel_modules&#34;&gt;kernel_modules from ArchWiki&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_10&#34;&gt;VPN&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_11&#34;&gt;Setup pptpclient&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;install pptpclient from the official repository of Arch Linux.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;use &lt;code&gt;pptpsetup&lt;/code&gt; command to register my VPN account, you need to collect the
+following information in advance.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;VPN server&amp;rsquo;s &lt;em&gt;ip address&lt;/em&gt; from your VPN provider.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;user name&lt;/em&gt; of your VPN account.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;user password&lt;/em&gt; of your VPN account.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;install &lt;code&gt;ppp-mppe&lt;/code&gt; (i.e. Microsoft Pointer-to-Pointer Encryption), if the
+&lt;code&gt;pptpsetup&lt;/code&gt; command complains about &lt;em&gt;MPPE&lt;/em&gt; module things.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;test configuration&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;use &lt;code&gt;pon &amp;lt;tunnel_name&amp;gt; debug dump logfd 2 nodetach&lt;/code&gt; to test the
+configuration. If everything has been configured correctly, the command
+should not terminate. &lt;code&gt;Ctrl-C&lt;/code&gt; to quit it.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;type &lt;code&gt;ip addr show&lt;/code&gt;, and you will see a new device &lt;strong&gt;ppp0&lt;/strong&gt; is listed in.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;connect VPN using &lt;code&gt;sudo pon &amp;lt;tunnel_name&amp;gt;&lt;/code&gt;, &lt;code&gt;sudo poff &amp;lt;tunnel_name&amp;gt;&lt;/code&gt; to
+tear down.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# install pptpclient
+sudo pacman -S pptpclient
+
+# add you VPN account (i.e. create a new tunnel)
+sudo pptpsetup \
+  --create &amp;lt;tunnel_name_whatever_you_like&amp;gt; \
+  --server &amp;lt;your_VPN_server_ip_address&amp;gt; \
+  --username &amp;lt;username_of_you_VPN_account&amp;gt; \
+  --password &amp;lt;password_of_you_VPN_account&amp;gt; \
+  --encrypt
+
+# install ppp-mppe, if the command above complains about lacking of `MPPE`
+# module things. reun `pptpsetup` command above after installing it.
+sudo pacman -S ppp-mppe
+
+# test 1, the command should not terminate if everything is okay.
+sudo pon &amp;lt;tunnel_name_above&amp;gt; debug dump logfd 2 nodetach
+
+# test 2, you would see `ppp0` listed in the output.
+ip addr show
+
+# finally, connect!
+sudo pon &amp;lt;tunnel_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_12&#34;&gt;Route all traffic through VPN connection&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_13&#34;&gt;Manually&lt;/h3&gt;
+
+&lt;p&gt;Use the powerfull &lt;code&gt;ip&lt;/code&gt; command to add a route rule into route table.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# make all packages go through interface ppp0
+ip route add default dev ppp0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This route rule is only effective during this ppp session. after your tear down
+the VPN connection by &lt;code&gt;sudo pon &amp;lt;tunnel_name&amp;gt;&lt;/code&gt;, it will vanish.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_14&#34;&gt;Automatically&lt;/h3&gt;
+
+&lt;p&gt;Every executable scripts under /etc/ppp/ip-up.d/ will be called when a VPN
+connection startup. Hence, we can use it to automatically set route rules.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# /etc/ppp/ip-up.d/01-routes.sh
+# ----------------------------------------
+#!/bin/bash
+
+# This script is called with the following arguments:
+# Arg Name
+# $1 Interface name
+# $2 The tty
+# $3 The link speed
+# $4 Local IP number
+# $5 Peer IP number
+# $6 Optional ``ipparam&#39;&#39; value foo
+
+ip route add default via $4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd /etc/ppp/ip-up.d
+echo &#39;ip route add default via $4&#39; &amp;gt; 01-routes.sh
+
+# the script file need to have `x` permission to be run.
+# it&#39;s stdin &amp;amp; stderr will be redirected off terminal, so not output will
+# be shown when run.
+sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_15&#34;&gt;Modify DNS server list&lt;/h2&gt;
+
+&lt;p&gt;If you found you still can not access some site (e.g. youtube, twitter, etc.)
+after establishing the VPN connection, then you should insert &lt;code&gt;servername
+8.8.8.8&lt;/code&gt; ahead of existing lines in &lt;em&gt;/etc/resolve.conf&lt;/em&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# /etc/resolve.conf
+# ----------------------------------------
+nameserver 8.8.8.8
+nameserver 192.168.0.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_16&#34;&gt;&lt;del&gt;Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh&lt;/del&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE: for unknown reason, I failed following this way to achieve the
+automation, the &lt;code&gt;/etc/ppp/ip-up.d/00-dns.sh&lt;/code&gt; did run, but it just did not move
+files. But it is the mechanism provided by &lt;code&gt;ppp&lt;/code&gt; thus IMO it is the standard
+way that you should try first&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Whenever you tear down a VPN connection and get back to the local connection,
+using the local DNS server may provide better connection speed. So, there comes
+the need to restore &lt;code&gt;/etc/resolv.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;By using &lt;em&gt;/etc/ppp/ip-up.d/00-dns.sh&lt;/em&gt; and &lt;em&gt;/etc/ppp/ip-down.d/00-dns.sh&lt;/em&gt;, which
+automatically substitutes &lt;em&gt;/etc/ppp/resolv.conf&lt;/em&gt; with &lt;em&gt;/etc/resolv.conf&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;put your VPN specific resolv.conf under &lt;em&gt;/etc/ppp/&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;add &lt;code&gt;export USEPEERSDNS=1&lt;/code&gt; into &lt;em&gt;~/.profile&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&#34;toc_17&#34;&gt;My hacky way&lt;/h4&gt;
+
+&lt;p&gt;I wrote a script to get around of this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# ~/.bin/vpn.sh
+# ----------------------------------------
+#!/bin/sh
+
+tunnel=&amp;quot;your configured tunnel name&amp;quot;
+
+if [ &amp;quot;$#&amp;quot; -ne 1 ]; then
+  echo &amp;quot;usage: $0 [on|off]&amp;quot;
+  exit 1
+fi
+
+case &amp;quot;$1&amp;quot; in
+  on )
+    # connect
+    pon ${tunnel} || exit 1
+
+    # here we just overwrite the /etc/resolv.conf by `echo`ing the hard
+    # written DNS list to it.
+    printf &amp;quot;nameserver 8.8.8.8\nnameserver 192.168.0.1&amp;quot; &amp;gt; /etc/resolv.conf || exit 1
+    ;;
+  off )
+    # disconnect
+    poff ${tunnel}
+
+    # some as above, we just `echo` back.
+    echo &#39;nameserver 192.168.0.1&#39; &amp;gt; /etc/resolv.conf || exit 1
+    ;;
+  * )
+    echo &amp;quot;usage: $0 [on|off]&amp;quot;
+    ;;
+esac
+
+unset tunnel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;in your .bashrc or .zshrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;alias vpon=&#39;sudo ~/.bin/vpn.sh on&#39;
+alias vpoff=&#39;sudo ~/.bin/vpn.sh off&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then, you can type &lt;code&gt;vpon&lt;/code&gt; to turn on the VPN, and &lt;code&gt;vpoff&lt;/code&gt; to shutdown.&lt;/p&gt;
+
+&lt;p&gt;reference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/PPTP_VPN_client_setup_with_pptpclient&#34;&gt;PPTP VPN client setup with pptpclient&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SETUP MY VIM ENVIRONMENT</title>
+      <link>http://localhost:1313/memo/setup_my_vim_environment/</link>
+      <pubDate>Sat, 08 Nov 2014 17:40:55 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/setup_my_vim_environment/</guid>
+      <description>
+
+&lt;p&gt;Steps of setting up my Vim environment on my systems (Arch Linux, MacOS,
+Windows).&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Installing Vim&lt;/h1&gt;
+
+&lt;p&gt;my vim config have be tested on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Windows XP and above.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Mac OSX 10.9 and above using &lt;a href=&#34;https://github.com/b4winckler/macvim&#34;&gt;MacVim&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Arch Linux.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: currently I prefer to GUI version than terminal version, hence most
+of my confiurations are tailored to GUI environments.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Setup My Vim-Config Repo&lt;/h1&gt;
+
+&lt;p&gt;First pull down my &lt;a href=&#34;https://github.com/Mudox/vim-config&#34;&gt;vim-config&lt;/a&gt; repo from github.&lt;/p&gt;
+
+&lt;p&gt;Then create a directory named &lt;em&gt;neobundle&lt;/em&gt; under the pulled down repo, which
+will holds almost all vim plugins that will be synced by &lt;a href=&#34;https://github.com/Shougo/neobundle.vim&#34;&gt;neobundle&lt;/a&gt;
+later.&lt;/p&gt;
+
+&lt;p&gt;Create the initial &lt;em&gt;cur_mode&lt;/em&gt; file under &lt;em&gt;.vim/chameleon/&lt;/em&gt;, which always stores
+the chameleon mode of next vim session.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# On Widnows, Must Be Put In C:/Documents And Settings/&amp;lt;User Name&amp;gt;/Vimfiles
+git clone https://github.com/Mudox/vim-config.git ~/.vim
+
+cd .vim
+mkdir neobundle
+
+cd chameleon
+echo &#39;all&#39; &amp;gt; cur_mode
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;Install Prerequisites Vim Plugins&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Install &lt;a href=&#34;https://github.com/Mudox/vim-chameleon&#34;&gt;vim-chameleon&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Mudox/vim-chameleon&#34;&gt;vim-chameleon&lt;/a&gt; is my own plugin for managing massive and ever
+growing vim &amp;amp; vim plugin configurations.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ~/.vim/neobundle
+# NOTE: The Renaming Is Important
+git clone https://github.com/Mudox/vim-chameleon chameleon
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Install &lt;a href=&#34;https://github.com/Shougo/neobundle.vim&#34;&gt;neobundle&lt;/a&gt;.&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Shougo/neobundle.vim&#34;&gt;neobundle&lt;/a&gt; is a sophisticated vim plugin manager that I have been
+using for a long time.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ~/.vim/neobundle
+# NOTE: The Renaming Is Important
+git clone https://github.com/Shougo/neobundle.vim neobundle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Install &amp;amp; compile &lt;a href=&#34;https://github.com/Shougo/vimproc.vim&#34;&gt;vimproc&lt;/a&gt;.&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Shougo/vimproc.vim&#34;&gt;vimproc&lt;/a&gt; is another plugin written by &lt;a href=&#34;https://github.com/Shougo&#34;&gt;Shougo&lt;/a&gt; that is very
+useful, and is requred by &lt;a href=&#34;https://github.com/Shougo/neobundle.vim&#34;&gt;neobundle&lt;/a&gt;. The point is that you need to
+compile it to get a dynamic library after pulling down its&amp;rsquo; repo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ~/.vim/neobundle
+# NOTE: The Renaming Is Important
+git clone https://github.com/Shougo/vimproc.vim vimproc
+
+cd vimproc
+make # see vimproc/README.md for compilation commands for various platforms.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;Run vim to see all other 140+ plugins get installed.&lt;/h2&gt;
+
+&lt;p&gt;You can run vim in terminals or open gVim. Better run vim in terminal to watch
+the plugins installing progress and spot any errors clearly.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;Vim Environment For Specific Use Case&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;Web Developing&lt;/h2&gt;
+
+&lt;p&gt;Node.js (and NPM which comes with it) is the essentials of everything below.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_9&#34;&gt;HTML&lt;/h3&gt;
+
+&lt;h3 id=&#34;toc_10&#34;&gt;JavaScript&lt;/h3&gt;
+
+&lt;p&gt;I use:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/jshint/jshint&#34;&gt;jshint&lt;/a&gt; &amp;amp;
+&lt;a href=&#34;https://github.com/eslint/eslint&#34;&gt;eshint&lt;/a&gt; &amp;amp;
+&lt;a href=&#34;https://github.com/douglascrockford/JSLint.git&#34;&gt;jslint&lt;/a&gt; for &lt;a href=&#34;https://github.com/scrooloose/syntastic&#34;&gt;syntastic&lt;/a&gt;
+checkers.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/beautify-web/js-beautify&#34;&gt;js-beautify&lt;/a&gt; to prettify
+JavaScript code.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm intall jshint -g
+npm install jslint -g
+npm install eslint -g
+npm install js-beautify -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_11&#34;&gt;CSS&lt;/h3&gt;
+
+&lt;p&gt;I use:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/CSSLint/csslint&#34;&gt;csslint&lt;/a&gt; for &lt;a href=&#34;https://github.com/scrooloose/syntastic&#34;&gt;syntastic&lt;/a&gt; checkers.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/csscomb/csscomb.js&#34;&gt;csscomb.js&lt;/a&gt; for CSS code prettifier.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm intall csslint -g
+npm install csscomb -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_12&#34;&gt;Python Scripting&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_13&#34;&gt;Lua Scripting&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_14&#34;&gt;Go Scripting&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_15&#34;&gt;C/C++ Coding&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ERROR COLLECTION - BASH</title>
+      <link>http://localhost:1313/memo/error_collection_sh/</link>
+      <pubDate>Fri, 07 Nov 2014 09:24:33 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/error_collection_sh/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;body of &lt;code&gt;select&lt;/code&gt; constructs need a &lt;code&gt;break;&lt;/code&gt; to quit the selection loop.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;select answer in #choices#; do
+  #body#
+  break; # &amp;lt;- go out of selection loop.
+done
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SETUP MY ZSH ENVIRONMENT</title>
+      <link>http://localhost:1313/memo/setup_my_zsh_environment/</link>
+      <pubDate>Wed, 05 Nov 2014 09:34:11 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/setup_my_zsh_environment/</guid>
+      <description>
+
+&lt;p&gt;Steps of setting up zsh environment on my systems (Arch Linux, MacOS,
+Windows/Cygwin).&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;the &lt;code&gt;z&lt;/code&gt; command&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;the &lt;code&gt;fzf&lt;/code&gt; command&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SETUP MY AWESOME WM ENVIRONMENT</title>
+      <link>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</link>
+      <pubDate>Wed, 05 Nov 2014 09:28:07 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</guid>
+      <description>
+
+&lt;p&gt;Steps of setting up the Awesome window manager on my Arch Linux.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Installing Awesome Packages&lt;/h1&gt;
+
+&lt;p&gt;The awesome package is in the official repository of Arch Linux.&lt;/p&gt;
+
+&lt;p&gt;Better install Xephyr for testing cases.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo pacman -S awesome xorg-xephyr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Pulling Down My Awesome-Config Repository&lt;/h1&gt;
+
+&lt;p&gt;The pulled down repo must be put in ~/.config/awesome, where awesome will
+correctly load the configuration resources.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir ~/.config # if .config does not exist before.
+cd ~/.config
+git clone https://github.com/Mudox/awesome-config.git awesome
+cd awesome
+git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MY VIM CUSTOMIZATION POLICY</title>
+      <link>http://localhost:1313/memo/my_vim_customization_policy/</link>
+      <pubDate>Thu, 30 Oct 2014 10:15:08 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/my_vim_customization_policy/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;About Mapping&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Good prefixes for normal mode mappings&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;The comma &lt;code&gt;,&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;use 2 ~ 3 suffix characters, then we can get more candidates key combinations
+for mapping.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;The backslash &lt;code&gt;\&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;different keyboard layouts have different locations for &lt;code&gt;\&lt;/code&gt;, so it should be
+used less frequently than &lt;code&gt;,&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;The space &lt;code&gt;&amp;lt;Space&amp;gt;&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;the &lt;code&gt;&amp;lt;Space&amp;gt;&lt;/code&gt; is the best prefix for normal mappings I&amp;rsquo;ve ever found. It spans
+a long distance at the bottom of the keyboard, which makes it&amp;rsquo;s very easy and
+comfortable to touch.&lt;/p&gt;
+
+&lt;p&gt;currrently, I only assigned it to&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/kien/ctrlp.vim.git&#34;&gt;kien&amp;rsquo;s &amp;lsquo;CtrlP&amp;rsquo;&lt;/a&gt; family mappings&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/Mudox/vim-omnimenu&#34;&gt;my &amp;lsquo;vim-omnimenu&amp;rsquo;&lt;/a&gt; mappings&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/Mudox/vim-chameleon&#34;&gt;my &amp;lsquo;vim-chameleon&amp;rsquo;&lt;/a&gt; mappings&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;The enter &lt;code&gt;&amp;lt;Cr&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;Enter&amp;gt;&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;since many vim itself and many plugin use &lt;Cr&gt;, so I should use it sparely.
+when a single click of &lt;Cr&gt; is needed, you will feel a noticeable response lag.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;Mapping toggling commands&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;use &lt;code&gt;co&lt;/code&gt; prefix, which is derived from &lt;a href=&#34;https://github.com/tpope/vim-unimpaired.git&#34;&gt;tpope&amp;rsquo;s &amp;lsquo;unimpaired&amp;rsquo;&lt;/a&gt; plugin.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;use &lt;code&gt;,\*&amp;lt;Space&amp;gt;&lt;/code&gt; pattern, which is derived from &lt;a href=&#34;https://github.com/scrooloose/nerdcommenter.git&#34;&gt;scrooloose&amp;rsquo;s &amp;lsquo;NERD commenter&amp;rsquo;&lt;/a&gt; plugin.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GIT MISC</title>
+      <link>http://localhost:1313/note/git/</link>
+      <pubDate>Thu, 02 Oct 2014 03:36:12 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/git/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Alias&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;working tree, working directory&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;index, staging area, cache, staged snapshot&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;commit[ted] history, commit[ted] snapshot&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;The &lt;code&gt;add&lt;/code&gt; &amp;amp; &lt;code&gt;rm&lt;/code&gt; &amp;amp; &lt;code&gt;reset&lt;/code&gt; &amp;amp; &lt;code&gt;commit&lt;/code&gt; &amp;amp; &lt;code&gt;checkout&lt;/code&gt; Sub-commands.&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;between the &lt;em&gt;committed history&lt;/em&gt; &amp;amp; &lt;em&gt;staging area&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;commit&lt;/code&gt; submit changes from &lt;em&gt;staging area&lt;/em&gt; to &lt;em&gt;committed history&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;reset&lt;/code&gt; revert changes from &lt;em&gt;committed history&lt;/em&gt; back to &lt;em&gt;staging area&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;between the &lt;em&gt;staging area&lt;/em&gt; &amp;amp; &lt;em&gt;working tree&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;add&lt;/code&gt; submit changes from &lt;em&gt;working tree&lt;/em&gt; to &lt;em&gt;staging area&lt;/em&gt;, preparing
+for committing.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rm&lt;/code&gt; remove file(s) from &lt;em&gt;stageing area&lt;/em&gt;, so they become &lt;em&gt;untracked&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;checkout&lt;/code&gt; restore changes from staging area or a specific commit of committed
+history to &lt;em&gt;working directory&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;reset&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;unstages&lt;/strong&gt; changes in staging area.
+v
+    git reset &lt;paths&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;or, if you ask for more, &lt;strong&gt;uncommits&lt;/strong&gt; changes in history.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git reset &amp;lt;commit-ish&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rm&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;untracks&lt;/strong&gt; file(s) previously tracked in staging area.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git rm --cache &amp;lt;paths&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;or, if you ask for more, &lt;strong&gt;removes&lt;/strong&gt; file(s) in the work directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git rm &amp;lt;paths&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git reset&lt;/code&gt; vs &lt;code&gt;git checkout&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git reset &amp;lt;commit-ish&amp;gt; &amp;lt;paths&amp;gt;&lt;/code&gt; only update &lt;em&gt;staging area&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout &amp;lt;paths&amp;gt;&lt;/code&gt; fetch &lt;code&gt;&amp;lt;paths&amp;gt;&lt;/code&gt; from &lt;em&gt;staging area&lt;/em&gt; to working
+direcotry.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout &amp;lt;commit-ish&amp;gt;&lt;/code&gt; fetch &lt;code&gt;&amp;lt;paths&amp;gt;&lt;/code&gt; from &lt;em&gt;history&lt;/em&gt; to both
+&lt;em&gt;index&lt;/em&gt; &amp;amp; &lt;em&gt;working direcotry&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;The &lt;code&gt;git Rebase&lt;/code&gt; Sub-command&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Advantage of &lt;code&gt;rebase&lt;/code&gt;:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;no additional merge commit&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;linear commit history&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Disadvantage of &lt;code&gt;rebase&lt;/code&gt;:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;safety&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tracability: the evidences of merging are wiped away.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Golden rule of &lt;code&gt;git rebase&lt;/code&gt;:&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;never&lt;/strong&gt; use it on &lt;strong&gt;public&lt;/strong&gt; branches.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;When to use &lt;code&gt;rebase&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Local cleanup&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Incorporating upstream changes into a feature branch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Integrating a approved feature&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;The &lt;code&gt;reset&lt;/code&gt;, &lt;code&gt;checkout&lt;/code&gt; And &lt;code&gt;revert&lt;/code&gt; Sub-commands&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The parameters that you pass to &lt;code&gt;git reset&lt;/code&gt; and &lt;code&gt;git checkout&lt;/code&gt; determine
+their scope. When you don’t include a &lt;strong&gt;&amp;lt;file path&amp;gt;&lt;/strong&gt; as a parameter, they
+operate on whole commits.  Note that git revert has no file-level counterpart&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;from &lt;a href=&#34;https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations&#34;&gt;atlassian&amp;rsquo;s git tutorials&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;Commit level operations&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;git reset --[soft | mixed | hard] &amp;lt;commit-ish&amp;gt;&lt;/code&gt; &lt;strong&gt;move&lt;/strong&gt; branch tips backwards
+or even forwards, while affecting &lt;em&gt;staging area&lt;/em&gt; &amp;amp; &lt;em&gt;working direcotry&lt;/em&gt; according to
+options it is given.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;option&lt;/th&gt;
+&lt;th&gt;history&lt;/th&gt;
+&lt;th&gt;staging area&lt;/th&gt;
+&lt;th&gt;working directory&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;--soft&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;--mixed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;--hard&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;code&gt;git checkout &amp;lt;commit-ish&amp;gt;&lt;/code&gt; dose not move tips around.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git revert&lt;/code&gt; undo commits by adding a new commit. it is a safe (reversible) way
+to undo commits, while &lt;code&gt;git reset&lt;/code&gt; is dangerous (irreversible) way to undo
+commits.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_9&#34;&gt;File level operations&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git [reset|checkout] &amp;lt;commit-ish&amp;gt; &amp;lt;pathspec&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;command&lt;/th&gt;
+&lt;th&gt;history&lt;/th&gt;
+&lt;th&gt;staging area&lt;/th&gt;
+&lt;th&gt;working directory&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;checkout&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;toc_10&#34;&gt;Summary&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;command&lt;/th&gt;
+&lt;th&gt;commit level&lt;/th&gt;
+&lt;th&gt;file level&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;discard commits in private branches or throw away uncommited changes&lt;/td&gt;
+&lt;td&gt;unstage a file&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;checkout&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;swtich between branches or inspect old snapshots&lt;/td&gt;
+&lt;td&gt;discard changes in the working directory&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;revert&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;undo commits in public branches&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;N/A&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>VIM CHAMELEON STARTUP MENU</title>
+      <link>http://localhost:1313/memo/vim_chameleon_startup_menu/</link>
+      <pubDate>Mon, 29 Sep 2014 15:57:37 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/vim_chameleon_startup_menu/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;On Windows:&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;create a shortcut from gVim.exe.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;right click on the shorcut to open it&amp;rsquo;s property dialog.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;append the following lines (&lt;em&gt;concatenated into one line&lt;/em&gt;) to the &lt;strong&gt;target&lt;/strong&gt; field.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;--cmd &amp;quot;let g:mdx_chameleon_cur_mode = &#39;startup&#39;&amp;quot;
+--cmd &amp;quot;set lines=9 columns=32&amp;quot;
+--cmd &amp;quot;winpos 475 320&amp;quot;
+-c &amp;quot;let &amp;amp;titlestring=&#39;Happy Vimming!&#39;&amp;quot;
+-c &amp;quot;ChamStartup&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;optionally, put this shortcut under paths listed in system&amp;rsquo;s $PATH environment variable.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;On Mac OSX:&lt;/h1&gt;
+
+&lt;p&gt;the &lt;code&gt;MacVim.app&lt;/code&gt; does not accepts arguemnts above, we should use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;/Applications/MacVim.app/Contents/MacOS/Vim -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;instead.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;/Applications/MacVim.app/Contents/MacOS/Vim -g            \
+        --cmd &amp;quot;let g:mdx_chameleon_cur_mode = &#39;startup&#39;&amp;quot;  \
+        --cmd &amp;quot;set lines=9 columns=22&amp;quot;                    \
+        --cmd &amp;quot;winpos 880 370&amp;quot;                            \
+        -c &amp;quot;let &amp;amp;titlestring=&#39;Happy Vimming!&#39;&amp;quot;            \
+        -c &amp;quot;let &amp;amp;guifont = &#39;Monaco for Powerline:h16&#39;&amp;quot;    \
+        -c &amp;quot;ChamStartup&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;On Linux:&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GIT FLOW</title>
+      <link>http://localhost:1313/note/git_flow/</link>
+      <pubDate>Sun, 28 Sep 2014 16:38:26 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/git_flow/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;1. Main Branches&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the &lt;code&gt;main&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;keeps the official release history (usually with version nubmer tags
+attached).&lt;/p&gt;
+
+&lt;p&gt;i.e. every commits in master is a new release. all branches merged back
+into master must have a new incremental version number.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;serves as an integration branch for features.&lt;/p&gt;
+
+&lt;p&gt;nitghly build built from it.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;2. Supporting Branches&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;2.1 feature (or topic) branches&lt;/h2&gt;
+
+&lt;p&gt;branch off from: &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;merge into: &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;naming convention: any name except &lt;code&gt;master&lt;/code&gt;, &lt;code&gt;develop&lt;/code&gt;, &lt;code&gt;relase[/-]*&lt;/code&gt;,
+&lt;code&gt;hotfix[/-]*&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Branch A New Feature Branch Off From Develop Branch
+git checkout -b some-feature develop
+# Add Feature Commits To Branch Some-feature ...
+# Merge Feature Branch Back Into Develop Branch.
+git checkout develop
+git merge --no-ff some-feature
+git push origin develop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;2.2 release branches&lt;/h2&gt;
+
+&lt;p&gt;branch off from: &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;merge into: &lt;code&gt;develop&lt;/code&gt; &amp;amp; &lt;code&gt;master&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;naming convention: &lt;code&gt;release/*&lt;/code&gt; or &lt;code&gt;release-*&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Branch A New Release Branch Off From Develop Branch
+git checkout -b release-&amp;lt;version number&amp;gt; develop
+# Bummp Up Version In Related Fiels.
+git commit -m &#39;Bumped version number to &amp;lt;version number&amp;gt;&#39;
+# Roll Out Release, Minor Bug Fixes
+# Merge The Release Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff release-&amp;lt;version number&amp;gt;
+git tag -a &amp;lt;version number&amp;gt;
+# Merge The Release Back Into Develop
+git checkout develop
+git merge --no-ff release-&amp;lt;version number&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;2.3 hotfix (or maintenance) branches&lt;/h2&gt;
+
+&lt;p&gt;branch off from: &lt;code&gt;master&lt;/code&gt; branch
+merge into: &lt;code&gt;develop&lt;/code&gt; &amp;amp; &lt;code&gt;master&lt;/code&gt; branch if no active release branch existed
+currrently.
+naming convention: &lt;code&gt;hotfix/*&lt;/code&gt; or &lt;code&gt;hotfix-*&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Branch A New Hotfix Branch Off From Master Branch
+git checkout -b hotfix-&amp;lt;version number&amp;gt; master
+# Bummp Up Version In Related Fiels, Becuase It Will Finnaly Be Merged Back
+# Into Master Branch.
+git commit -m &#39;Bumped version number to &amp;lt;version number&amp;gt;&#39;
+# Roll Out Hotfix, Minor Bug Fixes
+# Merge The Hotfix Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff hotfix-&amp;lt;version number&amp;gt;
+git tag -a &amp;lt;version number&amp;gt;
+# Merge The Hotfix Back Into Develop
+git checkout develop
+git merge --no-ff hotfix-&amp;lt;version number&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GO&#39;S TEMPLATE LIBRARY</title>
+      <link>http://localhost:1313/note/go_stdlib_template/</link>
+      <pubDate>Fri, 26 Sep 2014 14:52:32 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/go_stdlib_template/</guid>
+      <description>
+
+&lt;p&gt;I come across this library when I started to use &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;,
+which says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It is an extremely &lt;strong&gt;lightweight&lt;/strong&gt; engine that provides a very small amount of
+logic. In our experience it is &lt;strong&gt;just the right amount of logic&lt;/strong&gt; to be able to
+create a good static website.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;3 Steps Using The Template Object&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;New&lt;/code&gt; an template object.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Parse&lt;/code&gt; template text.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Execute&lt;/code&gt; (apply) the template to data structure.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;6 Action Families&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{/* comment here, line spanning allowed */}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;pipeline&lt;/strong&gt; like variable expansion (substitution)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{pipeline}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;if&lt;/strong&gt; family for branching logic&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{if _pipline_}} T1 {{end}}
+{{if _pipline_}} T1 {{else}} T0 {{end}}
+{{if _pipline_}} T1 {{else if _pipeline_ }} T0 {{end}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;range&lt;/strong&gt; family for iteration (loop)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{range pipepine}} T1 {{end}}
+{{range pipepine}} T1 {{else}} T0 {{end}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;with&lt;/strong&gt; family for cursor (dot) moving&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{with pipeline}} T1 {{end}}
+{{with pipeline}} T1 {{else}} T0 {{end}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;template&lt;/strong&gt; family for tempates invocation&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// with the dot &#39;.&#39; set to nil.
+{{tempalte &amp;quot;name&amp;quot;}}
+// with the dot &#39;.&#39; set to value of &#39;pipeline&#39;.
+{{tempalte &amp;quot;name&amp;quot; pipeline}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;Argument Types&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;untyped &lt;strong&gt;constants&lt;/strong&gt; in go syntax&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;nil&lt;/strong&gt; &amp;ndash; the special constant&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;variable&lt;/strong&gt; name&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$variable_name&lt;/code&gt; or &lt;code&gt;$&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;.&lt;/code&gt; &amp;ndash; the so called &amp;lsquo;context&amp;rsquo; constant&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;dot chain consist of: &lt;strong&gt;field&lt;/strong&gt; name,  &lt;strong&gt;key&lt;/strong&gt; name,  niladic &lt;strong&gt;method&lt;/strong&gt; name&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;(.Field.Key.Method args...).Field.Key ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;niladic &lt;strong&gt;function&lt;/strong&gt; name&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;parenthesized &lt;strong&gt;group&lt;/strong&gt; of above&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;print (func arg...) (.method arg...)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

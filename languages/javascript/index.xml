@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Javascript on Mudox </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/languages/javascript/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Fri, 07 Nov 2014 09:24:33 CST</updated>
+    
+    <item>
+      <title>ERROR COLLECTION - JAVASCRIPT</title>
+      <link>http://localhost:1313/memo/error_collection_javascript/</link>
+      <pubDate>Fri, 07 Nov 2014 09:24:33 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/error_collection_javascript/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;when assign a function to a event property, appending &lt;code&gt;()&lt;/code&gt; to the function name.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;window.onload = init/*()*/
+
+function init() {
+  // ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;appending &lt;code&gt;()&lt;/code&gt; to a property name.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = Math.floor(Math.random() * canvas.width/*()*/
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JAVASCRIPT TYPE CONVERSIONS</title>
+      <link>http://localhost:1313/note/javascript_type_conversions/</link>
+      <pubDate>Tue, 28 Oct 2014 11:33:15 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/javascript_type_conversions/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Sepcial Value Or Types In JavaScript&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;The &lt;code&gt;undefined&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;undefined&lt;/code&gt; is the only value of &lt;code&gt;undefined&lt;/code&gt;, represents unknown value of any
+other types, including primitive types &amp;amp; object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// play with &#39;undefined&#39;
+typeof undefiend                  /* undfeined        */
+undefined == undefined            /* true             */
+undefined == null                 /* true             */
+undefined !== null                /* true             */
+Boolean(undefined)                /* false            */
+Number(undefined)                 /* NaN              */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;The &lt;code&gt;null&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;null&lt;/code&gt;, by standards, should be the only value of &lt;code&gt;null&lt;/code&gt; type, but in certain
+browser (e.g. firfox, chrome), it is of type &lt;code&gt;object&lt;/code&gt;. &lt;code&gt;null&lt;/code&gt; is used to
+represent unknown value of an object.&lt;/p&gt;
+
+&lt;p&gt;It is equal to itself and it is equal to &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// play with &#39;null&#39;
+typeof null                       /* object           */
+null == null                      /* true             */
+null == undefined                 /* true             */
+null !== undefined                /* true             */
+Boolean(null)                     /* false            */
+Number(null)                      /* 0                */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;The &lt;code&gt;NaN&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;NaN&lt;/code&gt; is a &lt;code&gt;Number&lt;/code&gt; that can not be represented as a number.&lt;/p&gt;
+
+&lt;p&gt;It dose &lt;strong&gt;NOT&lt;/strong&gt; equal to itself, hence JavaScript provide a built-in function
+&lt;code&gt;isNaN()&lt;/code&gt; to test if a value is a NaN.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascri&#34;&gt;// play with &#39;NaN&#39;
+typeof NaN                        /* number           */
+NaN == NaN                        /* false            */
+NaN == undefined                  /* false            */
+NaN == null                       /* false            */
+Boolean(NaN)                      /* false            */
+Number(NaN)                       /* NaN              */
+isNaN(NaN)                        /* true             */
+NaN == 0/0                        /* true             */
+isNaN(0/0)                        /* true             */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_4&#34;&gt;Implicit Type Conversions&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;When other types need to be converted into a number&lt;/h2&gt;
+
+&lt;p&gt;When different types are mixed in a relational operation (i.e &lt;code&gt;== != &amp;lt; &amp;lt;= &amp;gt;
+&amp;gt;=&lt;/code&gt;) except the &lt;code&gt;===&lt;/code&gt; operator, or an arithmetic operation, except
+the &lt;code&gt;+&lt;/code&gt; operator, they would be converted into numbers first.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;For Boolean:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;true would be converted to 1&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;false would be converted to 0&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;For String:&lt;/h3&gt;
+
+&lt;p&gt;It is converted literally, i.e.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;&#39;2014&#39; &amp;lt; 2 /* 2014 &amp;lt; 2 yields false */
+&#39;3.1415&#39; == 3.1415 /* 3.1415 == 3.1415 yields true */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is one exception: a &lt;code&gt;emtpy&lt;/code&gt; string would be converted to 0.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var emptyText = &#39;&#39;;
+
+/* &#39;emptyText&#39; here, converetd to 0, is compared to true which is converted to 1,
+and then &#39;!&#39; negates the results to true */
+if (!emptyText) {
+  console.log(&#39;empty text is not true!&#39;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;When other types need to be converted into a string&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_9&#34;&gt;The special &lt;code&gt;+&lt;/code&gt; operator&lt;/h3&gt;
+
+&lt;p&gt;In JavaScript, the &lt;code&gt;+&lt;/code&gt; is first a string concatenation operator, then a
+arithmetic addition operator.&lt;/p&gt;
+
+&lt;p&gt;When one of &lt;code&gt;+&lt;/code&gt;&amp;rsquo;s operands is a string, JavaScript will try to convert the
+other operand into a string, and perform a concatenation operation.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_10&#34;&gt;For Boolean:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;true&lt;/code&gt; would be conveted bo &amp;ldquo;true&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;false&lt;/code&gt; would be conveted to &amp;ldquo;false&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;toc_11&#34;&gt;For &lt;code&gt;null&lt;/code&gt;, &lt;code&gt;undefined&lt;/code&gt; &amp;amp; &lt;code&gt;NaN&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;they all be converted literally.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_12&#34;&gt;When other types need to be converted into a boolean value&lt;/h2&gt;
+
+&lt;p&gt;from 《Head Fist JavaScript Programming》:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;the secret to learning what is truthy and what is falsey is to learn what’s
+falsey, and then consider everything else truthy.
+concentrate on  knowing what is falsey, and then everything else you can
+consider truthy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;it is a golden rule that also applys in many other programming language
+learning situations.&lt;/p&gt;
+
+&lt;p&gt;As to what value should be considered as falsey, different language has
+different policy. There are &lt;strong&gt;5&lt;/strong&gt; falsey value in JavaScript:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;null&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;NaN&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;0&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

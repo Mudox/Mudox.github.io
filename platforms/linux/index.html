@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> Linux &middot; Mudox </title>
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/mudox_hyde.css">
+
+    
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    <link href="http://localhost:1313/platforms/linux/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
+    
+    
+    
+    <script src="/highlight_js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.tagcanvas.min.js"></script>
+  </head>
+
+<body class="theme-base-0f">
+
+<div class="sidebar">
+
+  
+  <div id="particles-js">
+    <script src="/particles.js"></script>
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          color: '#fff',
+          shape: 'circle', 
+          opacity: 0.3,
+          size: 3,
+          size_random: true,
+          nb: 35,
+          line_linked: {
+            enable_auto: true,
+            distance: 300,
+            color: '#fff',
+            opacity: 0.5,
+            width: 1,
+            condensed_mode: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 600
+            }
+          },
+          anim: {
+            enable: true,
+            speed: 2
+          }
+        },
+        interactivity: {
+          enable: true,
+          mouse: {
+            distance: 250
+          },
+          detect_on: 'window', 
+          mode: 'grab'
+        },
+         
+        retina_detect: true
+      });
+    </script>
+  </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+    <nav id=sidebar-menu-wall>
+      
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="tagCloud">
+      <canvas id="tagCloudCanvas" width="250" height="250" style="width: 100%;">
+        
+        <a href="/categories">categories</a>  
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objective-c">objective-c</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/vimscript">vimscript</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch-linux">arch-linux</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/windows">windows</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error-collection">error-collection</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/awesome-wm">awesome-wm</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev-tool">dev-tool</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+    <script>
+      if (!$('#tagCloudCanvas').tagcanvas({
+          initial: [0.203, -0.088],
+          textColour: '#ffffff',
+          outlineThickness: 0.5,
+          maxSpeed: 0.03,
+          depth: 0.75
+        })) {
+        $('#tagCloud').hide();
+      }
+    </script>
+
+
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <a href="/" id="Mudox">Mudox</a>
+        <p class="lead">
+          My personal site powered by <a href="http://gohugo.io">Hugo</a> with a customized theme -- <a href="https://github.com/spf13/hyde.git">hyde</a>.
+        </p>
+      </div>
+
+      <p>&copy; 2014. All rights reserved. </p>
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="content container">
+    <ul class="posts">
+        
+        <li>
+          <span><a href="http://localhost:1313/memo/setup_my_archlinux_environment/">SETUP MY ARCH LINUX ENVIRONMENT</a>
+            <time class="pull-right post-list">Sat, Nov 8, 2014</time></span>
+          <p><p>The marason of installing &amp; tunning the Arch Linux to my flavor.</p>
+</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/memo/setup_my_vim_environment/">SETUP MY VIM ENVIRONMENT</a>
+            <time class="pull-right post-list">Sat, Nov 8, 2014</time></span>
+          <p><p>Steps of setting up my Vim environment on my systems (Arch Linux, MacOS,
+Windows).</p>
+</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/memo/error_collection_sh/">ERROR COLLECTION - BASH</a>
+            <time class="pull-right post-list">Fri, Nov 7, 2014</time></span>
+          <p>body of select constructs need a break; to quit the selection loop. select answer in #choices#; do #body# break; # &lt;- go out of selection loop. done</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENT</a>
+            <time class="pull-right post-list">Wed, Nov 5, 2014</time></span>
+          <p><p>Steps of setting up zsh environment on my systems (Arch Linux, MacOS,
+Windows/Cygwin).</p>
+</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
+            <time class="pull-right post-list">Wed, Nov 5, 2014</time></span>
+          <p><p>Steps of setting up the Awesome window manager on my Arch Linux.</p>
+</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/memo/my_vim_customization_policy/">MY VIM CUSTOMIZATION POLICY</a>
+            <time class="pull-right post-list">Thu, Oct 30, 2014</time></span>
+          <p>About Mapping Good prefixes for normal mode mappings The comma , use 2 ~ 3 suffix characters, then we can get more candidates key combinations for mapping. The backslash \ different keyboard layouts have different locations for \, so it should be used less frequently than ,. The space &lt;Space&gt; the &lt;Space&gt; is the best prefix for normal mappings I&rsquo;ve ever found. It spans a long distance at the bottom of the keyboard, which makes it&rsquo;s very easy and comfortable to touch.</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/note/git/">GIT MISC</a>
+            <time class="pull-right post-list">Thu, Oct 2, 2014</time></span>
+          <p>Alias working tree, working directory index, staging area, cache, staged snapshot commit[ted] history, commit[ted] snapshot The add &amp; rm &amp; reset &amp; commit &amp; checkout Sub-commands. between the committed history &amp; staging area commit submit changes from staging area to committed history reset revert changes from committed history back to staging area between the staging area &amp; working tree. add submit changes from working tree to staging area, preparing for committing.</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/memo/vim_chameleon_startup_menu/">VIM CHAMELEON STARTUP MENU</a>
+            <time class="pull-right post-list">Mon, Sep 29, 2014</time></span>
+          <p>On Windows: create a shortcut from gVim.exe. right click on the shorcut to open it&rsquo;s property dialog. append the following lines (concatenated into one line) to the target field. --cmd &quot;let g:mdx_chameleon_cur_mode = 'startup'&quot; --cmd &quot;set lines=9 columns=32&quot; --cmd &quot;winpos 475 320&quot; -c &quot;let &amp;titlestring='Happy Vimming!'&quot; -c &quot;ChamStartup&quot; optionally, put this shortcut under paths listed in system&rsquo;s $PATH environment variable. On Mac OSX: the MacVim.app does not accepts arguemnts above, we should use: /Applications/MacVim.app/Contents/MacOS/Vim -g instead.</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/note/git_flow/">GIT FLOW</a>
+            <time class="pull-right post-list">Sun, Sep 28, 2014</time></span>
+          <p>1. Main Branches the main branch keeps the official release history (usually with version nubmer tags attached). i.e. every commits in master is a new release. all branches merged back into master must have a new incremental version number. the develop branch serves as an integration branch for features. nitghly build built from it. 2. Supporting Branches 2.1 feature (or topic) branches branch off from: develop branch merge into: develop branch naming convention: any name except master, develop, relase[/-]*, hotfix[/-]* # Branch A New Feature Branch Off From Develop Branch git checkout -b some-feature develop # Add Feature Commits To Branch Some-feature ...</p>
+        </li>
+        
+        <li>
+          <span><a href="http://localhost:1313/note/go_stdlib_template/">GO&#39;S TEMPLATE LIBRARY</a>
+            <time class="pull-right post-list">Fri, Sep 26, 2014</time></span>
+          <p><p>I come across this library when I started to use <a href="http://gohugo.io">Hugo</a>,
+which says:</p>
+
+<blockquote>
+<p>It is an extremely <strong>lightweight</strong> engine that provides a very small amount of
+logic. In our experience it is <strong>just the right amount of logic</strong> to be able to
+create a good static website.</p>
+</blockquote>
+</p>
+        </li>
+        
+    </ul>
+  </div>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

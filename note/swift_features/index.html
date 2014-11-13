@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> SWIFT FEATURES &middot; Mudox </title>
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/mudox_hyde.css">
+
+    
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
+    
+    
+    
+    <script src="/highlight_js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.tagcanvas.min.js"></script>
+  </head>
+
+<body class="theme-base-08">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js">
+    <script src="/particles.js"></script>
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          color: '#fff',
+          shape: 'circle', 
+          opacity: 0.3,
+          size: 3,
+          size_random: true,
+          nb: 35,
+          line_linked: {
+            enable_auto: true,
+            distance: 300,
+            color: '#fff',
+            opacity: 0.5,
+            width: 1,
+            condensed_mode: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 600
+            }
+          },
+          anim: {
+            enable: true,
+            speed: 2
+          }
+        },
+        interactivity: {
+          enable: true,
+          mouse: {
+            distance: 250
+          },
+          detect_on: 'window', 
+          mode: 'grab'
+        },
+         
+        retina_detect: true
+      });
+    </script>
+  </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+    <nav id=sidebar-menu-wall>
+      
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="tagCloud">
+      <canvas id="tagCloudCanvas" width="250" height="250" style="width: 100%;">
+        
+        <a href="/categories">categories</a>  
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objective-c">objective-c</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/vimscript">vimscript</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch-linux">arch-linux</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/windows">windows</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error-collection">error-collection</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/awesome-wm">awesome-wm</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev-tool">dev-tool</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+    <script>
+      if (!$('#tagCloudCanvas').tagcanvas({
+          initial: [0.203, -0.088],
+          textColour: '#ffffff',
+          outlineThickness: 0.5,
+          maxSpeed: 0.03,
+          depth: 0.75
+        })) {
+        $('#tagCloud').hide();
+      }
+    </script>
+
+
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <a href="/" id="Mudox">Mudox</a>
+        <p class="lead">
+          My personal site powered by <a href="http://gohugo.io">Hugo</a> with a customized theme -- <a href="https://github.com/spf13/hyde.git">hyde</a>.
+        </p>
+      </div>
+
+      <p>&copy; 2014. All rights reserved. </p>
+    </div>
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>SWIFT FEATURES</h1>
+            <span class="post-date">Tue, Oct 14, 2014</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">Powerful <code>switch</code> Statement</a></li>
+<li><a href="#toc_1">Closure &ndash; Too Much Sugar!</a>
+<ul>
+<li><a href="#toc_2">Sugar #0 &ndash; trailing closure</a></li>
+<li><a href="#toc_3">Sugar #1 &ndash; return type inference</a></li>
+<li><a href="#toc_4">Sugar #2 &ndash; parameter type inference</a></li>
+<li><a href="#toc_5">Sugar #3 &ndash; parenthesis-less</a></li>
+<li><a href="#toc_6">Sugar #4 &ndash; return statemetn inference</a></li>
+<li><a href="#toc_7">Sugar #5 &ndash; shorthand parameter name</a></li>
+<li><a href="#toc_8">Sugar #6 &ndash; operater as a closure</a></li>
+</ul></li>
+<li><a href="#toc_9">Fully-fledged Enumeration</a>
+<ul>
+<li><a href="#toc_10">Flexible definition syntax</a></li>
+<li><a href="#toc_11">Type inference</a></li>
+<li><a href="#toc_12">Associated Value</a></li>
+<li><a href="#toc_13">Raw type</a></li>
+<li><a href="#toc_14">Struct like enumeration</a></li>
+</ul></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<h1 id="toc_0">Powerful <code>switch</code> Statement</h1>
+
+<ol>
+<li><p>no implicitly fallthrough</p></li>
+
+<li><p>match multiple conditions in one case statement.</p></li>
+
+<li><p>match against range.</p></li>
+
+<li><p>match against tuple.</p></li>
+
+<li><p>value binding.</p></li>
+
+<li><p><code>where</code> clause can provide more conditions.</p></li>
+
+<li><p><code>break</code> &amp; <code>continue</code> can <em>jump</em> further (to some label)</p></li>
+</ol>
+
+<pre><code class="language-swift">var aPoint = (x: 2, y: -1)
+// labeled `swtich`
+// NOTE: only loop statements and 'switch' statement can labeled.
+theSwitch: switch aPoint {
+// against tuple
+case (0, 0):
+  println(&quot;origin point&quot;)
+
+// against multiple conditions separated by comma
+case (1, 1), (2, 2):
+  println(&quot;(1, 1) or (2, 2)&quot;)
+
+// '_' means 'any value is ok'
+case (_, 0):
+  // the `break` here is just like the `pass` in python, acting as a
+  // 'placeholder statement', nullifing this case branch.
+  break
+
+case (0, _):
+  println(&quot;on the Y-axis&quot;)
+
+// against range
+case (-2...2, -2...2):
+  println(&quot;on or in the 2x2 box&quot;)
+
+// value binding
+case (let x, -1):
+  println(&quot;on the horizontal line y = -1, with a x value: \(x)&quot;)
+
+// where clause
+// NOTE: `let` can be replaced with `var` if you need to change the bound
+// value afterwards.
+case (0, var y) where y &gt;= 0:
+  y++    // mutable
+  println(&quot;on the 1st or 2nd quadrant&quot;)
+
+// value binding as a whole, which is an required exhaustive match
+case let (x, y):
+  theLoop: for i in 1..&lt;100 {
+    switch i {
+      case let x where (x &amp; 1) == 1 // a odd number
+        break theSwitch     // jump further
+      default
+        continue theLoop    // jump further
+    }
+  }
+}
+</code></pre>
+
+<h1 id="toc_1">Closure &ndash; Too Much Sugar!</h1>
+
+<p>The closure in Swift language adopts many syntactic sugar.</p>
+
+<p>The basic full syntax of a closure is as follows:</p>
+
+<pre><code class="language-swift">{
+  (parameters) -&gt; retrunType in
+  ... statements ...
+}
+</code></pre>
+
+<p>Here is an example that uses the array&rsquo;s method <code>sorted</code> to sort an array of word.</p>
+
+<pre><code class="language-swift">var words = [ &quot;Dolor&quot;, &quot;eum&quot;, &quot;id&quot;, &quot;suscipit&quot;, &quot;necessitatibus&quot;, &quot;quod&quot;, &quot;hic&quot;, &quot;dignissimos&quot; ]
+ 
+let sortedWords = words.sorted({
+  (lhs: String, rhs: String) -&gt; Bool in
+  return lhs &lt; rhs
+})
+</code></pre>
+
+<h2 id="toc_2">Sugar #0 &ndash; trailing closure</h2>
+
+<p>Often, closure parameter is placed last in parameter list. Swift thus provides
+<strong>trailing closure</strong>, which means your can write the inline closure just
+outside the parameter list, following the closing <code>)</code>.</p>
+
+<p>Futhermore, if the closure is the only parameter, then the parenthesis can be
+omitted.</p>
+
+<pre><code class="language-swift">// trailing closure
+let sortedWords = words.sorted/*()*/ {
+  (lhs: String, rhs: String) -&gt; Bool in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_3">Sugar #1 &ndash; return type inference</h2>
+
+<p><strong>return type</strong> can be inferred by swift compiler.</p>
+
+<pre><code class="language-swift">// omit return type
+let sortedWords = words.sorted {
+  (lhs: String, rhs: String) /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_4">Sugar #2 &ndash; parameter type inference</h2>
+
+<p><strong>parameter types</strong> can be inferred by swift compile as well.</p>
+
+<pre><code class="language-swift">// omit parameter types
+let sortedWords = words.sorted {
+  (lhs/*: String*/, rhs/*: String*/) /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_5">Sugar #3 &ndash; parenthesis-less</h2>
+
+<p>since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
+
+<pre><code class="language-swift">// omit parenthesis
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_6">Sugar #4 &ndash; return statemetn inference</h2>
+
+<p>If the closure has one statement, then the <strong>return</strong> statement can also be
+inferred.</p>
+
+<pre><code class="language-swift">// omit 'return'
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
+  /*return*/ lhs &lt; rhs
+}
+
+//then we got:
+let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
+</code></pre>
+
+<h2 id="toc_7">Sugar #5 &ndash; shorthand parameter name</h2>
+
+<p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
+the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
+returType in</code> statment can be completely omitted</p>
+
+<pre><code class="language-swift">// use shorthand parameters, omit the whole 'in' statement
+let sortedWords = words.sorted {
+  /*(lhs: String, rhs: String) -&gt; Bool in*/
+  /*return*/ $0 &lt; $1
+}
+
+// then we got:
+let sortedWords = words.sorted { $0 &lt; $1 }
+</code></pre>
+
+<h2 id="toc_8">Sugar #6 &ndash; operater as a closure</h2>
+
+<p>In swift, <strong>operator</strong> is a function, which in turn is a special closure, so&hellip;</p>
+
+<pre><code class="language-swift">// comes operator!
+let sortedWords = words.sorted(&lt;)
+</code></pre>
+
+<h1 id="toc_9">Fully-fledged Enumeration</h1>
+
+<p>In Swift, enumeration is fully-fledged type. You can asssociate different data
+with each enumeration memeber, or define a raw type for enumeration.</p>
+
+<h2 id="toc_10">Flexible definition syntax</h2>
+
+<p>you can define more than one member a line.</p>
+
+<h2 id="toc_11">Type inference</h2>
+
+<h2 id="toc_12">Associated Value</h2>
+
+<h2 id="toc_13">Raw type</h2>
+
+<h2 id="toc_14">Struct like enumeration</h2>
+
+<p>enumeration in Swift can have properties &amp; methods.</p>
+
+<p>enumeration, like struct in Swift, is value type (while class is reference
+acounted type).</p>
+
+        </div>
+    </div>
+
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

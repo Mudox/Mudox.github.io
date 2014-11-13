@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Notes on Mudox </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/note/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Wed, 29 Oct 2014 21:43:56 CST</updated>
+    
+    <item>
+      <title>SWIFT OJECT-ORIENTED FEATURE</title>
+      <link>http://localhost:1313/note/swift_oo/</link>
+      <pubDate>Wed, 29 Oct 2014 21:43:56 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/swift_oo/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Class Like Constructs In Swift&lt;/h1&gt;
+
+&lt;p&gt;In Swift, &lt;code&gt;enum&lt;/code&gt;, &lt;code&gt;struct&lt;/code&gt;, &lt;code&gt;class&lt;/code&gt; all can:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;have &lt;strong&gt;properties&lt;/strong&gt; to keep states.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;have &lt;strong&gt;methods&lt;/strong&gt; to perform actions.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;define &lt;strong&gt;subscript&lt;/strong&gt; operators to let user access their properties through
+subscript syntax.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;define &lt;strong&gt;initializers&lt;/strong&gt; to have a reasonable initial state.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;be &lt;strong&gt;extended&lt;/strong&gt; to have additional behaviors beyond their default implementations.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;conform to &lt;strong&gt;protocols&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Only &lt;code&gt;class&lt;/code&gt; can:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;have &lt;strong&gt;inheritance&lt;/strong&gt; capability.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;have &lt;strong&gt;deinitializer&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;be &lt;strong&gt;referenced&lt;/strong&gt; by mutiple variable or constants. the &lt;code&gt;struct&lt;/code&gt; and &lt;code&gt;enum&lt;/code&gt;
+are both value types.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Properties&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;stored properties&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;lazy properties&lt;/h3&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;computed properties&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;shorthand setter syntax&lt;/h3&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;shorthand read-only getter syntax&lt;/h3&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;Initializers&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JAVASCRIPT TYPE CONVERSIONS</title>
+      <link>http://localhost:1313/note/javascript_type_conversions/</link>
+      <pubDate>Tue, 28 Oct 2014 11:33:15 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/javascript_type_conversions/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Sepcial Value Or Types In JavaScript&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;The &lt;code&gt;undefined&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;undefined&lt;/code&gt; is the only value of &lt;code&gt;undefined&lt;/code&gt;, represents unknown value of any
+other types, including primitive types &amp;amp; object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// play with &#39;undefined&#39;
+typeof undefiend                  /* undfeined        */
+undefined == undefined            /* true             */
+undefined == null                 /* true             */
+undefined !== null                /* true             */
+Boolean(undefined)                /* false            */
+Number(undefined)                 /* NaN              */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;The &lt;code&gt;null&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;null&lt;/code&gt;, by standards, should be the only value of &lt;code&gt;null&lt;/code&gt; type, but in certain
+browser (e.g. firfox, chrome), it is of type &lt;code&gt;object&lt;/code&gt;. &lt;code&gt;null&lt;/code&gt; is used to
+represent unknown value of an object.&lt;/p&gt;
+
+&lt;p&gt;It is equal to itself and it is equal to &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// play with &#39;null&#39;
+typeof null                       /* object           */
+null == null                      /* true             */
+null == undefined                 /* true             */
+null !== undefined                /* true             */
+Boolean(null)                     /* false            */
+Number(null)                      /* 0                */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;The &lt;code&gt;NaN&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;NaN&lt;/code&gt; is a &lt;code&gt;Number&lt;/code&gt; that can not be represented as a number.&lt;/p&gt;
+
+&lt;p&gt;It dose &lt;strong&gt;NOT&lt;/strong&gt; equal to itself, hence JavaScript provide a built-in function
+&lt;code&gt;isNaN()&lt;/code&gt; to test if a value is a NaN.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascri&#34;&gt;// play with &#39;NaN&#39;
+typeof NaN                        /* number           */
+NaN == NaN                        /* false            */
+NaN == undefined                  /* false            */
+NaN == null                       /* false            */
+Boolean(NaN)                      /* false            */
+Number(NaN)                       /* NaN              */
+isNaN(NaN)                        /* true             */
+NaN == 0/0                        /* true             */
+isNaN(0/0)                        /* true             */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_4&#34;&gt;Implicit Type Conversions&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;When other types need to be converted into a number&lt;/h2&gt;
+
+&lt;p&gt;When different types are mixed in a relational operation (i.e &lt;code&gt;== != &amp;lt; &amp;lt;= &amp;gt;
+&amp;gt;=&lt;/code&gt;) except the &lt;code&gt;===&lt;/code&gt; operator, or an arithmetic operation, except
+the &lt;code&gt;+&lt;/code&gt; operator, they would be converted into numbers first.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;For Boolean:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;true would be converted to 1&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;false would be converted to 0&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;For String:&lt;/h3&gt;
+
+&lt;p&gt;It is converted literally, i.e.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;&#39;2014&#39; &amp;lt; 2 /* 2014 &amp;lt; 2 yields false */
+&#39;3.1415&#39; == 3.1415 /* 3.1415 == 3.1415 yields true */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is one exception: a &lt;code&gt;emtpy&lt;/code&gt; string would be converted to 0.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var emptyText = &#39;&#39;;
+
+/* &#39;emptyText&#39; here, converetd to 0, is compared to true which is converted to 1,
+and then &#39;!&#39; negates the results to true */
+if (!emptyText) {
+  console.log(&#39;empty text is not true!&#39;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;When other types need to be converted into a string&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_9&#34;&gt;The special &lt;code&gt;+&lt;/code&gt; operator&lt;/h3&gt;
+
+&lt;p&gt;In JavaScript, the &lt;code&gt;+&lt;/code&gt; is first a string concatenation operator, then a
+arithmetic addition operator.&lt;/p&gt;
+
+&lt;p&gt;When one of &lt;code&gt;+&lt;/code&gt;&amp;rsquo;s operands is a string, JavaScript will try to convert the
+other operand into a string, and perform a concatenation operation.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_10&#34;&gt;For Boolean:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;true&lt;/code&gt; would be conveted bo &amp;ldquo;true&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;false&lt;/code&gt; would be conveted to &amp;ldquo;false&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;toc_11&#34;&gt;For &lt;code&gt;null&lt;/code&gt;, &lt;code&gt;undefined&lt;/code&gt; &amp;amp; &lt;code&gt;NaN&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;they all be converted literally.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_12&#34;&gt;When other types need to be converted into a boolean value&lt;/h2&gt;
+
+&lt;p&gt;from 《Head Fist JavaScript Programming》:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;the secret to learning what is truthy and what is falsey is to learn what’s
+falsey, and then consider everything else truthy.
+concentrate on  knowing what is falsey, and then everything else you can
+consider truthy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;it is a golden rule that also applys in many other programming language
+learning situations.&lt;/p&gt;
+
+&lt;p&gt;As to what value should be considered as falsey, different language has
+different policy. There are &lt;strong&gt;5&lt;/strong&gt; falsey value in JavaScript:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;null&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;NaN&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;0&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WEB PAGE LAYOUTS</title>
+      <link>http://localhost:1313/note/web_page_layouts/</link>
+      <pubDate>Sun, 26 Oct 2014 21:36:29 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/web_page_layouts/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Liquid Layout&lt;/h1&gt;
+
+&lt;p&gt;This is the browser&amp;rsquo;s default layout behavior, if you did not add any CSS to
+style a page. The block elements, like liquid, just fill as much space as they
+can in the pages.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Frozen Layout&lt;/h1&gt;
+
+&lt;p&gt;By using the CSS attribute combination of &lt;code&gt;float&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt;, we can put a
+&lt;strong&gt;containing&lt;/strong&gt; block (i.e. &lt;code&gt;&amp;lt;seciton&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;aside&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;) to float on to
+left-most or right-most side forming a &lt;strong&gt;column&lt;/strong&gt;, and let the  remaining
+content to flow around the fixed-width floating column, forming the other
+column.&lt;/p&gt;
+
+&lt;p&gt;Use CSS attribute &lt;code&gt;clear: [left | right]&lt;/code&gt; to let a block to layout fully
+underneath a floating elements.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;Jello Layout&lt;/h1&gt;
+
+&lt;p&gt;On the basis of frozen layout, we can use containing fixed-width block to wrap
+all columns (floating or flowing), and by using &lt;code&gt;margin-left: auto;
+margin-right: auto;&lt;/code&gt; CSS style, to center the contained columns in the page.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_3&#34;&gt;Absolute Position&lt;/h1&gt;
+
+&lt;p&gt;By using the CSS attribute combination of &lt;code&gt;position: [absolute | fixed]&lt;/code&gt; and
+&lt;code&gt;left | right | top | bottom: ...&lt;/code&gt;, we can take the column fully out of layout
+flow, and fix their position relative to the page (&lt;code&gt;position: absolute&lt;/code&gt;), or to
+the viewport (&lt;code&gt;position: fixed&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_4&#34;&gt;Table Display&lt;/h1&gt;
+
+&lt;p&gt;Use CSS attribute &lt;code&gt;display: [table | table-row | table-cell]&lt;/code&gt; to organize HTML
+elements into an invisible table.&lt;/p&gt;
+
+&lt;p&gt;Most of the time, &lt;code&gt;vertical-align: top&lt;/code&gt; will help you to get what you want to see.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SWIFT FEATURES</title>
+      <link>http://localhost:1313/note/swift_features/</link>
+      <pubDate>Tue, 14 Oct 2014 21:43:56 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/swift_features/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Powerful &lt;code&gt;switch&lt;/code&gt; Statement&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;no implicitly fallthrough&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;match multiple conditions in one case statement.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;match against range.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;match against tuple.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;value binding.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;where&lt;/code&gt; clause can provide more conditions.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;break&lt;/code&gt; &amp;amp; &lt;code&gt;continue&lt;/code&gt; can &lt;em&gt;jump&lt;/em&gt; further (to some label)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;var aPoint = (x: 2, y: -1)
+// labeled `swtich`
+// NOTE: only loop statements and &#39;switch&#39; statement can labeled.
+theSwitch: switch aPoint {
+// against tuple
+case (0, 0):
+  println(&amp;quot;origin point&amp;quot;)
+
+// against multiple conditions separated by comma
+case (1, 1), (2, 2):
+  println(&amp;quot;(1, 1) or (2, 2)&amp;quot;)
+
+// &#39;_&#39; means &#39;any value is ok&#39;
+case (_, 0):
+  // the `break` here is just like the `pass` in python, acting as a
+  // &#39;placeholder statement&#39;, nullifing this case branch.
+  break
+
+case (0, _):
+  println(&amp;quot;on the Y-axis&amp;quot;)
+
+// against range
+case (-2...2, -2...2):
+  println(&amp;quot;on or in the 2x2 box&amp;quot;)
+
+// value binding
+case (let x, -1):
+  println(&amp;quot;on the horizontal line y = -1, with a x value: \(x)&amp;quot;)
+
+// where clause
+// NOTE: `let` can be replaced with `var` if you need to change the bound
+// value afterwards.
+case (0, var y) where y &amp;gt;= 0:
+  y++    // mutable
+  println(&amp;quot;on the 1st or 2nd quadrant&amp;quot;)
+
+// value binding as a whole, which is an required exhaustive match
+case let (x, y):
+  theLoop: for i in 1..&amp;lt;100 {
+    switch i {
+      case let x where (x &amp;amp; 1) == 1 // a odd number
+        break theSwitch     // jump further
+      default
+        continue theLoop    // jump further
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Closure &amp;ndash; Too Much Sugar!&lt;/h1&gt;
+
+&lt;p&gt;The closure in Swift language adopts many syntactic sugar.&lt;/p&gt;
+
+&lt;p&gt;The basic full syntax of a closure is as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;{
+  (parameters) -&amp;gt; retrunType in
+  ... statements ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is an example that uses the array&amp;rsquo;s method &lt;code&gt;sorted&lt;/code&gt; to sort an array of word.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;var words = [ &amp;quot;Dolor&amp;quot;, &amp;quot;eum&amp;quot;, &amp;quot;id&amp;quot;, &amp;quot;suscipit&amp;quot;, &amp;quot;necessitatibus&amp;quot;, &amp;quot;quod&amp;quot;, &amp;quot;hic&amp;quot;, &amp;quot;dignissimos&amp;quot; ]
+ 
+let sortedWords = words.sorted({
+  (lhs: String, rhs: String) -&amp;gt; Bool in
+  return lhs &amp;lt; rhs
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Sugar #0 &amp;ndash; trailing closure&lt;/h2&gt;
+
+&lt;p&gt;Often, closure parameter is placed last in parameter list. Swift thus provides
+&lt;strong&gt;trailing closure&lt;/strong&gt;, which means your can write the inline closure just
+outside the parameter list, following the closing &lt;code&gt;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Futhermore, if the closure is the only parameter, then the parenthesis can be
+omitted.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// trailing closure
+let sortedWords = words.sorted/*()*/ {
+  (lhs: String, rhs: String) -&amp;gt; Bool in
+  return lhs &amp;lt; rhs
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Sugar #1 &amp;ndash; return type inference&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;return type&lt;/strong&gt; can be inferred by swift compiler.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// omit return type
+let sortedWords = words.sorted {
+  (lhs: String, rhs: String) /*-&amp;gt; Bool*/ in
+  return lhs &amp;lt; rhs
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Sugar #2 &amp;ndash; parameter type inference&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;parameter types&lt;/strong&gt; can be inferred by swift compile as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// omit parameter types
+let sortedWords = words.sorted {
+  (lhs/*: String*/, rhs/*: String*/) /*-&amp;gt; Bool*/ in
+  return lhs &amp;lt; rhs
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Sugar #3 &amp;ndash; parenthesis-less&lt;/h2&gt;
+
+&lt;p&gt;since no type annotation is needed, the &lt;strong&gt;parenthesis&lt;/strong&gt; can be omitted.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// omit parenthesis
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&amp;gt; Bool*/ in
+  return lhs &amp;lt; rhs
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;Sugar #4 &amp;ndash; return statemetn inference&lt;/h2&gt;
+
+&lt;p&gt;If the closure has one statement, then the &lt;strong&gt;return&lt;/strong&gt; statement can also be
+inferred.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// omit &#39;return&#39;
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&amp;gt; Bool*/ in
+  /*return*/ lhs &amp;lt; rhs
+}
+
+//then we got:
+let sortedWords = words.sorted { lhs, rhs in lhs &amp;lt; rhs }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_7&#34;&gt;Sugar #5 &amp;ndash; shorthand parameter name&lt;/h2&gt;
+
+&lt;p&gt;Swift provides &lt;strong&gt;shorthand parameter names&lt;/strong&gt;: $0 for the 1st parameter, $1 for
+the 2nd parameter, and so on. And as an side effect, the whole &lt;code&gt;(parameters) -&amp;gt;
+returType in&lt;/code&gt; statment can be completely omitted&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// use shorthand parameters, omit the whole &#39;in&#39; statement
+let sortedWords = words.sorted {
+  /*(lhs: String, rhs: String) -&amp;gt; Bool in*/
+  /*return*/ $0 &amp;lt; $1
+}
+
+// then we got:
+let sortedWords = words.sorted { $0 &amp;lt; $1 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;Sugar #6 &amp;ndash; operater as a closure&lt;/h2&gt;
+
+&lt;p&gt;In swift, &lt;strong&gt;operator&lt;/strong&gt; is a function, which in turn is a special closure, so&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// comes operator!
+let sortedWords = words.sorted(&amp;lt;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_9&#34;&gt;Fully-fledged Enumeration&lt;/h1&gt;
+
+&lt;p&gt;In Swift, enumeration is fully-fledged type. You can asssociate different data
+with each enumeration memeber, or define a raw type for enumeration.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_10&#34;&gt;Flexible definition syntax&lt;/h2&gt;
+
+&lt;p&gt;you can define more than one member a line.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_11&#34;&gt;Type inference&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_12&#34;&gt;Associated Value&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_13&#34;&gt;Raw type&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_14&#34;&gt;Struct like enumeration&lt;/h2&gt;
+
+&lt;p&gt;enumeration in Swift can have properties &amp;amp; methods.&lt;/p&gt;
+
+&lt;p&gt;enumeration, like struct in Swift, is value type (while class is reference
+acounted type).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GIT MISC</title>
+      <link>http://localhost:1313/note/git/</link>
+      <pubDate>Thu, 02 Oct 2014 03:36:12 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/git/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Alias&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;working tree, working directory&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;index, staging area, cache, staged snapshot&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;commit[ted] history, commit[ted] snapshot&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;The &lt;code&gt;add&lt;/code&gt; &amp;amp; &lt;code&gt;rm&lt;/code&gt; &amp;amp; &lt;code&gt;reset&lt;/code&gt; &amp;amp; &lt;code&gt;commit&lt;/code&gt; &amp;amp; &lt;code&gt;checkout&lt;/code&gt; Sub-commands.&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;between the &lt;em&gt;committed history&lt;/em&gt; &amp;amp; &lt;em&gt;staging area&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;commit&lt;/code&gt; submit changes from &lt;em&gt;staging area&lt;/em&gt; to &lt;em&gt;committed history&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;reset&lt;/code&gt; revert changes from &lt;em&gt;committed history&lt;/em&gt; back to &lt;em&gt;staging area&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;between the &lt;em&gt;staging area&lt;/em&gt; &amp;amp; &lt;em&gt;working tree&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;add&lt;/code&gt; submit changes from &lt;em&gt;working tree&lt;/em&gt; to &lt;em&gt;staging area&lt;/em&gt;, preparing
+for committing.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rm&lt;/code&gt; remove file(s) from &lt;em&gt;stageing area&lt;/em&gt;, so they become &lt;em&gt;untracked&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;checkout&lt;/code&gt; restore changes from staging area or a specific commit of committed
+history to &lt;em&gt;working directory&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;reset&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;unstages&lt;/strong&gt; changes in staging area.
+v
+    git reset &lt;paths&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;or, if you ask for more, &lt;strong&gt;uncommits&lt;/strong&gt; changes in history.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git reset &amp;lt;commit-ish&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rm&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;untracks&lt;/strong&gt; file(s) previously tracked in staging area.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git rm --cache &amp;lt;paths&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;or, if you ask for more, &lt;strong&gt;removes&lt;/strong&gt; file(s) in the work directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git rm &amp;lt;paths&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git reset&lt;/code&gt; vs &lt;code&gt;git checkout&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git reset &amp;lt;commit-ish&amp;gt; &amp;lt;paths&amp;gt;&lt;/code&gt; only update &lt;em&gt;staging area&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout &amp;lt;paths&amp;gt;&lt;/code&gt; fetch &lt;code&gt;&amp;lt;paths&amp;gt;&lt;/code&gt; from &lt;em&gt;staging area&lt;/em&gt; to working
+direcotry.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout &amp;lt;commit-ish&amp;gt;&lt;/code&gt; fetch &lt;code&gt;&amp;lt;paths&amp;gt;&lt;/code&gt; from &lt;em&gt;history&lt;/em&gt; to both
+&lt;em&gt;index&lt;/em&gt; &amp;amp; &lt;em&gt;working direcotry&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;The &lt;code&gt;git Rebase&lt;/code&gt; Sub-command&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Advantage of &lt;code&gt;rebase&lt;/code&gt;:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;no additional merge commit&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;linear commit history&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Disadvantage of &lt;code&gt;rebase&lt;/code&gt;:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;safety&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tracability: the evidences of merging are wiped away.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Golden rule of &lt;code&gt;git rebase&lt;/code&gt;:&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;never&lt;/strong&gt; use it on &lt;strong&gt;public&lt;/strong&gt; branches.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;When to use &lt;code&gt;rebase&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Local cleanup&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Incorporating upstream changes into a feature branch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Integrating a approved feature&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;The &lt;code&gt;reset&lt;/code&gt;, &lt;code&gt;checkout&lt;/code&gt; And &lt;code&gt;revert&lt;/code&gt; Sub-commands&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The parameters that you pass to &lt;code&gt;git reset&lt;/code&gt; and &lt;code&gt;git checkout&lt;/code&gt; determine
+their scope. When you don’t include a &lt;strong&gt;&amp;lt;file path&amp;gt;&lt;/strong&gt; as a parameter, they
+operate on whole commits.  Note that git revert has no file-level counterpart&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;from &lt;a href=&#34;https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations&#34;&gt;atlassian&amp;rsquo;s git tutorials&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;Commit level operations&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;git reset --[soft | mixed | hard] &amp;lt;commit-ish&amp;gt;&lt;/code&gt; &lt;strong&gt;move&lt;/strong&gt; branch tips backwards
+or even forwards, while affecting &lt;em&gt;staging area&lt;/em&gt; &amp;amp; &lt;em&gt;working direcotry&lt;/em&gt; according to
+options it is given.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;option&lt;/th&gt;
+&lt;th&gt;history&lt;/th&gt;
+&lt;th&gt;staging area&lt;/th&gt;
+&lt;th&gt;working directory&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;--soft&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;--mixed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;--hard&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;code&gt;git checkout &amp;lt;commit-ish&amp;gt;&lt;/code&gt; dose not move tips around.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git revert&lt;/code&gt; undo commits by adding a new commit. it is a safe (reversible) way
+to undo commits, while &lt;code&gt;git reset&lt;/code&gt; is dangerous (irreversible) way to undo
+commits.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_9&#34;&gt;File level operations&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git [reset|checkout] &amp;lt;commit-ish&amp;gt; &amp;lt;pathspec&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;command&lt;/th&gt;
+&lt;th&gt;history&lt;/th&gt;
+&lt;th&gt;staging area&lt;/th&gt;
+&lt;th&gt;working directory&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;checkout&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;toc_10&#34;&gt;Summary&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;command&lt;/th&gt;
+&lt;th&gt;commit level&lt;/th&gt;
+&lt;th&gt;file level&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;discard commits in private branches or throw away uncommited changes&lt;/td&gt;
+&lt;td&gt;unstage a file&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;checkout&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;swtich between branches or inspect old snapshots&lt;/td&gt;
+&lt;td&gt;discard changes in the working directory&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;revert&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;undo commits in public branches&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;N/A&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GIT FLOW</title>
+      <link>http://localhost:1313/note/git_flow/</link>
+      <pubDate>Sun, 28 Sep 2014 16:38:26 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/git_flow/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;1. Main Branches&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the &lt;code&gt;main&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;keeps the official release history (usually with version nubmer tags
+attached).&lt;/p&gt;
+
+&lt;p&gt;i.e. every commits in master is a new release. all branches merged back
+into master must have a new incremental version number.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;serves as an integration branch for features.&lt;/p&gt;
+
+&lt;p&gt;nitghly build built from it.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;2. Supporting Branches&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;2.1 feature (or topic) branches&lt;/h2&gt;
+
+&lt;p&gt;branch off from: &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;merge into: &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;naming convention: any name except &lt;code&gt;master&lt;/code&gt;, &lt;code&gt;develop&lt;/code&gt;, &lt;code&gt;relase[/-]*&lt;/code&gt;,
+&lt;code&gt;hotfix[/-]*&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Branch A New Feature Branch Off From Develop Branch
+git checkout -b some-feature develop
+# Add Feature Commits To Branch Some-feature ...
+# Merge Feature Branch Back Into Develop Branch.
+git checkout develop
+git merge --no-ff some-feature
+git push origin develop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;2.2 release branches&lt;/h2&gt;
+
+&lt;p&gt;branch off from: &lt;code&gt;develop&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;merge into: &lt;code&gt;develop&lt;/code&gt; &amp;amp; &lt;code&gt;master&lt;/code&gt; branch&lt;/p&gt;
+
+&lt;p&gt;naming convention: &lt;code&gt;release/*&lt;/code&gt; or &lt;code&gt;release-*&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Branch A New Release Branch Off From Develop Branch
+git checkout -b release-&amp;lt;version number&amp;gt; develop
+# Bummp Up Version In Related Fiels.
+git commit -m &#39;Bumped version number to &amp;lt;version number&amp;gt;&#39;
+# Roll Out Release, Minor Bug Fixes
+# Merge The Release Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff release-&amp;lt;version number&amp;gt;
+git tag -a &amp;lt;version number&amp;gt;
+# Merge The Release Back Into Develop
+git checkout develop
+git merge --no-ff release-&amp;lt;version number&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;2.3 hotfix (or maintenance) branches&lt;/h2&gt;
+
+&lt;p&gt;branch off from: &lt;code&gt;master&lt;/code&gt; branch
+merge into: &lt;code&gt;develop&lt;/code&gt; &amp;amp; &lt;code&gt;master&lt;/code&gt; branch if no active release branch existed
+currrently.
+naming convention: &lt;code&gt;hotfix/*&lt;/code&gt; or &lt;code&gt;hotfix-*&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Branch A New Hotfix Branch Off From Master Branch
+git checkout -b hotfix-&amp;lt;version number&amp;gt; master
+# Bummp Up Version In Related Fiels, Becuase It Will Finnaly Be Merged Back
+# Into Master Branch.
+git commit -m &#39;Bumped version number to &amp;lt;version number&amp;gt;&#39;
+# Roll Out Hotfix, Minor Bug Fixes
+# Merge The Hotfix Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff hotfix-&amp;lt;version number&amp;gt;
+git tag -a &amp;lt;version number&amp;gt;
+# Merge The Hotfix Back Into Develop
+git checkout develop
+git merge --no-ff hotfix-&amp;lt;version number&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GO&#39;S TEMPLATE LIBRARY</title>
+      <link>http://localhost:1313/note/go_stdlib_template/</link>
+      <pubDate>Fri, 26 Sep 2014 14:52:32 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/go_stdlib_template/</guid>
+      <description>
+
+&lt;p&gt;I come across this library when I started to use &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;,
+which says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It is an extremely &lt;strong&gt;lightweight&lt;/strong&gt; engine that provides a very small amount of
+logic. In our experience it is &lt;strong&gt;just the right amount of logic&lt;/strong&gt; to be able to
+create a good static website.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;3 Steps Using The Template Object&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;New&lt;/code&gt; an template object.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Parse&lt;/code&gt; template text.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Execute&lt;/code&gt; (apply) the template to data structure.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;6 Action Families&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{/* comment here, line spanning allowed */}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;pipeline&lt;/strong&gt; like variable expansion (substitution)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{pipeline}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;if&lt;/strong&gt; family for branching logic&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{if _pipline_}} T1 {{end}}
+{{if _pipline_}} T1 {{else}} T0 {{end}}
+{{if _pipline_}} T1 {{else if _pipeline_ }} T0 {{end}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;range&lt;/strong&gt; family for iteration (loop)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{range pipepine}} T1 {{end}}
+{{range pipepine}} T1 {{else}} T0 {{end}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;with&lt;/strong&gt; family for cursor (dot) moving&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{with pipeline}} T1 {{end}}
+{{with pipeline}} T1 {{else}} T0 {{end}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;template&lt;/strong&gt; family for tempates invocation&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// with the dot &#39;.&#39; set to nil.
+{{tempalte &amp;quot;name&amp;quot;}}
+// with the dot &#39;.&#39; set to value of &#39;pipeline&#39;.
+{{tempalte &amp;quot;name&amp;quot; pipeline}}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;Argument Types&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;untyped &lt;strong&gt;constants&lt;/strong&gt; in go syntax&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;nil&lt;/strong&gt; &amp;ndash; the special constant&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;variable&lt;/strong&gt; name&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$variable_name&lt;/code&gt; or &lt;code&gt;$&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;.&lt;/code&gt; &amp;ndash; the so called &amp;lsquo;context&amp;rsquo; constant&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;dot chain consist of: &lt;strong&gt;field&lt;/strong&gt; name,  &lt;strong&gt;key&lt;/strong&gt; name,  niladic &lt;strong&gt;method&lt;/strong&gt; name&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;(.Field.Key.Method args...).Field.Key ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;niladic &lt;strong&gt;function&lt;/strong&gt; name&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;parenthesized &lt;strong&gt;group&lt;/strong&gt; of above&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;print (func arg...) (.method arg...)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>COCOA CONCURRENCY</title>
+      <link>http://localhost:1313/note/cocoa_concurrency/</link>
+      <pubDate>Wed, 24 Sep 2014 22:18:21 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/cocoa_concurrency/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Members Of Cocoa Concurrency&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Operation Queue&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;abstract base class &lt;code&gt;NSOperation&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;concrete subclass &lt;code&gt;NSInvocation&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;concrete subclass &lt;code&gt;NSBlockOperation&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Dispatch Queue&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Dispatch Source&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Operation Queue Features&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;graph-based dependencies&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;completion block&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;execution status monitoring&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;prioritizeing&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;canceling&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>COCOA THREADING</title>
+      <link>http://localhost:1313/note/cocoa_threading/</link>
+      <pubDate>Wed, 24 Sep 2014 21:19:59 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/cocoa_threading/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Run Loop&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;4 roles participate in the run loop game:&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Run Loop&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;which is represented by &lt;code&gt;NSRun Loop&lt;/code&gt; &amp;amp; &lt;code&gt;CFRunLoop&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Run Loop Mode&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;which is represented by &lt;code&gt;CFStringRef&lt;/code&gt; associated to each instance of run
+loop object.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Run Loop Source&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;which is represented by &lt;code&gt;CFRunloopSource&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Input source&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Port-based source&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Perform selctor on other threads&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Custom source&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Timer&lt;/p&gt;
+
+&lt;p&gt;which is represented by &lt;code&gt;CFRunloopTimerRef&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Explictly defined timer&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Perform selector on current thread with delay&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Perform selector&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Run Loop Observer&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;4 ways to kill a run loop iteration:&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;no sources exists&lt;/p&gt;
+
+&lt;p&gt;since some system routines may install certain input sources to the run
+ loop implictly, we should not kill a run loop iteration by clearing &amp;lsquo;&lt;em&gt;all&lt;/em&gt;&amp;lsquo;
+ sources we known.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;timeout&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sourced handled in one-shot mode&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;explicitly stoped by &lt;code&gt;CRunloopStop&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;3 kinds of perform selector sources.&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;on thread&lt;/th&gt;
+&lt;th&gt;invocation&lt;/th&gt;
+&lt;th&gt;delay&lt;/th&gt;
+&lt;th&gt;blocking call?&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;current thread&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;always non-blocking&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;other thread&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;main thread&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;toc_4&#34;&gt;Alternatives To Threaing&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Operation Objects&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Grand Central Dispatch (GCD)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Idle-time notifications&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Asynchronous functions&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Timers&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Separate processes&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;toc_5&#34;&gt;Cocoa Support For Threading&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Cocoa threads&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;POSIX threads&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;del&gt;Mutiprocessing Services&lt;/del&gt; (&lt;em&gt;obsolete&lt;/em&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;toc_6&#34;&gt;Inter-Thread Communication&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Direct messageing&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Global variables, shared memory &amp;amp; objects&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Conditions&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Run loop sources&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Ports &amp;amp; sockets&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;del&gt;Message queues&lt;/del&gt; (&lt;em&gt;obsolete&lt;/em&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Cocoa distributed objects&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;Synchronization Tools&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Atomic operation&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;atomic add&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;atomic increment&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;atomic decrement&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;compare-and-swap&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;test-and-set&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;test-and-clear&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Memory barriers&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Volatile variables&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Locks&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Mutex&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;POSIX API provides &lt;code&gt;pthread_lock_t&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Cocoa provides &lt;code&gt;NSLock&lt;/code&gt; &amp;amp;  &lt;code&gt;@synchronized()&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Recursive lock&lt;/p&gt;
+
+&lt;p&gt;which is provided as class &lt;code&gt;NSRecursiveLock&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Read-write lock (&lt;em&gt;pthread only&lt;/em&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Distributed lock&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Spin lock (&lt;em&gt;not implemented&lt;/em&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Double-checked lock&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Conditions (aka &lt;em&gt;condition variable&lt;/em&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Perform selector routines&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,1 +1,2308 @@
-Hello World!
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> Mudox &middot; Mudox </title>
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/mudox_hyde.css">
+
+    
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    <link href="http://localhost:1313/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
+    
+    
+    
+    <script src="/highlight_js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.tagcanvas.min.js"></script>
+  </head>
+
+<body class="theme-base-08">
+
+  <div class="sidebar">
+
+  
+  <div id="particles-js">
+    <script src="/particles.js"></script>
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          color: '#fff',
+          shape: 'circle', 
+          opacity: 0.3,
+          size: 3,
+          size_random: true,
+          nb: 35,
+          line_linked: {
+            enable_auto: true,
+            distance: 300,
+            color: '#fff',
+            opacity: 0.5,
+            width: 1,
+            condensed_mode: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 600
+            }
+          },
+          anim: {
+            enable: true,
+            speed: 2
+          }
+        },
+        interactivity: {
+          enable: true,
+          mouse: {
+            distance: 250
+          },
+          detect_on: 'window', 
+          mode: 'grab'
+        },
+         
+        retina_detect: true
+      });
+    </script>
+  </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+    <nav id=sidebar-menu-wall>
+      
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="tagCloud">
+      <canvas id="tagCloudCanvas" width="250" height="250" style="width: 100%;">
+        
+        <a href="/categories">categories</a>  
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objective-c">objective-c</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/vimscript">vimscript</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch-linux">arch-linux</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/windows">windows</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error-collection">error-collection</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/awesome-wm">awesome-wm</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev-tool">dev-tool</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+    <script>
+      if (!$('#tagCloudCanvas').tagcanvas({
+          initial: [0.203, -0.088],
+          textColour: '#ffffff',
+          outlineThickness: 0.5,
+          maxSpeed: 0.03,
+          depth: 0.75
+        })) {
+        $('#tagCloud').hide();
+      }
+    </script>
+
+
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <a href="/" id="Mudox">Mudox</a>
+        <p class="lead">
+          My personal site powered by <a href="http://gohugo.io">Hugo</a> with a customized theme -- <a href="https://github.com/spf13/hyde.git">hyde</a>.
+        </p>
+      </div>
+
+      <p>&copy; 2014. All rights reserved. </p>
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="content container">
+    <div class="posts">
+
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/setup_my_archlinux_environment/">
+            SETUP MY ARCH LINUX ENVIRONMENT
+          </a>
+        </h1>
+
+        <span class="post-date">Sat, Nov 8, 2014</span>
+
+        
+
+<p>The marason of installing &amp; tunning the Arch Linux to my flavor.</p>
+
+<h1 id="toc_0">Mouse acceleration</h1>
+
+<p>Type <code>xset q | grep Pointer</code> to see current mouse acceleration setting.</p>
+
+<p>Try <code>xset m &lt;acceleration&gt; &lt;threshold&gt;</code> with different values to find the best
+combination for your feeling.</p>
+
+<blockquote>
+<p>where acceleration defines how many times faster the cursor will move than
+the default speed. threshold is the velocity required for acceleration to
+become effective, usually measured in device units per 10ms. acceleration can
+be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&frasl;<sub>2</sub>, <sup>1</sup>&frasl;<sub>3</sub>,
+<sup>1</sup>&frasl;<sub>4</sub>, &hellip; if you want to make it faster you can use <sup>2</sup>&frasl;<sub>1</sub>, <sup>3</sup>&frasl;<sub>1</sub>, <sup>4</sup>&frasl;<sub>1</sub>, &hellip;</p>
+
+<p>Threshold defines the point at which acceleration should occur in pixels per
+10 ms.</p>
+</blockquote>
+
+<p>I found my lucky combiantion is <code>1/4 8</code> and I add the setting command into
+<em>rc.lua</em> of <a href="http://awesome.naquadah.org">Awesome WM</a> to apply the setting on each startup.</p>
+
+<p>reference:</p>
+
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
+</ul>
+
+<h1 id="toc_1">Input Method</h1>
+
+<p>The <strong>ibus + isbus-rime</strong> combinations works nicely on my Arch Linux.</p>
+
+<p>After ibus gets installed, run <code>ibus-setup</code>, it will show a setting guide
+window where you can adjust ibus settings to adapt to <a href="awesome">Awesome WM</a>
+environment.</p>
+
+<ul>
+<li><p>I prefer to change the keyboard shortcut of switching to next input method to
+<code>&lt;Atl&gt;&lt;Shift&gt;space</code></p></li>
+
+<li><p>Check off the <em>Embed preedit text in application window</em> option, because I
+found it does not run properly in some applications (e.g. Vim).</p></li>
+</ul>
+
+<p>On  environments, ibus-daemon can not be loaded automatically on
+startup, so we need to manually run it. There are many ways to auto-start
+applications on linux platform, I choose to let <a href="awesome">Awesome WM</a> to start it by adding
+auto-start code in <em>rc.lua</em>.</p>
+
+<p>For ibus-rime, it is in tranditional chinese mode by default. To switch to
+simplified chinese mode, press <code>Ctrl-~</code> when ibus-rime is active to open setup
+candiate menu and choose <em>朙月拼音-简化字</em></p>
+
+<pre><code class="language-bash">sudo pacman -S ibus ibus-qt ibus-rime
+
+ibus-setup
+
+# manually staRt ibus daemon for this session.
+# this command has been added in my Awesome config file 'rc.lua' to auto-start
+# it in the beginning of each Awesome session.
+ibus-daemon -drx
+</code></pre>
+
+<p>reference:</p>
+
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
+</ul>
+
+<h1 id="toc_2">Window Manager</h1>
+
+<p>On Linux platforms, I prefer WMs to DEs.</p>
+
+<p>The <a href="http://awesome.naquadah.org">Awesome WM</a> is my favorite window manager.</p>
+
+<p>see <a href="/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
+for details.</p>
+
+<h1 id="toc_3">Shell Environment</h1>
+
+<p>I have used several terminal emulators (gnome-terminal, xvrt &hellip;), and finally
+I settled myself on <strong>xterm</strong>, which I feel it:</p>
+
+<ul>
+<li><p>consume the smallest resource among other terminal emulators.</p></li>
+
+<li><p>starts up very fast.</p></li>
+
+<li><p>is much more robust.</p></li>
+
+<li><p>is the standard shell for the X Window System, which bring a great
+compatiblity.</p></li>
+</ul>
+
+<p>As to shells, I become a <strong>zsh</strong> fan soon after played with it as well as
+bash &amp; fish shells. the reason is obvious:</p>
+
+<ul>
+<li><p>it is powerfull than bash, whose syntax is completely covered by zsh.</p></li>
+
+<li><p>it provides more flexibility in configuration than fish shell.</p></li>
+
+<li><p>there already exist quite a many user contributed resources on the net, e.g:</p>
+
+<ul>
+<li><p><a href="https://github.com/robbyrussell/oh-my-zsh">on-my-zsh</a>.</p></li>
+
+<li><p><a href="https://github.com/zsh-users/antigen">antigen</a> plugin manager.</p></li>
+</ul></li>
+</ul>
+
+<h2 id="toc_4">Pull down dot-files repo</h2>
+
+<p>My configuration resource related to termianl emulator &amp; shells are managed in
+a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files</a>.</p>
+
+<pre><code class="language-bash">cd ~/Git # ~/Git is the place I assemble most of my github repos.
+git clone https://github.com/Mudox/dot-files.git
+</code></pre>
+
+<h2 id="toc_5">Setup xterm</h2>
+
+<p>First, install xterm from Arch Linux&rsquo;s official repository.</p>
+
+<p>Then, link out the .Xresources file from my <a href="https://github.com/Mudox/dot-files.git">dot-files</a> repo. It is
+the configuration file that hold my xterm settings (colors, cursors, fonts
+etc.) among other x utility setttings.</p>
+
+<pre><code class="language-bash">sudo pacman -S xterm
+cd ~
+ln -sf Git/dot-files/Xresources .Xresources
+</code></pre>
+
+<h2 id="toc_6">Setup zsh</h2>
+
+<p>see <a href="/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENTS</a> for details.</p>
+
+<h1 id="toc_7">Setup Virtualbox</h1>
+
+<h2 id="toc_8">Installing virutalbox</h2>
+
+<p>First, from the official repository, install <em>vitualbox</em> package, which comes
+with <em>virtualbox-host-modules</em>.</p>
+
+<p>Then we need to add the basic <strong>vboxdrv</strong> kernel module to host kernel.</p>
+
+<p>Finally, add my user name to the <strong>vboxusers</strong> group in order to use USB port in
+virtual machines.</p>
+
+<pre><code class="language-bash">sudo pacman -S virtualbox
+
+# manually add vboxdrv to host kernel for one time.
+sudo modeprobe vboxdrv
+
+# auto-load vboxdrv on every system startup.
+sudo echo 'vboxdrv' &gt; /etc/modules-load.d/virtualbox.conf
+
+# add user name in vboxusers group to use USB ports in vitual machines.
+sudo gpasswd -a &quot;${USER}&quot; vboxusers
+</code></pre>
+
+<h2 id="toc_9">Confiuring virtualbox</h2>
+
+<ol>
+<li><p>Set <em>Host Key Combination</em> to <code>right &lt;winkey&gt;</code> which is consistent with
+<a href="awesome">Awesome WM</a>&rsquo;s keyboads shortcuts, it&rsquo;s in
+<em>File-&gt;Preference-&gt;Input-&gt;Virtual Machine</em> of <em>Oracle VM VitualBox Manager</em>
+window.</p></li>
+
+<li><p>Enalbe <em>Bidiretional clipboard</em>, it&rsquo;s in <em>Devices-&gt;Shared
+Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
+</ol>
+
+<p>reference:</p>
+
+<ul>
+<li><p><a href="https://wiki.archlinux.org/index.php/Virtualbox">Virtualbox from ArchWiki</a></p></li>
+
+<li><p><a href="https://wiki.archlinux.org/index.php/Kernel_modules">kernel_modules from ArchWiki</a></p></li>
+</ul>
+
+<h1 id="toc_10">VPN</h1>
+
+<h2 id="toc_11">Setup pptpclient</h2>
+
+<ol>
+<li><p>install pptpclient from the official repository of Arch Linux.</p></li>
+
+<li><p>use <code>pptpsetup</code> command to register my VPN account, you need to collect the
+following information in advance.</p>
+
+<ul>
+<li><p>VPN server&rsquo;s <em>ip address</em> from your VPN provider.</p></li>
+
+<li><p><em>user name</em> of your VPN account.</p></li>
+
+<li><p><em>user password</em> of your VPN account.</p></li>
+</ul></li>
+
+<li><p>install <code>ppp-mppe</code> (i.e. Microsoft Pointer-to-Pointer Encryption), if the
+<code>pptpsetup</code> command complains about <em>MPPE</em> module things.</p></li>
+
+<li><p>test configuration</p>
+
+<ul>
+<li><p>use <code>pon &lt;tunnel_name&gt; debug dump logfd 2 nodetach</code> to test the
+configuration. If everything has been configured correctly, the command
+should not terminate. <code>Ctrl-C</code> to quit it.</p></li>
+
+<li><p>type <code>ip addr show</code>, and you will see a new device <strong>ppp0</strong> is listed in.</p></li>
+</ul></li>
+
+<li><p>connect VPN using <code>sudo pon &lt;tunnel_name&gt;</code>, <code>sudo poff &lt;tunnel_name&gt;</code> to
+tear down.</p></li>
+</ol>
+
+<pre><code class="language-bash"># install pptpclient
+sudo pacman -S pptpclient
+
+# add you VPN account (i.e. create a new tunnel)
+sudo pptpsetup \
+  --create &lt;tunnel_name_whatever_you_like&gt; \
+  --server &lt;your_VPN_server_ip_address&gt; \
+  --username &lt;username_of_you_VPN_account&gt; \
+  --password &lt;password_of_you_VPN_account&gt; \
+  --encrypt
+
+# install ppp-mppe, if the command above complains about lacking of `MPPE`
+# module things. reun `pptpsetup` command above after installing it.
+sudo pacman -S ppp-mppe
+
+# test 1, the command should not terminate if everything is okay.
+sudo pon &lt;tunnel_name_above&gt; debug dump logfd 2 nodetach
+
+# test 2, you would see `ppp0` listed in the output.
+ip addr show
+
+# finally, connect!
+sudo pon &lt;tunnel_name&gt;
+</code></pre>
+
+<h2 id="toc_12">Route all traffic through VPN connection</h2>
+
+<h3 id="toc_13">Manually</h3>
+
+<p>Use the powerfull <code>ip</code> command to add a route rule into route table.</p>
+
+<pre><code class="language-bash"># make all packages go through interface ppp0
+ip route add default dev ppp0
+</code></pre>
+
+<p>This route rule is only effective during this ppp session. after your tear down
+the VPN connection by <code>sudo pon &lt;tunnel_name&gt;</code>, it will vanish.</p>
+
+<h3 id="toc_14">Automatically</h3>
+
+<p>Every executable scripts under /etc/ppp/ip-up.d/ will be called when a VPN
+connection startup. Hence, we can use it to automatically set route rules.</p>
+
+<pre><code class="language-bash"># /etc/ppp/ip-up.d/01-routes.sh
+# ----------------------------------------
+#!/bin/bash
+
+# This script is called with the following arguments:
+# Arg Name
+# $1 Interface name
+# $2 The tty
+# $3 The link speed
+# $4 Local IP number
+# $5 Peer IP number
+# $6 Optional ``ipparam'' value foo
+
+ip route add default via $4
+</code></pre>
+
+<pre><code class="language-bash">cd /etc/ppp/ip-up.d
+echo 'ip route add default via $4' &gt; 01-routes.sh
+
+# the script file need to have `x` permission to be run.
+# it's stdin &amp; stderr will be redirected off terminal, so not output will
+# be shown when run.
+sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
+</code></pre>
+
+<h2 id="toc_15">Modify DNS server list</h2>
+
+<p>If you found you still can not access some site (e.g. youtube, twitter, etc.)
+after establishing the VPN connection, then you should insert <code>servername
+8.8.8.8</code> ahead of existing lines in <em>/etc/resolve.conf</em>.</p>
+
+<pre><code class="language-bash"># /etc/resolve.conf
+# ----------------------------------------
+nameserver 8.8.8.8
+nameserver 192.168.0.1
+</code></pre>
+
+<h3 id="toc_16"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
+
+<p><strong>NOTE: for unknown reason, I failed following this way to achieve the
+automation, the <code>/etc/ppp/ip-up.d/00-dns.sh</code> did run, but it just did not move
+files. But it is the mechanism provided by <code>ppp</code> thus IMO it is the standard
+way that you should try first</strong></p>
+
+<p>Whenever you tear down a VPN connection and get back to the local connection,
+using the local DNS server may provide better connection speed. So, there comes
+the need to restore <code>/etc/resolv.conf</code></p>
+
+<p>By using <em>/etc/ppp/ip-up.d/00-dns.sh</em> and <em>/etc/ppp/ip-down.d/00-dns.sh</em>, which
+automatically substitutes <em>/etc/ppp/resolv.conf</em> with <em>/etc/resolv.conf</em></p>
+
+<ol>
+<li><p>put your VPN specific resolv.conf under <em>/etc/ppp/</em></p></li>
+
+<li><p>add <code>export USEPEERSDNS=1</code> into <em>~/.profile</em></p></li>
+</ol>
+
+<h4 id="toc_17">My hacky way</h4>
+
+<p>I wrote a script to get around of this:</p>
+
+<pre><code class="language-bash"># ~/.bin/vpn.sh
+# ----------------------------------------
+#!/bin/sh
+
+tunnel=&quot;your configured tunnel name&quot;
+
+if [ &quot;$#&quot; -ne 1 ]; then
+  echo &quot;usage: $0 [on|off]&quot;
+  exit 1
+fi
+
+case &quot;$1&quot; in
+  on )
+    # connect
+    pon ${tunnel} || exit 1
+
+    # here we just overwrite the /etc/resolv.conf by `echo`ing the hard
+    # written DNS list to it.
+    printf &quot;nameserver 8.8.8.8\nnameserver 192.168.0.1&quot; &gt; /etc/resolv.conf || exit 1
+    ;;
+  off )
+    # disconnect
+    poff ${tunnel}
+
+    # some as above, we just `echo` back.
+    echo 'nameserver 192.168.0.1' &gt; /etc/resolv.conf || exit 1
+    ;;
+  * )
+    echo &quot;usage: $0 [on|off]&quot;
+    ;;
+esac
+
+unset tunnel
+</code></pre>
+
+<p>in your .bashrc or .zshrc file:</p>
+
+<pre><code class="language-bash">alias vpon='sudo ~/.bin/vpn.sh on'
+alias vpoff='sudo ~/.bin/vpn.sh off'
+</code></pre>
+
+<p>then, you can type <code>vpon</code> to turn on the VPN, and <code>vpoff</code> to shutdown.</p>
+
+<p>reference:</p>
+
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/PPTP_VPN_client_setup_with_pptpclient">PPTP VPN client setup with pptpclient</a></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/setup_my_vim_environment/">
+            SETUP MY VIM ENVIRONMENT
+          </a>
+        </h1>
+
+        <span class="post-date">Sat, Nov 8, 2014</span>
+
+        
+
+<p>Steps of setting up my Vim environment on my systems (Arch Linux, MacOS,
+Windows).</p>
+
+<h1 id="toc_0">Installing Vim</h1>
+
+<p>my vim config have be tested on:</p>
+
+<ul>
+<li><p>Windows XP and above.</p></li>
+
+<li><p>Mac OSX 10.9 and above using <a href="https://github.com/b4winckler/macvim">MacVim</a>.</p></li>
+
+<li><p>Arch Linux.</p></li>
+</ul>
+
+<p><strong>NOTE</strong>: currently I prefer to GUI version than terminal version, hence most
+of my confiurations are tailored to GUI environments.</p>
+
+<h1 id="toc_1">Setup My Vim-Config Repo</h1>
+
+<p>First pull down my <a href="https://github.com/Mudox/vim-config">vim-config</a> repo from github.</p>
+
+<p>Then create a directory named <em>neobundle</em> under the pulled down repo, which
+will holds almost all vim plugins that will be synced by <a href="https://github.com/Shougo/neobundle.vim">neobundle</a>
+later.</p>
+
+<p>Create the initial <em>cur_mode</em> file under <em>.vim/chameleon/</em>, which always stores
+the chameleon mode of next vim session.</p>
+
+<pre><code class="language-bash"># On Widnows, Must Be Put In C:/Documents And Settings/&lt;User Name&gt;/Vimfiles
+git clone https://github.com/Mudox/vim-config.git ~/.vim
+
+cd .vim
+mkdir neobundle
+
+cd chameleon
+echo 'all' &gt; cur_mode
+</code></pre>
+
+<h1 id="toc_2">Install Prerequisites Vim Plugins</h1>
+
+<h2 id="toc_3">Install <a href="https://github.com/Mudox/vim-chameleon">vim-chameleon</a></h2>
+
+<p><a href="https://github.com/Mudox/vim-chameleon">vim-chameleon</a> is my own plugin for managing massive and ever
+growing vim &amp; vim plugin configurations.</p>
+
+<pre><code class="language-bash">cd ~/.vim/neobundle
+# NOTE: The Renaming Is Important
+git clone https://github.com/Mudox/vim-chameleon chameleon
+</code></pre>
+
+<h2 id="toc_4">Install <a href="https://github.com/Shougo/neobundle.vim">neobundle</a>.</h2>
+
+<p><a href="https://github.com/Shougo/neobundle.vim">neobundle</a> is a sophisticated vim plugin manager that I have been
+using for a long time.</p>
+
+<pre><code class="language-bash">cd ~/.vim/neobundle
+# NOTE: The Renaming Is Important
+git clone https://github.com/Shougo/neobundle.vim neobundle
+</code></pre>
+
+<h2 id="toc_5">Install &amp; compile <a href="https://github.com/Shougo/vimproc.vim">vimproc</a>.</h2>
+
+<p><a href="https://github.com/Shougo/vimproc.vim">vimproc</a> is another plugin written by <a href="https://github.com/Shougo">Shougo</a> that is very
+useful, and is requred by <a href="https://github.com/Shougo/neobundle.vim">neobundle</a>. The point is that you need to
+compile it to get a dynamic library after pulling down its&rsquo; repo.</p>
+
+<pre><code class="language-bash">cd ~/.vim/neobundle
+# NOTE: The Renaming Is Important
+git clone https://github.com/Shougo/vimproc.vim vimproc
+
+cd vimproc
+make # see vimproc/README.md for compilation commands for various platforms.
+</code></pre>
+
+<h2 id="toc_6">Run vim to see all other 140+ plugins get installed.</h2>
+
+<p>You can run vim in terminals or open gVim. Better run vim in terminal to watch
+the plugins installing progress and spot any errors clearly.</p>
+
+<h1 id="toc_7">Vim Environment For Specific Use Case</h1>
+
+<h2 id="toc_8">Web Developing</h2>
+
+<p>Node.js (and NPM which comes with it) is the essentials of everything below.</p>
+
+<h3 id="toc_9">HTML</h3>
+
+<h3 id="toc_10">JavaScript</h3>
+
+<p>I use:</p>
+
+<ul>
+<li><p><a href="https://github.com/jshint/jshint">jshint</a> &amp;
+<a href="https://github.com/eslint/eslint">eshint</a> &amp;
+<a href="https://github.com/douglascrockford/JSLint.git">jslint</a> for <a href="https://github.com/scrooloose/syntastic">syntastic</a>
+checkers.</p></li>
+
+<li><p><a href="https://github.com/beautify-web/js-beautify">js-beautify</a> to prettify
+JavaScript code.</p></li>
+</ul>
+
+<pre><code class="language-bash">npm intall jshint -g
+npm install jslint -g
+npm install eslint -g
+npm install js-beautify -g
+</code></pre>
+
+<h3 id="toc_11">CSS</h3>
+
+<p>I use:</p>
+
+<ul>
+<li><p><a href="https://github.com/CSSLint/csslint">csslint</a> for <a href="https://github.com/scrooloose/syntastic">syntastic</a> checkers.</p></li>
+
+<li><p><a href="https://github.com/csscomb/csscomb.js">csscomb.js</a> for CSS code prettifier.</p></li>
+</ul>
+
+<pre><code class="language-bash">npm intall csslint -g
+npm install csscomb -g
+</code></pre>
+
+<h2 id="toc_12">Python Scripting</h2>
+
+<h2 id="toc_13">Lua Scripting</h2>
+
+<h2 id="toc_14">Go Scripting</h2>
+
+<h2 id="toc_15">C/C++ Coding</h2>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <ul>
+<li>body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <ul>
+<li>when assign a function to a event property, appending <code>()</code> to the function name.</li>
+</ul>
+
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
+</code></pre>
+
+<ul>
+<li>appending <code>()</code> to a property name.</li>
+</ul>
+
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/setup_my_zsh_environment/">
+            SETUP MY ZSH ENVIRONMENT
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Nov 5, 2014</span>
+
+        
+
+<p>Steps of setting up zsh environment on my systems (Arch Linux, MacOS,
+Windows/Cygwin).</p>
+
+<h2 id="toc_0">the <code>z</code> command</h2>
+
+<h2 id="toc_1">the <code>fzf</code> command</h2>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/setup_my_aweseome_wm_environment/">
+            SETUP MY AWESOME WM ENVIRONMENT
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Nov 5, 2014</span>
+
+        
+
+<p>Steps of setting up the Awesome window manager on my Arch Linux.</p>
+
+<h1 id="toc_0">Installing Awesome Packages</h1>
+
+<p>The awesome package is in the official repository of Arch Linux.</p>
+
+<p>Better install Xephyr for testing cases.</p>
+
+<pre><code class="language-bash">sudo pacman -S awesome xorg-xephyr
+</code></pre>
+
+<h1 id="toc_1">Pulling Down My Awesome-Config Repository</h1>
+
+<p>The pulled down repo must be put in ~/.config/awesome, where awesome will
+correctly load the configuration resources.</p>
+
+<pre><code class="language-bash">mkdir ~/.config # if .config does not exist before.
+cd ~/.config
+git clone https://github.com/Mudox/awesome-config.git awesome
+cd awesome
+git submodule update --init --recursive
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/setup_my_cygwin_environment/">
+            SETUP MY CYGWIN ENVIRONMENT
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Nov 5, 2014</span>
+
+        
+
+<p>Cygwin &ndash; bring *nix command line user experence (paritially though) and
+efficiency onto Windows.
+Below is the steps of setting up the Cygwin environment on my Windows.</p>
+
+<h1 id="toc_0">Why Cygwin over other tools.</h1>
+
+<h1 id="toc_1">Setup Cygwin</h1>
+
+<h2 id="toc_2">Cygwin path remapping</h2>
+
+<h2 id="toc_3">mintty setting</h2>
+
+<h2 id="toc_4">color</h2>
+
+<h3 id="toc_5">mintty color palette</h3>
+
+<h3 id="toc_6">ls_color</h3>
+
+<h3 id="toc_7">colorful manpage</h3>
+
+<h3 id="toc_8">colout</h3>
+
+<h2 id="toc_9">encoding</h2>
+
+<h2 id="toc_10">other settings</h2>
+
+<h2 id="toc_11">Shell environment setup</h2>
+
+<h2 id="toc_12">Cygwin package manager</h2>
+
+<h1 id="toc_13">Cygwin Using Tips</h1>
+
+<h2 id="toc_14">Working with gVim of Windows</h2>
+
+<p>Most of the time, I prefer gui version of Vim than terminal version for it
+being free of various shackles of terminal emulator, such as key confliction,
+color presentation limit, UI rendering efficiency limit, etc.</p>
+
+<p>First make sure a gVim instance already exists outside of Cygwin.</p>
+
+<p>When I need to handle off some files to gVim for Windows, I can use <code>--remote</code>
+(type <code>:h clientserver</code> in gVim for details) command families, for example:</p>
+
+<pre><code class="language-bash">alias gvim='/c/Program Files/Vim/vim74/gvim.exe'
+
+gvim --remote-tab /path/of/file
+</code></pre>
+
+<p>it will open the file in new tab of an already running gVim instance.</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/post/about_my_site/">
+            ABOUT MY SITE
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Nov 5, 2014</span>
+
+        
+
+<h1 id="toc_0">Acknowledgements</h1>
+
+<h2 id="toc_1"><a href="http://gohugo.io/">Hugo</a></h2>
+
+<blockquote>
+<p>A Fast and Flexible Static Site Generator built with love by spf13 in GoLang.</p>
+</blockquote>
+
+<h2 id="toc_2"><a href="https://github.com/spf13/hyde.git">Hyde</a></h2>
+
+<blockquote>
+<p>Hyde is a brazen two-column hugo theme based on the Jekyll theme of the same
+name. It pairs a prominent sidebar with uncomplicated content.</p>
+</blockquote>
+
+<h2 id="toc_3"><a href="http://jquery.com/">JQuery</a></h2>
+
+<blockquote>
+<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things
+like HTML document traversal and manipulation, event handling, animation, and
+Ajax much simpler with an easy-to-use API that works across a multitude of
+browsers. With a combination of versatility and extensibility, jQuery has
+changed the way that millions of people write JavaScript.</p>
+</blockquote>
+
+<h2 id="toc_4"><a href="https://github.com/isagalaev/highlight.js.git">Highlight.js</a></h2>
+
+<blockquote>
+<p>Highlight.js is a syntax highlighter written in JavaScript. It works in the
+browser as well as on the server. It works with pretty much any markup,
+doesn&rsquo;t depend on any framework and has automatic language detection.</p>
+</blockquote>
+
+<h2 id="toc_5"><a href="http://www.nodejs.org/">Node.js</a></h2>
+
+<blockquote>
+<p>Node.js® is a platform built on Chrome&rsquo;s JavaScript runtime for easily
+building fast, scalable network applications. Node.js uses an event-driven,
+non-blocking I/O model that makes it lightweight and efficient, perfect for
+data-intensive real-time applications that run across distributed devices.</p>
+</blockquote>
+
+<h2 id="toc_6"><a href="http://bower.io/">Bower</a></h2>
+
+<blockquote>
+<p>A package manager for the web.</p>
+
+<p>Bower works by fetching and installing packages from all over, taking care of
+hunting, finding, downloading, and saving the stuff you’re looking for. Bower
+keeps track of these packages in a manifest file, bower.json. How you use
+packages is up to you. Bower provides hooks to facilitate using packages in
+your tools and workflows.</p>
+</blockquote>
+
+<h2 id="toc_7"><a href="http://www.goat1000.com/tagcanvas.php">TagCanvas</a></h2>
+
+<blockquote>
+<p>TagCanvas is a Javascript class which will draw and animate a HTML5 canvas
+based tag cloud.</p>
+</blockquote>
+
+<h2 id="toc_8"><a href="https://github.com/VincentGarreau/particles.js">particles.js</a></h2>
+
+<blockquote>
+<p>A lightweight JavaScript library for creating particles.</p>
+</blockquote>
+
+<h2 id="toc_9"><a href="http://www.vim.org">Vim</a></h2>
+
+<blockquote>
+<p>the editor.</p>
+</blockquote>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/my_vim_customization_policy/">
+            MY VIM CUSTOMIZATION POLICY
+          </a>
+        </h1>
+
+        <span class="post-date">Thu, Oct 30, 2014</span>
+
+        
+
+<h1 id="toc_0">About Mapping</h1>
+
+<h2 id="toc_1">Good prefixes for normal mode mappings</h2>
+
+<h3 id="toc_2">The comma <code>,</code></h3>
+
+<p>use 2 ~ 3 suffix characters, then we can get more candidates key combinations
+for mapping.</p>
+
+<h3 id="toc_3">The backslash <code>\</code></h3>
+
+<p>different keyboard layouts have different locations for <code>\</code>, so it should be
+used less frequently than <code>,</code>.</p>
+
+<h3 id="toc_4">The space <code>&lt;Space&gt;</code></h3>
+
+<p>the <code>&lt;Space&gt;</code> is the best prefix for normal mappings I&rsquo;ve ever found. It spans
+a long distance at the bottom of the keyboard, which makes it&rsquo;s very easy and
+comfortable to touch.</p>
+
+<p>currrently, I only assigned it to</p>
+
+<ul>
+<li><p><a href="https://github.com/kien/ctrlp.vim.git">kien&rsquo;s &lsquo;CtrlP&rsquo;</a> family mappings</p></li>
+
+<li><p><a href="https://github.com/Mudox/vim-omnimenu">my &lsquo;vim-omnimenu&rsquo;</a> mappings</p></li>
+
+<li><p><a href="https://github.com/Mudox/vim-chameleon">my &lsquo;vim-chameleon&rsquo;</a> mappings</p></li>
+</ul>
+
+<h3 id="toc_5">The enter <code>&lt;Cr&gt;</code> or <code>&lt;Enter&gt;</code></h3>
+
+<p>since many vim itself and many plugin use <Cr>, so I should use it sparely.
+when a single click of <Cr> is needed, you will feel a noticeable response lag.</p>
+
+<h2 id="toc_6">Mapping toggling commands</h2>
+
+<ol>
+<li><p>use <code>co</code> prefix, which is derived from <a href="https://github.com/tpope/vim-unimpaired.git">tpope&rsquo;s &lsquo;unimpaired&rsquo;</a> plugin.</p></li>
+
+<li><p>use <code>,\*&lt;Space&gt;</code> pattern, which is derived from <a href="https://github.com/scrooloose/nerdcommenter.git">scrooloose&rsquo;s &lsquo;NERD commenter&rsquo;</a> plugin.</p></li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/swift_oo/">
+            SWIFT OJECT-ORIENTED FEATURE
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Oct 29, 2014</span>
+
+        
+
+<h1 id="toc_0">Class Like Constructs In Swift</h1>
+
+<p>In Swift, <code>enum</code>, <code>struct</code>, <code>class</code> all can:</p>
+
+<ol>
+<li><p>have <strong>properties</strong> to keep states.</p></li>
+
+<li><p>have <strong>methods</strong> to perform actions.</p></li>
+
+<li><p>define <strong>subscript</strong> operators to let user access their properties through
+subscript syntax.</p></li>
+
+<li><p>define <strong>initializers</strong> to have a reasonable initial state.</p></li>
+
+<li><p>be <strong>extended</strong> to have additional behaviors beyond their default implementations.</p></li>
+
+<li><p>conform to <strong>protocols</strong>.</p></li>
+</ol>
+
+<p>Only <code>class</code> can:</p>
+
+<ol>
+<li><p>have <strong>inheritance</strong> capability.</p></li>
+
+<li><p>have <strong>deinitializer</strong>.</p></li>
+
+<li><p>be <strong>referenced</strong> by mutiple variable or constants. the <code>struct</code> and <code>enum</code>
+are both value types.</p></li>
+</ol>
+
+<h1 id="toc_1">Properties</h1>
+
+<h2 id="toc_2">stored properties</h2>
+
+<h3 id="toc_3">lazy properties</h3>
+
+<h2 id="toc_4">computed properties</h2>
+
+<h3 id="toc_5">shorthand setter syntax</h3>
+
+<h3 id="toc_6">shorthand read-only getter syntax</h3>
+
+<h1 id="toc_7">Initializers</h1>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/javascript_type_conversions/">
+            JAVASCRIPT TYPE CONVERSIONS
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, Oct 28, 2014</span>
+
+        
+
+<h1 id="toc_0">Sepcial Value Or Types In JavaScript</h1>
+
+<h2 id="toc_1">The <code>undefined</code></h2>
+
+<p>The <code>undefined</code> is the only value of <code>undefined</code>, represents unknown value of any
+other types, including primitive types &amp; object.</p>
+
+<pre><code class="language-js">// play with 'undefined'
+typeof undefiend                  /* undfeined        */
+undefined == undefined            /* true             */
+undefined == null                 /* true             */
+undefined !== null                /* true             */
+Boolean(undefined)                /* false            */
+Number(undefined)                 /* NaN              */
+</code></pre>
+
+<h2 id="toc_2">The <code>null</code></h2>
+
+<p>The <code>null</code>, by standards, should be the only value of <code>null</code> type, but in certain
+browser (e.g. firfox, chrome), it is of type <code>object</code>. <code>null</code> is used to
+represent unknown value of an object.</p>
+
+<p>It is equal to itself and it is equal to <code>undefined</code>.</p>
+
+<pre><code class="language-js">// play with 'null'
+typeof null                       /* object           */
+null == null                      /* true             */
+null == undefined                 /* true             */
+null !== undefined                /* true             */
+Boolean(null)                     /* false            */
+Number(null)                      /* 0                */
+</code></pre>
+
+<h2 id="toc_3">The <code>NaN</code></h2>
+
+<p>The <code>NaN</code> is a <code>Number</code> that can not be represented as a number.</p>
+
+<p>It dose <strong>NOT</strong> equal to itself, hence JavaScript provide a built-in function
+<code>isNaN()</code> to test if a value is a NaN.</p>
+
+<pre><code class="language-javascri">// play with 'NaN'
+typeof NaN                        /* number           */
+NaN == NaN                        /* false            */
+NaN == undefined                  /* false            */
+NaN == null                       /* false            */
+Boolean(NaN)                      /* false            */
+Number(NaN)                       /* NaN              */
+isNaN(NaN)                        /* true             */
+NaN == 0/0                        /* true             */
+isNaN(0/0)                        /* true             */
+</code></pre>
+
+<h1 id="toc_4">Implicit Type Conversions</h1>
+
+<h2 id="toc_5">When other types need to be converted into a number</h2>
+
+<p>When different types are mixed in a relational operation (i.e <code>== != &lt; &lt;= &gt;
+&gt;=</code>) except the <code>===</code> operator, or an arithmetic operation, except
+the <code>+</code> operator, they would be converted into numbers first.</p>
+
+<h3 id="toc_6">For Boolean:</h3>
+
+<ul>
+<li><p>true would be converted to 1</p></li>
+
+<li><p>false would be converted to 0</p></li>
+</ul>
+
+<h3 id="toc_7">For String:</h3>
+
+<p>It is converted literally, i.e.</p>
+
+<pre><code class="language-js">'2014' &lt; 2 /* 2014 &lt; 2 yields false */
+'3.1415' == 3.1415 /* 3.1415 == 3.1415 yields true */
+</code></pre>
+
+<p>There is one exception: a <code>emtpy</code> string would be converted to 0.</p>
+
+<pre><code class="language-js">var emptyText = '';
+
+/* 'emptyText' here, converetd to 0, is compared to true which is converted to 1,
+and then '!' negates the results to true */
+if (!emptyText) {
+  console.log('empty text is not true!')
+}
+</code></pre>
+
+<h2 id="toc_8">When other types need to be converted into a string</h2>
+
+<h3 id="toc_9">The special <code>+</code> operator</h3>
+
+<p>In JavaScript, the <code>+</code> is first a string concatenation operator, then a
+arithmetic addition operator.</p>
+
+<p>When one of <code>+</code>&rsquo;s operands is a string, JavaScript will try to convert the
+other operand into a string, and perform a concatenation operation.</p>
+
+<h3 id="toc_10">For Boolean:</h3>
+
+<ul>
+<li><p><code>true</code> would be conveted bo &ldquo;true&rdquo;</p></li>
+
+<li><p><code>false</code> would be conveted to &ldquo;false&rdquo;</p></li>
+</ul>
+
+<h3 id="toc_11">For <code>null</code>, <code>undefined</code> &amp; <code>NaN</code></h3>
+
+<p>they all be converted literally.</p>
+
+<h2 id="toc_12">When other types need to be converted into a boolean value</h2>
+
+<p>from 《Head Fist JavaScript Programming》:</p>
+
+<blockquote>
+<p>the secret to learning what is truthy and what is falsey is to learn what’s
+falsey, and then consider everything else truthy.
+concentrate on  knowing what is falsey, and then everything else you can
+consider truthy.</p>
+</blockquote>
+
+<p>it is a golden rule that also applys in many other programming language
+learning situations.</p>
+
+<p>As to what value should be considered as falsey, different language has
+different policy. There are <strong>5</strong> falsey value in JavaScript:</p>
+
+<ol>
+<li><p><code>undefined</code></p></li>
+
+<li><p><code>null</code></p></li>
+
+<li><p><code>NaN</code></p></li>
+
+<li><p><code>&quot;&quot;</code></p></li>
+
+<li><p><code>0</code></p></li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/web_page_layouts/">
+            WEB PAGE LAYOUTS
+          </a>
+        </h1>
+
+        <span class="post-date">Sun, Oct 26, 2014</span>
+
+        
+
+<h1 id="toc_0">Liquid Layout</h1>
+
+<p>This is the browser&rsquo;s default layout behavior, if you did not add any CSS to
+style a page. The block elements, like liquid, just fill as much space as they
+can in the pages.</p>
+
+<h1 id="toc_1">Frozen Layout</h1>
+
+<p>By using the CSS attribute combination of <code>float</code> and <code>width</code>, we can put a
+<strong>containing</strong> block (i.e. <code>&lt;seciton&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;div&gt;</code>) to float on to
+left-most or right-most side forming a <strong>column</strong>, and let the  remaining
+content to flow around the fixed-width floating column, forming the other
+column.</p>
+
+<p>Use CSS attribute <code>clear: [left | right]</code> to let a block to layout fully
+underneath a floating elements.</p>
+
+<h1 id="toc_2">Jello Layout</h1>
+
+<p>On the basis of frozen layout, we can use containing fixed-width block to wrap
+all columns (floating or flowing), and by using <code>margin-left: auto;
+margin-right: auto;</code> CSS style, to center the contained columns in the page.</p>
+
+<h1 id="toc_3">Absolute Position</h1>
+
+<p>By using the CSS attribute combination of <code>position: [absolute | fixed]</code> and
+<code>left | right | top | bottom: ...</code>, we can take the column fully out of layout
+flow, and fix their position relative to the page (<code>position: absolute</code>), or to
+the viewport (<code>position: fixed</code>).</p>
+
+<h1 id="toc_4">Table Display</h1>
+
+<p>Use CSS attribute <code>display: [table | table-row | table-cell]</code> to organize HTML
+elements into an invisible table.</p>
+
+<p>Most of the time, <code>vertical-align: top</code> will help you to get what you want to see.</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/swift_features/">
+            SWIFT FEATURES
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, Oct 14, 2014</span>
+
+        
+
+<h1 id="toc_0">Powerful <code>switch</code> Statement</h1>
+
+<ol>
+<li><p>no implicitly fallthrough</p></li>
+
+<li><p>match multiple conditions in one case statement.</p></li>
+
+<li><p>match against range.</p></li>
+
+<li><p>match against tuple.</p></li>
+
+<li><p>value binding.</p></li>
+
+<li><p><code>where</code> clause can provide more conditions.</p></li>
+
+<li><p><code>break</code> &amp; <code>continue</code> can <em>jump</em> further (to some label)</p></li>
+</ol>
+
+<pre><code class="language-swift">var aPoint = (x: 2, y: -1)
+// labeled `swtich`
+// NOTE: only loop statements and 'switch' statement can labeled.
+theSwitch: switch aPoint {
+// against tuple
+case (0, 0):
+  println(&quot;origin point&quot;)
+
+// against multiple conditions separated by comma
+case (1, 1), (2, 2):
+  println(&quot;(1, 1) or (2, 2)&quot;)
+
+// '_' means 'any value is ok'
+case (_, 0):
+  // the `break` here is just like the `pass` in python, acting as a
+  // 'placeholder statement', nullifing this case branch.
+  break
+
+case (0, _):
+  println(&quot;on the Y-axis&quot;)
+
+// against range
+case (-2...2, -2...2):
+  println(&quot;on or in the 2x2 box&quot;)
+
+// value binding
+case (let x, -1):
+  println(&quot;on the horizontal line y = -1, with a x value: \(x)&quot;)
+
+// where clause
+// NOTE: `let` can be replaced with `var` if you need to change the bound
+// value afterwards.
+case (0, var y) where y &gt;= 0:
+  y++    // mutable
+  println(&quot;on the 1st or 2nd quadrant&quot;)
+
+// value binding as a whole, which is an required exhaustive match
+case let (x, y):
+  theLoop: for i in 1..&lt;100 {
+    switch i {
+      case let x where (x &amp; 1) == 1 // a odd number
+        break theSwitch     // jump further
+      default
+        continue theLoop    // jump further
+    }
+  }
+}
+</code></pre>
+
+<h1 id="toc_1">Closure &ndash; Too Much Sugar!</h1>
+
+<p>The closure in Swift language adopts many syntactic sugar.</p>
+
+<p>The basic full syntax of a closure is as follows:</p>
+
+<pre><code class="language-swift">{
+  (parameters) -&gt; retrunType in
+  ... statements ...
+}
+</code></pre>
+
+<p>Here is an example that uses the array&rsquo;s method <code>sorted</code> to sort an array of word.</p>
+
+<pre><code class="language-swift">var words = [ &quot;Dolor&quot;, &quot;eum&quot;, &quot;id&quot;, &quot;suscipit&quot;, &quot;necessitatibus&quot;, &quot;quod&quot;, &quot;hic&quot;, &quot;dignissimos&quot; ]
+ 
+let sortedWords = words.sorted({
+  (lhs: String, rhs: String) -&gt; Bool in
+  return lhs &lt; rhs
+})
+</code></pre>
+
+<h2 id="toc_2">Sugar #0 &ndash; trailing closure</h2>
+
+<p>Often, closure parameter is placed last in parameter list. Swift thus provides
+<strong>trailing closure</strong>, which means your can write the inline closure just
+outside the parameter list, following the closing <code>)</code>.</p>
+
+<p>Futhermore, if the closure is the only parameter, then the parenthesis can be
+omitted.</p>
+
+<pre><code class="language-swift">// trailing closure
+let sortedWords = words.sorted/*()*/ {
+  (lhs: String, rhs: String) -&gt; Bool in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_3">Sugar #1 &ndash; return type inference</h2>
+
+<p><strong>return type</strong> can be inferred by swift compiler.</p>
+
+<pre><code class="language-swift">// omit return type
+let sortedWords = words.sorted {
+  (lhs: String, rhs: String) /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_4">Sugar #2 &ndash; parameter type inference</h2>
+
+<p><strong>parameter types</strong> can be inferred by swift compile as well.</p>
+
+<pre><code class="language-swift">// omit parameter types
+let sortedWords = words.sorted {
+  (lhs/*: String*/, rhs/*: String*/) /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_5">Sugar #3 &ndash; parenthesis-less</h2>
+
+<p>since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
+
+<pre><code class="language-swift">// omit parenthesis
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h2 id="toc_6">Sugar #4 &ndash; return statemetn inference</h2>
+
+<p>If the closure has one statement, then the <strong>return</strong> statement can also be
+inferred.</p>
+
+<pre><code class="language-swift">// omit 'return'
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
+  /*return*/ lhs &lt; rhs
+}
+
+//then we got:
+let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
+</code></pre>
+
+<h2 id="toc_7">Sugar #5 &ndash; shorthand parameter name</h2>
+
+<p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
+the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
+returType in</code> statment can be completely omitted</p>
+
+<pre><code class="language-swift">// use shorthand parameters, omit the whole 'in' statement
+let sortedWords = words.sorted {
+  /*(lhs: String, rhs: String) -&gt; Bool in*/
+  /*return*/ $0 &lt; $1
+}
+
+// then we got:
+let sortedWords = words.sorted { $0 &lt; $1 }
+</code></pre>
+
+<h2 id="toc_8">Sugar #6 &ndash; operater as a closure</h2>
+
+<p>In swift, <strong>operator</strong> is a function, which in turn is a special closure, so&hellip;</p>
+
+<pre><code class="language-swift">// comes operator!
+let sortedWords = words.sorted(&lt;)
+</code></pre>
+
+<h1 id="toc_9">Fully-fledged Enumeration</h1>
+
+<p>In Swift, enumeration is fully-fledged type. You can asssociate different data
+with each enumeration memeber, or define a raw type for enumeration.</p>
+
+<h2 id="toc_10">Flexible definition syntax</h2>
+
+<p>you can define more than one member a line.</p>
+
+<h2 id="toc_11">Type inference</h2>
+
+<h2 id="toc_12">Associated Value</h2>
+
+<h2 id="toc_13">Raw type</h2>
+
+<h2 id="toc_14">Struct like enumeration</h2>
+
+<p>enumeration in Swift can have properties &amp; methods.</p>
+
+<p>enumeration, like struct in Swift, is value type (while class is reference
+acounted type).</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/post/about/">
+            ABOUT ME
+          </a>
+        </h1>
+
+        <span class="post-date">Thu, Oct 2, 2014</span>
+
+        <p>Hi, I&rsquo;m Mudox.</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/git/">
+            GIT MISC
+          </a>
+        </h1>
+
+        <span class="post-date">Thu, Oct 2, 2014</span>
+
+        
+
+<h1 id="toc_0">Alias</h1>
+
+<ul>
+<li><p>working tree, working directory</p></li>
+
+<li><p>index, staging area, cache, staged snapshot</p></li>
+
+<li><p>commit[ted] history, commit[ted] snapshot</p></li>
+</ul>
+
+<h1 id="toc_1">The <code>add</code> &amp; <code>rm</code> &amp; <code>reset</code> &amp; <code>commit</code> &amp; <code>checkout</code> Sub-commands.</h1>
+
+<ul>
+<li><p>between the <em>committed history</em> &amp; <em>staging area</em></p>
+
+<ul>
+<li><p><code>commit</code> submit changes from <em>staging area</em> to <em>committed history</em></p></li>
+
+<li><p><code>reset</code> revert changes from <em>committed history</em> back to <em>staging area</em></p></li>
+</ul></li>
+
+<li><p>between the <em>staging area</em> &amp; <em>working tree</em>.</p>
+
+<ul>
+<li><p><code>add</code> submit changes from <em>working tree</em> to <em>staging area</em>, preparing
+for committing.</p></li>
+
+<li><p><code>rm</code> remove file(s) from <em>stageing area</em>, so they become <em>untracked</em>.</p></li>
+</ul></li>
+
+<li><p><code>checkout</code> restore changes from staging area or a specific commit of committed
+history to <em>working directory</em>.</p></li>
+
+<li><p><code>reset</code></p>
+
+<ul>
+<li><p><strong>unstages</strong> changes in staging area.
+v
+    git reset <paths></p></li>
+
+<li><p>or, if you ask for more, <strong>uncommits</strong> changes in history.</p>
+
+<pre><code>git reset &lt;commit-ish&gt;
+</code></pre></li>
+</ul></li>
+
+<li><p><code>rm</code></p>
+
+<ul>
+<li><p><strong>untracks</strong> file(s) previously tracked in staging area.</p>
+
+<pre><code>git rm --cache &lt;paths&gt;
+</code></pre></li>
+
+<li><p>or, if you ask for more, <strong>removes</strong> file(s) in the work directory.</p>
+
+<pre><code>git rm &lt;paths&gt;
+</code></pre></li>
+</ul></li>
+
+<li><p><code>git reset</code> vs <code>git checkout</code></p>
+
+<ul>
+<li><p><code>git reset &lt;commit-ish&gt; &lt;paths&gt;</code> only update <em>staging area</em>.</p></li>
+
+<li><p><code>git checkout &lt;paths&gt;</code> fetch <code>&lt;paths&gt;</code> from <em>staging area</em> to working
+direcotry.</p></li>
+
+<li><p><code>git checkout &lt;commit-ish&gt;</code> fetch <code>&lt;paths&gt;</code> from <em>history</em> to both
+<em>index</em> &amp; <em>working direcotry</em>.</p></li>
+</ul></li>
+</ul>
+
+<h1 id="toc_2">The <code>git Rebase</code> Sub-command</h1>
+
+<h2 id="toc_3">Advantage of <code>rebase</code>:</h2>
+
+<ul>
+<li><p>no additional merge commit</p></li>
+
+<li><p>linear commit history</p></li>
+</ul>
+
+<h2 id="toc_4">Disadvantage of <code>rebase</code>:</h2>
+
+<ul>
+<li><p>safety</p></li>
+
+<li><p>tracability: the evidences of merging are wiped away.</p></li>
+</ul>
+
+<h2 id="toc_5">Golden rule of <code>git rebase</code>:</h2>
+
+<p><strong>never</strong> use it on <strong>public</strong> branches.</p>
+
+<h2 id="toc_6">When to use <code>rebase</code></h2>
+
+<ul>
+<li><p>Local cleanup</p></li>
+
+<li><p>Incorporating upstream changes into a feature branch</p></li>
+
+<li><p>Integrating a approved feature</p></li>
+</ul>
+
+<h1 id="toc_7">The <code>reset</code>, <code>checkout</code> And <code>revert</code> Sub-commands</h1>
+
+<blockquote>
+<p>The parameters that you pass to <code>git reset</code> and <code>git checkout</code> determine
+their scope. When you don’t include a <strong>&lt;file path&gt;</strong> as a parameter, they
+operate on whole commits.  Note that git revert has no file-level counterpart</p>
+</blockquote>
+
+<p>from <a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations">atlassian&rsquo;s git tutorials</a></p>
+
+<h2 id="toc_8">Commit level operations</h2>
+
+<p><code>git reset --[soft | mixed | hard] &lt;commit-ish&gt;</code> <strong>move</strong> branch tips backwards
+or even forwards, while affecting <em>staging area</em> &amp; <em>working direcotry</em> according to
+options it is given.</p>
+
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>history</th>
+<th>staging area</th>
+<th>working directory</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>--soft</code></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>--mixed</code></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>--hard</code></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>git checkout &lt;commit-ish&gt;</code> dose not move tips around.</p>
+
+<p><code>git revert</code> undo commits by adding a new commit. it is a safe (reversible) way
+to undo commits, while <code>git reset</code> is dangerous (irreversible) way to undo
+commits.</p>
+
+<h2 id="toc_9">File level operations</h2>
+
+<pre><code>git [reset|checkout] &lt;commit-ish&gt; &lt;pathspec&gt;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>history</th>
+<th>staging area</th>
+<th>working directory</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>reset</code></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+
+<tr>
+<td><code>checkout</code></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="toc_10">Summary</h1>
+
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>commit level</th>
+<th>file level</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>reset</code></td>
+<td>discard commits in private branches or throw away uncommited changes</td>
+<td>unstage a file</td>
+</tr>
+
+<tr>
+<td><code>checkout</code></td>
+<td>swtich between branches or inspect old snapshots</td>
+<td>discard changes in the working directory</td>
+</tr>
+
+<tr>
+<td><code>revert</code></td>
+<td>undo commits in public branches</td>
+<td><strong>N/A</strong></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/compile_macvim_and_ycm_on_osx/">
+            COMPILE MACVIM &amp; YCM ON OSX
+          </a>
+        </h1>
+
+        <span class="post-date">Mon, Sep 29, 2014</span>
+
+        
+
+<h1 id="toc_0">Preparation</h1>
+
+<ul>
+<li><p>disable pyenv</p>
+
+<ol>
+<li><p>run <code>brew unlink pyenv</code> (<code>brew link pyenv</code> after compilation)</p></li>
+
+<li><p>restart shell (e.g. itemr2)</p></li>
+</ol></li>
+
+<li><p>reset develop directory of Xcode</p>
+
+<ol>
+<li><code>sudo xcode-select -r</code></li>
+</ol></li>
+</ul>
+
+<h1 id="toc_1">Compile YCM</h1>
+
+<pre><code class="language-bash">cd /to/ycm/root/directory/
+    ./install.sh --clang-completer --system-libclang
+</code></pre>
+
+<h1 id="toc_2">Compile MacVim</h1>
+
+<pre><code class="language-bash">make distclean
+./configure               \
+    --with-features=huge  \
+    -with-macarchs=x86_64 \
+    --enable-perlinterp   \
+    --enable-rubyinterp   \
+    --enable-pythoninterp \
+    --enable-luainterp    \
+    --enable-perlinterp   \
+    --enable-cscope       \
+    --with-lua-prefix=/usr/local/Cellar/lua/&lt;current_version&gt; &gt;/tmp/log
+make
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/memo/vim_chameleon_startup_menu/">
+            VIM CHAMELEON STARTUP MENU
+          </a>
+        </h1>
+
+        <span class="post-date">Mon, Sep 29, 2014</span>
+
+        
+
+<h1 id="toc_0">On Windows:</h1>
+
+<ol>
+<li><p>create a shortcut from gVim.exe.</p></li>
+
+<li><p>right click on the shorcut to open it&rsquo;s property dialog.</p></li>
+
+<li><p>append the following lines (<em>concatenated into one line</em>) to the <strong>target</strong> field.</p></li>
+</ol>
+
+<pre><code class="language-bash">--cmd &quot;let g:mdx_chameleon_cur_mode = 'startup'&quot;
+--cmd &quot;set lines=9 columns=32&quot;
+--cmd &quot;winpos 475 320&quot;
+-c &quot;let &amp;titlestring='Happy Vimming!'&quot;
+-c &quot;ChamStartup&quot;
+</code></pre>
+
+<ol>
+<li>optionally, put this shortcut under paths listed in system&rsquo;s $PATH environment variable.</li>
+</ol>
+
+<h1 id="toc_1">On Mac OSX:</h1>
+
+<p>the <code>MacVim.app</code> does not accepts arguemnts above, we should use:</p>
+
+<pre><code class="language-bash">/Applications/MacVim.app/Contents/MacOS/Vim -g
+</code></pre>
+
+<p>instead.</p>
+
+<pre><code class="language-bash">/Applications/MacVim.app/Contents/MacOS/Vim -g            \
+        --cmd &quot;let g:mdx_chameleon_cur_mode = 'startup'&quot;  \
+        --cmd &quot;set lines=9 columns=22&quot;                    \
+        --cmd &quot;winpos 880 370&quot;                            \
+        -c &quot;let &amp;titlestring='Happy Vimming!'&quot;            \
+        -c &quot;let &amp;guifont = 'Monaco for Powerline:h16'&quot;    \
+        -c &quot;ChamStartup&quot;
+</code></pre>
+
+<h1 id="toc_2">On Linux:</h1>
+
+<pre><code class="language-bash">
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/git_flow/">
+            GIT FLOW
+          </a>
+        </h1>
+
+        <span class="post-date">Sun, Sep 28, 2014</span>
+
+        
+
+<h1 id="toc_0">1. Main Branches</h1>
+
+<ul>
+<li><p>the <code>main</code> branch</p>
+
+<p>keeps the official release history (usually with version nubmer tags
+attached).</p>
+
+<p>i.e. every commits in master is a new release. all branches merged back
+into master must have a new incremental version number.</p></li>
+
+<li><p>the <code>develop</code> branch</p>
+
+<p>serves as an integration branch for features.</p>
+
+<p>nitghly build built from it.</p></li>
+</ul>
+
+<h1 id="toc_1">2. Supporting Branches</h1>
+
+<h2 id="toc_2">2.1 feature (or topic) branches</h2>
+
+<p>branch off from: <code>develop</code> branch</p>
+
+<p>merge into: <code>develop</code> branch</p>
+
+<p>naming convention: any name except <code>master</code>, <code>develop</code>, <code>relase[/-]*</code>,
+<code>hotfix[/-]*</code></p>
+
+<pre><code class="language-bash"># Branch A New Feature Branch Off From Develop Branch
+git checkout -b some-feature develop
+# Add Feature Commits To Branch Some-feature ...
+# Merge Feature Branch Back Into Develop Branch.
+git checkout develop
+git merge --no-ff some-feature
+git push origin develop
+</code></pre>
+
+<h2 id="toc_3">2.2 release branches</h2>
+
+<p>branch off from: <code>develop</code> branch</p>
+
+<p>merge into: <code>develop</code> &amp; <code>master</code> branch</p>
+
+<p>naming convention: <code>release/*</code> or <code>release-*</code></p>
+
+<pre><code class="language-bash"># Branch A New Release Branch Off From Develop Branch
+git checkout -b release-&lt;version number&gt; develop
+# Bummp Up Version In Related Fiels.
+git commit -m 'Bumped version number to &lt;version number&gt;'
+# Roll Out Release, Minor Bug Fixes
+# Merge The Release Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff release-&lt;version number&gt;
+git tag -a &lt;version number&gt;
+# Merge The Release Back Into Develop
+git checkout develop
+git merge --no-ff release-&lt;version number&gt;
+</code></pre>
+
+<h2 id="toc_4">2.3 hotfix (or maintenance) branches</h2>
+
+<p>branch off from: <code>master</code> branch
+merge into: <code>develop</code> &amp; <code>master</code> branch if no active release branch existed
+currrently.
+naming convention: <code>hotfix/*</code> or <code>hotfix-*</code></p>
+
+<pre><code class="language-bash"># Branch A New Hotfix Branch Off From Master Branch
+git checkout -b hotfix-&lt;version number&gt; master
+# Bummp Up Version In Related Fiels, Becuase It Will Finnaly Be Merged Back
+# Into Master Branch.
+git commit -m 'Bumped version number to &lt;version number&gt;'
+# Roll Out Hotfix, Minor Bug Fixes
+# Merge The Hotfix Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff hotfix-&lt;version number&gt;
+git tag -a &lt;version number&gt;
+# Merge The Hotfix Back Into Develop
+git checkout develop
+git merge --no-ff hotfix-&lt;version number&gt;
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/go_stdlib_template/">
+            GO&#39;S TEMPLATE LIBRARY
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Sep 26, 2014</span>
+
+        
+
+<p>I come across this library when I started to use <a href="http://gohugo.io">Hugo</a>,
+which says:</p>
+
+<blockquote>
+<p>It is an extremely <strong>lightweight</strong> engine that provides a very small amount of
+logic. In our experience it is <strong>just the right amount of logic</strong> to be able to
+create a good static website.</p>
+</blockquote>
+
+<h1 id="toc_0">3 Steps Using The Template Object</h1>
+
+<ol>
+<li><p><code>New</code> an template object.</p></li>
+
+<li><p><code>Parse</code> template text.</p></li>
+
+<li><p><code>Execute</code> (apply) the template to data structure.</p></li>
+</ol>
+
+<h1 id="toc_1">6 Action Families</h1>
+
+<p><strong>comment</strong></p>
+
+<pre><code class="language-go">{{/* comment here, line spanning allowed */}}
+</code></pre>
+
+<p><strong>pipeline</strong> like variable expansion (substitution)</p>
+
+<pre><code class="language-go">{{pipeline}}
+</code></pre>
+
+<p><strong>if</strong> family for branching logic</p>
+
+<pre><code class="language-go">{{if _pipline_}} T1 {{end}}
+{{if _pipline_}} T1 {{else}} T0 {{end}}
+{{if _pipline_}} T1 {{else if _pipeline_ }} T0 {{end}}
+
+</code></pre>
+
+<p><strong>range</strong> family for iteration (loop)</p>
+
+<pre><code class="language-go">{{range pipepine}} T1 {{end}}
+{{range pipepine}} T1 {{else}} T0 {{end}}
+
+</code></pre>
+
+<p><strong>with</strong> family for cursor (dot) moving</p>
+
+<pre><code class="language-go">{{with pipeline}} T1 {{end}}
+{{with pipeline}} T1 {{else}} T0 {{end}}
+
+</code></pre>
+
+<p><strong>template</strong> family for tempates invocation</p>
+
+<pre><code class="language-go">// with the dot '.' set to nil.
+{{tempalte &quot;name&quot;}}
+// with the dot '.' set to value of 'pipeline'.
+{{tempalte &quot;name&quot; pipeline}}
+
+</code></pre>
+
+<h1 id="toc_2">Argument Types</h1>
+
+<ul>
+<li><p>untyped <strong>constants</strong> in go syntax</p></li>
+
+<li><p><strong>nil</strong> &ndash; the special constant</p></li>
+
+<li><p><strong>variable</strong> name</p>
+
+<p><code>$variable_name</code> or <code>$</code></p></li>
+
+<li><p><code>.</code> &ndash; the so called &lsquo;context&rsquo; constant</p></li>
+
+<li><p>dot chain consist of: <strong>field</strong> name,  <strong>key</strong> name,  niladic <strong>method</strong> name</p></li>
+</ul>
+
+<pre><code class="language-go">(.Field.Key.Method args...).Field.Key ...
+</code></pre>
+
+<ul>
+<li><p>niladic <strong>function</strong> name</p></li>
+
+<li><p>parenthesized <strong>group</strong> of above</p></li>
+</ul>
+
+<pre><code class="language-go">print (func arg...) (.method arg...)
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/cocoa_concurrency/">
+            COCOA CONCURRENCY
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Sep 24, 2014</span>
+
+        
+
+<h1 id="toc_0">Members Of Cocoa Concurrency</h1>
+
+<ul>
+<li><p>Operation Queue</p>
+
+<ul>
+<li><p>abstract base class <code>NSOperation</code></p></li>
+
+<li><p>concrete subclass <code>NSInvocation</code></p></li>
+
+<li><p>concrete subclass <code>NSBlockOperation</code></p></li>
+</ul></li>
+
+<li><p>Dispatch Queue</p></li>
+
+<li><p>Dispatch Source</p></li>
+</ul>
+
+<h1 id="toc_1">Operation Queue Features</h1>
+
+<ol>
+<li><p>graph-based dependencies</p></li>
+
+<li><p>completion block</p></li>
+
+<li><p>execution status monitoring</p></li>
+
+<li><p>prioritizeing</p></li>
+
+<li><p>canceling</p></li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://localhost:1313/note/cocoa_threading/">
+            COCOA THREADING
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Sep 24, 2014</span>
+
+        
+
+<h1 id="toc_0">Run Loop</h1>
+
+<h2 id="toc_1">4 roles participate in the run loop game:</h2>
+
+<ol>
+<li><p><strong>Run Loop</strong></p>
+
+<p>which is represented by <code>NSRun Loop</code> &amp; <code>CFRunLoop</code>.</p></li>
+
+<li><p><strong>Run Loop Mode</strong></p>
+
+<p>which is represented by <code>CFStringRef</code> associated to each instance of run
+loop object.</p></li>
+
+<li><p><strong>Run Loop Source</strong></p>
+
+<p>which is represented by <code>CFRunloopSource</code>.</p>
+
+<ul>
+<li><p>Input source</p>
+
+<ul>
+<li><p>Port-based source</p></li>
+
+<li><p>Perform selctor on other threads</p></li>
+
+<li><p>Custom source</p></li>
+</ul></li>
+
+<li><p>Timer</p>
+
+<p>which is represented by <code>CFRunloopTimerRef</code>.</p>
+
+<ul>
+<li><p>Explictly defined timer</p></li>
+
+<li><p>Perform selector on current thread with delay</p></li>
+
+<li><p>Perform selector</p></li>
+</ul></li>
+</ul></li>
+
+<li><p><strong>Run Loop Observer</strong></p></li>
+</ol>
+
+<h2 id="toc_2">4 ways to kill a run loop iteration:</h2>
+
+<ol>
+<li><p>no sources exists</p>
+
+<p>since some system routines may install certain input sources to the run
+ loop implictly, we should not kill a run loop iteration by clearing &lsquo;<em>all</em>&lsquo;
+ sources we known.</p></li>
+
+<li><p>timeout</p></li>
+
+<li><p>sourced handled in one-shot mode</p></li>
+
+<li><p>explicitly stoped by <code>CRunloopStop</code></p></li>
+</ol>
+
+<h2 id="toc_3">3 kinds of perform selector sources.</h2>
+
+<table>
+<thead>
+<tr>
+<th>on thread</th>
+<th>invocation</th>
+<th>delay</th>
+<th>blocking call?</th>
+<th>mode</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>current thread</td>
+<td>√</td>
+<td>√</td>
+<td>always non-blocking</td>
+<td>√</td>
+</tr>
+
+<tr>
+<td>other thread</td>
+<td>√</td>
+<td>x</td>
+<td>√</td>
+<td>x</td>
+</tr>
+
+<tr>
+<td>main thread</td>
+<td>√</td>
+<td>x</td>
+<td>√</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="toc_4">Alternatives To Threaing</h1>
+
+<ol>
+<li><p>Operation Objects</p></li>
+
+<li><p>Grand Central Dispatch (GCD)</p></li>
+
+<li><p>Idle-time notifications</p></li>
+
+<li><p>Asynchronous functions</p></li>
+
+<li><p>Timers</p></li>
+
+<li><p>Separate processes</p></li>
+</ol>
+
+<h1 id="toc_5">Cocoa Support For Threading</h1>
+
+<ol>
+<li><p>Cocoa threads</p></li>
+
+<li><p>POSIX threads</p></li>
+
+<li><p><del>Mutiprocessing Services</del> (<em>obsolete</em>)</p></li>
+</ol>
+
+<h1 id="toc_6">Inter-Thread Communication</h1>
+
+<ol>
+<li><p>Direct messageing</p></li>
+
+<li><p>Global variables, shared memory &amp; objects</p></li>
+
+<li><p>Conditions</p></li>
+
+<li><p>Run loop sources</p></li>
+
+<li><p>Ports &amp; sockets</p></li>
+
+<li><p><del>Message queues</del> (<em>obsolete</em>)</p></li>
+
+<li><p>Cocoa distributed objects</p></li>
+</ol>
+
+<h1 id="toc_7">Synchronization Tools</h1>
+
+<ol>
+<li><p>Atomic operation</p>
+
+<ul>
+<li><p>atomic add</p></li>
+
+<li><p>atomic increment</p></li>
+
+<li><p>atomic decrement</p></li>
+
+<li><p>compare-and-swap</p></li>
+
+<li><p>test-and-set</p></li>
+
+<li><p>test-and-clear</p></li>
+</ul></li>
+
+<li><p>Memory barriers</p></li>
+
+<li><p>Volatile variables</p></li>
+
+<li><p>Locks</p>
+
+<ul>
+<li><p>Mutex</p>
+
+<ul>
+<li><p>POSIX API provides <code>pthread_lock_t</code></p></li>
+
+<li><p>Cocoa provides <code>NSLock</code> &amp;  <code>@synchronized()</code></p></li>
+</ul></li>
+
+<li><p>Recursive lock</p>
+
+<p>which is provided as class <code>NSRecursiveLock</code></p></li>
+
+<li><p>Read-write lock (<em>pthread only</em>)</p></li>
+
+<li><p>Distributed lock</p></li>
+
+<li><p>Spin lock (<em>not implemented</em>)</p></li>
+
+<li><p>Double-checked lock</p></li>
+</ul></li>
+
+<li><p>Conditions (aka <em>condition variable</em>)</p></li>
+
+<li><p>Perform selector routines</p></li>
+</ol>
+
+      </div>
+      
+    </div>
+  </div>
+
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

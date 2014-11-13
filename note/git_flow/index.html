@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> GIT FLOW &middot; Mudox </title>
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/mudox_hyde.css">
+
+    
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
+    
+    
+    
+    <script src="/highlight_js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.tagcanvas.min.js"></script>
+  </head>
+
+<body class="theme-base-08">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js">
+    <script src="/particles.js"></script>
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          color: '#fff',
+          shape: 'circle', 
+          opacity: 0.3,
+          size: 3,
+          size_random: true,
+          nb: 35,
+          line_linked: {
+            enable_auto: true,
+            distance: 300,
+            color: '#fff',
+            opacity: 0.5,
+            width: 1,
+            condensed_mode: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 600
+            }
+          },
+          anim: {
+            enable: true,
+            speed: 2
+          }
+        },
+        interactivity: {
+          enable: true,
+          mouse: {
+            distance: 250
+          },
+          detect_on: 'window', 
+          mode: 'grab'
+        },
+         
+        retina_detect: true
+      });
+    </script>
+  </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+    <nav id=sidebar-menu-wall>
+      
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="tagCloud">
+      <canvas id="tagCloudCanvas" width="250" height="250" style="width: 100%;">
+        
+        <a href="/categories">categories</a>  
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objective-c">objective-c</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/vimscript">vimscript</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch-linux">arch-linux</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/windows">windows</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error-collection">error-collection</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/awesome-wm">awesome-wm</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev-tool">dev-tool</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+    <script>
+      if (!$('#tagCloudCanvas').tagcanvas({
+          initial: [0.203, -0.088],
+          textColour: '#ffffff',
+          outlineThickness: 0.5,
+          maxSpeed: 0.03,
+          depth: 0.75
+        })) {
+        $('#tagCloud').hide();
+      }
+    </script>
+
+
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <a href="/" id="Mudox">Mudox</a>
+        <p class="lead">
+          My personal site powered by <a href="http://gohugo.io">Hugo</a> with a customized theme -- <a href="https://github.com/spf13/hyde.git">hyde</a>.
+        </p>
+      </div>
+
+      <p>&copy; 2014. All rights reserved. </p>
+    </div>
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>GIT FLOW</h1>
+            <span class="post-date">Sun, Sep 28, 2014</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">1. Main Branches</a></li>
+<li><a href="#toc_1">2. Supporting Branches</a>
+<ul>
+<li><a href="#toc_2">2.1 feature (or topic) branches</a></li>
+<li><a href="#toc_3">2.2 release branches</a></li>
+<li><a href="#toc_4">2.3 hotfix (or maintenance) branches</a></li>
+</ul></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<h1 id="toc_0">1. Main Branches</h1>
+
+<ul>
+<li><p>the <code>main</code> branch</p>
+
+<p>keeps the official release history (usually with version nubmer tags
+attached).</p>
+
+<p>i.e. every commits in master is a new release. all branches merged back
+into master must have a new incremental version number.</p></li>
+
+<li><p>the <code>develop</code> branch</p>
+
+<p>serves as an integration branch for features.</p>
+
+<p>nitghly build built from it.</p></li>
+</ul>
+
+<h1 id="toc_1">2. Supporting Branches</h1>
+
+<h2 id="toc_2">2.1 feature (or topic) branches</h2>
+
+<p>branch off from: <code>develop</code> branch</p>
+
+<p>merge into: <code>develop</code> branch</p>
+
+<p>naming convention: any name except <code>master</code>, <code>develop</code>, <code>relase[/-]*</code>,
+<code>hotfix[/-]*</code></p>
+
+<pre><code class="language-bash"># Branch A New Feature Branch Off From Develop Branch
+git checkout -b some-feature develop
+# Add Feature Commits To Branch Some-feature ...
+# Merge Feature Branch Back Into Develop Branch.
+git checkout develop
+git merge --no-ff some-feature
+git push origin develop
+</code></pre>
+
+<h2 id="toc_3">2.2 release branches</h2>
+
+<p>branch off from: <code>develop</code> branch</p>
+
+<p>merge into: <code>develop</code> &amp; <code>master</code> branch</p>
+
+<p>naming convention: <code>release/*</code> or <code>release-*</code></p>
+
+<pre><code class="language-bash"># Branch A New Release Branch Off From Develop Branch
+git checkout -b release-&lt;version number&gt; develop
+# Bummp Up Version In Related Fiels.
+git commit -m 'Bumped version number to &lt;version number&gt;'
+# Roll Out Release, Minor Bug Fixes
+# Merge The Release Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff release-&lt;version number&gt;
+git tag -a &lt;version number&gt;
+# Merge The Release Back Into Develop
+git checkout develop
+git merge --no-ff release-&lt;version number&gt;
+</code></pre>
+
+<h2 id="toc_4">2.3 hotfix (or maintenance) branches</h2>
+
+<p>branch off from: <code>master</code> branch
+merge into: <code>develop</code> &amp; <code>master</code> branch if no active release branch existed
+currrently.
+naming convention: <code>hotfix/*</code> or <code>hotfix-*</code></p>
+
+<pre><code class="language-bash"># Branch A New Hotfix Branch Off From Master Branch
+git checkout -b hotfix-&lt;version number&gt; master
+# Bummp Up Version In Related Fiels, Becuase It Will Finnaly Be Merged Back
+# Into Master Branch.
+git commit -m 'Bumped version number to &lt;version number&gt;'
+# Roll Out Hotfix, Minor Bug Fixes
+# Merge The Hotfix Into Master, And Give It A New Tag.
+git checkout master
+git merge --no-ff hotfix-&lt;version number&gt;
+git tag -a &lt;version number&gt;
+# Merge The Hotfix Back Into Develop
+git checkout develop
+git merge --no-ff hotfix-&lt;version number&gt;
+</code></pre>
+
+        </div>
+    </div>
+
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

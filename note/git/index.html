@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> GIT MISC &middot; Mudox </title>
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/mudox_hyde.css">
+
+    
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
+    
+    
+    
+    <script src="/highlight_js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.tagcanvas.min.js"></script>
+  </head>
+
+<body class="theme-base-08">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js">
+    <script src="/particles.js"></script>
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          color: '#fff',
+          shape: 'circle', 
+          opacity: 0.3,
+          size: 3,
+          size_random: true,
+          nb: 35,
+          line_linked: {
+            enable_auto: true,
+            distance: 300,
+            color: '#fff',
+            opacity: 0.5,
+            width: 1,
+            condensed_mode: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 600
+            }
+          },
+          anim: {
+            enable: true,
+            speed: 2
+          }
+        },
+        interactivity: {
+          enable: true,
+          mouse: {
+            distance: 250
+          },
+          detect_on: 'window', 
+          mode: 'grab'
+        },
+         
+        retina_detect: true
+      });
+    </script>
+  </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+    <nav id=sidebar-menu-wall>
+      
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://localhost:1313/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="tagCloud">
+      <canvas id="tagCloudCanvas" width="250" height="250" style="width: 100%;">
+        
+        <a href="/categories">categories</a>  
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objective-c">objective-c</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/vimscript">vimscript</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch-linux">arch-linux</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/windows">windows</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error-collection">error-collection</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/awesome-wm">awesome-wm</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev-tool">dev-tool</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+    <script>
+      if (!$('#tagCloudCanvas').tagcanvas({
+          initial: [0.203, -0.088],
+          textColour: '#ffffff',
+          outlineThickness: 0.5,
+          maxSpeed: 0.03,
+          depth: 0.75
+        })) {
+        $('#tagCloud').hide();
+      }
+    </script>
+
+
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <a href="/" id="Mudox">Mudox</a>
+        <p class="lead">
+          My personal site powered by <a href="http://gohugo.io">Hugo</a> with a customized theme -- <a href="https://github.com/spf13/hyde.git">hyde</a>.
+        </p>
+      </div>
+
+      <p>&copy; 2014. All rights reserved. </p>
+    </div>
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>GIT MISC</h1>
+            <span class="post-date">Thu, Oct 2, 2014</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">Alias</a></li>
+<li><a href="#toc_1">The <code>add</code> &amp; <code>rm</code> &amp; <code>reset</code> &amp; <code>commit</code> &amp; <code>checkout</code> Sub-commands.</a></li>
+<li><a href="#toc_2">The <code>git Rebase</code> Sub-command</a>
+<ul>
+<li><a href="#toc_3">Advantage of <code>rebase</code>:</a></li>
+<li><a href="#toc_4">Disadvantage of <code>rebase</code>:</a></li>
+<li><a href="#toc_5">Golden rule of <code>git rebase</code>:</a></li>
+<li><a href="#toc_6">When to use <code>rebase</code></a></li>
+</ul></li>
+<li><a href="#toc_7">The <code>reset</code>, <code>checkout</code> And <code>revert</code> Sub-commands</a>
+<ul>
+<li><a href="#toc_8">Commit level operations</a></li>
+<li><a href="#toc_9">File level operations</a></li>
+</ul></li>
+<li><a href="#toc_10">Summary</a></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<h1 id="toc_0">Alias</h1>
+
+<ul>
+<li><p>working tree, working directory</p></li>
+
+<li><p>index, staging area, cache, staged snapshot</p></li>
+
+<li><p>commit[ted] history, commit[ted] snapshot</p></li>
+</ul>
+
+<h1 id="toc_1">The <code>add</code> &amp; <code>rm</code> &amp; <code>reset</code> &amp; <code>commit</code> &amp; <code>checkout</code> Sub-commands.</h1>
+
+<ul>
+<li><p>between the <em>committed history</em> &amp; <em>staging area</em></p>
+
+<ul>
+<li><p><code>commit</code> submit changes from <em>staging area</em> to <em>committed history</em></p></li>
+
+<li><p><code>reset</code> revert changes from <em>committed history</em> back to <em>staging area</em></p></li>
+</ul></li>
+
+<li><p>between the <em>staging area</em> &amp; <em>working tree</em>.</p>
+
+<ul>
+<li><p><code>add</code> submit changes from <em>working tree</em> to <em>staging area</em>, preparing
+for committing.</p></li>
+
+<li><p><code>rm</code> remove file(s) from <em>stageing area</em>, so they become <em>untracked</em>.</p></li>
+</ul></li>
+
+<li><p><code>checkout</code> restore changes from staging area or a specific commit of committed
+history to <em>working directory</em>.</p></li>
+
+<li><p><code>reset</code></p>
+
+<ul>
+<li><p><strong>unstages</strong> changes in staging area.
+v
+    git reset <paths></p></li>
+
+<li><p>or, if you ask for more, <strong>uncommits</strong> changes in history.</p>
+
+<pre><code>git reset &lt;commit-ish&gt;
+</code></pre></li>
+</ul></li>
+
+<li><p><code>rm</code></p>
+
+<ul>
+<li><p><strong>untracks</strong> file(s) previously tracked in staging area.</p>
+
+<pre><code>git rm --cache &lt;paths&gt;
+</code></pre></li>
+
+<li><p>or, if you ask for more, <strong>removes</strong> file(s) in the work directory.</p>
+
+<pre><code>git rm &lt;paths&gt;
+</code></pre></li>
+</ul></li>
+
+<li><p><code>git reset</code> vs <code>git checkout</code></p>
+
+<ul>
+<li><p><code>git reset &lt;commit-ish&gt; &lt;paths&gt;</code> only update <em>staging area</em>.</p></li>
+
+<li><p><code>git checkout &lt;paths&gt;</code> fetch <code>&lt;paths&gt;</code> from <em>staging area</em> to working
+direcotry.</p></li>
+
+<li><p><code>git checkout &lt;commit-ish&gt;</code> fetch <code>&lt;paths&gt;</code> from <em>history</em> to both
+<em>index</em> &amp; <em>working direcotry</em>.</p></li>
+</ul></li>
+</ul>
+
+<h1 id="toc_2">The <code>git Rebase</code> Sub-command</h1>
+
+<h2 id="toc_3">Advantage of <code>rebase</code>:</h2>
+
+<ul>
+<li><p>no additional merge commit</p></li>
+
+<li><p>linear commit history</p></li>
+</ul>
+
+<h2 id="toc_4">Disadvantage of <code>rebase</code>:</h2>
+
+<ul>
+<li><p>safety</p></li>
+
+<li><p>tracability: the evidences of merging are wiped away.</p></li>
+</ul>
+
+<h2 id="toc_5">Golden rule of <code>git rebase</code>:</h2>
+
+<p><strong>never</strong> use it on <strong>public</strong> branches.</p>
+
+<h2 id="toc_6">When to use <code>rebase</code></h2>
+
+<ul>
+<li><p>Local cleanup</p></li>
+
+<li><p>Incorporating upstream changes into a feature branch</p></li>
+
+<li><p>Integrating a approved feature</p></li>
+</ul>
+
+<h1 id="toc_7">The <code>reset</code>, <code>checkout</code> And <code>revert</code> Sub-commands</h1>
+
+<blockquote>
+<p>The parameters that you pass to <code>git reset</code> and <code>git checkout</code> determine
+their scope. When you don’t include a <strong>&lt;file path&gt;</strong> as a parameter, they
+operate on whole commits.  Note that git revert has no file-level counterpart</p>
+</blockquote>
+
+<p>from <a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations">atlassian&rsquo;s git tutorials</a></p>
+
+<h2 id="toc_8">Commit level operations</h2>
+
+<p><code>git reset --[soft | mixed | hard] &lt;commit-ish&gt;</code> <strong>move</strong> branch tips backwards
+or even forwards, while affecting <em>staging area</em> &amp; <em>working direcotry</em> according to
+options it is given.</p>
+
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>history</th>
+<th>staging area</th>
+<th>working directory</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>--soft</code></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>--mixed</code></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+
+<tr>
+<td><code>--hard</code></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>git checkout &lt;commit-ish&gt;</code> dose not move tips around.</p>
+
+<p><code>git revert</code> undo commits by adding a new commit. it is a safe (reversible) way
+to undo commits, while <code>git reset</code> is dangerous (irreversible) way to undo
+commits.</p>
+
+<h2 id="toc_9">File level operations</h2>
+
+<pre><code>git [reset|checkout] &lt;commit-ish&gt; &lt;pathspec&gt;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>history</th>
+<th>staging area</th>
+<th>working directory</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>reset</code></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+
+<tr>
+<td><code>checkout</code></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="toc_10">Summary</h1>
+
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>commit level</th>
+<th>file level</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>reset</code></td>
+<td>discard commits in private branches or throw away uncommited changes</td>
+<td>unstage a file</td>
+</tr>
+
+<tr>
+<td><code>checkout</code></td>
+<td>swtich between branches or inspect old snapshots</td>
+<td>discard changes in the working directory</td>
+</tr>
+
+<tr>
+<td><code>revert</code></td>
+<td>undo commits in public branches</td>
+<td><strong>N/A</strong></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+    </div>
+
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

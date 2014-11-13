@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Html on Mudox </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/languages/html/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sun, 26 Oct 2014 21:36:29 CST</updated>
+    
+    <item>
+      <title>WEB PAGE LAYOUTS</title>
+      <link>http://localhost:1313/note/web_page_layouts/</link>
+      <pubDate>Sun, 26 Oct 2014 21:36:29 CST</pubDate>
+      
+      <guid>http://localhost:1313/note/web_page_layouts/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Liquid Layout&lt;/h1&gt;
+
+&lt;p&gt;This is the browser&amp;rsquo;s default layout behavior, if you did not add any CSS to
+style a page. The block elements, like liquid, just fill as much space as they
+can in the pages.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Frozen Layout&lt;/h1&gt;
+
+&lt;p&gt;By using the CSS attribute combination of &lt;code&gt;float&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt;, we can put a
+&lt;strong&gt;containing&lt;/strong&gt; block (i.e. &lt;code&gt;&amp;lt;seciton&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;aside&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;) to float on to
+left-most or right-most side forming a &lt;strong&gt;column&lt;/strong&gt;, and let the  remaining
+content to flow around the fixed-width floating column, forming the other
+column.&lt;/p&gt;
+
+&lt;p&gt;Use CSS attribute &lt;code&gt;clear: [left | right]&lt;/code&gt; to let a block to layout fully
+underneath a floating elements.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;Jello Layout&lt;/h1&gt;
+
+&lt;p&gt;On the basis of frozen layout, we can use containing fixed-width block to wrap
+all columns (floating or flowing), and by using &lt;code&gt;margin-left: auto;
+margin-right: auto;&lt;/code&gt; CSS style, to center the contained columns in the page.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_3&#34;&gt;Absolute Position&lt;/h1&gt;
+
+&lt;p&gt;By using the CSS attribute combination of &lt;code&gt;position: [absolute | fixed]&lt;/code&gt; and
+&lt;code&gt;left | right | top | bottom: ...&lt;/code&gt;, we can take the column fully out of layout
+flow, and fix their position relative to the page (&lt;code&gt;position: absolute&lt;/code&gt;), or to
+the viewport (&lt;code&gt;position: fixed&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_4&#34;&gt;Table Display&lt;/h1&gt;
+
+&lt;p&gt;Use CSS attribute &lt;code&gt;display: [table | table-row | table-cell]&lt;/code&gt; to organize HTML
+elements into an invisible table.&lt;/p&gt;
+
+&lt;p&gt;Most of the time, &lt;code&gt;vertical-align: top&lt;/code&gt; will help you to get what you want to see.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

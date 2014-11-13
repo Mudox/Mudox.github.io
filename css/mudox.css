@@ -1,0 +1,26 @@
+.sidebar-menu h2 {
+  color: #FFF
+}
+
+h1.post-title {
+border-bottom : 3px solid black;
+}
+
+li code, p code {
+  font-family : Monaco, Consolas, monospace;
+    font-size : 1em;
+}
+
+h1 code, h2 code, h3 code {
+  font-family : inherit;
+    font-size : 1em;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
