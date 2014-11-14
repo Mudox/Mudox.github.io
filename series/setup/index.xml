@@ -318,7 +318,7 @@ nameserver 192.168.0.1
 
 &lt;p&gt;&lt;strong&gt;NOTE: for unknown reason, I failed following this way to achieve the
 automation, the &lt;code&gt;/etc/ppp/ip-up.d/00-dns.sh&lt;/code&gt; did run, but it just did not move
-files. But it is the mechanism provided by &lt;code&gt;ppp&lt;/code&gt; thus IMO it is the standard
+files. Since it is the mechanism provided by &lt;code&gt;ppp&lt;/code&gt; thus IMO, it is the standard
 way that you should try first&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Whenever you tear down a VPN connection and get back to the local connection,
@@ -334,7 +334,7 @@ automatically substitutes &lt;em&gt;/etc/ppp/resolv.conf&lt;/em&gt; with &lt;em&
 &lt;li&gt;&lt;p&gt;add &lt;code&gt;export USEPEERSDNS=1&lt;/code&gt; into &lt;em&gt;~/.profile&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&#34;toc_17&#34;&gt;My hacky way&lt;/h4&gt;
+&lt;h3 id=&#34;toc_17&#34;&gt;My hacky way&lt;/h3&gt;
 
 &lt;p&gt;I wrote a script to get around of this:&lt;/p&gt;
 

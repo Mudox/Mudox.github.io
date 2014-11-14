@@ -502,7 +502,7 @@ nameserver 192.168.0.1
 
 <p><strong>NOTE: for unknown reason, I failed following this way to achieve the
 automation, the <code>/etc/ppp/ip-up.d/00-dns.sh</code> did run, but it just did not move
-files. But it is the mechanism provided by <code>ppp</code> thus IMO it is the standard
+files. Since it is the mechanism provided by <code>ppp</code> thus IMO, it is the standard
 way that you should try first</strong></p>
 
 <p>Whenever you tear down a VPN connection and get back to the local connection,
@@ -518,7 +518,7 @@ automatically substitutes <em>/etc/ppp/resolv.conf</em> with <em>/etc/resolv.con
 <li><p>add <code>export USEPEERSDNS=1</code> into <em>~/.profile</em></p></li>
 </ol>
 
-<h4 id="toc_17">My hacky way</h4>
+<h3 id="toc_17">My hacky way</h3>
 
 <p>I wrote a script to get around of this:</p>
 
