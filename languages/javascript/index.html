@@ -72,7 +72,7 @@
           }
         },
         interactivity: {
-          enable: true,
+          enable: false,
           mouse: {
             distance: 250
           },
@@ -148,6 +148,7 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          interval: 40,
           fadeIn: 1983,
           dragControl: true,
           dragThreshold: 4,
@@ -157,7 +158,7 @@
           outlineThickness: 0.5,
           maxSpeed: 0.018,
           minSpeed: 0.002,
-          outlineMethod:'size',
+          outlineMethod: 'size',
           outlineIncrease: 4,
           depth: 0.55
         })) {
@@ -187,7 +188,8 @@
         <li>
           <span><a href="http://mudox.github.io/memo/error_collection_javascript/">ERROR COLLECTION - JAVASCRIPT</a>
             <time class="pull-right post-list">Fri, Nov 7, 2014</time></span>
-          <p>when assign a function to a event property, appending () to the function name. window.onload = init/*()*/ function init() { // ... } appending () to a property name. var x = Math.floor(Math.random() * canvas.width/*()*/</p>
+          <p><p>Errors that I collected day by day when writing the JavaScript language.</p>
+</p>
         </li>
         
         <li>

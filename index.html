@@ -72,7 +72,7 @@
           }
         },
         interactivity: {
-          enable: true,
+          enable: false,
           mouse: {
             distance: 250
           },
@@ -148,6 +148,7 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          interval: 40,
           fadeIn: 1983,
           dragControl: true,
           dragThreshold: 4,
@@ -157,7 +158,7 @@
           outlineThickness: 0.5,
           maxSpeed: 0.018,
           minSpeed: 0.002,
-          outlineMethod:'size',
+          outlineMethod: 'size',
           outlineIncrease: 4,
           depth: 0.55
         })) {
@@ -713,6 +714,37 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -720,7 +752,9 @@ npm install csscomb -g
 
         <span class="post-date">Fri, Nov 7, 2014</span>
 
-        <ul>
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+
+<ul>
 <li>when assign a function to a event property, appending <code>()</code> to the function name.</li>
 </ul>
 
@@ -736,27 +770,6 @@ function init() {
 </ul>
 
 <pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
-</code></pre>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <ul>
-<li>body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
 </code></pre>
 
       </div>

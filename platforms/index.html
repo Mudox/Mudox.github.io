@@ -72,7 +72,7 @@
           }
         },
         interactivity: {
-          enable: true,
+          enable: false,
           mouse: {
             distance: 250
           },
@@ -148,6 +148,7 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          interval: 40,
           fadeIn: 1983,
           dragControl: true,
           dragThreshold: 4,
@@ -157,7 +158,7 @@
           outlineThickness: 0.5,
           maxSpeed: 0.018,
           minSpeed: 0.002,
-          outlineMethod:'size',
+          outlineMethod: 'size',
           outlineIncrease: 4,
           depth: 0.55
         })) {
@@ -194,9 +195,9 @@
       
       <li><a href="/platforms/ios"> ios </a> 4 </li>
       
-      <li><a href="/platforms/arch-linux"> arch-linux </a> 3 </li>
-      
       <li><a href="/platforms/web"> web </a> 3 </li>
+      
+      <li><a href="/platforms/arch-linux"> arch-linux </a> 3 </li>
       
     </ul>
   </div>

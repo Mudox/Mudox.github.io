@@ -72,7 +72,7 @@
           }
         },
         interactivity: {
-          enable: true,
+          enable: false,
           mouse: {
             distance: 250
           },
@@ -148,6 +148,7 @@
     <script>
       if (!$('#tagCloudCanvas').tagcanvas({
           initial: [0.203, -0.088],
+          interval: 40,
           fadeIn: 1983,
           dragControl: true,
           dragThreshold: 4,
@@ -157,7 +158,7 @@
           outlineThickness: 0.5,
           maxSpeed: 0.018,
           minSpeed: 0.002,
-          outlineMethod:'size',
+          outlineMethod: 'size',
           outlineIncrease: 4,
           depth: 0.55
         })) {
@@ -190,8 +191,6 @@
       
       <li><a href="/languages/swift"> swift </a> 4 </li>
       
-      <li><a href="/languages/javascript"> javascript </a> 2 </li>
-      
       <li><a href="/languages/english"> english </a> 2 </li>
       
       <li><a href="/languages/objective-c"> objective-c </a> 2 </li>
@@ -200,13 +199,15 @@
       
       <li><a href="/languages/lua"> lua </a> 2 </li>
       
-      <li><a href="/languages/css"> css </a> 1 </li>
-      
-      <li><a href="/languages/vimscript"> vimscript </a> 1 </li>
+      <li><a href="/languages/javascript"> javascript </a> 2 </li>
       
       <li><a href="/languages/html"> html </a> 1 </li>
       
       <li><a href="/languages/go"> go </a> 1 </li>
+      
+      <li><a href="/languages/css"> css </a> 1 </li>
+      
+      <li><a href="/languages/vimscript"> vimscript </a> 1 </li>
       
     </ul>
   </div>
