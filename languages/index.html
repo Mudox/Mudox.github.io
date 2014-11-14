@@ -46,42 +46,44 @@
   <div id="particles-js">
     <script src="/particles.js"></script>
     <script>
-      particlesJS('particles-js', {
-        particles: {
-          color: '#fff',
-          shape: 'circle', 
-          opacity: 0.3,
-          size: 3,
-          size_random: true,
-          nb: 35,
-          line_linked: {
-            enable_auto: true,
-            distance: 300,
+      setTimeout(function() {
+        particlesJS('particles-js', {
+          particles: {
             color: '#fff',
-            opacity: 0.5,
-            width: 1,
-            condensed_mode: {
-              enable: false,
-              rotateX: 600,
-              rotateY: 600
+            shape: 'circle', 
+            opacity: 0.3,
+            size: 3,
+            size_random: true,
+            nb: 30,
+            line_linked: {
+              enable_auto: true,
+              distance: 300,
+              color: '#fff',
+              opacity: 0.5,
+              width: 1,
+              condensed_mode: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 600
+              }
+            },
+            anim: {
+              enable: true,
+              speed: 2
             }
           },
-          anim: {
-            enable: true,
-            speed: 2
-          }
-        },
-        interactivity: {
-          enable: false,
-          mouse: {
-            distance: 250
+          interactivity: {
+            enable: false,
+            mouse: {
+              distance: 250
+            },
+            detect_on: 'window', 
+            mode: 'grab'
           },
-          detect_on: 'window', 
-          mode: 'grab'
-        },
-         
-        retina_detect: true
-      });
+           
+          retina_detect: true
+        });
+      }, 1200)
     </script>
   </div>
 
@@ -146,24 +148,26 @@
       </canvas>
     </nav>
     <script>
-      if (!$('#tagCloudCanvas').tagcanvas({
-          initial: [0.203, -0.088],
-          interval: 40,
-          fadeIn: 4000,
-          dragControl: true,
-          dragThreshold: 4,
-          decel: 0.985,
-          clickToFront: 600,
-          textColour: '#ffffff',
-          outlineThickness: 0.5,
-          maxSpeed: 0.018,
-          minSpeed: 0.002,
-          outlineMethod: 'size',
-          outlineIncrease: 4,
-          depth: 0.55
-        })) {
-        $('#tagCloud').hide();
-      }
+      setTimeout(function() {
+        if (!$('#tagCloudCanvas').tagcanvas({
+            initial: [0.203, -0.088],
+            interval: 40,
+            fadeIn: 4000,
+            dragControl: true,
+            dragThreshold: 4,
+            decel: 0.985,
+            clickToFront: 600,
+            textColour: '#ffffff',
+            outlineThickness: 0.5,
+            maxSpeed: 0.018,
+            minSpeed: 0.002,
+            outlineMethod: 'size',
+            outlineIncrease: 4,
+            depth: 0.55
+          })) {
+          $('#tagCloud').hide();
+        }
+      }, 500)
     </script>
 
 
@@ -191,21 +195,21 @@
       
       <li><a href="/languages/swift"> swift </a> 4 </li>
       
-      <li><a href="/languages/c"> c </a> 2 </li>
-      
       <li><a href="/languages/lua"> lua </a> 2 </li>
-      
-      <li><a href="/languages/javascript"> javascript </a> 2 </li>
       
       <li><a href="/languages/english"> english </a> 2 </li>
       
+      <li><a href="/languages/javascript"> javascript </a> 2 </li>
+      
       <li><a href="/languages/objective-c"> objective-c </a> 2 </li>
       
-      <li><a href="/languages/html"> html </a> 1 </li>
+      <li><a href="/languages/c"> c </a> 2 </li>
+      
+      <li><a href="/languages/vimscript"> vimscript </a> 1 </li>
       
       <li><a href="/languages/css"> css </a> 1 </li>
       
-      <li><a href="/languages/vimscript"> vimscript </a> 1 </li>
+      <li><a href="/languages/html"> html </a> 1 </li>
       
       <li><a href="/languages/go"> go </a> 1 </li>
       
