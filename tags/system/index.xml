@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Lua on Mudox </title>
+      <title>System on Mudox </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/languages/lua/index.xml/</link>
+    <link>http://localhost:1313/tags/system/index.xml/</link>
     <language>en-us</language>
     
     
@@ -386,44 +386,6 @@ alias vpoff=&#39;sudo ~/.bin/vpn.sh off&#39;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/PPTP_VPN_client_setup_with_pptpclient&#34;&gt;PPTP VPN client setup with pptpclient&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SETUP MY AWESOME WM ENVIRONMENT</title>
-      <link>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</link>
-      <pubDate>Wed, 05 Nov 2014 09:28:07 CST</pubDate>
-      
-      <guid>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</guid>
-      <description>
-
-&lt;p&gt;Awesome WM let you maniplate system windows like using Vim, besides its
-bleeding fast window UI rendering &amp;amp; switching speed on *nix platform I&amp;rsquo;ve ever
-seen.&lt;/p&gt;
-
-&lt;p&gt;Below records my steps of setting up the Awesome window manager on my Arch
-Linux progressively.&lt;/p&gt;
-
-&lt;h1 id=&#34;toc_0&#34;&gt;Installing Awesome Packages&lt;/h1&gt;
-
-&lt;p&gt;The awesome package is in the official repository of Arch Linux.&lt;/p&gt;
-
-&lt;p&gt;Better install Xephyr for testing cases.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo pacman -S awesome xorg-xephyr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;toc_1&#34;&gt;Pulling Down My Awesome-Config Repository&lt;/h1&gt;
-
-&lt;p&gt;The pulled down repo must be put in ~/.config/awesome, where awesome will
-correctly load the configuration resources.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir ~/.config # if .config does not exist before.
-cd ~/.config
-git clone https://github.com/Mudox/awesome-config.git awesome
-cd awesome
-git submodule update --init --recursive
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

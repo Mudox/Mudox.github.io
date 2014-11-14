@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Zsh on Mudox </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/tags/zsh/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Wed, 05 Nov 2014 09:34:11 CST</updated>
+    
+    <item>
+      <title>SETUP MY ZSH ENVIRONMENT</title>
+      <link>http://localhost:1313/memo/setup_my_zsh_environment/</link>
+      <pubDate>Wed, 05 Nov 2014 09:34:11 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/setup_my_zsh_environment/</guid>
+      <description>
+
+&lt;p&gt;Steps of setting up zsh environment on my systems (Arch Linux, MacOS,
+Windows/Cygwin).&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;the &lt;code&gt;z&lt;/code&gt; command&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;the &lt;code&gt;fzf&lt;/code&gt; command&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SETUP MY CYGWIN ENVIRONMENT</title>
+      <link>http://localhost:1313/memo/setup_my_cygwin_environment/</link>
+      <pubDate>Wed, 05 Nov 2014 09:26:59 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/setup_my_cygwin_environment/</guid>
+      <description>
+
+&lt;p&gt;Cygwin &amp;ndash; bring *nix command line user experence (paritially though) and
+efficiency onto Windows.
+Below is the steps of setting up the Cygwin environment on my Windows.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Why Cygwin over other tools.&lt;/h1&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Setup Cygwin&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Cygwin path remapping&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;mintty setting&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;color&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;mintty color palette&lt;/h3&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;ls_color&lt;/h3&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;colorful manpage&lt;/h3&gt;
+
+&lt;h3 id=&#34;toc_8&#34;&gt;colout&lt;/h3&gt;
+
+&lt;h2 id=&#34;toc_9&#34;&gt;encoding&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_10&#34;&gt;other settings&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_11&#34;&gt;Shell environment setup&lt;/h2&gt;
+
+&lt;h2 id=&#34;toc_12&#34;&gt;Cygwin package manager&lt;/h2&gt;
+
+&lt;h1 id=&#34;toc_13&#34;&gt;Cygwin Using Tips&lt;/h1&gt;
+
+&lt;h2 id=&#34;toc_14&#34;&gt;Working with gVim of Windows&lt;/h2&gt;
+
+&lt;p&gt;Most of the time, I prefer gui version of Vim than terminal version for it
+being free of various shackles of terminal emulator, such as key confliction,
+color presentation limit, UI rendering efficiency limit, etc.&lt;/p&gt;
+
+&lt;p&gt;First make sure a gVim instance already exists outside of Cygwin.&lt;/p&gt;
+
+&lt;p&gt;When I need to handle off some files to gVim for Windows, I can use &lt;code&gt;--remote&lt;/code&gt;
+(type &lt;code&gt;:h clientserver&lt;/code&gt; in gVim for details) command families, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;alias gvim=&#39;/c/Program Files/Vim/vim74/gvim.exe&#39;
+
+gvim --remote-tab /path/of/file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;it will open the file in new tab of an already running gVim instance.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

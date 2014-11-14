@@ -202,6 +202,17 @@
             
             
 
+<p>Compiling <a href="http://valloric.github.io/YouCompleteMe/">Youcompleteme</a> and <a href="https://github.com/b4winckler/macvim">Macvim</a> on MacOSX once beaten me
+down for several nights.</p>
+
+<p>I eventually found out that this is because the interference from
+<a href="https://github.com/yyuu/pyenv">pyenv</a> and [homebrew][brew].</p>
+
+<p>[homebrew][brew] installs packages into a unconventional path, which makes
+MacVim and Youcompleteme can found buidling dependencies in default paths.</p>
+
+<p>While <a href="https://github.com/yyuu/pyenv">pyenv</a> will shadow <a href="https://github.com/b4winckler/macvim">Macvim</a>&rsquo;s default python &hellip;</p>
+
 <h1 id="toc_0">Preparation</h1>
 
 <ul>
@@ -221,6 +232,10 @@
 </ul>
 
 <h1 id="toc_1">Compile YCM</h1>
+
+<p>On MacOSX using native clang package has proven to be very stable, besides, it
+drastically accelerates the installing process &ndash; leaving <code>install.sh</code> no need
+to download the prebuild binaries from LLVM&rsquo;s site.</p>
 
 <pre><code class="language-bash">cd /to/ycm/root/directory/
     ./install.sh --clang-completer --system-libclang

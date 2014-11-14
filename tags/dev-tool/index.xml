@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Windows on Mudox </title>
+      <title>Dev-Tool on Mudox </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/platforms/windows/index.xml/</link>
+    <link>http://localhost:1313/tags/dev-tool/index.xml/</link>
     <language>en-us</language>
     
     
@@ -153,34 +153,6 @@ npm install csscomb -g
     </item>
     
     <item>
-      <title>ERROR COLLECTION - BASH</title>
-      <link>http://localhost:1313/memo/error_collection_sh/</link>
-      <pubDate>Fri, 07 Nov 2014 09:24:33 CST</pubDate>
-      
-      <guid>http://localhost:1313/memo/error_collection_sh/</guid>
-      <description>&lt;p&gt;Errors that I collected day by day, when writing the Bash scripting language.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Body of &lt;code&gt;select&lt;/code&gt; constructs need a &lt;code&gt;break;&lt;/code&gt; to quit the selection loop.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;select answer in #choices#; do
-  #body#
-  break; # &amp;lt;- go out of selection loop.
-done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Always &lt;code&gt;source&lt;/code&gt; before testing a updated command.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Whence quoted with &lt;code&gt;&amp;quot;&lt;/code&gt;, which is the most case, use the &lt;code&gt;@&lt;/code&gt; form (i.e.
-&lt;code&gt;&amp;quot;${ARRAY[@]}&amp;quot;&lt;/code&gt;) to expand a array correctly. The &lt;code&gt;*&lt;/code&gt; form will make the
-expanded string as a &lt;strong&gt;single word&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>SETUP MY ZSH ENVIRONMENT</title>
       <link>http://localhost:1313/memo/setup_my_zsh_environment/</link>
       <pubDate>Wed, 05 Nov 2014 09:34:11 CST</pubDate>
@@ -194,6 +166,44 @@ Windows/Cygwin).&lt;/p&gt;
 &lt;h2 id=&#34;toc_0&#34;&gt;the &lt;code&gt;z&lt;/code&gt; command&lt;/h2&gt;
 
 &lt;h2 id=&#34;toc_1&#34;&gt;the &lt;code&gt;fzf&lt;/code&gt; command&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SETUP MY AWESOME WM ENVIRONMENT</title>
+      <link>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</link>
+      <pubDate>Wed, 05 Nov 2014 09:28:07 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</guid>
+      <description>
+
+&lt;p&gt;Awesome WM let you maniplate system windows like using Vim, besides its
+bleeding fast window UI rendering &amp;amp; switching speed on *nix platform I&amp;rsquo;ve ever
+seen.&lt;/p&gt;
+
+&lt;p&gt;Below records my steps of setting up the Awesome window manager on my Arch
+Linux progressively.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Installing Awesome Packages&lt;/h1&gt;
+
+&lt;p&gt;The awesome package is in the official repository of Arch Linux.&lt;/p&gt;
+
+&lt;p&gt;Better install Xephyr for testing cases.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo pacman -S awesome xorg-xephyr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Pulling Down My Awesome-Config Repository&lt;/h1&gt;
+
+&lt;p&gt;The pulled down repo must be put in ~/.config/awesome, where awesome will
+correctly load the configuration resources.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir ~/.config # if .config does not exist before.
+cd ~/.config
+git clone https://github.com/Mudox/awesome-config.git awesome
+cd awesome
+git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -551,6 +561,71 @@ commits.&lt;/p&gt;
     </item>
     
     <item>
+      <title>COMPILE MACVIM &amp; YCM ON OSX</title>
+      <link>http://localhost:1313/memo/compile_macvim_and_ycm_on_osx/</link>
+      <pubDate>Mon, 29 Sep 2014 18:00:42 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/compile_macvim_and_ycm_on_osx/</guid>
+      <description>
+
+&lt;p&gt;Compiling &lt;a href=&#34;http://valloric.github.io/YouCompleteMe/&#34;&gt;Youcompleteme&lt;/a&gt; and &lt;a href=&#34;https://github.com/b4winckler/macvim&#34;&gt;Macvim&lt;/a&gt; on MacOSX once beaten me
+down for several nights.&lt;/p&gt;
+
+&lt;p&gt;I eventually found out that this is because the interference from
+&lt;a href=&#34;https://github.com/yyuu/pyenv&#34;&gt;pyenv&lt;/a&gt; and [homebrew][brew].&lt;/p&gt;
+
+&lt;p&gt;[homebrew][brew] installs packages into a unconventional path, which makes
+MacVim and Youcompleteme can found buidling dependencies in default paths.&lt;/p&gt;
+
+&lt;p&gt;While &lt;a href=&#34;https://github.com/yyuu/pyenv&#34;&gt;pyenv&lt;/a&gt; will shadow &lt;a href=&#34;https://github.com/b4winckler/macvim&#34;&gt;Macvim&lt;/a&gt;&amp;rsquo;s default python &amp;hellip;&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Preparation&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;disable pyenv&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;run &lt;code&gt;brew unlink pyenv&lt;/code&gt; (&lt;code&gt;brew link pyenv&lt;/code&gt; after compilation)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;restart shell (e.g. itemr2)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reset develop directory of Xcode&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;sudo xcode-select -r&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Compile YCM&lt;/h1&gt;
+
+&lt;p&gt;On MacOSX using native clang package has proven to be very stable, besides, it
+drastically accelerates the installing process &amp;ndash; leaving &lt;code&gt;install.sh&lt;/code&gt; no need
+to download the prebuild binaries from LLVM&amp;rsquo;s site.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd /to/ycm/root/directory/
+    ./install.sh --clang-completer --system-libclang
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_2&#34;&gt;Compile MacVim&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;make distclean
+./configure               \
+    --with-features=huge  \
+    -with-macarchs=x86_64 \
+    --enable-perlinterp   \
+    --enable-rubyinterp   \
+    --enable-pythoninterp \
+    --enable-luainterp    \
+    --enable-perlinterp   \
+    --enable-cscope       \
+    --with-lua-prefix=/usr/local/Cellar/lua/&amp;lt;current_version&amp;gt; &amp;gt;/tmp/log
+make
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>VIM CHAMELEON STARTUP MENU</title>
       <link>http://localhost:1313/memo/vim_chameleon_startup_menu/</link>
       <pubDate>Mon, 29 Sep 2014 15:57:37 CST</pubDate>
@@ -694,106 +769,6 @@ git tag -a &amp;lt;version number&amp;gt;
 # Merge The Hotfix Back Into Develop
 git checkout develop
 git merge --no-ff hotfix-&amp;lt;version number&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>GO&#39;S TEMPLATE LIBRARY</title>
-      <link>http://localhost:1313/note/go_stdlib_template/</link>
-      <pubDate>Fri, 26 Sep 2014 14:52:32 CST</pubDate>
-      
-      <guid>http://localhost:1313/note/go_stdlib_template/</guid>
-      <description>
-
-&lt;p&gt;I come across this library when I started to use &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;,
-which says:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It is an extremely &lt;strong&gt;lightweight&lt;/strong&gt; engine that provides a very small amount of
-logic. In our experience it is &lt;strong&gt;just the right amount of logic&lt;/strong&gt; to be able to
-create a good static website.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;toc_0&#34;&gt;3 Steps Using The Template Object&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;New&lt;/code&gt; an template object.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;Parse&lt;/code&gt; template text.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;Execute&lt;/code&gt; (apply) the template to data structure.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;toc_1&#34;&gt;6 Action Families&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;comment&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{/* comment here, line spanning allowed */}}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;pipeline&lt;/strong&gt; like variable expansion (substitution)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{pipeline}}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;if&lt;/strong&gt; family for branching logic&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{if _pipline_}} T1 {{end}}
-{{if _pipline_}} T1 {{else}} T0 {{end}}
-{{if _pipline_}} T1 {{else if _pipeline_ }} T0 {{end}}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;range&lt;/strong&gt; family for iteration (loop)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{range pipepine}} T1 {{end}}
-{{range pipepine}} T1 {{else}} T0 {{end}}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;with&lt;/strong&gt; family for cursor (dot) moving&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;{{with pipeline}} T1 {{end}}
-{{with pipeline}} T1 {{else}} T0 {{end}}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;template&lt;/strong&gt; family for tempates invocation&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// with the dot &#39;.&#39; set to nil.
-{{tempalte &amp;quot;name&amp;quot;}}
-// with the dot &#39;.&#39; set to value of &#39;pipeline&#39;.
-{{tempalte &amp;quot;name&amp;quot; pipeline}}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;toc_2&#34;&gt;Argument Types&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;untyped &lt;strong&gt;constants&lt;/strong&gt; in go syntax&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;nil&lt;/strong&gt; &amp;ndash; the special constant&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;variable&lt;/strong&gt; name&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$variable_name&lt;/code&gt; or &lt;code&gt;$&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;.&lt;/code&gt; &amp;ndash; the so called &amp;lsquo;context&amp;rsquo; constant&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;dot chain consist of: &lt;strong&gt;field&lt;/strong&gt; name,  &lt;strong&gt;key&lt;/strong&gt; name,  niladic &lt;strong&gt;method&lt;/strong&gt; name&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;(.Field.Key.Method args...).Field.Key ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;niladic &lt;strong&gt;function&lt;/strong&gt; name&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;parenthesized &lt;strong&gt;group&lt;/strong&gt; of above&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;print (func arg...) (.method arg...)
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

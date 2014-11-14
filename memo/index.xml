@@ -397,8 +397,11 @@ alias vpoff=&#39;sudo ~/.bin/vpn.sh off&#39;
       <guid>http://localhost:1313/memo/setup_my_vim_environment/</guid>
       <description>
 
-&lt;p&gt;Steps of setting up my Vim environment on my systems (Arch Linux, MacOS,
-Windows).&lt;/p&gt;
+&lt;p&gt;It is the Vim that bring we into the fantastic OSS world. Fiddling with it is
+full of surprise and happy.&lt;/p&gt;
+
+&lt;p&gt;Below records my steps of setting up my Vim environment after every system
+re-installation.&lt;/p&gt;
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Installing Vim&lt;/h1&gt;
 
@@ -535,8 +538,10 @@ npm install csscomb -g
       <pubDate>Fri, 07 Nov 2014 09:24:33 CST</pubDate>
       
       <guid>http://localhost:1313/memo/error_collection_sh/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;body of &lt;code&gt;select&lt;/code&gt; constructs need a &lt;code&gt;break;&lt;/code&gt; to quit the selection loop.&lt;/li&gt;
+      <description>&lt;p&gt;Errors that I collected day by day, when writing the Bash scripting language.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Body of &lt;code&gt;select&lt;/code&gt; constructs need a &lt;code&gt;break;&lt;/code&gt; to quit the selection loop.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;select answer in #choices#; do
@@ -544,6 +549,14 @@ npm install csscomb -g
   break; # &amp;lt;- go out of selection loop.
 done
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Always &lt;code&gt;source&lt;/code&gt; before testing a updated command.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Whence quoted with &lt;code&gt;&amp;quot;&lt;/code&gt;, which is the most case, use the &lt;code&gt;@&lt;/code&gt; form (i.e.
+&lt;code&gt;&amp;quot;${ARRAY[@]}&amp;quot;&lt;/code&gt;) to expand a array correctly. The &lt;code&gt;*&lt;/code&gt; form will make the
+expanded string as a &lt;strong&gt;single word&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -553,7 +566,9 @@ done
       <pubDate>Fri, 07 Nov 2014 09:24:33 CST</pubDate>
       
       <guid>http://localhost:1313/memo/error_collection_javascript/</guid>
-      <description>&lt;ul&gt;
+      <description>&lt;p&gt;Errors that I collected day by day when writing the JavaScript language.&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;when assign a function to a event property, appending &lt;code&gt;()&lt;/code&gt; to the function name.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -598,7 +613,12 @@ Windows/Cygwin).&lt;/p&gt;
       <guid>http://localhost:1313/memo/setup_my_aweseome_wm_environment/</guid>
       <description>
 
-&lt;p&gt;Steps of setting up the Awesome window manager on my Arch Linux.&lt;/p&gt;
+&lt;p&gt;Awesome WM let you maniplate system windows like using Vim, besides its
+bleeding fast window UI rendering &amp;amp; switching speed on *nix platform I&amp;rsquo;ve ever
+seen.&lt;/p&gt;
+
+&lt;p&gt;Below records my steps of setting up the Awesome window manager on my Arch
+Linux progressively.&lt;/p&gt;
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Installing Awesome Packages&lt;/h1&gt;
 
@@ -691,6 +711,11 @@ gvim --remote-tab /path/of/file
       <guid>http://localhost:1313/memo/my_vim_customization_policy/</guid>
       <description>
 
+&lt;p&gt;It is the Vim that bring we into the fantastic OSS world. Fiddling with it is
+full of surprise and happy.&lt;/p&gt;
+
+&lt;p&gt;Below records my thoughts and rules of customizing my Vim.&lt;/p&gt;
+
 &lt;h1 id=&#34;toc_0&#34;&gt;About Mapping&lt;/h1&gt;
 
 &lt;h2 id=&#34;toc_1&#34;&gt;Good prefixes for normal mode mappings&lt;/h2&gt;
@@ -744,6 +769,17 @@ when a single click of &lt;Cr&gt; is needed, you will feel a noticeable response
       <guid>http://localhost:1313/memo/compile_macvim_and_ycm_on_osx/</guid>
       <description>
 
+&lt;p&gt;Compiling &lt;a href=&#34;http://valloric.github.io/YouCompleteMe/&#34;&gt;Youcompleteme&lt;/a&gt; and &lt;a href=&#34;https://github.com/b4winckler/macvim&#34;&gt;Macvim&lt;/a&gt; on MacOSX once beaten me
+down for several nights.&lt;/p&gt;
+
+&lt;p&gt;I eventually found out that this is because the interference from
+&lt;a href=&#34;https://github.com/yyuu/pyenv&#34;&gt;pyenv&lt;/a&gt; and [homebrew][brew].&lt;/p&gt;
+
+&lt;p&gt;[homebrew][brew] installs packages into a unconventional path, which makes
+MacVim and Youcompleteme can found buidling dependencies in default paths.&lt;/p&gt;
+
+&lt;p&gt;While &lt;a href=&#34;https://github.com/yyuu/pyenv&#34;&gt;pyenv&lt;/a&gt; will shadow &lt;a href=&#34;https://github.com/b4winckler/macvim&#34;&gt;Macvim&lt;/a&gt;&amp;rsquo;s default python &amp;hellip;&lt;/p&gt;
+
 &lt;h1 id=&#34;toc_0&#34;&gt;Preparation&lt;/h1&gt;
 
 &lt;ul&gt;
@@ -763,6 +799,10 @@ when a single click of &lt;Cr&gt; is needed, you will feel a noticeable response
 &lt;/ul&gt;
 
 &lt;h1 id=&#34;toc_1&#34;&gt;Compile YCM&lt;/h1&gt;
+
+&lt;p&gt;On MacOSX using native clang package has proven to be very stable, besides, it
+drastically accelerates the installing process &amp;ndash; leaving &lt;code&gt;install.sh&lt;/code&gt; no need
+to download the prebuild binaries from LLVM&amp;rsquo;s site.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd /to/ycm/root/directory/
     ./install.sh --clang-completer --system-libclang
@@ -793,6 +833,8 @@ make
       
       <guid>http://localhost:1313/memo/vim_chameleon_startup_menu/</guid>
       <description>
+
+&lt;p&gt;Records here the steps of making a small and neat vim-chameleon startup screen.&lt;/p&gt;
 
 &lt;h1 id=&#34;toc_0&#34;&gt;On Windows:&lt;/h1&gt;
 

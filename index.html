@@ -580,8 +580,11 @@ alias vpoff='sudo ~/.bin/vpn.sh off'
 
         
 
-<p>Steps of setting up my Vim environment on my systems (Arch Linux, MacOS,
-Windows).</p>
+<p>It is the Vim that bring we into the fantastic OSS world. Fiddling with it is
+full of surprise and happy.</p>
+
+<p>Below records my steps of setting up my Vim environment after every system
+re-installation.</p>
 
 <h1 id="toc_0">Installing Vim</h1>
 
@@ -714,37 +717,6 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -771,6 +743,37 @@ function init() {
 
 <pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
 </code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+</ul>
 
       </div>
       
@@ -805,7 +808,12 @@ Windows/Cygwin).</p>
 
         
 
-<p>Steps of setting up the Awesome window manager on my Arch Linux.</p>
+<p>Awesome WM let you maniplate system windows like using Vim, besides its
+bleeding fast window UI rendering &amp; switching speed on *nix platform I&rsquo;ve ever
+seen.</p>
+
+<p>Below records my steps of setting up the Awesome window manager on my Arch
+Linux progressively.</p>
 
 <h1 id="toc_0">Installing Awesome Packages</h1>
 
@@ -989,6 +997,11 @@ based tag cloud.</p>
         <span class="post-date">Thu, Oct 30, 2014</span>
 
         
+
+<p>It is the Vim that bring we into the fantastic OSS world. Fiddling with it is
+full of surprise and happy.</p>
+
+<p>Below records my thoughts and rules of customizing my Vim.</p>
 
 <h1 id="toc_0">About Mapping</h1>
 
@@ -1767,6 +1780,17 @@ commits.</p>
 
         
 
+<p>Compiling <a href="http://valloric.github.io/YouCompleteMe/">Youcompleteme</a> and <a href="https://github.com/b4winckler/macvim">Macvim</a> on MacOSX once beaten me
+down for several nights.</p>
+
+<p>I eventually found out that this is because the interference from
+<a href="https://github.com/yyuu/pyenv">pyenv</a> and [homebrew][brew].</p>
+
+<p>[homebrew][brew] installs packages into a unconventional path, which makes
+MacVim and Youcompleteme can found buidling dependencies in default paths.</p>
+
+<p>While <a href="https://github.com/yyuu/pyenv">pyenv</a> will shadow <a href="https://github.com/b4winckler/macvim">Macvim</a>&rsquo;s default python &hellip;</p>
+
 <h1 id="toc_0">Preparation</h1>
 
 <ul>
@@ -1786,6 +1810,10 @@ commits.</p>
 </ul>
 
 <h1 id="toc_1">Compile YCM</h1>
+
+<p>On MacOSX using native clang package has proven to be very stable, besides, it
+drastically accelerates the installing process &ndash; leaving <code>install.sh</code> no need
+to download the prebuild binaries from LLVM&rsquo;s site.</p>
 
 <pre><code class="language-bash">cd /to/ycm/root/directory/
     ./install.sh --clang-completer --system-libclang
@@ -1819,6 +1847,8 @@ make
         <span class="post-date">Mon, Sep 29, 2014</span>
 
         
+
+<p>Records here the steps of making a small and neat vim-chameleon startup screen.</p>
 
 <h1 id="toc_0">On Windows:</h1>
 
