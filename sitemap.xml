@@ -18,12 +18,17 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/memo/error_collection_sh/</loc>
+    <lastmod>2014-11-07T09:24:33+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/memo/error_collection_javascript/</loc>
     <lastmod>2014-11-07T09:24:33+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/memo/error_collection_sh/</loc>
+    <loc>http://localhost:1313/memo/error_collection_bash/</loc>
     <lastmod>2014-11-07T09:24:33+08:00</lastmod>
   </url>
   

@@ -181,6 +181,37 @@ expanded string as a &lt;strong&gt;single word&lt;/strong&gt;.&lt;/p&gt;&lt;/li&
     </item>
     
     <item>
+      <title>ERROR COLLECTION - BASH</title>
+      <link>http://localhost:1313/memo/error_collection_bash/</link>
+      <pubDate>Fri, 07 Nov 2014 09:24:33 CST</pubDate>
+      
+      <guid>http://localhost:1313/memo/error_collection_bash/</guid>
+      <description>&lt;p&gt;Errors that I collected day by day, when writing the Bash scripting language.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Body of &lt;code&gt;select&lt;/code&gt; constructs need a &lt;code&gt;break;&lt;/code&gt; to quit the selection loop.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;select answer in #choices#; do
+  #body#
+  break; # &amp;lt;- go out of selection loop.
+done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Always &lt;code&gt;source&lt;/code&gt; before testing a updated command.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Whence quoted with &lt;code&gt;&amp;quot;&lt;/code&gt;, which is the most case, use the &lt;code&gt;@&lt;/code&gt; form (i.e.
+&lt;code&gt;&amp;quot;${ARRAY[@]}&amp;quot;&lt;/code&gt;) to expand a array correctly. The &lt;code&gt;*&lt;/code&gt; form will make the
+expanded string as a &lt;strong&gt;single word&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;local path&lt;/code&gt; is the source of all evil. It will shaddow the global &lt;code&gt;path&lt;/code&gt;
+where binary search paths is hold in zsh.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>SETUP MY ZSH ENVIRONMENT</title>
       <link>http://localhost:1313/memo/setup_my_zsh_environment/</link>
       <pubDate>Wed, 05 Nov 2014 09:34:11 CST</pubDate>

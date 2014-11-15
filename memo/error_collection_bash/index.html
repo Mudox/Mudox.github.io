@@ -7,7 +7,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> MY VIM CUSTOMIZATION POLICY &middot; Mudox </title>
+    <title> ERROR COLLECTION - BASH &middot; Mudox </title>
 
     
     
@@ -189,78 +189,37 @@
     <div class="content container">
         <div class="post">
             
-            <h1>MY VIM CUSTOMIZATION POLICY</h1>
-            <span class="post-date">Thu, Oct 30, 2014</span>
+            <h1>ERROR COLLECTION - BASH</h1>
+            <span class="post-date">Fri, Nov 7, 2014</span>
 
             
             <div id="toc">
-                <nav id="TableOfContents">
-<ul>
-<li><a href="#toc_0">About Mapping</a>
-<ul>
-<li><a href="#toc_1">Good prefixes for normal mode mappings</a>
-<ul>
-<li><a href="#toc_2">The comma <code>,</code></a></li>
-<li><a href="#toc_3">The backslash <code>\</code></a></li>
-<li><a href="#toc_4">The space <code>&lt;Space&gt;</code></a></li>
-<li><a href="#toc_5">The enter <code>&lt;Cr&gt;</code> or <code>&lt;Enter&gt;</code></a></li>
-</ul></li>
-<li><a href="#toc_6">Mapping toggling commands</a></li>
-</ul></li>
-</ul>
-</nav>
+                
             </div>
 
             
-            
-
-<p>It is the Vim that bring we into the fantastic OSS world. Fiddling with it is
-full of surprise and happy.</p>
-
-<p>Below records my thoughts and rules of customizing my Vim.</p>
-
-<h1 id="toc_0">About Mapping</h1>
-
-<h2 id="toc_1">Good prefixes for normal mode mappings</h2>
-
-<h3 id="toc_2">The comma <code>,</code></h3>
-
-<p>use 2 ~ 3 suffix characters, then we can get more candidates key combinations
-for mapping.</p>
-
-<h3 id="toc_3">The backslash <code>\</code></h3>
-
-<p>different keyboard layouts have different locations for <code>\</code>, so it should be
-used less frequently than <code>,</code>.</p>
-
-<h3 id="toc_4">The space <code>&lt;Space&gt;</code></h3>
-
-<p>the <code>&lt;Space&gt;</code> is the best prefix for normal mappings I&rsquo;ve ever found. It spans
-a long distance at the bottom of the keyboard, which makes it&rsquo;s very easy and
-comfortable to touch.</p>
-
-<p>currrently, I only assigned it to</p>
+            <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
 
 <ul>
-<li><p><a href="https://github.com/kien/ctrlp.vim.git">kien&rsquo;s &lsquo;CtrlP&rsquo;</a> family mappings</p></li>
-
-<li><p><a href="https://github.com/Mudox/vim-omnimenu">my &lsquo;vim-omnimenu&rsquo;</a> mappings</p></li>
-
-<li><p><a href="https://github.com/Mudox/vim-chameleon">my &lsquo;vim-chameleon&rsquo;</a> mappings</p></li>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
 </ul>
 
-<h3 id="toc_5">The enter <code>&lt;Cr&gt;</code> or <code>&lt;Enter&gt;</code></h3>
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
 
-<p>since many vim itself and many plugin use <Cr>, so I should use it sparely.
-when a single click of <Cr> is needed, you will feel a noticeable response lag.</p>
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
 
-<h2 id="toc_6">Mapping toggling commands</h2>
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
 
-<ol>
-<li><p>use <code>co</code> prefix, which is derived from <a href="https://github.com/tpope/vim-unimpaired.git">tpope&rsquo;s &lsquo;unimpaired&rsquo;</a> plugin.</p></li>
-
-<li><p>use <code>,\*&lt;Space&gt;</code> pattern, which is derived from <a href="https://github.com/scrooloose/nerdcommenter.git">scrooloose&rsquo;s &lsquo;NERD commenter&rsquo;</a> plugin.</p></li>
-</ol>
+<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
+where binary search paths is hold in zsh.</p></li>
+</ul>
 
         </div>
     </div>
