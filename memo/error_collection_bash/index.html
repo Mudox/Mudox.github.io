@@ -219,7 +219,13 @@ expanded string as a <strong>single word</strong>.</p></li>
 
 <li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
 where binary search paths is hold in zsh.</p></li>
+
+<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
+a real number.</p></li>
 </ul>
+
+<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
+</code></pre>
 
         </div>
     </div>

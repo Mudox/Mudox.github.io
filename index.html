@@ -203,7 +203,41 @@
 
 <p>The marason of installing &amp; tunning the Arch Linux to my flavor.</p>
 
-<h1 id="toc_0">Mouse acceleration</h1>
+<h1 id="toc_0">Summar</h1>
+
+<p><a href="archlinux">Arch Linux</a> + <a href="awesome">Awesome WM</a> + <a href="xterm">xterm</a>, that is the main skeleton of my system.</p>
+
+<p>I settled on this combination under the rule:</p>
+
+<ul>
+<li><p>minimalistic environment</p></li>
+
+<li><p>fast revolution</p></li>
+
+<li><p>lightweight</p></li>
+</ul>
+
+<h1 id="toc_1">Display Manager &ndash; LightDM</h1>
+
+<p>I choose <a href="http://www.freedesktop.org/wiki/Software/LightDM/">LightDM</a>, because it is</p>
+
+<ol>
+<li><p>individual, you don&rsquo;t have to install a bunch of GNOME or KDE packages to
+make it run.</p></li>
+
+<li><p>lightweight</p></li>
+
+<li><p>has many front ends thanks to it cross desktop feature.</p></li>
+</ol>
+
+<p>Among various <a href="https://wiki.archlinux.org/index.php/Lightdm#Greeter">greeters</a>, I currently use <code>lightdm-webkit-greeter,</code>
+as its&rsquo; name implies, you can write your own greeting screen using HTML/CSS/JS.</p>
+
+<p>Besides, it have many font ends (a.k.a. greeters).</p>
+
+<h1 id="toc_2">Windows Manger &ndash; the Awesome WM</h1>
+
+<h1 id="toc_3">Mouse acceleration</h1>
 
 <p>Type <code>xset q | grep Pointer</code> to see current mouse acceleration setting.</p>
 
@@ -230,7 +264,7 @@ be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&fr
 <li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_1">Input Method</h1>
+<h1 id="toc_4">Input Method</h1>
 
 <p>The <strong>ibus + isbus-rime</strong> combinations works nicely on my Arch Linux.</p>
 
@@ -271,7 +305,7 @@ ibus-daemon -drx
 <li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_2">Window Manager</h1>
+<h1 id="toc_5">Window Manager</h1>
 
 <p>On Linux platforms, I prefer WMs to DEs.</p>
 
@@ -280,7 +314,7 @@ ibus-daemon -drx
 <p>see <a href="/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
 for details.</p>
 
-<h1 id="toc_3">Shell Environment</h1>
+<h1 id="toc_6">Shell Environment</h1>
 
 <p>I have used several terminal emulators (gnome-terminal, xvrt &hellip;), and finally
 I settled myself on <strong>xterm</strong>, which I feel it:</p>
@@ -313,7 +347,7 @@ bash &amp; fish shells. the reason is obvious:</p>
 </ul></li>
 </ul>
 
-<h2 id="toc_4">Pull down dot-files repo</h2>
+<h2 id="toc_7">Pull down dot-files repo</h2>
 
 <p>My configuration resource related to termianl emulator &amp; shells are managed in
 a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files</a>.</p>
@@ -322,7 +356,7 @@ a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files
 git clone https://github.com/Mudox/dot-files.git
 </code></pre>
 
-<h2 id="toc_5">Setup xterm</h2>
+<h2 id="toc_8">Setup xterm</h2>
 
 <p>First, install xterm from Arch Linux&rsquo;s official repository.</p>
 
@@ -335,13 +369,13 @@ cd ~
 ln -sf Git/dot-files/Xresources .Xresources
 </code></pre>
 
-<h2 id="toc_6">Setup zsh</h2>
+<h2 id="toc_9">Setup zsh</h2>
 
 <p>see <a href="/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENTS</a> for details.</p>
 
-<h1 id="toc_7">Setup Virtualbox</h1>
+<h1 id="toc_10">Setup Virtualbox</h1>
 
-<h2 id="toc_8">Installing virutalbox</h2>
+<h2 id="toc_11">Installing virutalbox</h2>
 
 <p>First, from the official repository, install <em>vitualbox</em> package, which comes
 with <em>virtualbox-host-modules</em>.</p>
@@ -363,7 +397,7 @@ sudo echo 'vboxdrv' &gt; /etc/modules-load.d/virtualbox.conf
 sudo gpasswd -a &quot;${USER}&quot; vboxusers
 </code></pre>
 
-<h2 id="toc_9">Confiuring virtualbox</h2>
+<h2 id="toc_12">Confiuring virtualbox</h2>
 
 <ol>
 <li><p>Set <em>Host Key Combination</em> to <code>right &lt;winkey&gt;</code> which is consistent with
@@ -383,9 +417,9 @@ Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
 <li><p><a href="https://wiki.archlinux.org/index.php/Kernel_modules">kernel_modules from ArchWiki</a></p></li>
 </ul>
 
-<h1 id="toc_10">VPN</h1>
+<h1 id="toc_13">VPN</h1>
 
-<h2 id="toc_11">Setup pptpclient</h2>
+<h2 id="toc_14">Setup pptpclient</h2>
 
 <ol>
 <li><p>install pptpclient from the official repository of Arch Linux.</p></li>
@@ -443,9 +477,9 @@ ip addr show
 sudo pon &lt;tunnel_name&gt;
 </code></pre>
 
-<h2 id="toc_12">Route all traffic through VPN connection</h2>
+<h2 id="toc_15">Route all traffic through VPN connection</h2>
 
-<h3 id="toc_13">Manually</h3>
+<h3 id="toc_16">Manually</h3>
 
 <p>Use the powerfull <code>ip</code> command to add a route rule into route table.</p>
 
@@ -456,7 +490,7 @@ ip route add default dev ppp0
 <p>This route rule is only effective during this ppp session. after your tear down
 the VPN connection by <code>sudo pon &lt;tunnel_name&gt;</code>, it will vanish.</p>
 
-<h3 id="toc_14">Automatically</h3>
+<h3 id="toc_17">Automatically</h3>
 
 <p>Every executable scripts under /etc/ppp/ip-up.d/ will be called when a VPN
 connection startup. Hence, we can use it to automatically set route rules.</p>
@@ -486,7 +520,7 @@ echo 'ip route add default via $4' &gt; 01-routes.sh
 sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
 </code></pre>
 
-<h2 id="toc_15">Modify DNS server list</h2>
+<h2 id="toc_18">Modify DNS server list</h2>
 
 <p>If you found you still can not access some site (e.g. youtube, twitter, etc.)
 after establishing the VPN connection, then you should insert <code>servername
@@ -498,7 +532,7 @@ nameserver 8.8.8.8
 nameserver 192.168.0.1
 </code></pre>
 
-<h3 id="toc_16"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
+<h3 id="toc_19"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
 
 <p><strong>NOTE: for unknown reason, I failed following this way to achieve the
 automation, the <code>/etc/ppp/ip-up.d/00-dns.sh</code> did run, but it just did not move
@@ -518,7 +552,7 @@ automatically substitutes <em>/etc/ppp/resolv.conf</em> with <em>/etc/resolv.con
 <li><p>add <code>export USEPEERSDNS=1</code> into <em>~/.profile</em></p></li>
 </ol>
 
-<h3 id="toc_17">My hacky way</h3>
+<h3 id="toc_20">My hacky way</h3>
 
 <p>I wrote a script to get around of this:</p>
 
@@ -721,40 +755,6 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_bash/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-
-<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
-where binary search paths is hold in zsh.</p></li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -812,6 +812,46 @@ done
 <code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
 expanded string as a <strong>single word</strong>.</p></li>
 </ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_bash/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+
+<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
+where binary search paths is hold in zsh.</p></li>
+
+<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
+a real number.</p></li>
+</ul>
+
+<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
+</code></pre>
 
       </div>
       
