@@ -10,11 +10,9 @@
     <title> SETUP MY ARCH LINUX ENVIRONMENT &middot; Mudox </title>
 
     
-    
-    
-    
     <link rel="stylesheet" href="/css/mudox_hyde.css">
 
+    
     
     <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
@@ -26,15 +24,14 @@
     <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
+    <script src="/jquery.min.js"></script>
+
+    
     <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
-    
-    
-    
     <script src="/highlight_js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
     
-    <script src="/jquery.min.js"></script>
     <script src="/jquery.tagcanvas.min.js"></script>
   </head>
 
@@ -44,7 +41,7 @@
 
   
   <div id="particles-js">
-    <script src="/particles.js"></script>
+    <script src="/particles.min.js"></script>
     <script>
       setTimeout(function() {
         particlesJS('particles-js', {
@@ -69,7 +66,7 @@
             },
             anim: {
               enable: true,
-              speed: 2
+              speed: .7
             }
           },
           interactivity: {
@@ -78,7 +75,18 @@
               distance: 250
             },
             detect_on: 'window', 
-            mode: 'grab'
+            mode: 'grab',
+            line_linked: {
+              opacity: .8
+            },
+            events: {
+              onclick: {
+                push_particles: {
+                  enable: false,
+                  nb: 4
+                }
+              }
+            }
           },
            
           retina_detect: true
@@ -197,34 +205,35 @@
                 <nav id="TableOfContents">
 <ul>
 <li><a href="#toc_0">Summar</a></li>
-<li><a href="#toc_1">Display Manager &ndash; LightDM</a></li>
-<li><a href="#toc_2">Windows Manger &ndash; the Awesome WM</a></li>
-<li><a href="#toc_3">Mouse acceleration</a></li>
-<li><a href="#toc_4">Input Method</a></li>
-<li><a href="#toc_5">Window Manager</a></li>
-<li><a href="#toc_6">Shell Environment</a>
+<li><a href="#toc_1">The System &ndash; Arch Linux</a></li>
+<li><a href="#toc_2">The Display Manager &ndash; LightDM</a></li>
+<li><a href="#toc_3">The Window Manager &ndash; Awesome WM</a></li>
+<li><a href="#toc_4">Mouse acceleration</a></li>
+<li><a href="#toc_5">Input Method</a></li>
+<li><a href="#toc_6">Window Manager</a></li>
+<li><a href="#toc_7">Shell Environment</a>
 <ul>
-<li><a href="#toc_7">Pull down dot-files repo</a></li>
-<li><a href="#toc_8">Setup xterm</a></li>
-<li><a href="#toc_9">Setup zsh</a></li>
+<li><a href="#toc_8">Pull down dot-files repo</a></li>
+<li><a href="#toc_9">Setup xterm</a></li>
+<li><a href="#toc_10">Setup zsh</a></li>
 </ul></li>
-<li><a href="#toc_10">Setup Virtualbox</a>
+<li><a href="#toc_11">Setup Virtualbox</a>
 <ul>
-<li><a href="#toc_11">Installing virutalbox</a></li>
-<li><a href="#toc_12">Confiuring virtualbox</a></li>
+<li><a href="#toc_12">Installing virutalbox</a></li>
+<li><a href="#toc_13">Confiuring virtualbox</a></li>
 </ul></li>
-<li><a href="#toc_13">VPN</a>
+<li><a href="#toc_14">VPN</a>
 <ul>
-<li><a href="#toc_14">Setup pptpclient</a></li>
-<li><a href="#toc_15">Route all traffic through VPN connection</a>
+<li><a href="#toc_15">Setup pptpclient</a></li>
+<li><a href="#toc_16">Route all traffic through VPN connection</a>
 <ul>
-<li><a href="#toc_16">Manually</a></li>
-<li><a href="#toc_17">Automatically</a></li>
+<li><a href="#toc_17">Manually</a></li>
+<li><a href="#toc_18">Automatically</a></li>
 </ul></li>
-<li><a href="#toc_18">Modify DNS server list</a>
+<li><a href="#toc_19">Modify DNS server list</a>
 <ul>
-<li><a href="#toc_19"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></a></li>
-<li><a href="#toc_20">My hacky way</a></li>
+<li><a href="#toc_20"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></a></li>
+<li><a href="#toc_21">My hacky way</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -243,22 +252,21 @@
 <p>I settled on this combination under the rule:</p>
 
 <ul>
-<li><p>minimalistic environment</p></li>
+<li><p>minimalistic environment, no huge DEs like GNOME, KDE or the likes.</p></li>
 
-<li><p>fast revolution</p></li>
-
-<li><p>lightweight</p></li>
+<li><p>fast revolution, always surffing in the front, since it is for personal use,
+why not &hellip;</p></li>
 </ul>
 
-<h1 id="toc_1">Display Manager &ndash; LightDM</h1>
+<h1 id="toc_1">The System &ndash; Arch Linux</h1>
 
-<p>I choose <a href="http://www.freedesktop.org/wiki/Software/LightDM/">LightDM</a>, because it is</p>
+<p>I choose <a href="http://www.freedesktop.org/wiki/Software/LightDM/">LightDM</a>, because it</p>
 
 <ol>
-<li><p>individual, you don&rsquo;t have to install a bunch of GNOME or KDE packages to
+<li><p>is independent, you don&rsquo;t have to install a bunch of GNOME or KDE packages to
 make it run.</p></li>
 
-<li><p>lightweight</p></li>
+<li><p>is lightweight.</p></li>
 
 <li><p>has many front ends thanks to it cross desktop feature.</p></li>
 </ol>
@@ -268,9 +276,11 @@ as its&rsquo; name implies, you can write your own greeting screen using HTML/CS
 
 <p>Besides, it have many font ends (a.k.a. greeters).</p>
 
-<h1 id="toc_2">Windows Manger &ndash; the Awesome WM</h1>
+<h1 id="toc_2">The Display Manager &ndash; LightDM</h1>
 
-<h1 id="toc_3">Mouse acceleration</h1>
+<h1 id="toc_3">The Window Manager &ndash; Awesome WM</h1>
+
+<h1 id="toc_4">Mouse acceleration</h1>
 
 <p>Type <code>xset q | grep Pointer</code> to see current mouse acceleration setting.</p>
 
@@ -297,7 +307,7 @@ be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&fr
 <li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_4">Input Method</h1>
+<h1 id="toc_5">Input Method</h1>
 
 <p>The <strong>ibus + isbus-rime</strong> combinations works nicely on my Arch Linux.</p>
 
@@ -338,7 +348,7 @@ ibus-daemon -drx
 <li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_5">Window Manager</h1>
+<h1 id="toc_6">Window Manager</h1>
 
 <p>On Linux platforms, I prefer WMs to DEs.</p>
 
@@ -347,7 +357,7 @@ ibus-daemon -drx
 <p>see <a href="/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
 for details.</p>
 
-<h1 id="toc_6">Shell Environment</h1>
+<h1 id="toc_7">Shell Environment</h1>
 
 <p>I have used several terminal emulators (gnome-terminal, xvrt &hellip;), and finally
 I settled myself on <strong>xterm</strong>, which I feel it:</p>
@@ -380,7 +390,7 @@ bash &amp; fish shells. the reason is obvious:</p>
 </ul></li>
 </ul>
 
-<h2 id="toc_7">Pull down dot-files repo</h2>
+<h2 id="toc_8">Pull down dot-files repo</h2>
 
 <p>My configuration resource related to termianl emulator &amp; shells are managed in
 a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files</a>.</p>
@@ -389,7 +399,7 @@ a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files
 git clone https://github.com/Mudox/dot-files.git
 </code></pre>
 
-<h2 id="toc_8">Setup xterm</h2>
+<h2 id="toc_9">Setup xterm</h2>
 
 <p>First, install xterm from Arch Linux&rsquo;s official repository.</p>
 
@@ -402,13 +412,13 @@ cd ~
 ln -sf Git/dot-files/Xresources .Xresources
 </code></pre>
 
-<h2 id="toc_9">Setup zsh</h2>
+<h2 id="toc_10">Setup zsh</h2>
 
 <p>see <a href="/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENTS</a> for details.</p>
 
-<h1 id="toc_10">Setup Virtualbox</h1>
+<h1 id="toc_11">Setup Virtualbox</h1>
 
-<h2 id="toc_11">Installing virutalbox</h2>
+<h2 id="toc_12">Installing virutalbox</h2>
 
 <p>First, from the official repository, install <em>vitualbox</em> package, which comes
 with <em>virtualbox-host-modules</em>.</p>
@@ -430,7 +440,7 @@ sudo echo 'vboxdrv' &gt; /etc/modules-load.d/virtualbox.conf
 sudo gpasswd -a &quot;${USER}&quot; vboxusers
 </code></pre>
 
-<h2 id="toc_12">Confiuring virtualbox</h2>
+<h2 id="toc_13">Confiuring virtualbox</h2>
 
 <ol>
 <li><p>Set <em>Host Key Combination</em> to <code>right &lt;winkey&gt;</code> which is consistent with
@@ -450,9 +460,9 @@ Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
 <li><p><a href="https://wiki.archlinux.org/index.php/Kernel_modules">kernel_modules from ArchWiki</a></p></li>
 </ul>
 
-<h1 id="toc_13">VPN</h1>
+<h1 id="toc_14">VPN</h1>
 
-<h2 id="toc_14">Setup pptpclient</h2>
+<h2 id="toc_15">Setup pptpclient</h2>
 
 <ol>
 <li><p>install pptpclient from the official repository of Arch Linux.</p></li>
@@ -510,9 +520,9 @@ ip addr show
 sudo pon &lt;tunnel_name&gt;
 </code></pre>
 
-<h2 id="toc_15">Route all traffic through VPN connection</h2>
+<h2 id="toc_16">Route all traffic through VPN connection</h2>
 
-<h3 id="toc_16">Manually</h3>
+<h3 id="toc_17">Manually</h3>
 
 <p>Use the powerfull <code>ip</code> command to add a route rule into route table.</p>
 
@@ -523,7 +533,7 @@ ip route add default dev ppp0
 <p>This route rule is only effective during this ppp session. after your tear down
 the VPN connection by <code>sudo pon &lt;tunnel_name&gt;</code>, it will vanish.</p>
 
-<h3 id="toc_17">Automatically</h3>
+<h3 id="toc_18">Automatically</h3>
 
 <p>Every executable scripts under /etc/ppp/ip-up.d/ will be called when a VPN
 connection startup. Hence, we can use it to automatically set route rules.</p>
@@ -553,7 +563,7 @@ echo 'ip route add default via $4' &gt; 01-routes.sh
 sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
 </code></pre>
 
-<h2 id="toc_18">Modify DNS server list</h2>
+<h2 id="toc_19">Modify DNS server list</h2>
 
 <p>If you found you still can not access some site (e.g. youtube, twitter, etc.)
 after establishing the VPN connection, then you should insert <code>servername
@@ -565,7 +575,7 @@ nameserver 8.8.8.8
 nameserver 192.168.0.1
 </code></pre>
 
-<h3 id="toc_19"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
+<h3 id="toc_20"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
 
 <p><strong>NOTE: for unknown reason, I failed following this way to achieve the
 automation, the <code>/etc/ppp/ip-up.d/00-dns.sh</code> did run, but it just did not move
@@ -585,7 +595,7 @@ automatically substitutes <em>/etc/ppp/resolv.conf</em> with <em>/etc/resolv.con
 <li><p>add <code>export USEPEERSDNS=1</code> into <em>~/.profile</em></p></li>
 </ol>
 
-<h3 id="toc_20">My hacky way</h3>
+<h3 id="toc_21">My hacky way</h3>
 
 <p>I wrote a script to get around of this:</p>
 

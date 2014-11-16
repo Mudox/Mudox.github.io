@@ -10,11 +10,9 @@
     <title> Javascript &middot; Mudox </title>
 
     
-    
-    
-    
     <link rel="stylesheet" href="/css/mudox_hyde.css">
 
+    
     
     <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
@@ -26,15 +24,14 @@
     <link href="http://mudox.github.io/languages/javascript/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
+    <script src="/jquery.min.js"></script>
+
+    
     <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
-    
-    
-    
     <script src="/highlight_js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
     
-    <script src="/jquery.min.js"></script>
     <script src="/jquery.tagcanvas.min.js"></script>
   </head>
 
@@ -44,7 +41,7 @@
 
   
   <div id="particles-js">
-    <script src="/particles.js"></script>
+    <script src="/particles.min.js"></script>
     <script>
       setTimeout(function() {
         particlesJS('particles-js', {
@@ -69,7 +66,7 @@
             },
             anim: {
               enable: true,
-              speed: 2
+              speed: .7
             }
           },
           interactivity: {
@@ -78,7 +75,18 @@
               distance: 250
             },
             detect_on: 'window', 
-            mode: 'grab'
+            mode: 'grab',
+            line_linked: {
+              opacity: .8
+            },
+            events: {
+              onclick: {
+                push_particles: {
+                  enable: false,
+                  nb: 4
+                }
+              }
+            }
           },
            
           retina_detect: true
