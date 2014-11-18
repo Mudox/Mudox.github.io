@@ -10,29 +10,29 @@
     <title> Mudox &middot; Mudox </title>
 
     
-    <link rel="stylesheet" href="/css/mudox_hyde.css">
+    <link rel="stylesheet" href="/lib/mudox_hyde.css">
 
     
     
     <link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
     
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
     <link href="http://mudox.github.io/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
-    <script src="/jquery.min.js"></script>
+    <script src="/lib/jquery/jquery.min.js"></script>
 
     
-    <link rel="stylesheet" href="/highlight_js/styles/pojoaque.css">
-    <script src="/highlight_js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="/lib/highlight/highlight_js/styles/pojoaque.css">
+    <script src="/lib/highlight/highlight_js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
     
-    <script src="/jquery.tagcanvas.min.js"></script>
+    <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
   </head>
 
 <body class="theme-base-08">
@@ -764,40 +764,31 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_bash/">
-            ERROR COLLECTION - BASH
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
           </a>
         </h1>
 
         <span class="post-date">Fri, Nov 7, 2014</span>
 
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
 
 <ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+<li>when assign a function to a event property, appending <code>()</code> to the function name.</li>
 </ul>
 
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
 </code></pre>
 
 <ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-
-<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
-where binary search paths is hold in zsh.</p></li>
-
-<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
-a real number.</p></li>
+<li>appending <code>()</code> to a property name.</li>
 </ul>
 
-<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
 </code></pre>
 
       </div>
@@ -835,31 +826,40 @@ expanded string as a <strong>single word</strong>.</p></li>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_javascript/">
-            ERROR COLLECTION - JAVASCRIPT
+          <a href="http://mudox.github.io/memo/error_collection_bash/">
+            ERROR COLLECTION - BASH
           </a>
         </h1>
 
         <span class="post-date">Fri, Nov 7, 2014</span>
 
-        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
 
 <ul>
-<li>when assign a function to a event property, appending <code>()</code> to the function name.</li>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
 </ul>
 
-<pre><code class="language-javascript">window.onload = init/*()*/
-
-function init() {
-  // ...
-}
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
 </code></pre>
 
 <ul>
-<li>appending <code>()</code> to a property name.</li>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+
+<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
+where binary search paths is hold in zsh.</p></li>
+
+<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
+a real number.</p></li>
 </ul>
 
-<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
 </code></pre>
 
       </div>
