@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url('/lib/fonts/Abril Fatface regular.ttf') format('ttf'), url(http://fontstatic.useso.com/s/abrilfatface/v8/X1g_KwGeBV3ajZIXQ9VnDvn8qdNnd5eCmWXua5W-n7c.woff) format('woff');
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url('/lib/fonts/PT Sans regular.ttf') format('ttf'), url(http://fontstatic.useso.com/s/ptsans/v8/LKf8nhXsWg5ybwEGXk8UBQ.woff) format('woff');
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'), url('/lib/fonts/PT Sans 700.ttf') format('ttf'), url(http://fontstatic.useso.com/s/ptsans/v8/0XxGQsSc1g4rdRdjJKZrNBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('PT Sans Italic'), local('PTSans-Italic'), url('/lib/fonts/PT Sans italic.ttf') format('ttf'), url(http://fontstatic.useso.com/s/ptsans/v8/PIPMHY90P7jtyjpXuZ2cLD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
