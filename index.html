@@ -217,7 +217,7 @@
 
 <p>The marason of installing &amp; tunning the Arch Linux to my flavor.</p>
 
-<h1 id="toc_0">Summar</h1>
+<h1 id="toc_0">Summary</h1>
 
 <p><a href="archlinux">Arch Linux</a> + <a href="awesome">Awesome WM</a> + <a href="xterm">xterm</a>, that is the main skeleton of my system.</p>
 
@@ -770,6 +770,37 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+
+<ul>
+<li>when assign a function to a event property, appending <code>()</code> to the function name.</li>
+</ul>
+
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
+</code></pre>
+
+<ul>
+<li>appending <code>()</code> to a property name.</li>
+</ul>
+
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_bash/">
             ERROR COLLECTION - BASH
           </a>
@@ -804,37 +835,6 @@ a real number.</p></li>
 </ul>
 
 <pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
-</code></pre>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_javascript/">
-            ERROR COLLECTION - JAVASCRIPT
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day when writing the JavaScript language.</p>
-
-<ul>
-<li>when assign a function to a event property, appending <code>()</code> to the function name.</li>
-</ul>
-
-<pre><code class="language-javascript">window.onload = init/*()*/
-
-function init() {
-  // ...
-}
-</code></pre>
-
-<ul>
-<li>appending <code>()</code> to a property name.</li>
-</ul>
-
-<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
 </code></pre>
 
       </div>
