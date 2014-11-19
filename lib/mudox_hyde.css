@@ -688,19 +688,6 @@ nav#sidebar-menu-wall li.top-menu-item {
 nav#sidebar-menu-wall li.top-menu-item:nth-child(even) {
   float: left;
 }
-/*nav#sidebar-menu-wall li.tag-brick {*/
-/*position: relative;*/
-/*left: -1rem;*/
-/*}*/
-/*nav#sidebar-menu-wall li.tag-brick a {*/
-/*padding: 0px 2px 2px 2px;*/
-/*}*/
-/*nav#sidebar-menu-wall li.tag-brick:nth-child(even) a {*/
-/*background-color: white;*/
-/*color: #ac4142;*/
-/*}*/
-/*}}}1*/
-
 nav#tag-cloud {
   clear: right;
   position: relative;
