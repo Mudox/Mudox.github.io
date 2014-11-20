@@ -225,7 +225,8 @@
 
 <h1 id="toc_0">Summary</h1>
 
-<p><a href="archlinux">Arch Linux</a> + <a href="awesome">Awesome WM</a> + <a href="xterm">xterm</a>, that is the main skeleton of my system.</p>
+<p><a href="https://wiki.archlinux.org">Arch Linux</a> + <a href="http://awesome.naquadah.org">Awesome WM</a> + <a href="http://invisible-island.net/xterm/">xterm</a>, that is the
+main skeleton of my system.</p>
 
 <p>I settled on this combination under the rule:</p>
 
@@ -236,29 +237,143 @@
 why not &hellip;</p></li>
 </ul>
 
-<h1 id="toc_1">The System &ndash; Arch Linux</h1>
-
 <p>I choose <a href="http://www.freedesktop.org/wiki/Software/LightDM/">LightDM</a>, because it</p>
 
 <ol>
-<li><p>is independent, you don&rsquo;t have to install a bunch of GNOME or KDE packages to
-make it run.</p></li>
+<li><p>is developed <strong>independent</strong> of other DEs, hence I don&rsquo;t have to be forced to
+install a bunch of GNOME or KDE dependency packages to only for making it
+run.</p></li>
 
-<li><p>is lightweight.</p></li>
+<li><p>is <strong>lightweight</strong>. Very small package size, therefore starts up bretty fast, as
+I can see.</p></li>
 
-<li><p>has many front ends thanks to it cross desktop feature.</p></li>
+<li><p>has many front ends (a.k.a. <em>greeters</em>) due to it cross-desktop feature.</p></li>
 </ol>
 
-<p>Among various <a href="https://wiki.archlinux.org/index.php/Lightdm#Greeter">greeters</a>, I currently use <code>lightdm-webkit-greeter,</code>
-as its&rsquo; name implies, you can write your own greeting screen using HTML/CSS/JS.</p>
+<p>Among various <a href="https://wiki.archlinux.org/index.php/lightdm#Greeter">greeters</a>, I currently use <code>lightdm-gtk3-greeter</code>. It
+has a simplistic and neat login screen, just the neccessary elements I need.</p>
 
-<p>Besides, it have many font ends (a.k.a. greeters).</p>
+<h1 id="toc_1">The Window Manager &ndash; Awesome WM</h1>
 
-<h1 id="toc_2">The Display Manager &ndash; LightDM</h1>
+<p>I have tried two ways of starting Awesome WM during system boot.</p>
 
-<h1 id="toc_3">The Window Manager &ndash; Awesome WM</h1>
+<p>The first way, is using a <em>display manager</em>, which will presents you a login
+screen, where you enter your user ID &amp; password. After authentication, it
+will start the Awesome WM for you.</p>
 
-<h1 id="toc_4">Mouse acceleration</h1>
+<p>The second way is to use <code>xinit</code> (and it&rsquo;s front-end script <code>startx</code>). When
+display manager is absent in the startup process, system will bring you to one
+of the tty consoles, which is just a simplistic command line interface, then
+you type <code>startx</code> mananually, which then, according the configuration in
+<code>~/.xinitrc</code>, do some initial setting work and finally start the Awesome WM and
+transfer control to it.</p>
+
+<p>Of the 2 ways I&rsquo;ve tried, I prefer the first one &ndash; using a display
+manager. Because the display manager:</p>
+
+<ul>
+<li><p>the installation &amp; configuration processs is relatively simpler than the
+<em>xinit</em> way.</p></li>
+
+<li><p>startup dependent services (e.g. auldio, network etc.) in correct order
+thanks to <code>systemd</code>&rsquo;s dependency management.</p></li>
+
+<li><p>fully utilitize the <code>systemd</code>&rsquo;s conurrency startup feature, making the whole
+startup process bretty faster than the <em>xinit</em> way.</p></li>
+
+<li><p>run fast, there is no need to login to tty console, and type &hellip;, which as
+I&rsquo;ve seen, took more time to initiates.</p></li>
+</ul>
+
+<h2 id="toc_2">With display manager</h2>
+
+<h3 id="toc_3">Installing LightDM</h3>
+
+<p>First, install <code>LightDM</code> &amp; <code>lightdm-gtk3-greeter</code> from official repository. An
+extra advantage of choosing <code>lightdm-gtk3-greeter</code> is that you do not need to
+modify the <code>/etc/lightdm/lightdm.conf</code> to let the <code>LightDM</code> back-end use it. It
+is the reference (default) greeter.</p>
+
+<p>Then register <code>LightDM</code> to <code>systemd</code>, making it get started on boot
+automatically.</p>
+
+<pre><code class="language-bash">sudo pacman -S lightdm, lightdm-gtk3-greeter
+
+sudo systemctl enable lightdm.service
+</code></pre>
+
+<h3 id="toc_4">Configuring LightDM</h3>
+
+<h2 id="toc_5">Without display manager</h2>
+
+<p>Without display manager, you should first login into the tty1, then type
+<code>startx</code> to start the <em>Awesome WM</em>.</p>
+
+<p>Through some configuration, the 2 steps mentioned above can be automated:</p>
+
+<h3 id="toc_6">Step 1 &ndash; automatic login to virtual console</h3>
+
+<p>create the following file and its&rsquo; parent directory if not exists.</p>
+
+<pre><code class="language-conf"># /etc/systemd/system/getty@tty1.service.d/autologin
+------------------------------------------------------------------------------
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin mudox --noclear %I 38400 linux
+Type=idle
+</code></pre>
+
+<h3 id="toc_7">Step 2 &ndash; start X at login</h3>
+
+<p>First install the <code>xorg-xinit</code> package from the Arch Linux official
+repository, which provides the <code>xinit</code> command &amp; its&rsquo; front end &ndash; the <code>startx</code>
+script, besides, it also put a template <em>xinitrc</em> file under <code>/etc/skel/</code>
+directory.</p>
+
+<p>Then, base on <code>/etc/skel/.xinitrc</code>, create <code>~/.xinitrc</code> as follows:</p>
+
+<pre><code class="language-bash">#!/bin/sh
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x &quot;$f&quot; ] &amp;&amp; . &quot;$f&quot;
+  done
+  unset f
+fi
+
+xrdb -merge ~/.Xresources # if you have ever created it.
+
+# exec gnome-session
+# exec startkde
+# exec startxfce4
+
+exec awesome # make sure it's on the last line
+</code></pre>
+
+<p>Finally, add the following code into you shell login script, such as <em>.profile</em>
+for bash and <em>.zlogin</em> for zsh.</p>
+
+<pre><code class="language-bash"># ~/.zlogin
+------------------------------------------------------------------------------
+[[ -z $DISPLAY &amp;&amp; $XDG_VTNR -eq 1 ]] &amp;&amp; exec startx
+</code></pre>
+
+<p>reference:</p>
+
+<ul>
+<li><p><a href="https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console">Automatic login to virtual console from
+ArchWiki</a></p></li>
+
+<li><p><a href="https://wiki.archlinux.org/index.php/Start_X_at_login">Start X at login</a></p></li>
+
+<li><p><a href="https://wiki.archlinux.org/index.php/Xinitrc">xinitrc form ArchWiki</a></p></li>
+</ul>
+
+<h1 id="toc_8">Mouse acceleration</h1>
 
 <p>Type <code>xset q | grep Pointer</code> to see current mouse acceleration setting.</p>
 
@@ -285,7 +400,7 @@ be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&fr
 <li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_5">Input Method</h1>
+<h1 id="toc_9">Input Method</h1>
 
 <p>The <strong>ibus + isbus-rime</strong> combinations works nicely on my Arch Linux.</p>
 
@@ -326,7 +441,7 @@ ibus-daemon -drx
 <li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_6">Window Manager</h1>
+<h1 id="toc_10">Window Manager</h1>
 
 <p>On Linux platforms, I prefer WMs to DEs.</p>
 
@@ -335,7 +450,7 @@ ibus-daemon -drx
 <p>see <a href="/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
 for details.</p>
 
-<h1 id="toc_7">Shell Environment</h1>
+<h1 id="toc_11">Shell Environment</h1>
 
 <p>I have used several terminal emulators (gnome-terminal, xvrt &hellip;), and finally
 I settled myself on <strong>xterm</strong>, which I feel it:</p>
@@ -368,7 +483,7 @@ bash &amp; fish shells. the reason is obvious:</p>
 </ul></li>
 </ul>
 
-<h2 id="toc_8">Pull down dot-files repo</h2>
+<h2 id="toc_12">Pull down dot-files repo</h2>
 
 <p>My configuration resource related to termianl emulator &amp; shells are managed in
 a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files</a>.</p>
@@ -377,7 +492,7 @@ a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files
 git clone https://github.com/Mudox/dot-files.git
 </code></pre>
 
-<h2 id="toc_9">Setup xterm</h2>
+<h2 id="toc_13">Setup xterm</h2>
 
 <p>First, install xterm from Arch Linux&rsquo;s official repository.</p>
 
@@ -390,13 +505,13 @@ cd ~
 ln -sf Git/dot-files/Xresources .Xresources
 </code></pre>
 
-<h2 id="toc_10">Setup zsh</h2>
+<h2 id="toc_14">Setup zsh</h2>
 
 <p>see <a href="/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENTS</a> for details.</p>
 
-<h1 id="toc_11">Setup Virtualbox</h1>
+<h1 id="toc_15">Setup Virtualbox</h1>
 
-<h2 id="toc_12">Installing virutalbox</h2>
+<h2 id="toc_16">Installing virutalbox</h2>
 
 <p>First, from the official repository, install <em>vitualbox</em> package, which comes
 with <em>virtualbox-host-modules</em>.</p>
@@ -418,7 +533,7 @@ sudo echo 'vboxdrv' &gt; /etc/modules-load.d/virtualbox.conf
 sudo gpasswd -a &quot;${USER}&quot; vboxusers
 </code></pre>
 
-<h2 id="toc_13">Confiuring virtualbox</h2>
+<h2 id="toc_17">Confiuring virtualbox</h2>
 
 <ol>
 <li><p>Set <em>Host Key Combination</em> to <code>right &lt;winkey&gt;</code> which is consistent with
@@ -438,9 +553,9 @@ Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
 <li><p><a href="https://wiki.archlinux.org/index.php/Kernel_modules">kernel_modules from ArchWiki</a></p></li>
 </ul>
 
-<h1 id="toc_14">VPN</h1>
+<h1 id="toc_18">VPN</h1>
 
-<h2 id="toc_15">Setup pptpclient</h2>
+<h2 id="toc_19">Setup pptpclient</h2>
 
 <ol>
 <li><p>install pptpclient from the official repository of Arch Linux.</p></li>
@@ -498,9 +613,9 @@ ip addr show
 sudo pon &lt;tunnel_name&gt;
 </code></pre>
 
-<h2 id="toc_16">Route all traffic through VPN connection</h2>
+<h2 id="toc_20">Route all traffic through VPN connection</h2>
 
-<h3 id="toc_17">Manually</h3>
+<h3 id="toc_21">Manually</h3>
 
 <p>Use the powerfull <code>ip</code> command to add a route rule into route table.</p>
 
@@ -511,7 +626,7 @@ ip route add default dev ppp0
 <p>This route rule is only effective during this ppp session. after your tear down
 the VPN connection by <code>sudo pon &lt;tunnel_name&gt;</code>, it will vanish.</p>
 
-<h3 id="toc_18">Automatically</h3>
+<h3 id="toc_22">Automatically</h3>
 
 <p>Every executable scripts under /etc/ppp/ip-up.d/ will be called when a VPN
 connection startup. Hence, we can use it to automatically set route rules.</p>
@@ -541,7 +656,7 @@ echo 'ip route add default via $4' &gt; 01-routes.sh
 sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
 </code></pre>
 
-<h2 id="toc_19">Modify DNS server list</h2>
+<h2 id="toc_23">Modify DNS server list</h2>
 
 <p>If you found you still can not access some site (e.g. youtube, twitter, etc.)
 after establishing the VPN connection, then you should insert <code>servername
@@ -553,7 +668,7 @@ nameserver 8.8.8.8
 nameserver 192.168.0.1
 </code></pre>
 
-<h3 id="toc_20"><del>Automate the DNS modification process by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
+<h3 id="toc_24"><del>Automate by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
 
 <p><strong>NOTE: for unknown reason, I failed following this way to achieve the
 automation, the <code>/etc/ppp/ip-up.d/00-dns.sh</code> did run, but it just did not move
@@ -573,7 +688,7 @@ automatically substitutes <em>/etc/ppp/resolv.conf</em> with <em>/etc/resolv.con
 <li><p>add <code>export USEPEERSDNS=1</code> into <em>~/.profile</em></p></li>
 </ol>
 
-<h3 id="toc_21">My hacky way</h3>
+<h3 id="toc_25">My hacky way</h3>
 
 <p>I wrote a script to get around of this:</p>
 
@@ -1003,7 +1118,7 @@ gvim --remote-tab /path/of/file
       <div class="post">
         <h1 class="post-title">
           <a href="http://mudox.github.io/post/about_my_site/">
-            ABOUT MY SITE
+            ABOUT THE SITE
           </a>
         </h1>
 
@@ -1011,22 +1126,57 @@ gvim --remote-tab /path/of/file
 
         
 
-<h1 id="toc_0">Acknowledgements</h1>
+<h1 id="toc_0">Note To Myself</h1>
 
-<h2 id="toc_1"><a href="http://gohugo.io/">Hugo</a></h2>
+<h2 id="toc_1">When to use</h2>
+
+<h3 id="toc_2">&lt;code&gt;</h3>
+
+<ul>
+<li><p>in-line command line.</p></li>
+
+<li><p>command name</p></li>
+
+<li><p>package / software / application name offen appears in script code</p></li>
+
+<li><p>file path</p></li>
+</ul>
+
+<h3 id="toc_3">&lt;strong&gt;</h3>
+
+<ul>
+<li>single word or words that should be prominent in a sentence.</li>
+</ul>
+
+<h3 id="toc_4">&lt;em&gt;</h3>
+
+<h2 id="toc_5">To-Do List of the Site</h2>
+
+<p><input type="checkbox" style="position:relative; top: 2px;"> plural view customization.
+<br>
+<input type="checkbox" style="position:relative; top: 2px;"> list of content in sidebar for article single view.
+<br>
+<input type="checkbox" style="position:relative; top: 2px;"> top menu item more fancier.
+<br>
+<input type="checkbox" style="position:relative; top: 2px;"> tidy up CSS file.
+<br></p>
+
+<h1 id="toc_6">Acknowledgements</h1>
+
+<h2 id="toc_7"><a href="http://gohugo.io/">Hugo</a></h2>
 
 <blockquote>
 <p>A Fast and Flexible Static Site Generator built with love by spf13 in GoLang.</p>
 </blockquote>
 
-<h2 id="toc_2"><a href="https://github.com/spf13/hyde.git">Hyde</a></h2>
+<h2 id="toc_8"><a href="https://github.com/spf13/hyde.git">Hyde</a></h2>
 
 <blockquote>
 <p>Hyde is a brazen two-column hugo theme based on the Jekyll theme of the same
 name. It pairs a prominent sidebar with uncomplicated content.</p>
 </blockquote>
 
-<h2 id="toc_3"><a href="http://jquery.com/">JQuery</a></h2>
+<h2 id="toc_9"><a href="http://jquery.com/">JQuery</a></h2>
 
 <blockquote>
 <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things
@@ -1036,7 +1186,7 @@ browsers. With a combination of versatility and extensibility, jQuery has
 changed the way that millions of people write JavaScript.</p>
 </blockquote>
 
-<h2 id="toc_4"><a href="https://github.com/isagalaev/highlight.js.git">Highlight.js</a></h2>
+<h2 id="toc_10"><a href="https://github.com/isagalaev/highlight.js.git">Highlight.js</a></h2>
 
 <blockquote>
 <p>Highlight.js is a syntax highlighter written in JavaScript. It works in the
@@ -1044,7 +1194,7 @@ browser as well as on the server. It works with pretty much any markup,
 doesn&rsquo;t depend on any framework and has automatic language detection.</p>
 </blockquote>
 
-<h2 id="toc_5"><a href="http://www.nodejs.org/">Node.js</a></h2>
+<h2 id="toc_11"><a href="http://www.nodejs.org/">Node.js</a></h2>
 
 <blockquote>
 <p>Node.js® is a platform built on Chrome&rsquo;s JavaScript runtime for easily
@@ -1053,7 +1203,7 @@ non-blocking I/O model that makes it lightweight and efficient, perfect for
 data-intensive real-time applications that run across distributed devices.</p>
 </blockquote>
 
-<h2 id="toc_6"><a href="http://bower.io/">Bower</a></h2>
+<h2 id="toc_12"><a href="http://bower.io/">Bower</a></h2>
 
 <blockquote>
 <p>A package manager for the web.</p>
@@ -1065,45 +1215,45 @@ packages is up to you. Bower provides hooks to facilitate using packages in
 your tools and workflows.</p>
 </blockquote>
 
-<h2 id="toc_7"><a href="http://www.goat1000.com/tagcanvas.php">TagCanvas</a></h2>
+<h2 id="toc_13"><a href="http://www.goat1000.com/tagcanvas.php">TagCanvas</a></h2>
 
 <blockquote>
 <p>TagCanvas is a Javascript class which will draw and animate a HTML5 canvas
 based tag cloud.</p>
 </blockquote>
 
-<h2 id="toc_8"><a href="https://github.com/VincentGarreau/particles.js">particles.js</a></h2>
+<h2 id="toc_14"><a href="https://github.com/VincentGarreau/particles.js">particles.js</a></h2>
 
 <blockquote>
 <p>A lightweight JavaScript library for creating particles.</p>
 </blockquote>
 
-<h2 id="toc_9"><a href="https://github.com/necolas/normalize.css">normalize.css</a></h2>
+<h2 id="toc_15"><a href="https://github.com/necolas/normalize.css">normalize.css</a></h2>
 
 <blockquote>
 <p>A collection of HTML element and attribute style-normalizations.</p>
 </blockquote>
 
-<h2 id="toc_10"><a href="https://github.com/ramswaroop/animatescroll.js">animatescroll.js</a></h2>
+<h2 id="toc_16"><a href="https://github.com/ramswaroop/animatescroll.js">animatescroll.js</a></h2>
 
 <blockquote>
 <p>A Simple jQuery Plugin for Animating Scroll</p>
 </blockquote>
 
-<h2 id="toc_11"><a href="https://github.com/daneden/animate.css">animate.css</a></h2>
+<h2 id="toc_17"><a href="https://github.com/daneden/animate.css">animate.css</a></h2>
 
 <blockquote>
 <p>A cross-browser library of CSS animations. As easy to use as an easy thing.
 <a href="http://daneden.github.io/animate.css">http://daneden.github.io/animate.css</a></p>
 </blockquote>
 
-<h2 id="toc_12"><a href="https://github.com/hakimel/stroll.js">stroll.js</a></h2>
+<h2 id="toc_18"><a href="https://github.com/hakimel/stroll.js">stroll.js</a></h2>
 
 <blockquote>
 <p>CSS3 list scroll effects <a href="http://lab.hakim.se/scroll-effects">http://lab.hakim.se/scroll-effects</a></p>
 </blockquote>
 
-<h2 id="toc_13"><a href="http://www.vim.org">gVim</a></h2>
+<h2 id="toc_19"><a href="http://www.vim.org">gVim</a></h2>
 
 <blockquote>
 <p>the editor.</p>
@@ -1652,7 +1802,7 @@ acounted type).</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/post/about/">
+          <a href="http://mudox.github.io/post/about_me/">
             ABOUT ME
           </a>
         </h1>
