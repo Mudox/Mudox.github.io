@@ -241,8 +241,8 @@
 </ul></li>
 <li><a href="#toc_15">Setup Virtualbox</a>
 <ul>
-<li><a href="#toc_16">Installing virutalbox</a></li>
-<li><a href="#toc_17">Confiuring virtualbox</a></li>
+<li><a href="#toc_16">Installing Virtualbox</a></li>
+<li><a href="#toc_17">Configuring Virtualbox</a></li>
 </ul></li>
 <li><a href="#toc_18">VPN</a>
 <ul>
@@ -277,7 +277,7 @@ main skeleton of my system.</p>
 <ul>
 <li><p>minimalistic environment, no huge DEs like GNOME, KDE or the likes.</p></li>
 
-<li><p>fast revolution, always surffing in the front, since it is for personal use,
+<li><p>fast revolution, always surfing in the front, since it is for personal use,
 why not &hellip;</p></li>
 </ul>
 
@@ -288,14 +288,14 @@ why not &hellip;</p></li>
 install a bunch of GNOME or KDE dependency packages to only for making it
 run.</p></li>
 
-<li><p>is <strong>lightweight</strong>. Very small package size, therefore starts up bretty fast, as
+<li><p>is <strong>lightweight</strong>. Very small package size, therefore starts up pretty fast, as
 I can see.</p></li>
 
 <li><p>has many front ends (a.k.a. <em>greeters</em>) due to it cross-desktop feature.</p></li>
 </ol>
 
 <p>Among various <a href="https://wiki.archlinux.org/index.php/lightdm#Greeter">greeters</a>, I currently use <code>lightdm-gtk3-greeter</code>. It
-has a simplistic and neat login screen, just the neccessary elements I need.</p>
+has a simplistic and neat login screen, just the necessary elements I need.</p>
 
 <h1 id="toc_1">The Window Manager &ndash; Awesome WM</h1>
 
@@ -308,7 +308,7 @@ will start the Awesome WM for you.</p>
 <p>The second way is to use <code>xinit</code> (and it&rsquo;s front-end script <code>startx</code>). When
 display manager is absent in the startup process, system will bring you to one
 of the tty consoles, which is just a simplistic command line interface, then
-you type <code>startx</code> mananually, which then, according the configuration in
+you type <code>startx</code> manually, which then, according the configuration in
 <code>~/.xinitrc</code>, do some initial setting work and finally start the Awesome WM and
 transfer control to it.</p>
 
@@ -316,14 +316,14 @@ transfer control to it.</p>
 manager. Because the display manager:</p>
 
 <ul>
-<li><p>the installation &amp; configuration processs is relatively simpler than the
+<li><p>the installation &amp; configuration process is relatively simpler than the
 <em>xinit</em> way.</p></li>
 
-<li><p>startup dependent services (e.g. auldio, network etc.) in correct order
+<li><p>startup dependent services (e.g. audio, network etc.) in correct order
 thanks to <code>systemd</code>&rsquo;s dependency management.</p></li>
 
-<li><p>fully utilitize the <code>systemd</code>&rsquo;s conurrency startup feature, making the whole
-startup process bretty faster than the <em>xinit</em> way.</p></li>
+<li><p>fully utilize the <code>systemd</code>&rsquo;s concurrency startup feature, making the whole
+startup process pretty faster than the <em>xinit</em> way.</p></li>
 
 <li><p>run fast, there is no need to login to tty console, and type &hellip;, which as
 I&rsquo;ve seen, took more time to initiates.</p></li>
@@ -350,7 +350,7 @@ sudo systemctl enable lightdm.service
 
 <h2 id="toc_5">Without display manager</h2>
 
-<p>Without display manager, you should first login into the tty1, then type
+<p>Without display manager, you should first login into the <code>tty1</code>, then type
 <code>startx</code> to start the <em>Awesome WM</em>.</p>
 
 <p>Through some configuration, the 2 steps mentioned above can be automated:</p>
@@ -473,7 +473,7 @@ candiate menu and choose <em>朙月拼音-简化字</em></p>
 
 ibus-setup
 
-# manually staRt ibus daemon for this session.
+# manually start ibus daemon for this session.
 # this command has been added in my Awesome config file 'rc.lua' to auto-start
 # it in the beginning of each Awesome session.
 ibus-daemon -drx
@@ -555,10 +555,10 @@ ln -sf Git/dot-files/Xresources .Xresources
 
 <h1 id="toc_15">Setup Virtualbox</h1>
 
-<h2 id="toc_16">Installing virutalbox</h2>
+<h2 id="toc_16">Installing Virtualbox</h2>
 
-<p>First, from the official repository, install <em>vitualbox</em> package, which comes
-with <em>virtualbox-host-modules</em>.</p>
+<p>First, from the official repository, install <code>virtualbox</code> package, which comes
+with <code>virtualbox-host-modules</code>.</p>
 
 <p>Then we need to add the basic <strong>vboxdrv</strong> kernel module to host kernel.</p>
 
@@ -577,7 +577,7 @@ sudo echo 'vboxdrv' &gt; /etc/modules-load.d/virtualbox.conf
 sudo gpasswd -a &quot;${USER}&quot; vboxusers
 </code></pre>
 
-<h2 id="toc_17">Confiuring virtualbox</h2>
+<h2 id="toc_17">Configuring Virtualbox</h2>
 
 <ol>
 <li><p>Set <em>Host Key Combination</em> to <code>right &lt;winkey&gt;</code> which is consistent with
