@@ -604,15 +604,17 @@ Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
 <ol>
 <li><p>install pptpclient from the official repository of Arch Linux.</p></li>
 
-<li><p>use <code>pptpsetup</code> command to register my VPN account, you need to collect the
-following information in advance.</p>
+<li><p>use <code>pptpsetup</code> command to register my VPN account, which is just a helper
+script that will create a readable text file <code>/etc/ppp/peers/&lt;tunnel_name&gt;</code>
+where you can change the server address manaually using whatever text editor
+you like. collect the following information in advance:</p>
 
 <ul>
-<li><p>VPN server&rsquo;s <em>ip address</em> from your VPN provider.</p></li>
+<li><p>VPN server&rsquo;s <strong>ip address</strong> from your VPN provider.</p></li>
 
-<li><p><em>user name</em> of your VPN account.</p></li>
+<li><p><strong>user name</strong> of your VPN account.</p></li>
 
-<li><p><em>user password</em> of your VPN account.</p></li>
+<li><p><strong>user password</strong> of your VPN account.</p></li>
 </ul></li>
 
 <li><p>install <code>ppp-mppe</code> (i.e. Microsoft Pointer-to-Pointer Encryption), if the
@@ -644,7 +646,7 @@ sudo pptpsetup \
   --encrypt
 
 # install ppp-mppe, if the command above complains about lacking of `MPPE`
-# module things. reun `pptpsetup` command above after installing it.
+# module things. rerun `pptpsetup` command above after installing it.
 sudo pacman -S ppp-mppe
 
 # test 1, the command should not terminate if everything is okay.
