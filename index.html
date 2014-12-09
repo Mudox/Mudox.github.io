@@ -927,6 +927,37 @@ function init() {
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_bash/">
             ERROR COLLECTION - BASH
           </a>
@@ -962,37 +993,6 @@ a real number.</p></li>
 
 <pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
 </code></pre>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-</ul>
 
       </div>
       
