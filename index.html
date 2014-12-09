@@ -124,6 +124,9 @@
       <li class="top-menu-item">
         <a class="top-menu-item" href="http://mudox.github.io/post/">POSTS</a>
       </li>
+      <li class="top-menu-item">
+        <a class="top-menu-item" href="http://mudox.github.io/post/">翻译</a>
+      </li>
     </nav>
 
     <nav id="tagCloud">
@@ -139,31 +142,31 @@
         <a href="/languages/html">html</a> 
         <a href="/languages/javascript">javascript</a> 
         <a href="/languages/lua">lua</a> 
-        <a href="/languages/objective-c">objective-c</a> 
+        <a href="/languages/objc">objc</a> 
         <a href="/languages/swift">swift</a> 
-        <a href="/languages/vimscript">vimscript</a>  
+        <a href="/languages/viml">viml</a>  
         <a href="/platforms">platforms</a> 
-        <a href="/platforms/arch-linux">arch-linux</a> 
+        <a href="/platforms/arch">arch</a> 
         <a href="/platforms/ios">ios</a> 
         <a href="/platforms/linux">linux</a> 
         <a href="/platforms/macos">macos</a> 
         <a href="/platforms/web">web</a> 
-        <a href="/platforms/windows">windows</a>  
+        <a href="/platforms/win">win</a>  
         <a href="/series">series</a> 
-        <a href="/series/error-collection">error-collection</a> 
+        <a href="/series/error">error</a> 
         <a href="/series/setup">setup</a>  
         <a href="/tags">tags</a> 
-        <a href="/tags/awesome-wm">awesome-wm</a> 
+        <a href="/tags/awesome">awesome</a> 
         <a href="/tags/bash">bash</a> 
         <a href="/tags/cocoa">cocoa</a> 
         <a href="/tags/concurrency">concurrency</a> 
-        <a href="/tags/dev-tool">dev-tool</a> 
         <a href="/tags/git">git</a> 
         <a href="/tags/libraries">libraries</a> 
         <a href="/tags/me">me</a> 
         <a href="/tags/setup">setup</a> 
         <a href="/tags/shell">shell</a> 
         <a href="/tags/system">system</a> 
+        <a href="/tags/tool">tool</a> 
         <a href="/tags/vim">vim</a> 
         <a href="/tags/zsh">zsh</a>  
       </canvas>
@@ -221,7 +224,7 @@
 
         
 
-<p>The marason of installing &amp; tunning the Arch Linux to my flavor.</p>
+<p>The marathon of installing &amp; tunning the Arch Linux to my flavor.</p>
 
 <h1 id="toc_0">Summary</h1>
 
@@ -893,46 +896,6 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_bash/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-
-<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
-where binary search paths is hold in zsh.</p></li>
-
-<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
-a real number.</p></li>
-</ul>
-
-<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
-</code></pre>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -994,6 +957,46 @@ done
 <code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
 expanded string as a <strong>single word</strong>.</p></li>
 </ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_bash/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+
+<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
+where binary search paths is hold in zsh.</p></li>
+
+<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
+a real number.</p></li>
+</ul>
+
+<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
+</code></pre>
 
       </div>
       
@@ -1270,7 +1273,24 @@ based tag cloud.</p>
 <p>CSS3 list scroll effects <a href="http://lab.hakim.se/scroll-effects">http://lab.hakim.se/scroll-effects</a></p>
 </blockquote>
 
-<h2 id="toc_19"><a href="http://www.vim.org">gVim</a></h2>
+<h2 id="toc_19"><a href="https://github.com/knsv/mermaid.git">mermaid.js</a></h2>
+
+<blockquote>
+<p>Generation of diagrams and flowcharts from text in a similar manner as
+markdown.</p>
+</blockquote>
+
+<h2 id="toc_20"><a href="https://github.com/mbostock/d3">D3.js</a></h2>
+
+<blockquote>
+<p>D3.js is a JavaScript library for manipulating documents based on data. D3
+helps you bring data to life using HTML, SVG and CSS. D3’s emphasis on web
+standards gives you the full capabilities of modern browsers without tying
+yourself to a proprietary framework, combining powerful visualization
+components and a data-driven approach to DOM manipulation.</p>
+</blockquote>
+
+<h2 id="toc_21"><a href="http://www.vim.org">gVim</a></h2>
 
 <blockquote>
 <p>the editor.</p>
@@ -1308,7 +1328,7 @@ for mapping.</p>
 <p>different keyboard layouts have different locations for <code>\</code>, so it should be
 used less frequently than <code>,</code>.</p>
 
-<h3 id="toc_4">The space <code>&lt;Space&gt;</code></h3>
+<h3 id="toc_4">The space key <code>&lt;Space&gt;</code></h3>
 
 <p>the <code>&lt;Space&gt;</code> is the best prefix for normal mappings I&rsquo;ve ever found. It spans
 a long distance at the bottom of the keyboard, which makes it&rsquo;s very easy and
@@ -1329,12 +1349,27 @@ comfortable to touch.</p>
 <p>since many vim itself and many plugin use <Cr>, so I should use it sparely.
 when a single click of <Cr> is needed, you will feel a noticeable response lag.</p>
 
-<h2 id="toc_6">Mapping toggling commands</h2>
+<h3 id="toc_6">The backspace key <code>&lt;BS&gt;</code></h3>
+
+<p>by default, the <code>&lt;BS&gt;</code> acts the same as <code>h</code>, <code>Ctrl-H</code> and <code>&lt;Left&gt;</code> keys on
+normal mode. so I have substituted it with the <code>&lt;Enter&gt;</code> key as a main prefix.</p>
+
+<h3 id="toc_7">other possible key for prefixes</h3>
+
+<ul>
+<li><p><code>&lt;C-P&gt;</code></p></li>
+
+<li><p><code>&lt;C-N&gt;</code></p></li>
+
+<li><p><code>=</code></p></li>
+</ul>
+
+<h2 id="toc_8">Mapping toggling commands</h2>
 
 <ol>
 <li><p>use <code>co</code> prefix, which is derived from <a href="https://github.com/tpope/vim-unimpaired.git">tpope&rsquo;s &lsquo;unimpaired&rsquo;</a> plugin.</p></li>
 
-<li><p>use <code>,\*&lt;Space&gt;</code> pattern, which is derived from <a href="https://github.com/scrooloose/nerdcommenter.git">scrooloose&rsquo;s &lsquo;NERD commenter&rsquo;</a> plugin.</p></li>
+<li><p>use <code>,*&lt;Space&gt;</code> pattern, which is derived from <a href="https://github.com/scrooloose/nerdcommenter.git">scrooloose&rsquo;s &lsquo;NERD commenter&rsquo;</a> plugin.</p></li>
 </ol>
 
       </div>
@@ -1831,7 +1866,9 @@ acounted type).</p>
 <p>I am also in:</p>
 
 <ul>
-<li><a href="https://github.com/Mudox">github.com/Mudox</a></li>
+<li><p><a href="https://github.com/Mudox">github.com/Mudox</a></p></li>
+
+<li><p><a href="http://my.oschina.net/mudox">oschina.net/mudox</a></p></li>
 </ul>
 
       </div>

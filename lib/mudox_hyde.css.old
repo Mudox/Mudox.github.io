@@ -1,8 +1,20 @@
-/* Body resets                                                                          {{{1
+/*
+ * Contents
+ *
+ * Body resets
+ * Custom type
+ * Messages
+ * Container
+ * Masthead
+ * Posts and pages
+ * Pagination
+ * Reverse layout
+ * Themes
+ */
+/* Body resets {{{1
  *
  * Update the foundational and global aspects of the page.
  */
-/* all, html & body                                                                        {{{2 */
 
 * {
   -webkit-box-sizing: border-box;
@@ -11,28 +23,17 @@
 }
 html,
 body {
-  padding: 0;
   margin: 0;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0;
 }
-body {} html {
-  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1.5;
 }
-/*@media (min-width: 48rem) {*/
-
-@media (min-width: 48rem) {
+@media (min-width: 38rem) {
   html {
     font-size: 14px;
-  }
-}
-@media (min-width: 58rem) {
-  html {
-    font-size: 16px;
   }
 }
 body {
@@ -41,8 +42,6 @@ body {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
-/*}}}2*/
-/* anchor                                                                                  {{{2 */
 /* No `:visited` state is required by default (browsers will use `a`) */
 
 a {
@@ -55,8 +54,7 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
-/*}}}2*/
-/* headings                                                                                {{{2 */
+/* Headings */
 
 h1,
 h2,
@@ -87,8 +85,7 @@ h6 {
   margin-top: 1rem;
   font-size: 1rem;
 }
-/*}}}2*/
-/* body text                                                                               {{{2 */
+/* Body text */
 
 p {
   margin-top: 0;
@@ -97,8 +94,7 @@ p {
 strong {
   color: #303030;
 }
-/*}}}2*/
-/* lists                                                                                   {{{2 */
+/* Lists */
 
 ul,
 ol,
@@ -112,8 +108,7 @@ dt {
 dd {
   margin-bottom: .5rem;
 }
-/*}}}2*/
-/* misc                                                                                    {{{2 */
+/* Misc */
 
 hr {
   position: relative;
@@ -132,8 +127,7 @@ abbr[title] {
   cursor: help;
   border-bottom: 1px dotted #e5e5e5;
 }
-/*}}}2*/
-/* code                                                                                    {{{2 */
+/* Code */
 
 code,
 pre {
@@ -172,8 +166,7 @@ pre code {
 .highlight pre {
   margin-bottom: 0;
 }
-/*}}}2*/
-/* quotes                                                                                  {{{2 */
+/* Quotes */
 
 blockquote {
   padding: .5rem 1rem;
@@ -190,17 +183,13 @@ blockquote p:last-child {
     padding-left: 1.25rem;
   }
 }
-/*}}}2*/
-/* images                                                                                  {{{2 */
-
 img {
   display: block;
   margin: 0 0 1rem;
   border-radius: 5px;
   max-width: 100%;
 }
-/*}}}2*/
-/* tables                                                                                  {{{2 */
+/* Tables */
 
 table {
   margin-bottom: 1rem;
@@ -217,9 +206,8 @@ tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
 }
-/*}}}2*/
-/*}}}1*/
-/* Custom type                                                                          {{{1
+/*
+ * Custom type {{{1
  *
  * Extend paragraphs with `.lead` for larger introductory text.
  */
@@ -228,7 +216,8 @@ tbody tr:nth-child(odd) th {
   font-size: 1.25rem;
   font-weight: 300;
 }
-/* Messages                                                                             {{{1
+/*
+ * Messages
  *
  * Show alert messages to users. You may add it to single elements like a `<p>`,
  * or to a parent if there are multiple elements to show.
@@ -240,12 +229,10 @@ tbody tr:nth-child(odd) th {
   color: #717171;
   background-color: #f9f9f9;
 }
-/*}}}1*/
-/* Container                                                                            {{{1
+/*
+ * Container
  *
  * Center the page content.
- * Align the contents of the site above the proper threshold with some margin-fu
- * with a 25%-wide `.sidebar`.
  */
 
 .container {
@@ -253,27 +240,11 @@ tbody tr:nth-child(odd) th {
   
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
 }
-@media (min-width: 48rem) {
-  .content {
-    /*max-width: 55rem;*/
-    
-    margin-left: 20rem;
-    margin-right: 2rem;
-  }
-}
-@media (min-width: 64rem) {
-  .content {
-    margin-left: 22rem;
-    margin-right: 4rem;
-  }
-}
-/*}}}1*/
-/* Masthead                                                                             {{{1
+/*
+ * Masthead
  *
  * Super small header above the content for site name and short description.
  */
@@ -297,8 +268,8 @@ tbody tr:nth-child(odd) th {
   color: #c0c0c0;
   letter-spacing: 0;
 }
-/*}}}1*/
-/* Posts and pages                                                                      {{{1
+/*
+ * Posts and pages
  *
  * Each post is wrapped in `.post` and is used on default and post layouts. Each
  * page is wrapped in `.page` and is only used on the page layout.
@@ -309,8 +280,7 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 4em;
   padding: 10px;
 }
-/*}}}1*/
-/* Blog post or page title                                                              {{{1 */
+/* Blog post or page title */
 
 .page-title,
 .post-title,
@@ -321,8 +291,7 @@ tbody tr:nth-child(odd) th {
 .post-title {
   margin-top: 0;
 }
-/*}}}1*/
-/* Meta data line below post title                                                      {{{1 */
+/* Meta data line below post title */
 
 .post-date {
   display: block;
@@ -330,8 +299,7 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 1rem;
   color: #9a9a9a;
 }
-/*}}}1*/
-/* Related posts                                                                        {{{1 */
+/* Related posts */
 
 .related {
   padding-top: 2rem;
@@ -356,8 +324,8 @@ tbody tr:nth-child(odd) th {
 .related-posts li a:hover small {
   color: inherit;
 }
-/*}}}1*/
-/* Pagination                                                                           {{{1
+/*
+ * Pagination
  *
  * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
  * there are no more previous or next posts to show.
@@ -373,7 +341,7 @@ tbody tr:nth-child(odd) th {
   color: #ccc;
   text-align: center;
 }
-/* pagination items can be `span`s or `a`s */
+/* Pagination items can be `span`s or `a`s */
 
 .pagination-item {
   display: block;
@@ -407,8 +375,63 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
-/*}}}1*/
-/* Sidebar                                                                              {{{1
+test {
+  /* sldfjlsdfj */
+}
+test1 {
+  font-family: serif;
+}
+test2 {
+  color: red;
+}
+/*
+ *  __                  __
+ * /\ \                /\ \
+ * \ \ \___   __  __   \_\ \     __
+ *  \ \  _ `\/\ \/\ \  /'_` \  /'__`\
+ *   \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
+ *    \ \_\ \_\/`____ \ \___,_\ \____\
+ *     \/_/\/_/`/___/> \/__,_ /\/____/
+ *                /\___/
+ *                \/__/
+ *
+ * Designed, built, and released under MIT license by @mdo. Learn more at
+ * https://github.com/poole/hyde.
+ */
+/*
+ * Contents
+ *
+ * Global resets
+ * Sidebar
+ * Container
+ * Reverse layout
+ * Themes
+ */
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+html {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+}
+body {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 48rem) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 58rem) {
+  html {
+    font-size: 16px;
+  }
+}
+/*
+ * Sidebar
  *
  * Flexible banner for housing site name, intro, and "footer" content. Starts
  * out above content in mobile and later moves to the side with wider viewports.
@@ -430,12 +453,12 @@ a.pagination-item:hover {
     text-align: right;
   }
 }
-/* sidebar links */
+/* Sidebar links */
 
 .sidebar a {
   color: #fff;
 }
-/* about section */
+/* About section */
 
 .sidebar-about a#Mudox {
   color: #fff;
@@ -443,7 +466,7 @@ a.pagination-item:hover {
   font-family: "Abril Fatface", serif;
   font-size: 3.6rem;
 }
-/* sidebar nav */
+/* Sidebar nav */
 
 .sidebar-nav {
   padding-left: 0;
@@ -459,7 +482,7 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
-/* sticky sidebar
+/* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
  * contents to the bottom of the sidebar in tablets and up.
@@ -473,8 +496,32 @@ a.sidebar-nav-item:focus {
     left: 1rem;
   }
 }
-/*}}}1*/
-/* Reverse layout                                                                       {{{1
+/* Container
+ *
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.sidebar`.
+ */
+
+.content {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 48rem) {
+  .content {
+    /*max-width: 55rem;*/
+    
+    margin-left: 20rem;
+    margin-right: 2rem;
+  }
+}
+@media (min-width: 64rem) {
+  .content {
+    margin-left: 22rem;
+    margin-right: 4rem;
+  }
+}
+/*
+ * Reverse layout
  *
  * Flip the orientation of the page by placing the `.sidebar` on the right.
  */
@@ -495,14 +542,14 @@ a.sidebar-nav-item:focus {
     margin-right: 22rem;
   }
 }
-/*}}}1*/
-/* Themes                                                                               {{{1
+/*
+ * Themes
  *
  * As of v1.1, Hyde includes optional themes to color the sidebar and links
  * within blog posts. To use, add the class of your choosing to the `body`.
  */
 /* Base16 (http://chriskempson.github.io/base16/#default) */
-/* red                                                                                     {{{2 */
+/* Red */
 
 .theme-base-08 .sidebar {
   background-color: #ac4142;
@@ -511,8 +558,7 @@ a.sidebar-nav-item:focus {
 .theme-base-08 .related-posts li a:hover {
   color: #ac4142;
 }
-/*}}}2*/
-/* orange                                                                                  {{{2 */
+/* Orange */
 
 .theme-base-09 .sidebar {
   background-color: #d28445;
@@ -521,8 +567,7 @@ a.sidebar-nav-item:focus {
 .theme-base-09 .related-posts li a:hover {
   color: #d28445;
 }
-/*}}}2*/
-/* yellow                                                                                  {{{2 */
+/* Yellow */
 
 .theme-base-0a .sidebar {
   background-color: #f4bf75;
@@ -531,8 +576,7 @@ a.sidebar-nav-item:focus {
 .theme-base-0a .related-posts li a:hover {
   color: #f4bf75;
 }
-/*}}}2*/
-/* green                                                                                   {{{2 */
+/* Green */
 
 .theme-base-0b .sidebar {
   background-color: #90a959;
@@ -541,8 +585,7 @@ a.sidebar-nav-item:focus {
 .theme-base-0b .related-posts li a:hover {
   color: #90a959;
 }
-/*}}}2*/
-/* cyan                                                                                    {{{2 */
+/* Cyan */
 
 .theme-base-0c .sidebar {
   background-color: #75b5aa;
@@ -551,8 +594,7 @@ a.sidebar-nav-item:focus {
 .theme-base-0c .related-posts li a:hover {
   color: #75b5aa;
 }
-/*}}}2*/
-/* blue                                                                                    {{{2 */
+/* Blue */
 
 .theme-base-0d .sidebar {
   background-color: #6a9fb5;
@@ -561,8 +603,7 @@ a.sidebar-nav-item:focus {
 .theme-base-0d .related-posts li a:hover {
   color: #6a9fb5;
 }
-/*}}}2*/
-/* magenta                                                                                 {{{2 */
+/* Magenta */
 
 .theme-base-0e .sidebar {
   background-color: #aa759f;
@@ -571,8 +612,7 @@ a.sidebar-nav-item:focus {
 .theme-base-0e .related-posts li a:hover {
   color: #aa759f;
 }
-/*}}}2*/
-/* brown                                                                                   {{{2 */
+/* Brown */
 
 .theme-base-0f .sidebar {
   background-color: #8f5536;
@@ -581,10 +621,6 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
-/*}}}2*/
-/*}}}1*/
-/* Added by Mudox                                                                       {{{1 */
-
 .sidebar-menu h2 {
   color: #FFF
 }
@@ -617,10 +653,10 @@ nav#TableOfContents ul li {
   font-weight: normal;
   list-style: disc outside;
 }
-/* siderbar menu                                                                           {{{2 */
+/* siderbar menu {{{1*/
 
 div#sidebar-front-content {
-  margin-top: .1rem;
+  margin-top: 1rem;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -670,5 +706,3 @@ blockquote strong {
   text-decoration: underline;
   color: inherit;
 }
-/*}}}2*/
-/*}}}1*/
