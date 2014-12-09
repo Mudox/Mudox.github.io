@@ -620,7 +620,8 @@ nav#TableOfContents ul li {
 /* siderbar menu                                                                           {{{2 */
 
 div#sidebar-front-content {
-  margin-top: .1rem;
+  margin-top: 0;
+  padding-top: 1.5rem;
   position: absolute;
   top: 0px;
   left: 0px;
