@@ -54,10 +54,10 @@
 <div class="sidebar">
 
   
-  <div id="particles-js">
+  <div id="sidebar-particles">                                                       
     <script>
       setTimeout(function() {
-        particlesJS('particles-js', {
+        particlesJS('sidebar-particles', {
           particles: {
             color: '#fff',
             shape: 'circle', 
@@ -110,7 +110,8 @@
 
   
   <div id="sidebar-front-content" class="container">
-    <nav id=sidebar-menu-wall>
+
+    <nav id=sidebar-menu>
       
       <li class="top-menu-item">
         <a class="top-menu-item" href="http://mudox.github.io/note/">NOTES</a>
@@ -126,8 +127,8 @@
       </li>
     </nav>
 
-    <nav id="tagCloud">
-      <canvas id="tagCloudCanvas" width="250" height="250" style="width: 100%;">
+    <nav id="cloud-container">
+      <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
         
         <a href="/categories">categories</a>  
         <a href="/languages">languages</a> 
@@ -168,9 +169,10 @@
         <a href="/tags/zsh">zsh</a>  
       </canvas>
     </nav>
+
     <script>
       setTimeout(function() {
-        if (!$('#tagCloudCanvas').tagcanvas({
+        if (!$('#cloud-canvas').tagcanvas({
             initial: [0.203, -0.088],
             interval: 40,
             fadeIn: 4000,
@@ -214,23 +216,23 @@
       
       <li><a href="/languages/swift"> swift </a> 4 </li>
       
-      <li><a href="/languages/javascript"> javascript </a> 2 </li>
+      <li><a href="/languages/english"> english </a> 2 </li>
+      
+      <li><a href="/languages/objc"> objc </a> 2 </li>
       
       <li><a href="/languages/c"> c </a> 2 </li>
       
       <li><a href="/languages/lua"> lua </a> 2 </li>
       
-      <li><a href="/languages/english"> english </a> 2 </li>
+      <li><a href="/languages/javascript"> javascript </a> 2 </li>
       
-      <li><a href="/languages/objc"> objc </a> 2 </li>
+      <li><a href="/languages/go"> go </a> 1 </li>
       
       <li><a href="/languages/html"> html </a> 1 </li>
       
-      <li><a href="/languages/viml"> viml </a> 1 </li>
-      
       <li><a href="/languages/css"> css </a> 1 </li>
       
-      <li><a href="/languages/go"> go </a> 1 </li>
+      <li><a href="/languages/viml"> viml </a> 1 </li>
       
     </ul>
   </div>
