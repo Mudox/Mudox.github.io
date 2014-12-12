@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
   <head>
+
     <link href="http://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 
@@ -45,8 +46,6 @@
     
     <link rel="stylesheet" href="/lib/animate/animate.min.css">
 
-    
-    <script src="/lib/mudox.js"></script>
   </head>
 
 <body class="theme-base-0f">
@@ -54,59 +53,7 @@
 <div class="sidebar">
 
   
-  <div id="sidebar-particles">                                                       
-    <script>
-      setTimeout(function() {
-        particlesJS('sidebar-particles', {
-          particles: {
-            color: '#fff',
-            shape: 'circle', 
-            opacity: 0.3,
-            size: 4,
-            size_random: true,
-            nb: 30,
-            line_linked: {
-              enable_auto: true,
-              distance: 250,
-              color: '#fff',
-              opacity: 0.5,
-              width: 1,
-              condensed_mode: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 600
-              }
-            },
-            anim: {
-              enable: true,
-              speed: .6
-            }
-          },
-          interactivity: {
-            enable: false,
-            mouse: {
-              distance: 250
-            },
-            detect_on: 'window', 
-            mode: 'grab',
-            line_linked: {
-              opacity: .8
-            },
-            events: {
-              onclick: {
-                push_particles: {
-                  enable: false,
-                  nb: 4
-                }
-              }
-            }
-          },
-           
-          retina_detect: true
-        });
-      }, 1200)
-    </script>
-  </div>
+  <div id="sidebar-particles"> </div>
 
   
   <div id="sidebar-front-content" class="container">
@@ -170,29 +117,6 @@
       </canvas>
     </nav>
 
-    <script>
-      setTimeout(function() {
-        if (!$('#cloud-canvas').tagcanvas({
-            initial: [0.203, -0.088],
-            interval: 40,
-            fadeIn: 4000,
-            dragControl: false,
-            dragThreshold: 4,
-            decel: 0.985,
-            clickToFront: 600,
-            textColour: '#ffffff',
-            outlineThickness: 0.5,
-            maxSpeed: 0.022,
-            minSpeed: 0.002,
-            outlineMethod: 'size',
-            outlineIncrease: 4,
-            depth: 0.55
-          })) {
-          $('#tagCloud').hide();
-        }
-      }, 500)
-    </script>
-
     <div class="sidebar-about sidebar-sticky">
       <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
       </div>
@@ -242,5 +166,9 @@ Linux progressively.</p>
         
     </ul>
   </div>
+
+    
+    <script src="/lib/mudox.js"></script>
 </body>
 </html>
+

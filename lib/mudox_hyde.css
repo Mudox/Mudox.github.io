@@ -610,14 +610,14 @@ nav ul li {
     font-size : 1.7rem;
   font-weight : bold;
 }
-nav#TableOfContents ul li {
+#TableOfContents ul li {
     font-size : 1rem;
   font-weight : normal;
    list-style : disc outside;
 }
 /* siderbar menu                                                                           {{{2 */
 
-div#sidebar-front-content {
+#sidebar-front-content {
    margin-top : 0;
   padding-top : 1.5rem;
      position : absolute;
@@ -627,19 +627,19 @@ div#sidebar-front-content {
        height : 100%;
    box-shadow : 1px 0px 3px 1px rgba(20, 20, 20, 0.8);
 }
-div#sidebar-particles {
+#sidebar-particles {
   padding : 0px;
    margin : 0px;
    height : 100%;
     width : 100%;
 }
-nav#sidebar-menu {
+#sidebar-menu {
   text-align : left;
 }
-nav#sidebar-menu li {
+#sidebar-menu li {
   display : inline;
 }
-nav#sidebar-menu li.top-menu-item {
+#sidebar-menu li.top-menu-item {
     font-size : 1.7rem;
           top : -9px;
   font-weight : bold;
@@ -647,10 +647,10 @@ nav#sidebar-menu li.top-menu-item {
        border : 1px soild white;
         clear : both;
 }
-nav#sidebar-menu li.top-menu-item:nth-child(even) {
+#sidebar-menu li.top-menu-item:nth-child(even) {
   float : left;
 }
-nav#cloud-container {
+#cloud-container {
      clear : both;
      width : 100%;
     height : 300px;

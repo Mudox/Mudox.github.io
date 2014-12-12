@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
   <head>
+
     <link href="http://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 
@@ -45,8 +46,6 @@
     
     <link rel="stylesheet" href="/lib/animate/animate.min.css">
 
-    
-    <script src="/lib/mudox.js"></script>
   </head>
 
 <body class="theme-base-08">
@@ -54,59 +53,7 @@
   <div class="sidebar">
 
   
-  <div id="sidebar-particles">                                                       
-    <script>
-      setTimeout(function() {
-        particlesJS('sidebar-particles', {
-          particles: {
-            color: '#fff',
-            shape: 'circle', 
-            opacity: 0.3,
-            size: 4,
-            size_random: true,
-            nb: 30,
-            line_linked: {
-              enable_auto: true,
-              distance: 250,
-              color: '#fff',
-              opacity: 0.5,
-              width: 1,
-              condensed_mode: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 600
-              }
-            },
-            anim: {
-              enable: true,
-              speed: .6
-            }
-          },
-          interactivity: {
-            enable: false,
-            mouse: {
-              distance: 250
-            },
-            detect_on: 'window', 
-            mode: 'grab',
-            line_linked: {
-              opacity: .8
-            },
-            events: {
-              onclick: {
-                push_particles: {
-                  enable: false,
-                  nb: 4
-                }
-              }
-            }
-          },
-           
-          retina_detect: true
-        });
-      }, 1200)
-    </script>
-  </div>
+  <div id="sidebar-particles"> </div>
 
   
   <div id="sidebar-front-content" class="container">
@@ -169,29 +116,6 @@
         <a href="/tags/zsh">zsh</a>  
       </canvas>
     </nav>
-
-    <script>
-      setTimeout(function() {
-        if (!$('#cloud-canvas').tagcanvas({
-            initial: [0.203, -0.088],
-            interval: 40,
-            fadeIn: 4000,
-            dragControl: false,
-            dragThreshold: 4,
-            decel: 0.985,
-            clickToFront: 600,
-            textColour: '#ffffff',
-            outlineThickness: 0.5,
-            maxSpeed: 0.022,
-            minSpeed: 0.002,
-            outlineMethod: 'size',
-            outlineIncrease: 4,
-            depth: 0.55
-          })) {
-          $('#tagCloud').hide();
-        }
-      }, 500)
-    </script>
 
     <div class="sidebar-about sidebar-sticky">
       <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
@@ -934,6 +858,37 @@ a real number.</p></li>
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -963,37 +918,6 @@ function init() {
 
 <ul>
 <li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
 </ul>
 
       </div>
@@ -2692,5 +2616,8 @@ loop object.</p></li>
     </div>
   </div>
 
+      
+    <script src="/lib/mudox.js"></script>
 </body>
 </html>
+
