@@ -5,8 +5,6 @@
 /* all, html & body                                                                        {{{2 */
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 html,
@@ -18,7 +16,7 @@ body {
 }
 body {} html {
   /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  
+
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1.5;
@@ -250,7 +248,7 @@ tbody tr:nth-child(odd) th {
 
 .container {
   /*max-width : 38rem;*/
-  
+
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 4rem;
@@ -261,7 +259,7 @@ tbody tr:nth-child(odd) th {
 @media (min-width: 48rem) {
   .content {
     /*max-width: 55rem;*/
-    
+
     margin-left: 20rem;
     margin-right: 2rem;
   }
@@ -366,7 +364,7 @@ tbody tr:nth-child(odd) th {
 .pagination {
   overflow: hidden;
   /* clearfix */
-  
+
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -627,6 +625,7 @@ div#sidebar-front-content {
   left: 0px;
   width: 100%;
   height: 100%;
+  box-shadow: 1px 0px 3px rgba(20, 20, 20, 0.8);
 }
 div#particles-js {
   padding: 0px;
