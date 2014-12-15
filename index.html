@@ -818,7 +818,7 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
+          <a href="http://mudox.github.io/memo/error_collection_bash/">
             ERROR COLLECTION - BASH
           </a>
         </h1>
@@ -843,7 +843,16 @@ done
 <li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
 <code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
 expanded string as a <strong>single word</strong>.</p></li>
+
+<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
+where binary search paths is hold in zsh.</p></li>
+
+<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
+a real number.</p></li>
 </ul>
+
+<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
+</code></pre>
 
       </div>
       
@@ -884,7 +893,7 @@ function init() {
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_bash/">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
             ERROR COLLECTION - BASH
           </a>
         </h1>
@@ -909,16 +918,7 @@ done
 <li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
 <code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
 expanded string as a <strong>single word</strong>.</p></li>
-
-<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
-where binary search paths is hold in zsh.</p></li>
-
-<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
-a real number.</p></li>
 </ul>
-
-<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
-</code></pre>
 
       </div>
       
