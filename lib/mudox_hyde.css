@@ -435,12 +435,22 @@ a.pagination-item:hover {
 }
 /* about section */
 
-.sidebar-about a#Mudox {
+#Mudox {
         color : #fff;
-   margin-top : 0;
   font-family : "Abril Fatface", serif;
     font-size : 3.6rem;
+  /*height : 4.0rem;*/
+  /*display : inline-block;*/
+  /*margin-bottom : 1.2rem;*/
+
+  text-decoration: none;
 }
+/*#Mudox:hover {*/
+/*text-decoration : none;*/
+/*-webkit-box-reflect : below 0 -webkit-linear-gradient(bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, .2) 18%, rgba(255, 255, 255, 0) 35%);*/
+/*-webkit-transition : all .5s;*/
+/*transition : all .5s;*/
+/*}*/
 /* sidebar nav */
 
 .sidebar-nav {
@@ -639,7 +649,7 @@ nav ul li {
 #sidebar-menu li {
   display : inline;
 }
-#sidebar-menu li.top-menu-item {
+li.top-menu-item {
     font-size : 1.7rem;
           top : -9px;
   font-weight : bold;
@@ -647,8 +657,14 @@ nav ul li {
        border : 1px soild white;
         clear : both;
 }
-#sidebar-menu li.top-menu-item:nth-child(even) {
+li.top-menu-item:nth-child(even) {
   float : left;
+}
+li.top-menu-item {
+  visibility : hidden;
+}
+li.top-menu-item a:hover {
+  text-decoration : none;
 }
 #cloud-container {
      clear : both;
