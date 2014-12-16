@@ -148,7 +148,7 @@
 
 <p>The marathon of installing &amp; tunning the Arch Linux to my flavor.</p>
 
-<h1 id="toc_0">Summary</h1>
+<h1 id="toc_0">SUMMARY</h1>
 
 <p><a href="https://wiki.archlinux.org">Arch Linux</a> + <a href="http://awesome.naquadah.org">Awesome WM</a> + <a href="http://invisible-island.net/xterm/">xterm</a>, that is the
 main skeleton of my system.</p>
@@ -178,7 +178,7 @@ I can see.</p></li>
 <p>Among various <a href="https://wiki.archlinux.org/index.php/lightdm#Greeter">greeters</a>, I currently use <code>lightdm-gtk3-greeter</code>. It
 has a simplistic and neat login screen, just the necessary elements I need.</p>
 
-<h1 id="toc_1">The Window Manager &ndash; Awesome WM</h1>
+<h1 id="toc_1">THE WINDOW MANAGER &ndash; AWESOME WM</h1>
 
 <p>I have tried two ways of starting Awesome WM during system boot.</p>
 
@@ -298,7 +298,7 @@ ArchWiki</a></p></li>
 <li><p><a href="https://wiki.archlinux.org/index.php/Xinitrc">xinitrc form ArchWiki</a></p></li>
 </ul>
 
-<h1 id="toc_8">Mouse acceleration</h1>
+<h1 id="toc_8">MOUSE ACCELERATION</h1>
 
 <p>Type <code>xset q | grep Pointer</code> to see current mouse acceleration setting.</p>
 
@@ -325,7 +325,7 @@ be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&fr
 <li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_9">Input Method</h1>
+<h1 id="toc_9">INPUT METHOD</h1>
 
 <p>The <strong>ibus + isbus-rime</strong> combinations works nicely on my Arch Linux.</p>
 
@@ -366,7 +366,7 @@ ibus-daemon -drx
 <li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_10">Window Manager</h1>
+<h1 id="toc_10">WINDOW MANAGER</h1>
 
 <p>On Linux platforms, I prefer WMs to DEs.</p>
 
@@ -375,7 +375,7 @@ ibus-daemon -drx
 <p>see <a href="/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
 for details.</p>
 
-<h1 id="toc_11">Shell Environment</h1>
+<h1 id="toc_11">SHELL ENVIRONMENT</h1>
 
 <p>I have used several terminal emulators (gnome-terminal, xvrt &hellip;), and finally
 I settled myself on <strong>xterm</strong>, which I feel it:</p>
@@ -434,7 +434,7 @@ ln -sf Git/dot-files/Xresources .Xresources
 
 <p>see <a href="/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENTS</a> for details.</p>
 
-<h1 id="toc_15">Setup Virtualbox</h1>
+<h1 id="toc_15">SETUP VIRTUALBOX</h1>
 
 <h2 id="toc_16">Installing Virtualbox</h2>
 
@@ -595,27 +595,7 @@ nameserver 8.8.8.8
 nameserver 192.168.0.1
 </code></pre>
 
-<h3 id="toc_24"><del>Automate by /etc/ppp/ip-[up/down].d/*.sh</del></h3>
-
-<p><strong>NOTE: for unknown reason, I failed following this way to achieve the
-automation, the <code>/etc/ppp/ip-up.d/00-dns.sh</code> did run, but it just did not move
-files. Since it is the mechanism provided by <code>ppp</code> thus IMO, it is the standard
-way that you should try first</strong></p>
-
-<p>Whenever you tear down a VPN connection and get back to the local connection,
-using the local DNS server may provide better connection speed. So, there comes
-the need to restore <code>/etc/resolv.conf</code></p>
-
-<p>By using <em>/etc/ppp/ip-up.d/00-dns.sh</em> and <em>/etc/ppp/ip-down.d/00-dns.sh</em>, which
-automatically substitutes <em>/etc/ppp/resolv.conf</em> with <em>/etc/resolv.conf</em></p>
-
-<ol>
-<li><p>put your VPN specific resolv.conf under <em>/etc/ppp/</em></p></li>
-
-<li><p>add <code>export USEPEERSDNS=1</code> into <em>~/.profile</em></p></li>
-</ol>
-
-<h3 id="toc_25">My hacky way</h3>
+<h3 id="toc_24">My hacky way</h3>
 
 <p>I wrote a script to get around of this:</p>
 
