@@ -48,7 +48,7 @@
 
   </head>
 
-<body class="theme-base-08">
+<body class="theme-base-red">
 
   <div class="sidebar">
 
@@ -77,7 +77,6 @@
     <nav id="cloud-container">
       <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
         
-        <a href="/categories">categories</a>  
         <a href="/languages">languages</a> 
         <a href="/languages/bash">bash</a> 
         <a href="/languages/c">c</a> 
@@ -798,6 +797,46 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_bash/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+
+<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
+where binary search paths is hold in zsh.</p></li>
+
+<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
+a real number.</p></li>
+</ul>
+
+<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -859,46 +898,6 @@ done
 <code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
 expanded string as a <strong>single word</strong>.</p></li>
 </ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_bash/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-
-<li><p>The <code>local path</code> is the source of all evil. It will shaddow the global <code>path</code>
-where binary search paths is hold in zsh.</p></li>
-
-<li><p>No need to <code>&quot;</code> quote variable that expand to a number in <code>$(( ))</code>, which need
-a real number.</p></li>
-</ul>
-
-<pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
-</code></pre>
 
       </div>
       

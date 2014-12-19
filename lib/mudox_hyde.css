@@ -76,7 +76,7 @@ h6
   font-weight: bold;
   line-height: 1.25;
 
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   color: #313131;
 
@@ -134,7 +134,7 @@ dt
 }
 dd
 {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 /*}}}2*/
 /* misc                                                                                    {{{2 */
@@ -174,17 +174,17 @@ pre
 }
 code
 {
-  font-size: 100%;
+  font-size: 1rem;
 
-  padding: 1px 5px 3px 5px;
+  padding: 0 5px 2px 5px;
 
   color: #bf616a;
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: #f9f9f9;
 }
 pre
 {
-  font-size: .8rem;
+  font-size: 0.8rem;
   line-height: 1.5;
 
   display: block;
@@ -200,7 +200,7 @@ pre
 }
 pre code
 {
-  font-size: 100%;
+  font-size: 0.8rem;
 
   margin-left: 1rem;
   padding: 0;
@@ -223,11 +223,11 @@ pre code
 
 blockquote
 {
-  margin: .8rem 0;
-  padding: .5rem 1rem;
+  margin: 0.8rem 0;
+  padding: 0.5rem 1rem;
 
   color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
+  border-left: 0.25rem solid #e5e5e5;
 }
 blockquote p:last-child
 {
@@ -268,7 +268,7 @@ table
 td,
 th
 {
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
 
   border: 1px solid #e5e5e5;
 }
@@ -413,7 +413,7 @@ tbody tr:nth-child(odd) th
 {
   display: block;
 
-  margin-top: -.5rem;
+  margin-top: -0.5rem;
   margin-bottom: 1rem;
 
   color: #9a9a9a;
@@ -538,7 +538,7 @@ a.pagination-item:hover
 
   text-align: center;
 
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, 0.5);
   background-color: #202020;
 }
 @media (min-width: 48rem)
@@ -652,15 +652,19 @@ a.sidebar-nav-item:focus
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 /* red                                                                                     {{{2 */
 
-.theme-base-08 .sidebar
+.theme-base-red .sidebar
 {
   background-color: #ac4142;
 }
-.theme-base-08 .content a,
-.theme-base-08 .related-posts li a:hover,
-.theme-base-08 code
+.theme-base-red .content a,
+.theme-base-red .related-posts li a:hover,
+.theme-base-red code
 {
   color: #ac4142;
+}
+.theme-base-red code
+{
+  background-color: #ffe3da;
 }
 /*}}}2*/
 /* orange                                                                                  {{{2 */
@@ -717,15 +721,19 @@ a.sidebar-nav-item:focus
 /*}}}2*/
 /* blue                                                                                    {{{2 */
 
-.theme-base-0d .sidebar
+.theme-base-blue .sidebar
 {
   background-color: #6a9fb5;
 }
-.theme-base-0d .content a,
-.theme-base-0d .related-posts li a:hover,
-.theme-base-0d code
+.theme-base-blue .content a,
+.theme-base-blue .related-posts li a:hover,
+.theme-base-blue code
 {
   color: #6a9fb5;
+}
+.theme-base-blue code
+{
+  background-color: #d4e5eb;
 }
 /*}}}2*/
 /* magenta                                                                                 {{{2 */
@@ -790,7 +798,7 @@ p code,
 li code
 {
   font-family: inherit;
-  font-size: 1em;
+  font-size: 95%;
 }
 nav ul
 {
@@ -821,7 +829,7 @@ nav ul li
   margin-top: 0;
   padding-top: 1.5rem;
 
-  box-shadow: 1px 0 3px 1px rgba(20, 20, 20, .8);
+  box-shadow: 1px 0 3px 1px rgba(20, 20, 20, 0.8);
 }
 #sidebar-particles
 {
