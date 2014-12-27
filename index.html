@@ -29,7 +29,9 @@
     <script src="/lib/jquery/jquery.min.js"></script>
 
     
-    <link rel="stylesheet" href="/lib/highlight/styles/pojoaque.css">
+    
+    
+    <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css">
     <script src="/lib/highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -797,6 +799,37 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -826,37 +859,6 @@ function init() {
 
 <ul>
 <li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
 </ul>
 
       </div>
@@ -1549,13 +1551,13 @@ elements into an invisible table.</p>
 
         
 
-<p>During the learning of the Swift programming language, many of it&rsquo;s feartures
+<p>During the learning of the Swift programming language, many of it&rsquo;s features
 impressed me.</p>
 
 <h1 id="toc_0">Powerful <code>switch</code> Statement</h1>
 
 <ol>
-<li><p>no implicitly fallthrough</p></li>
+<li><p>no implicitly fall-through</p></li>
 
 <li><p>match multiple conditions in one case statement.</p></li>
 
@@ -1596,8 +1598,8 @@ case (-2...2, -2...2):
   println(&quot;on or in the 2x2 box&quot;)
 
 // value binding
-case (let x, -1):
-  println(&quot;on the horizontal line y = -1, with a x value: \(x)&quot;)
+case (let x, -10):
+  println(&quot;on the horizontal line y = -10, with a x value: \(x)&quot;)
 
 // where clause
 // NOTE: `let` can be replaced with `var` if you need to change the bound
@@ -1610,10 +1612,10 @@ case (0, var y) where y &gt;= 0:
 case let (x, y):
   theLoop: for i in 1..&lt;100 {
     switch i {
-      case let x where (x &amp; 1) == 1 // a odd number
+      case let x where (x &amp; 1) == 1: // a odd number
         break theSwitch     // jump further
-      default
-        continue theLoop    // jump further
+      default:
+        continue theLoop    // jump
     }
   }
 }
@@ -1634,7 +1636,7 @@ case let (x, y):
 <p>Here is an example that uses the array&rsquo;s method <code>sorted</code> to sort an array of word.</p>
 
 <pre><code class="language-swift">var words = [ &quot;Dolor&quot;, &quot;eum&quot;, &quot;id&quot;, &quot;suscipit&quot;, &quot;necessitatibus&quot;, &quot;quod&quot;, &quot;hic&quot;, &quot;dignissimos&quot; ]
- 
+
 let sortedWords = words.sorted({
   (lhs: String, rhs: String) -&gt; Bool in
   return lhs &lt; rhs
@@ -1647,7 +1649,7 @@ let sortedWords = words.sorted({
 <strong>trailing closure</strong>, which means your can write the inline closure just
 outside the parameter list, following the closing <code>)</code>.</p>
 
-<p>Futhermore, if the closure is the only parameter, then the parenthesis can be
+<p>Furthermore, if the closure is the only parameter, then the parenthesis can be
 omitted.</p>
 
 <pre><code class="language-swift">// trailing closure
@@ -1681,7 +1683,7 @@ let sortedWords = words.sorted {
 
 <h2 id="toc_5">Sugar #3 &ndash; parenthesis-less</h2>
 
-<p>since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
+<p>Since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
 
 <pre><code class="language-swift">// omit parenthesis
 let sortedWords = words.sorted {
@@ -1690,7 +1692,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h2 id="toc_6">Sugar #4 &ndash; return statemetn inference</h2>
+<h2 id="toc_6">Sugar #4 &ndash; return statement inference</h2>
 
 <p>If the closure has one statement, then the <strong>return</strong> statement can also be
 inferred.</p>
@@ -1709,7 +1711,7 @@ let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
 
 <p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
 the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
-returType in</code> statment can be completely omitted</p>
+returType in</code> statement can be completely omitted</p>
 
 <pre><code class="language-swift">// use shorthand parameters, omit the whole 'in' statement
 let sortedWords = words.sorted {
@@ -1721,7 +1723,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { $0 &lt; $1 }
 </code></pre>
 
-<h2 id="toc_8">Sugar #6 &ndash; operater as a closure</h2>
+<h2 id="toc_8">Sugar #6 &ndash; operator as a closure</h2>
 
 <p>In swift, <strong>operator</strong> is a function, which in turn is a special closure, so&hellip;</p>
 
@@ -1731,8 +1733,8 @@ let sortedWords = words.sorted(&lt;)
 
 <h1 id="toc_9">Fully-fledged Enumeration</h1>
 
-<p>In Swift, enumeration is fully-fledged type. You can asssociate different data
-with each enumeration memeber, or define a raw type for enumeration.</p>
+<p>In Swift, enumeration is fully-fledged type. You can associate different data
+with each enumeration member, or define a raw type for enumeration.</p>
 
 <h2 id="toc_10">Flexible definition syntax</h2>
 
@@ -1749,7 +1751,7 @@ with each enumeration memeber, or define a raw type for enumeration.</p>
 <p>enumeration in Swift can have properties &amp; methods.</p>
 
 <p>enumeration, like struct in Swift, is value type (while class is reference
-acounted type).</p>
+accounted type).</p>
 
       </div>
       
