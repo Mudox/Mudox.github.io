@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Me &middot; Mudox </title>
+    <title> ERROR COLLECTION - IOS &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/tags/me/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-0f">
+<body class="theme-base-blue">
 
-<div class="sidebar">
+    <div class="sidebar">
 
   
   <div id="sidebar-particles"> </div>
@@ -135,25 +135,61 @@
 </div>
 
 
-  <div class="content container">
-    <ul class="posts">
-        
-        <li>
-          <span><a href="http://mudox.github.io/post/about_the_site/">ABOUT THE SITE</a>
-            <time class="pull-right post-list">Wed, Nov 5, 2014</time></span>
-          <p>Note To Myself When to use &lt;code&gt; in-line command line. command name package / software / application name offen appears in script code file path &lt;strong&gt; single word or words that should be prominent in a sentence. &lt;em&gt; To-Do List of the Site plural view customization. list of content in sidebar for article single view. top menu item more fancier. tidy up CSS file. term list view pagination. home page. add summary to each article.</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/post/about_me/">ABOUT ME</a>
-            <time class="pull-right post-list">Thu, Oct 2, 2014</time></span>
-          <p>Hi, I&rsquo;m Mudox. I am also in: github.com/Mudox oschina.net/mudox</p>
-        </li>
-        
-    </ul>
-  </div>
+    <div class="content container">
+        <div class="post">
+            
+            <h1>ERROR COLLECTION - IOS</h1>
+            <span class="post-date">Sat, Feb 7, 2015</span>
 
-    
+            
+            <div id="toc">
+                
+            </div>
+
+            
+            <p>Errors that I collected day by day, when developing iOS apps.</p>
+
+<ul>
+<li><p>Specifying an invalid frame size (i.e. 0 width or 0 height), can make
+UIView&rsquo;s such as UISlider unresponsive to user interaction.</p></li>
+
+<li><p>Always wrap multiple statements following a <code>switch case:</code> in a curly brace,
+where we can even put a variable declaration in it.</p></li>
+
+<li><p>Should <strong>NOT</strong> assgin one instance of <code>UIImage</code> to multiple
+<code>UITextField.leftView</code> or <code>UITextField.rightView</code> properties.</p></li>
+
+<li><p>UIImageView, by defaults, is <strong>NOT</strong> userInteractionEnabled, hence sub views
+under them may not receive touch events.</p></li>
+
+<li><p>When creating outlets for UILabel views, <strong>DO NOT</strong> name the property
+&ldquo;title&rdquo;, cause the super class of your view controller <code>UIViewController</code>
+itself has a property &lsquo;title&rsquo;, it will incur exception at runtime time.</p></li>
+
+<li><p>Remember to clean dead connnection recorded by storyboards for controls &amp;
+views in interface builder window.</p></li>
+
+<li><p>Dragging an element with <Atl> key pressed, will copy it&rsquo;s attributes as well as
+it&rsquo;s connections and other info set in the interface builder and uitility
+panes.</p></li>
+
+<li><p>When presenting a view controller from a content view controller embeded in a
+<strong>navigation view controller</strong>, it is the navigation view controller, rather
+than the embeded content view controller, which is <strong>presenting</strong> the view
+controller.</p></li>
+
+<li><p>When customizing table view cells, <strong>DOT NOT</strong> use <code>UIButton</code> to cover the cell for
+triggering the segue, which would bring a function redundant and thus
+complicates things.</p></li>
+
+<li><p><strong>DO NOT</strong> auto-layout a subview within a auto-layout&rsquo;ed <code>UIScrollView</code> when
+you plan to perform zooming operation in it.</p></li>
+</ul>
+
+        </div>
+    </div>
+
+        
     <script src="/lib/mudox.js"></script>
 </body>
 </html>

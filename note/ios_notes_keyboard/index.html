@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> GO&#39;S TEMPLATE LIBRARY &middot; Mudox </title>
+    <title> iOS NOTES - KEYBOARD &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -138,16 +138,20 @@
     <div class="content container">
         <div class="post">
             
-            <h1>GO&#39;S TEMPLATE LIBRARY</h1>
-            <span class="post-date">Fri, Sep 26, 2014</span>
+            <h1>iOS NOTES - KEYBOARD</h1>
+            <span class="post-date">Wed, Apr 8, 2015</span>
 
             
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">3 Steps Using The Template Object</a></li>
-<li><a href="#toc_1">6 Action Families</a></li>
-<li><a href="#toc_2">Argument Types</a></li>
+<li><a href="#toc_0">UIWindow provide 6 keyboard related notifications</a></li>
+<li><a href="#toc_1">Strategies for move contents above the keyboard:</a>
+<ul>
+<li><a href="#toc_2">For contents embeded in <code>UISCrollView</code>s</a></li>
+<li><a href="#toc_3">For contents outside any <code>UIScrollView</code></a></li>
+</ul></li>
+<li><a href="#toc_4">References:</a></li>
 </ul>
 </nav>
             </div>
@@ -155,95 +159,83 @@
             
             
 
-<p>I come across this library when I started to use <a href="http://gohugo.io">Hugo</a>,
-which says:</p>
+<h1 id="toc_0">UIWindow provide 6 keyboard related notifications</h1>
 
-<blockquote>
-<p>It is an extremely <strong>lightweight</strong> engine that provides a very small amount of
-logic. In our experience it is <strong>just the right amount of logic</strong> to be able to
-create a good static website.</p>
-</blockquote>
+<ul>
+<li><code>UIKeyboard[Will/Did]ShowNotification</code></li>
+<li><code>UIKeyboard[Will/Did]HideNotification</code></li>
+<li><code>UIKeyboard[Will/Did]ChangeFrameNotification</code></li>
+</ul>
 
-<h1 id="toc_0">3 Steps Using The Template Object</h1>
+<p>After playing with these notification above, I found:</p>
 
 <ol>
-<li><p><code>New</code> an template object.</p></li>
+<li><p>When you want to move obscured contents or views to above the keyboard, put
+the frame adjustment code in *<strong>Will</strong>* notifications, because the handler
+methods seems to be invoked within the same animation block that provides
+the keyboard revealing animation.</p></li>
 
-<li><p><code>Parse</code> template text.</p></li>
+<li><p>If you are only interested in tracing keyboard&rsquo;s frame (more specifically the
+height) during keyboard&rsquo;s presence, monitoring
+<code>UIKeyboardWillShowNotification</code> seems enough, no need to monitoring
+<code>UIKboardWillChangeFrameNotification</code> additionally.</p></li>
 
-<li><p><code>Execute</code> (apply) the template to data structure.</p></li>
+<li><p>The frame size stored in <code>UIKeyboardFrameBeginUserInfoKey</code> and
+<code>UIKeyboardFrameEndUserInfoKey</code> keys will only differ after keyboard is
+first shown and before it is hidden. When the keyboard is first shown or is
+resigned, the <code>Begin</code> or <code>End</code> frame is equal.</p></li>
 </ol>
 
-<h1 id="toc_1">6 Action Families</h1>
+<h1 id="toc_1">Strategies for move contents above the keyboard:</h1>
 
-<p><strong>comment</strong></p>
+<h2 id="toc_2">For contents embeded in <code>UISCrollView</code>s</h2>
 
-<pre><code class="language-go">{{/* comment here, line spanning allowed */}}
+<p>Way #1 &ndash; Adjust the bottom edge inset value of the containing scroll view&rsquo;s
+contentsInset property and scroll active view into visible area using
+<code>scrollRectToVisible: animated:</code> method.</p>
+
+<p>Way #2 &ndash; Adjust containing scroll view&rsquo;s contentSize &amp; contentOffset
+properties.</p>
+
+<p>No matter which way above you choose, remenber to adjust
+<code>scrollIndicatorInsets</code> &rsquo;s bottom edge inset value to make the indicator fully
+unobscured from the keyboard.</p>
+
+<h2 id="toc_3">For contents outside any <code>UIScrollView</code></h2>
+
+<p>Recalculate and set its&rsquo; frame.origin.y value in
+<code>UIKeyboardWillShowNotification</code> handler method, and the movement will be
+animated along with the revealment of keyboard perfectly.</p>
+
+<pre><code class="language-swift">func handleKeyboardNotification(notify: NSNotification) {
+  let value = notify.userInfo?[UIKeyboardFrameEndUserInfoKey] as NSValue
+  let keyboardHeight = value.CGRectValue().height
+
+  switch notify.name {
+
+  case UIKeyboardWillShowNotification:
+    theViewToMove.frame.origin.y = self.view.bounds.height - keyboardHeight - theViewToMoveMargin - theViewToMove.bounds.height
+    theScrollViewToAdjust.contentInset.bottom += keyboardHeight
+    itemsTable.scrollIndicatorInsets.bottom = keyboardHeight
+
+  case UIKeyboardWillHideNotification:
+    theViewToMove.frame.origin.y = self.view.bounds.height - theViewToMoveMargin - theViewToMove.bounds.height
+    theScrollViewToAdjust.contentInset.bottom -= keyboardHeight
+    itemsTable.scrollIndicatorInsets.bottom = 0.0 // the default value
+
+  default:
+    assert(false)
+  }
+}
 </code></pre>
 
-<p><strong>pipeline</strong> like variable expansion (substitution)</p>
-
-<pre><code class="language-go">{{pipeline}}
-</code></pre>
-
-<p><strong>if</strong> family for branching logic</p>
-
-<pre><code class="language-go">{{if _pipline_}} T1 {{end}}
-{{if _pipline_}} T1 {{else}} T0 {{end}}
-{{if _pipline_}} T1 {{else if _pipeline_ }} T0 {{end}}
-
-</code></pre>
-
-<p><strong>range</strong> family for iteration (loop)</p>
-
-<pre><code class="language-go">{{range pipepine}} T1 {{end}}
-{{range pipepine}} T1 {{else}} T0 {{end}}
-
-</code></pre>
-
-<p><strong>with</strong> family for cursor (dot) moving</p>
-
-<pre><code class="language-go">{{with pipeline}} T1 {{end}}
-{{with pipeline}} T1 {{else}} T0 {{end}}
-
-</code></pre>
-
-<p><strong>template</strong> family for tempates invocation</p>
-
-<pre><code class="language-go">// with the dot '.' set to nil.
-{{tempalte &quot;name&quot;}}
-// with the dot '.' set to value of 'pipeline'.
-{{tempalte &quot;name&quot; pipeline}}
-
-</code></pre>
-
-<h1 id="toc_2">Argument Types</h1>
+<h1 id="toc_4">References:</h1>
 
 <ul>
-<li><p>untyped <strong>constants</strong> in go syntax</p></li>
+<li><p><a href="https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW7">Moving Contents That is Located Under the Keyboard in Text Programming Guide for iOS</a></p></li>
 
-<li><p><strong>nil</strong> &ndash; the special constant</p></li>
-
-<li><p><strong>variable</strong> name</p>
-
-<p><code>$variable_name</code> or <code>$</code></p></li>
-
-<li><p><code>.</code> &ndash; the so called &lsquo;context&rsquo; constant</p></li>
-
-<li><p>dot chain consist of: <strong>field</strong> name,  <strong>key</strong> name,  niladic <strong>method</strong> name</p></li>
+<li><p><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIWindow_Class/">UIWindow Class Reference</a></p></li>
 </ul>
-
-<pre><code class="language-go">(.Field.Key.Method args...).Field.Key ...
-</code></pre>
-
-<ul>
-<li><p>niladic <strong>function</strong> name</p></li>
-
-<li><p>parenthesized <strong>group</strong> of above</p></li>
-</ul>
-
-<pre><code class="language-go">print (func arg...) (.method arg...)
-</code></pre>
 
         </div>
     </div>

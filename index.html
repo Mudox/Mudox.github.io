@@ -89,6 +89,7 @@
         <a href="/languages/javascript">javascript</a> 
         <a href="/languages/lua">lua</a> 
         <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
         <a href="/languages/swift">swift</a> 
         <a href="/languages/viml">viml</a>  
         <a href="/platforms">platforms</a> 
@@ -102,10 +103,12 @@
         <a href="/series/error">error</a> 
         <a href="/series/setup">setup</a>  
         <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
         <a href="/tags/awesome">awesome</a> 
         <a href="/tags/bash">bash</a> 
         <a href="/tags/cocoa">cocoa</a> 
         <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
         <a href="/tags/git">git</a> 
         <a href="/tags/libraries">libraries</a> 
         <a href="/tags/me">me</a> 
@@ -124,7 +127,7 @@
       <p class="lead">
         My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
       </p>
-      <p>&copy; 2014. All rights reserved. </p>
+      <p>&copy; 2015. All rights reserved. </p>
     </div>
 
   </div>
@@ -135,6 +138,147 @@
   <div class="content container">
     <div class="posts">
 
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/ios_notes_keyboard/">
+            iOS NOTES - KEYBOARD
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Apr 8, 2015</span>
+
+        
+
+<h1 id="toc_0">UIWindow provide 6 keyboard related notifications</h1>
+
+<ul>
+<li><code>UIKeyboard[Will/Did]ShowNotification</code></li>
+<li><code>UIKeyboard[Will/Did]HideNotification</code></li>
+<li><code>UIKeyboard[Will/Did]ChangeFrameNotification</code></li>
+</ul>
+
+<p>After playing with these notification above, I found:</p>
+
+<ol>
+<li><p>When you want to move obscured contents or views to above the keyboard, put
+the frame adjustment code in *<strong>Will</strong>* notifications, because the handler
+methods seems to be invoked within the same animation block that provides
+the keyboard revealing animation.</p></li>
+
+<li><p>If you are only interested in tracing keyboard&rsquo;s frame (more specifically the
+height) during keyboard&rsquo;s presence, monitoring
+<code>UIKeyboardWillShowNotification</code> seems enough, no need to monitoring
+<code>UIKboardWillChangeFrameNotification</code> additionally.</p></li>
+
+<li><p>The frame size stored in <code>UIKeyboardFrameBeginUserInfoKey</code> and
+<code>UIKeyboardFrameEndUserInfoKey</code> keys will only differ after keyboard is
+first shown and before it is hidden. When the keyboard is first shown or is
+resigned, the <code>Begin</code> or <code>End</code> frame is equal.</p></li>
+</ol>
+
+<h1 id="toc_1">Strategies for move contents above the keyboard:</h1>
+
+<h2 id="toc_2">For contents embeded in <code>UISCrollView</code>s</h2>
+
+<p>Way #1 &ndash; Adjust the bottom edge inset value of the containing scroll view&rsquo;s
+contentsInset property and scroll active view into visible area using
+<code>scrollRectToVisible: animated:</code> method.</p>
+
+<p>Way #2 &ndash; Adjust containing scroll view&rsquo;s contentSize &amp; contentOffset
+properties.</p>
+
+<p>No matter which way above you choose, remenber to adjust
+<code>scrollIndicatorInsets</code> &rsquo;s bottom edge inset value to make the indicator fully
+unobscured from the keyboard.</p>
+
+<h2 id="toc_3">For contents outside any <code>UIScrollView</code></h2>
+
+<p>Recalculate and set its&rsquo; frame.origin.y value in
+<code>UIKeyboardWillShowNotification</code> handler method, and the movement will be
+animated along with the revealment of keyboard perfectly.</p>
+
+<pre><code class="language-swift">func handleKeyboardNotification(notify: NSNotification) {
+  let value = notify.userInfo?[UIKeyboardFrameEndUserInfoKey] as NSValue
+  let keyboardHeight = value.CGRectValue().height
+
+  switch notify.name {
+
+  case UIKeyboardWillShowNotification:
+    theViewToMove.frame.origin.y = self.view.bounds.height - keyboardHeight - theViewToMoveMargin - theViewToMove.bounds.height
+    theScrollViewToAdjust.contentInset.bottom += keyboardHeight
+    itemsTable.scrollIndicatorInsets.bottom = keyboardHeight
+
+  case UIKeyboardWillHideNotification:
+    theViewToMove.frame.origin.y = self.view.bounds.height - theViewToMoveMargin - theViewToMove.bounds.height
+    theScrollViewToAdjust.contentInset.bottom -= keyboardHeight
+    itemsTable.scrollIndicatorInsets.bottom = 0.0 // the default value
+
+  default:
+    assert(false)
+  }
+}
+</code></pre>
+
+<h1 id="toc_4">References:</h1>
+
+<ul>
+<li><p><a href="https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW7">Moving Contents That is Located Under the Keyboard in Text Programming Guide for iOS</a></p></li>
+
+<li><p><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIWindow_Class/">UIWindow Class Reference</a></p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_ios/">
+            ERROR COLLECTION - IOS
+          </a>
+        </h1>
+
+        <span class="post-date">Sat, Feb 7, 2015</span>
+
+        <p>Errors that I collected day by day, when developing iOS apps.</p>
+
+<ul>
+<li><p>Specifying an invalid frame size (i.e. 0 width or 0 height), can make
+UIView&rsquo;s such as UISlider unresponsive to user interaction.</p></li>
+
+<li><p>Always wrap multiple statements following a <code>switch case:</code> in a curly brace,
+where we can even put a variable declaration in it.</p></li>
+
+<li><p>Should <strong>NOT</strong> assgin one instance of <code>UIImage</code> to multiple
+<code>UITextField.leftView</code> or <code>UITextField.rightView</code> properties.</p></li>
+
+<li><p>UIImageView, by defaults, is <strong>NOT</strong> userInteractionEnabled, hence sub views
+under them may not receive touch events.</p></li>
+
+<li><p>When creating outlets for UILabel views, <strong>DO NOT</strong> name the property
+&ldquo;title&rdquo;, cause the super class of your view controller <code>UIViewController</code>
+itself has a property &lsquo;title&rsquo;, it will incur exception at runtime time.</p></li>
+
+<li><p>Remember to clean dead connnection recorded by storyboards for controls &amp;
+views in interface builder window.</p></li>
+
+<li><p>Dragging an element with <Atl> key pressed, will copy it&rsquo;s attributes as well as
+it&rsquo;s connections and other info set in the interface builder and uitility
+panes.</p></li>
+
+<li><p>When presenting a view controller from a content view controller embeded in a
+<strong>navigation view controller</strong>, it is the navigation view controller, rather
+than the embeded content view controller, which is <strong>presenting</strong> the view
+controller.</p></li>
+
+<li><p>When customizing table view cells, <strong>DOT NOT</strong> use <code>UIButton</code> to cover the cell for
+triggering the segue, which would bring a function redundant and thus
+complicates things.</p></li>
+
+<li><p><strong>DO NOT</strong> auto-layout a subview within a auto-layout&rsquo;ed <code>UIScrollView</code> when
+you plan to perform zooming operation in it.</p></li>
+</ul>
+
+      </div>
       
       <div class="post">
         <h1 class="post-title">
@@ -288,7 +432,7 @@ for bash and <em>.zlogin</em> for zsh.</p>
 [[ -z $DISPLAY &amp;&amp; $XDG_VTNR -eq 1 ]] &amp;&amp; exec startx
 </code></pre>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><p><a href="https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console">Automatic login to virtual console from
@@ -320,7 +464,7 @@ be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&fr
 <p>I found my lucky combiantion is <code>1/4 8</code> and I add the setting command into
 <em>rc.lua</em> of <a href="http://awesome.naquadah.org">Awesome WM</a> to apply the setting on each startup.</p>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
@@ -361,7 +505,7 @@ ibus-setup
 ibus-daemon -drx
 </code></pre>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
@@ -471,7 +615,7 @@ window.</p></li>
 Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
 </ol>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><p><a href="https://wiki.archlinux.org/index.php/Virtualbox">Virtualbox from ArchWiki</a></p></li>
@@ -581,6 +725,7 @@ echo 'ip route add default via $4' &gt; 01-routes.sh
 # the script file need to have `x` permission to be run.
 # it's stdin &amp; stderr will be redirected off terminal, so not output will
 # be shown when run.
+co
 sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
 </code></pre>
 
@@ -643,7 +788,7 @@ alias vpoff='sudo ~/.bin/vpn.sh off'
 
 <p>then, you can type <code>vpon</code> to turn on the VPN, and <code>vpoff</code> to shutdown.</p>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/PPTP_VPN_client_setup_with_pptpclient">PPTP VPN client setup with pptpclient</a></li>
@@ -799,37 +944,6 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -900,6 +1014,37 @@ a real number.</p></li>
 
 <pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
 </code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+</ul>
 
       </div>
       
@@ -1672,7 +1817,7 @@ let sortedWords = words.sorted {
 
 <h2 id="toc_4">Sugar #2 &ndash; parameter type inference</h2>
 
-<p><strong>parameter types</strong> can be inferred by swift compile as well.</p>
+<p><strong>parameter types</strong> can be inferred by swift compiler as well.</p>
 
 <pre><code class="language-swift">// omit parameter types
 let sortedWords = words.sorted {

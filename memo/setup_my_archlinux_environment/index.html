@@ -89,6 +89,7 @@
         <a href="/languages/javascript">javascript</a> 
         <a href="/languages/lua">lua</a> 
         <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
         <a href="/languages/swift">swift</a> 
         <a href="/languages/viml">viml</a>  
         <a href="/platforms">platforms</a> 
@@ -102,10 +103,12 @@
         <a href="/series/error">error</a> 
         <a href="/series/setup">setup</a>  
         <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
         <a href="/tags/awesome">awesome</a> 
         <a href="/tags/bash">bash</a> 
         <a href="/tags/cocoa">cocoa</a> 
         <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
         <a href="/tags/git">git</a> 
         <a href="/tags/libraries">libraries</a> 
         <a href="/tags/me">me</a> 
@@ -124,7 +127,7 @@
       <p class="lead">
         My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
       </p>
-      <p>&copy; 2014. All rights reserved. </p>
+      <p>&copy; 2015. All rights reserved. </p>
     </div>
 
   </div>
@@ -331,7 +334,7 @@ for bash and <em>.zlogin</em> for zsh.</p>
 [[ -z $DISPLAY &amp;&amp; $XDG_VTNR -eq 1 ]] &amp;&amp; exec startx
 </code></pre>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><p><a href="https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console">Automatic login to virtual console from
@@ -363,7 +366,7 @@ be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&fr
 <p>I found my lucky combiantion is <code>1/4 8</code> and I add the setting command into
 <em>rc.lua</em> of <a href="http://awesome.naquadah.org">Awesome WM</a> to apply the setting on each startup.</p>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
@@ -404,7 +407,7 @@ ibus-setup
 ibus-daemon -drx
 </code></pre>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
@@ -514,7 +517,7 @@ window.</p></li>
 Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
 </ol>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><p><a href="https://wiki.archlinux.org/index.php/Virtualbox">Virtualbox from ArchWiki</a></p></li>
@@ -624,6 +627,7 @@ echo 'ip route add default via $4' &gt; 01-routes.sh
 # the script file need to have `x` permission to be run.
 # it's stdin &amp; stderr will be redirected off terminal, so not output will
 # be shown when run.
+co
 sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
 </code></pre>
 
@@ -686,7 +690,7 @@ alias vpoff='sudo ~/.bin/vpn.sh off'
 
 <p>then, you can type <code>vpon</code> to turn on the VPN, and <code>vpoff</code> to shutdown.</p>
 
-<p>reference:</p>
+<p>references:</p>
 
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/PPTP_VPN_client_setup_with_pptpclient">PPTP VPN client setup with pptpclient</a></li>

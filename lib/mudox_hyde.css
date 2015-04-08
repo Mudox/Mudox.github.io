@@ -793,6 +793,8 @@ h3 code
   padding: inherit;
 
   color: inherit;
+
+  background-color: white !important;
 }
 p code,
 li code

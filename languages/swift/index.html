@@ -89,6 +89,7 @@
         <a href="/languages/javascript">javascript</a> 
         <a href="/languages/lua">lua</a> 
         <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
         <a href="/languages/swift">swift</a> 
         <a href="/languages/viml">viml</a>  
         <a href="/platforms">platforms</a> 
@@ -102,10 +103,12 @@
         <a href="/series/error">error</a> 
         <a href="/series/setup">setup</a>  
         <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
         <a href="/tags/awesome">awesome</a> 
         <a href="/tags/bash">bash</a> 
         <a href="/tags/cocoa">cocoa</a> 
         <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
         <a href="/tags/git">git</a> 
         <a href="/tags/libraries">libraries</a> 
         <a href="/tags/me">me</a> 
@@ -124,7 +127,7 @@
       <p class="lead">
         My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
       </p>
-      <p>&copy; 2014. All rights reserved. </p>
+      <p>&copy; 2015. All rights reserved. </p>
     </div>
 
   </div>
@@ -134,6 +137,19 @@
 
   <div class="content container">
     <ul class="posts">
+        
+        <li>
+          <span><a href="http://mudox.github.io/note/ios_notes_keyboard/">iOS NOTES - KEYBOARD</a>
+            <time class="pull-right post-list">Wed, Apr 8, 2015</time></span>
+          <p>UIWindow provide 6 keyboard related notifications UIKeyboard[Will/Did]ShowNotification UIKeyboard[Will/Did]HideNotification UIKeyboard[Will/Did]ChangeFrameNotification After playing with these notification above, I found: When you want to move obscured contents or views to above the keyboard, put the frame adjustment code in *Will* notifications, because the handler methods seems to be invoked within the same animation block that provides the keyboard revealing animation. If you are only interested in tracing keyboard&rsquo;s frame (more specifically the height) during keyboard&rsquo;s presence, monitoring UIKeyboardWillShowNotification seems enough, no need to monitoring UIKboardWillChangeFrameNotification additionally.</p>
+        </li>
+        
+        <li>
+          <span><a href="http://mudox.github.io/memo/error_collection_ios/">ERROR COLLECTION - IOS</a>
+            <time class="pull-right post-list">Sat, Feb 7, 2015</time></span>
+          <p><p>Errors that I collected day by day, when developing iOS apps.</p>
+</p>
+        </li>
         
         <li>
           <span><a href="http://mudox.github.io/note/swift_oo/">SWIFT OJECT-ORIENTED FEATURE</a>
