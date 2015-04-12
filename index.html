@@ -39,7 +39,7 @@
     <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
 
     
-    <script src="/lib/particles/particles.min.js"></script>
+    <script src="/lib/particles/particles.js"></script>
 
     
     
@@ -55,7 +55,7 @@
   <div class="sidebar">
 
   
-  <div id="sidebar-particles"> </div>
+  <div id="particles-js"> </div>
 
   
   <div id="sidebar-front-content" class="container">
@@ -141,6 +141,94 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/note/ios_note_casting/">
+            iOS NOTES - CASTING
+          </a>
+        </h1>
+
+        <span class="post-date">Sun, Apr 12, 2015</span>
+
+        
+
+<p>First defining a sample class hierarchy:</p>
+
+<pre><code class="language-swift">class SuperClass {
+  func say() {
+    println(&quot;super class&quot;)
+  }
+}
+
+class Subclass: SuperClass {
+  override func say() {
+    println(&quot;subclass&quot;)
+  }
+}
+</code></pre>
+
+<h1 id="toc_0">3 Kinds of Castings</h1>
+
+<ol>
+<li><p>Natural Casting</p>
+
+<p>Used in <strong>up-casting</strong> (i.e. casting from a sub-class instance to a super
+class instance)</p>
+
+<pre><code class="language-swift">var a = SubClass()
+var b = a as SuperClass
+</code></pre></li>
+
+<li><p>Unconditional Casting (or forced casting)</p>
+
+<p>Used in <strong>down-casting</strong> (i.e. the contrary of the above).</p>
+
+<p>When the casting failed, it would incur a panic.</p>
+
+<p>Use it when you are confident about the down-casting.</p></li>
+
+<li><p>Conditional Casting</p>
+
+<p>Used in <strong>down-casting</strong>, but it always returns optionals whether succeed
+or fail, that means when not
+applicalbe, instead of emitting a panic, it returns nil.</p></li>
+</ol>
+
+<p>Conclusion:</p>
+
+<ul>
+<li><p>Natural casting is used in <em>always-succeed</em> castings.</p></li>
+
+<li><p>Conditional &amp; Unconditional castings are used in <em>might-fail</em> castings.</p></li>
+</ul>
+
+<h1 id="toc_1">2 Operator for Casting</h1>
+
+<ol>
+<li><p>The <code>is</code> operator</p></li>
+
+<li><p>The <code>as</code> operators - <code>as</code>, <code>as?</code>, <code>as!</code></p></li>
+</ol>
+
+<h1 id="toc_2">Special casting scenarios in practice</h1>
+
+<h2 id="toc_3">Casting a Protocol to The Class Adopting the Protocol is Also a Down-Casting.</h2>
+
+<p>In Swift the relationship between a protocol and the classes adopting that
+protocol is like the relationship between a super class and its&rsquo; sub-classes.
+Hence casting a protocol object, such as the <code>AnyObject</code> to its&rsquo; underlying
+class is regarded as a down-casting.</p>
+
+<pre><code class="language-swift">import UIKit // import AppKit
+
+let a: AnyObject = &quot;String&quot;
+let b: a as! String
+</code></pre>
+
+<h2 id="toc_4">Casting optional</h2>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/note/ios_notes_keyboard/">
             iOS NOTES - KEYBOARD
           </a>
@@ -158,7 +246,7 @@
 <li><code>UIKeyboard[Will/Did]ChangeFrameNotification</code></li>
 </ul>
 
-<p>After playing with these notification above, I found:</p>
+<p>After playing with these notifications above, I found:</p>
 
 <ol>
 <li><p>When you want to move obscured contents or views to above the keyboard, put
@@ -179,7 +267,7 @@ resigned, the <code>Begin</code> or <code>End</code> frame is equal.</p></li>
 
 <h1 id="toc_1">Strategies for move contents above the keyboard:</h1>
 
-<h2 id="toc_2">For contents embeded in <code>UISCrollView</code>s</h2>
+<h2 id="toc_2">For contents embedded in <code>UISCrollView</code>s</h2>
 
 <p>Way #1 &ndash; Adjust the bottom edge inset value of the containing scroll view&rsquo;s
 contentsInset property and scroll active view into visible area using
@@ -188,15 +276,15 @@ contentsInset property and scroll active view into visible area using
 <p>Way #2 &ndash; Adjust containing scroll view&rsquo;s contentSize &amp; contentOffset
 properties.</p>
 
-<p>No matter which way above you choose, remenber to adjust
-<code>scrollIndicatorInsets</code> &rsquo;s bottom edge inset value to make the indicator fully
-unobscured from the keyboard.</p>
+<p>No matter which way above you choose, remember to adjust
+<code>scrollIndicatorInsets</code>&rsquo;s bottom edge inset value to make the indicator fully
+un-obscured from the keyboard.</p>
 
 <h2 id="toc_3">For contents outside any <code>UIScrollView</code></h2>
 
 <p>Recalculate and set its&rsquo; frame.origin.y value in
 <code>UIKeyboardWillShowNotification</code> handler method, and the movement will be
-animated along with the revealment of keyboard perfectly.</p>
+animated along with the revealing of keyboard perfectly.</p>
 
 <pre><code class="language-swift">func handleKeyboardNotification(notify: NSNotification) {
   let value = notify.userInfo?[UIKeyboardFrameEndUserInfoKey] as NSValue
@@ -206,12 +294,12 @@ animated along with the revealment of keyboard perfectly.</p>
 
   case UIKeyboardWillShowNotification:
     theViewToMove.frame.origin.y = self.view.bounds.height - keyboardHeight - theViewToMoveMargin - theViewToMove.bounds.height
-    theScrollViewToAdjust.contentInset.bottom += keyboardHeight
+    theScrollViewToAdjust.contentInset.bottom = keyboardHeight
     itemsTable.scrollIndicatorInsets.bottom = keyboardHeight
 
   case UIKeyboardWillHideNotification:
     theViewToMove.frame.origin.y = self.view.bounds.height - theViewToMoveMargin - theViewToMove.bounds.height
-    theScrollViewToAdjust.contentInset.bottom -= keyboardHeight
+    theScrollViewToAdjust.contentInset.bottom = 0.0
     itemsTable.scrollIndicatorInsets.bottom = 0.0 // the default value
 
   default:
@@ -276,6 +364,9 @@ complicates things.</p></li>
 
 <li><p><strong>DO NOT</strong> auto-layout a subview within a auto-layout&rsquo;ed <code>UIScrollView</code> when
 you plan to perform zooming operation in it.</p></li>
+
+<li><p>After getting a reused cell, make sure all its&rsquo; states get reset to a new
+value or the default value, or invalid states set by last usage will remain.</p></li>
 </ul>
 
       </div>
@@ -944,41 +1035,6 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_javascript/">
-            ERROR COLLECTION - JAVASCRIPT
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day when writing the JavaScript language.</p>
-
-<ul>
-<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
-</ul>
-
-<pre><code class="language-javascript">window.onload = init/*()*/
-
-function init() {
-  // ...
-}
-</code></pre>
-
-<ul>
-<li>appending <code>()</code> to a property name.</li>
-</ul>
-
-<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
-</code></pre>
-
-<ul>
-<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_bash/">
             ERROR COLLECTION - BASH
           </a>
@@ -1014,6 +1070,41 @@ a real number.</p></li>
 
 <pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
 </code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+
+<ul>
+<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
+</ul>
+
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
+</code></pre>
+
+<ul>
+<li>appending <code>()</code> to a property name.</li>
+</ul>
+
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+</code></pre>
+
+<ul>
+<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
+</ul>
 
       </div>
       

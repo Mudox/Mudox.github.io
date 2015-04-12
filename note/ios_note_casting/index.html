@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> COMPILE MACVIM &amp; YCM ON OSX &middot; Mudox </title>
+    <title> iOS NOTES - CASTING &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -138,16 +138,20 @@
     <div class="content container">
         <div class="post">
             
-            <h1>COMPILE MACVIM &amp; YCM ON OSX</h1>
-            <span class="post-date">Mon, Sep 29, 2014</span>
+            <h1>iOS NOTES - CASTING</h1>
+            <span class="post-date">Sun, Apr 12, 2015</span>
 
             
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">Preparation</a></li>
-<li><a href="#toc_1">Compile YCM</a></li>
-<li><a href="#toc_2">Compile MacVim</a></li>
+<li><a href="#toc_0">3 Kinds of Castings</a></li>
+<li><a href="#toc_1">2 Operator for Casting</a></li>
+<li><a href="#toc_2">Special casting scenarios in practice</a>
+<ul>
+<li><a href="#toc_3">Casting a Protocol to The Class Adopting the Protocol is Also a Down-Casting.</a></li>
+<li><a href="#toc_4">Casting optional</a></li>
+</ul></li>
 </ul>
 </nav>
             </div>
@@ -155,60 +159,80 @@
             
             
 
-<p>Compiling <a href="http://valloric.github.io/YouCompleteMe/">Youcompleteme</a> and <a href="https://github.com/b4winckler/macvim">Macvim</a> on MacOSX once beaten me
-down for several nights.</p>
+<p>First defining a sample class hierarchy:</p>
 
-<p>I eventually found out that this is because the interference from
-<a href="https://github.com/yyuu/pyenv">pyenv</a> and [homebrew][brew].</p>
+<pre><code class="language-swift">class SuperClass {
+  func say() {
+    println(&quot;super class&quot;)
+  }
+}
 
-<p>[homebrew][brew] installs packages into a unconventional path, which makes
-MacVim and Youcompleteme can found buidling dependencies in default paths.</p>
+class Subclass: SuperClass {
+  override func say() {
+    println(&quot;subclass&quot;)
+  }
+}
+</code></pre>
 
-<p>While <a href="https://github.com/yyuu/pyenv">pyenv</a> will shadow <a href="https://github.com/b4winckler/macvim">Macvim</a>&rsquo;s default python &hellip;</p>
+<h1 id="toc_0">3 Kinds of Castings</h1>
 
-<h1 id="toc_0">Preparation</h1>
+<ol>
+<li><p>Natural Casting</p>
+
+<p>Used in <strong>up-casting</strong> (i.e. casting from a sub-class instance to a super
+class instance)</p>
+
+<pre><code class="language-swift">var a = SubClass()
+var b = a as SuperClass
+</code></pre></li>
+
+<li><p>Unconditional Casting (or forced casting)</p>
+
+<p>Used in <strong>down-casting</strong> (i.e. the contrary of the above).</p>
+
+<p>When the casting failed, it would incur a panic.</p>
+
+<p>Use it when you are confident about the down-casting.</p></li>
+
+<li><p>Conditional Casting</p>
+
+<p>Used in <strong>down-casting</strong>, but it always returns optionals whether succeed
+or fail, that means when not
+applicalbe, instead of emitting a panic, it returns nil.</p></li>
+</ol>
+
+<p>Conclusion:</p>
 
 <ul>
-<li><p>disable pyenv</p>
+<li><p>Natural casting is used in <em>always-succeed</em> castings.</p></li>
 
-<ol>
-<li><p>run <code>brew unlink pyenv</code> (<code>brew link pyenv</code> after compilation)</p></li>
-
-<li><p>restart shell (e.g. itemr2)</p></li>
-</ol></li>
-
-<li><p>reset develop directory of Xcode</p>
-
-<ol>
-<li><code>sudo xcode-select -r</code></li>
-</ol></li>
+<li><p>Conditional &amp; Unconditional castings are used in <em>might-fail</em> castings.</p></li>
 </ul>
 
-<h1 id="toc_1">Compile YCM</h1>
+<h1 id="toc_1">2 Operator for Casting</h1>
 
-<p>On MacOSX using native clang package has proven to be very stable, besides, it
-drastically accelerates the installing process &ndash; leaving <code>install.sh</code> no need
-to download the prebuild binaries from LLVM&rsquo;s site.</p>
+<ol>
+<li><p>The <code>is</code> operator</p></li>
 
-<pre><code class="language-bash">cd /to/ycm/root/directory/
-    ./install.sh --clang-completer --system-libclang
+<li><p>The <code>as</code> operators - <code>as</code>, <code>as?</code>, <code>as!</code></p></li>
+</ol>
+
+<h1 id="toc_2">Special casting scenarios in practice</h1>
+
+<h2 id="toc_3">Casting a Protocol to The Class Adopting the Protocol is Also a Down-Casting.</h2>
+
+<p>In Swift the relationship between a protocol and the classes adopting that
+protocol is like the relationship between a super class and its&rsquo; sub-classes.
+Hence casting a protocol object, such as the <code>AnyObject</code> to its&rsquo; underlying
+class is regarded as a down-casting.</p>
+
+<pre><code class="language-swift">import UIKit // import AppKit
+
+let a: AnyObject = &quot;String&quot;
+let b: a as! String
 </code></pre>
 
-<h1 id="toc_2">Compile MacVim</h1>
-
-<pre><code class="language-bash">make distclean
-./configure               \
-    --with-features=huge  \
-    -with-macarchs=x86_64 \
-    --enable-perlinterp   \
-    --enable-rubyinterp   \
-    --enable-pythoninterp \
-    --enable-luainterp    \
-    --enable-perlinterp   \
-    --enable-cscope       \
-    --with-lua-prefix=/usr/local/Cellar/lua/&lt;current_version&gt; &gt;/tmp/log
-make
-</code></pre>
+<h2 id="toc_4">Casting optional</h2>
 
         </div>
     </div>

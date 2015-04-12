@@ -39,7 +39,7 @@
     <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
 
     
-    <script src="/lib/particles/particles.min.js"></script>
+    <script src="/lib/particles/particles.js"></script>
 
     
     
@@ -55,7 +55,7 @@
     <div class="sidebar">
 
   
-  <div id="sidebar-particles"> </div>
+  <div id="particles-js"> </div>
 
   
   <div id="sidebar-front-content" class="container">
@@ -184,6 +184,9 @@ complicates things.</p></li>
 
 <li><p><strong>DO NOT</strong> auto-layout a subview within a auto-layout&rsquo;ed <code>UIScrollView</code> when
 you plan to perform zooming operation in it.</p></li>
+
+<li><p>After getting a reused cell, make sure all its&rsquo; states get reset to a new
+value or the default value, or invalid states set by last usage will remain.</p></li>
 </ul>
 
         </div>
