@@ -142,20 +142,22 @@
         <li>
           <span><a href="http://mudox.github.io/note/swift_notes_functions/">SWIFT NOTES - FUNCTIONS</a>
             <time class="pull-right post-list">Mon, Apr 13, 2015</time></span>
-          <p><p>excerpts from &ldquo;The Swift Programming Language&rdquo;&rsquo;s functions section.</p>
+          <p><p>Excerpts from &ldquo;The Swift Programming Language&rdquo;&rsquo;s functions section.</p>
 </p>
         </li>
         
         <li>
           <span><a href="http://mudox.github.io/note/ios_notes_casting/">iOS NOTES - CASTING</a>
             <time class="pull-right post-list">Sun, Apr 12, 2015</time></span>
-          <p>First defining a sample class hierarchy: class SuperClass { func say() { println(&quot;super class&quot;) } } class Subclass: SuperClass { override func say() { println(&quot;subclass&quot;) } } 3 Kinds of Castings Natural Casting Used in up-casting (i.e. casting from a sub-class instance to a super class instance) var a = SubClass() var b = a as SuperClass Unconditional Casting (or forced casting) Used in down-casting (i.e. the contrary of the above).</p>
+          <p><p>Collect all my gain from study &amp; using Swift&rsquo;s casting mechanism here.</p>
+</p>
         </li>
         
         <li>
           <span><a href="http://mudox.github.io/note/ios_notes_keyboard/">iOS NOTES - KEYBOARD</a>
             <time class="pull-right post-list">Wed, Apr 8, 2015</time></span>
-          <p>UIWindow provide 6 keyboard related notifications UIKeyboard[Will/Did]ShowNotification UIKeyboard[Will/Did]HideNotification UIKeyboard[Will/Did]ChangeFrameNotification After playing with these notifications above, I found: When you want to move obscured contents or views to above the keyboard, put the frame adjustment code in *Will* notifications, because the handler methods seems to be invoked within the same animation block that provides the keyboard revealing animation. If you are only interested in tracing keyboard&rsquo;s frame (more specifically the height) during keyboard&rsquo;s presence, monitoring UIKeyboardWillShowNotification seems enough, no need to monitoring UIKboardWillChangeFrameNotification additionally.</p>
+          <p><p>Handle iOS keyboard poppu &amp; resignment gracefully.</p>
+</p>
         </li>
         
     </ul>
