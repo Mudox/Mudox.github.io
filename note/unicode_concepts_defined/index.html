@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> UNICODE CONCEPTS DEFINED &middot; Mudox </title>
+
+    
+    <link rel="stylesheet" href="/lib/normalize/normalize.css">
+    <link rel="stylesheet" href="/lib/mudox_hyde.css">
+
+    
+    
+    <link rel="stylesheet" href="/lib/fonts/fonts.css">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/lib/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <script src="/lib/jquery/jquery.min.js"></script>
+
+    
+    
+    
+    <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css">
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
+
+    
+    <script src="/lib/particles/particles.js"></script>
+
+    
+    
+    
+
+    
+    <link rel="stylesheet" href="/lib/animate/animate.min.css">
+
+  </head>
+
+<body class="theme-base-blue">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js"> </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+
+    <nav id=sidebar-menu>
+      
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="cloud-container">
+      <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
+        
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/viml">viml</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch">arch</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/win">win</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error">error</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
+        <a href="/tags/awesome">awesome</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/tool">tool</a> 
+        <a href="/tags/unicode">unicode</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+
+    <div class="sidebar-about sidebar-sticky">
+      <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
+      </div>
+      <p class="lead">
+        My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
+      </p>
+      <p>&copy; 2015. All rights reserved. </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>UNICODE CONCEPTS DEFINED</h1>
+            <span class="post-date">Mon, Apr 13, 2015</span>
+
+            
+            <div id="toc">
+                
+            </div>
+
+            
+            <ul>
+<li><p>UCS</p>
+
+<p>Universal Coded Character Set (通用字符集)</p>
+
+<blockquote>
+<p>The Universal Coded Character Set (UCS), defined by the International
+Standard ISO/IEC 10646, Information technology — Universal Coded
+Character Set (UCS) (plus amendments to that standard), is a standard set
+of characters upon which many character encodings are based. The UCS
+contains nearly one hundred thousand abstract characters, each identified
+by an unambiguous name and an integer number called its code point.</p>
+</blockquote></li>
+
+<li><p>Unicode</p>
+
+<p>统一码，万国码, 单一码</p>
+
+<blockquote>
+<p>Unicode is a computing industry standard for the consistent encoding,
+representation, and handling of text expressed in most of the world&rsquo;s
+writing systems. Developed in conjunction with the Universal Character
+Set standard and published as The Unicode Standard, the latest version of
+Unicode contains a repertoire of more than 110,000 characters covering
+100 scripts and multiple symbol sets.</p>
+</blockquote>
+
+<p>As for its&rsquo; code space layout:</p>
+
+<blockquote>
+<p>Unicode comprises 1,114,112 code points in the range 0x0 to 0x10FFFF.
+The Unicode code space is divided into 17 planes (the basic multilingual
+plane, and 16 supplementary planes), each with 65,536 (= 216) code
+points. Thus the total size of the Unicode code space is 17 × 65,536 =
+1,114,112.</p>
+</blockquote></li>
+
+<li><p>UTF</p>
+
+<p>UCS/Unicode Transformation Format (通用字符集转换格式, Unicode 转换格式)</p></li>
+
+<li><p>UTF-8</p>
+
+<blockquote>
+<p>UTF-8 (U from Universal Character Set + Transformation Format—8-bit[1])
+is a character encoding capable of encoding all possible characters
+(called code points) in Unicode. The encoding is variable-length and uses
+8-bit code units. It was designed for backward compatibility with ASCII
+and to avoid the complications of endianness and byte order marks in
+UTF-16 and UTF-32.</p>
+</blockquote></li>
+
+<li><p>code point (code position)</p>
+
+<blockquote>
+<p>In character encoding terminology, a code point or code position is any
+of the numerical values that make up the code space.</p>
+</blockquote></li>
+
+<li><p>Unicode scalar</p>
+
+<blockquote>
+<p>Behind the scenes, Swift’s native String type is built from Unicode
+scalar values. A Unicode scalar is a unique 21-bit number for a character
+or modifier.</p>
+</blockquote>
+
+<p>The distinction between Unicode scalar &amp; Unicode code point could be
+clarified as follows:</p>
+
+<blockquote>
+<p>A Unicode scalar is any Unicode code point in the range U+0000 to U+D7FF
+inclusive or U+E000 to U+10FFFF inclusive. Unicode scalars do not include
+the Unicode surrogate pair code points, which are the code points in the
+range U+D800 to U+DFFF inclusive.</p>
+</blockquote>
+
+<p>It is a Swift language specific notion, or more actually, a Swift defined
+internal type for storing string charactor&rsquo;s Unicode points that Swift
+choose to support. Behind the scene, it&rsquo;s a 21bit long numeric type, but
+not all number in the range can reponds to a valid Unicode point.</p>
+
+<p>So mathematically, the Unicode points universal set is a discrete subset of
+integer set [0, 0x10FFFF]. The Swift Unicode scalar universal set is, in
+turn, a discrete subset of Unicode code point universal set (with all
+<em>surroagte pair</em> code points stripped).</p></li>
+
+<li><p>code unit</p>
+
+<blockquote>
+<p>A code unit is a bit sequence used to encode each character of a
+repertoire. Encodings associate their meaning with either a single code
+unit value or a sequence of code units as one value.</p>
+</blockquote></li>
+
+<li><p>extended grapheme cluster</p>
+
+<blockquote>
+<p>Every instance of Swift’s Character type represents a single extended
+grapheme cluster. An extended grapheme cluster is a sequence of one or
+more Unicode scalars that (when combined) produce a single human-readable
+character.</p>
+</blockquote></li>
+</ul>
+
+        </div>
+    </div>
+
+        
+    <script src="/lib/mudox.js"></script>
+</body>
+</html>
+

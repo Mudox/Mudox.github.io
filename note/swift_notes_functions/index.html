@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> SWIFT NOTES - FUNCTIONS &middot; Mudox </title>
+
+    
+    <link rel="stylesheet" href="/lib/normalize/normalize.css">
+    <link rel="stylesheet" href="/lib/mudox_hyde.css">
+
+    
+    
+    <link rel="stylesheet" href="/lib/fonts/fonts.css">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/lib/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <script src="/lib/jquery/jquery.min.js"></script>
+
+    
+    
+    
+    <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css">
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
+
+    
+    <script src="/lib/particles/particles.js"></script>
+
+    
+    
+    
+
+    
+    <link rel="stylesheet" href="/lib/animate/animate.min.css">
+
+  </head>
+
+<body class="theme-base-blue">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js"> </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+
+    <nav id=sidebar-menu>
+      
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="cloud-container">
+      <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
+        
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/viml">viml</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch">arch</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/win">win</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error">error</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
+        <a href="/tags/awesome">awesome</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/tool">tool</a> 
+        <a href="/tags/unicode">unicode</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+
+    <div class="sidebar-about sidebar-sticky">
+      <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
+      </div>
+      <p class="lead">
+        My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
+      </p>
+      <p>&copy; 2015. All rights reserved. </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>SWIFT NOTES - FUNCTIONS</h1>
+            <span class="post-date">Mon, Apr 13, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">Function Parameters</a>
+<ul>
+<li><a href="#toc_1">Parameter names</a></li>
+<li><a href="#toc_2">Parameters with default value</a></li>
+<li><a href="#toc_3">Variadic parameters</a></li>
+<li><a href="#toc_4">Variable parameters</a></li>
+<li><a href="#toc_5">In-Out parameters</a></li>
+</ul></li>
+<li><a href="#toc_6">Function Return Values</a></li>
+<li><a href="#toc_7">Function Types</a></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<p>excerpts from &ldquo;The Swift Programming Language&rdquo;&rsquo;s functions section.</p>
+
+<h1 id="toc_0">Function Parameters</h1>
+
+<h2 id="toc_1">Parameter names</h2>
+
+<p>A parameter name can have a <strong>internal name</strong> and an <strong>external name</strong> declared
+in the form of: <code>external_name internal_name: type</code>.</p>
+
+<pre><code class="language-swift">func join(String string: leftString, toString rightString) -&gt; String {
+  return leftString + rightString
+}
+
+println(join(String: &quot;Hello&quot;, toString: &quot; World!&quot;))
+</code></pre>
+
+<p>Use <code>#</code> to use the same name for both names: <code>#name: type</code></p>
+
+<pre><code class="language-swift">func join(#aString: leftString, #toString) -&gt; String {
+  return aString + toString
+}
+
+println(join(aString: &quot;Hello&quot;, toString: &quot; World!&quot;))
+</code></pre>
+
+<p>Use <code>_</code> to suppress external name: <code>_ internal_name: type</code></p>
+
+<pre><code class="language-swift">func join(_ aString: leftString, _ toString) -&gt; String {
+  return aString + toString
+}
+
+println(join(&quot;Hello&quot;, &quot; World!&quot;))
+</code></pre>
+
+<h2 id="toc_2">Parameters with default value</h2>
+
+<p>Default parameter values of the <code>[external_name /_/#]internal_name: type =
+default_value</code> should be placed at end of the parameter list.</p>
+
+<p>The compiler will synthesize a external name by reusing the internal name for
+parameters with default value, if their external name is not explicitly
+specified in the parameter list. (You can use <code>_</code> to suppress this behavior,
+which is not recommended.)</p>
+
+<pre><code class="language-swift">func Foo(arg1: String, arg2: Int = 30, _ arg3: Bool, #arg4: Double) {
+  ...
+}
+
+Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
+</code></pre>
+
+<h2 id="toc_3">Variadic parameters</h2>
+
+<p>Declare variadic parameter in form <code>name: type...</code>, which, in the function
+body, is of type <code>[type]</code>.</p>
+
+<p>Only one variadic parameter is allowed in a parameter list, and it should be
+placed after all other normal parameters or parameters with default value.</p>
+
+<h2 id="toc_4">Variable parameters</h2>
+
+<p>Prefix parameter names with keyword <code>var</code> to make them modifiable inside the
+function body.</p>
+
+<p>It is just another small syntactic sugar brought by Swift, the change made in
+the function body will not propagate outside the function body.</p>
+
+<h2 id="toc_5">In-Out parameters</h2>
+
+<p>Prefix parameters names with keyword <code>inout</code> (which implies <code>var</code>) to make the
+change to the parameter inside function body propagate outside.</p>
+
+<p>When specifying argument for <code>inout</code> parameters, prepend <code>&amp;</code> to the argument
+name to indicate that it could be modified during the function call.</p>
+
+<p>In-out parameters cannot have default values, and variadic parameters cannot be
+marked as <code>inout</code>. If you mark a parameter as <code>inout</code>, it cannot also be marked
+as var or let.</p>
+
+<pre><code class="language-swift">func swapTwoInts(inout a: Int, inout b: Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+var a = 2
+var b = 10
+swapTwoInts(&amp;a, &amp;b)
+println(&quot;after swapping, a = \(a), b = \(b)&quot;)
+</code></pre>
+
+<h1 id="toc_6">Function Return Values</h1>
+
+<p>Functions without a defined return type return a special value of type
+<strong>Void</strong>.  This is simply an empty tuple, in effect a tuple with zero elements,
+which can be written as <code>()</code>.</p>
+
+<p>You can use a tuple type (or a optional tuple) as the return type for a
+function to return multiple values as part of one compound return value.</p>
+
+<pre><code class="language-swift">// wrap multiple return values in an optional tuple.
+func minMax(array: [Int]) -&gt; (min: Int, max: Int)? { ... }
+
+if let minMax = minMax([1,2,3]) {
+  // use name to fetch tuple element.
+  println(&quot;min: \(minMax.min)\tmax: \(minMax.max)&quot;)
+
+  // use index to fetch tuple elements.
+  println(&quot;min: \(minMax.0)\tmax: \(minMax.1)&quot;)
+}
+</code></pre>
+
+<h1 id="toc_7">Function Types</h1>
+
+<p>In Swift, function is first class object, so feel free to use them as other
+normal objects:</p>
+
+<ul>
+<li><p>passing them as argument into functions.</p></li>
+
+<li><p>return them from functions.</p></li>
+
+<li><p>declare theme as type alias for convenience.</p></li>
+
+<li><p>even nest their in another function.</p></li>
+
+<li><p>&hellip;</p></li>
+</ul>
+
+<pre><code class="language-swift">typealias cmp = (Int, Int) -&gt; Bool
+
+func whichCmp(functionPassedIn: ()-&gt; Bool) -&gt; cmp {
+  func Foo(lhs: Int, rhs: Int) -&gt; Bool {
+    return false
+  }
+
+  func Hoo(lhs: Int, rhs: Int) -&gt; Bool {
+    return true
+  }
+
+  return functionPassedIn() ? Foo : Hoo
+}
+
+func aFunc() -&gt; Bool {
+  return false
+}
+
+whichCmp(aFunc)(1334, 234)
+</code></pre>
+
+        </div>
+    </div>
+
+        
+    <script src="/lib/mudox.js"></script>
+</body>
+</html>
+

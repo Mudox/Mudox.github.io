@@ -116,6 +116,7 @@
         <a href="/tags/shell">shell</a> 
         <a href="/tags/system">system</a> 
         <a href="/tags/tool">tool</a> 
+        <a href="/tags/unicode">unicode</a> 
         <a href="/tags/vim">vim</a> 
         <a href="/tags/zsh">zsh</a>  
       </canvas>
@@ -141,7 +142,286 @@
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/note/ios_note_casting/">
+          <a href="http://mudox.github.io/note/unicode_concepts_defined/">
+            UNICODE CONCEPTS DEFINED
+          </a>
+        </h1>
+
+        <span class="post-date">Mon, Apr 13, 2015</span>
+
+        <ul>
+<li><p>UCS</p>
+
+<p>Universal Coded Character Set (通用字符集)</p>
+
+<blockquote>
+<p>The Universal Coded Character Set (UCS), defined by the International
+Standard ISO/IEC 10646, Information technology — Universal Coded
+Character Set (UCS) (plus amendments to that standard), is a standard set
+of characters upon which many character encodings are based. The UCS
+contains nearly one hundred thousand abstract characters, each identified
+by an unambiguous name and an integer number called its code point.</p>
+</blockquote></li>
+
+<li><p>Unicode</p>
+
+<p>统一码，万国码, 单一码</p>
+
+<blockquote>
+<p>Unicode is a computing industry standard for the consistent encoding,
+representation, and handling of text expressed in most of the world&rsquo;s
+writing systems. Developed in conjunction with the Universal Character
+Set standard and published as The Unicode Standard, the latest version of
+Unicode contains a repertoire of more than 110,000 characters covering
+100 scripts and multiple symbol sets.</p>
+</blockquote>
+
+<p>As for its&rsquo; code space layout:</p>
+
+<blockquote>
+<p>Unicode comprises 1,114,112 code points in the range 0x0 to 0x10FFFF.
+The Unicode code space is divided into 17 planes (the basic multilingual
+plane, and 16 supplementary planes), each with 65,536 (= 216) code
+points. Thus the total size of the Unicode code space is 17 × 65,536 =
+1,114,112.</p>
+</blockquote></li>
+
+<li><p>UTF</p>
+
+<p>UCS/Unicode Transformation Format (通用字符集转换格式, Unicode 转换格式)</p></li>
+
+<li><p>UTF-8</p>
+
+<blockquote>
+<p>UTF-8 (U from Universal Character Set + Transformation Format—8-bit[1])
+is a character encoding capable of encoding all possible characters
+(called code points) in Unicode. The encoding is variable-length and uses
+8-bit code units. It was designed for backward compatibility with ASCII
+and to avoid the complications of endianness and byte order marks in
+UTF-16 and UTF-32.</p>
+</blockquote></li>
+
+<li><p>code point (code position)</p>
+
+<blockquote>
+<p>In character encoding terminology, a code point or code position is any
+of the numerical values that make up the code space.</p>
+</blockquote></li>
+
+<li><p>Unicode scalar</p>
+
+<blockquote>
+<p>Behind the scenes, Swift’s native String type is built from Unicode
+scalar values. A Unicode scalar is a unique 21-bit number for a character
+or modifier.</p>
+</blockquote>
+
+<p>The distinction between Unicode scalar &amp; Unicode code point could be
+clarified as follows:</p>
+
+<blockquote>
+<p>A Unicode scalar is any Unicode code point in the range U+0000 to U+D7FF
+inclusive or U+E000 to U+10FFFF inclusive. Unicode scalars do not include
+the Unicode surrogate pair code points, which are the code points in the
+range U+D800 to U+DFFF inclusive.</p>
+</blockquote>
+
+<p>It is a Swift language specific notion, or more actually, a Swift defined
+internal type for storing string charactor&rsquo;s Unicode points that Swift
+choose to support. Behind the scene, it&rsquo;s a 21bit long numeric type, but
+not all number in the range can reponds to a valid Unicode point.</p>
+
+<p>So mathematically, the Unicode points universal set is a discrete subset of
+integer set [0, 0x10FFFF]. The Swift Unicode scalar universal set is, in
+turn, a discrete subset of Unicode code point universal set (with all
+<em>surroagte pair</em> code points stripped).</p></li>
+
+<li><p>code unit</p>
+
+<blockquote>
+<p>A code unit is a bit sequence used to encode each character of a
+repertoire. Encodings associate their meaning with either a single code
+unit value or a sequence of code units as one value.</p>
+</blockquote></li>
+
+<li><p>extended grapheme cluster</p>
+
+<blockquote>
+<p>Every instance of Swift’s Character type represents a single extended
+grapheme cluster. An extended grapheme cluster is a sequence of one or
+more Unicode scalars that (when combined) produce a single human-readable
+character.</p>
+</blockquote></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_functions/">
+            SWIFT NOTES - FUNCTIONS
+          </a>
+        </h1>
+
+        <span class="post-date">Mon, Apr 13, 2015</span>
+
+        
+
+<p>excerpts from &ldquo;The Swift Programming Language&rdquo;&rsquo;s functions section.</p>
+
+<h1 id="toc_0">Function Parameters</h1>
+
+<h2 id="toc_1">Parameter names</h2>
+
+<p>A parameter name can have a <strong>internal name</strong> and an <strong>external name</strong> declared
+in the form of: <code>external_name internal_name: type</code>.</p>
+
+<pre><code class="language-swift">func join(String string: leftString, toString rightString) -&gt; String {
+  return leftString + rightString
+}
+
+println(join(String: &quot;Hello&quot;, toString: &quot; World!&quot;))
+</code></pre>
+
+<p>Use <code>#</code> to use the same name for both names: <code>#name: type</code></p>
+
+<pre><code class="language-swift">func join(#aString: leftString, #toString) -&gt; String {
+  return aString + toString
+}
+
+println(join(aString: &quot;Hello&quot;, toString: &quot; World!&quot;))
+</code></pre>
+
+<p>Use <code>_</code> to suppress external name: <code>_ internal_name: type</code></p>
+
+<pre><code class="language-swift">func join(_ aString: leftString, _ toString) -&gt; String {
+  return aString + toString
+}
+
+println(join(&quot;Hello&quot;, &quot; World!&quot;))
+</code></pre>
+
+<h2 id="toc_2">Parameters with default value</h2>
+
+<p>Default parameter values of the <code>[external_name /_/#]internal_name: type =
+default_value</code> should be placed at end of the parameter list.</p>
+
+<p>The compiler will synthesize a external name by reusing the internal name for
+parameters with default value, if their external name is not explicitly
+specified in the parameter list. (You can use <code>_</code> to suppress this behavior,
+which is not recommended.)</p>
+
+<pre><code class="language-swift">func Foo(arg1: String, arg2: Int = 30, _ arg3: Bool, #arg4: Double) {
+  ...
+}
+
+Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
+</code></pre>
+
+<h2 id="toc_3">Variadic parameters</h2>
+
+<p>Declare variadic parameter in form <code>name: type...</code>, which, in the function
+body, is of type <code>[type]</code>.</p>
+
+<p>Only one variadic parameter is allowed in a parameter list, and it should be
+placed after all other normal parameters or parameters with default value.</p>
+
+<h2 id="toc_4">Variable parameters</h2>
+
+<p>Prefix parameter names with keyword <code>var</code> to make them modifiable inside the
+function body.</p>
+
+<p>It is just another small syntactic sugar brought by Swift, the change made in
+the function body will not propagate outside the function body.</p>
+
+<h2 id="toc_5">In-Out parameters</h2>
+
+<p>Prefix parameters names with keyword <code>inout</code> (which implies <code>var</code>) to make the
+change to the parameter inside function body propagate outside.</p>
+
+<p>When specifying argument for <code>inout</code> parameters, prepend <code>&amp;</code> to the argument
+name to indicate that it could be modified during the function call.</p>
+
+<p>In-out parameters cannot have default values, and variadic parameters cannot be
+marked as <code>inout</code>. If you mark a parameter as <code>inout</code>, it cannot also be marked
+as var or let.</p>
+
+<pre><code class="language-swift">func swapTwoInts(inout a: Int, inout b: Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+var a = 2
+var b = 10
+swapTwoInts(&amp;a, &amp;b)
+println(&quot;after swapping, a = \(a), b = \(b)&quot;)
+</code></pre>
+
+<h1 id="toc_6">Function Return Values</h1>
+
+<p>Functions without a defined return type return a special value of type
+<strong>Void</strong>.  This is simply an empty tuple, in effect a tuple with zero elements,
+which can be written as <code>()</code>.</p>
+
+<p>You can use a tuple type (or a optional tuple) as the return type for a
+function to return multiple values as part of one compound return value.</p>
+
+<pre><code class="language-swift">// wrap multiple return values in an optional tuple.
+func minMax(array: [Int]) -&gt; (min: Int, max: Int)? { ... }
+
+if let minMax = minMax([1,2,3]) {
+  // use name to fetch tuple element.
+  println(&quot;min: \(minMax.min)\tmax: \(minMax.max)&quot;)
+
+  // use index to fetch tuple elements.
+  println(&quot;min: \(minMax.0)\tmax: \(minMax.1)&quot;)
+}
+</code></pre>
+
+<h1 id="toc_7">Function Types</h1>
+
+<p>In Swift, function is first class object, so feel free to use them as other
+normal objects:</p>
+
+<ul>
+<li><p>passing them as argument into functions.</p></li>
+
+<li><p>return them from functions.</p></li>
+
+<li><p>declare theme as type alias for convenience.</p></li>
+
+<li><p>even nest their in another function.</p></li>
+
+<li><p>&hellip;</p></li>
+</ul>
+
+<pre><code class="language-swift">typealias cmp = (Int, Int) -&gt; Bool
+
+func whichCmp(functionPassedIn: ()-&gt; Bool) -&gt; cmp {
+  func Foo(lhs: Int, rhs: Int) -&gt; Bool {
+    return false
+  }
+
+  func Hoo(lhs: Int, rhs: Int) -&gt; Bool {
+    return true
+  }
+
+  return functionPassedIn() ? Foo : Hoo
+}
+
+func aFunc() -&gt; Bool {
+  return false
+}
+
+whichCmp(aFunc)(1334, 234)
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/ios_notes_casting/">
             iOS NOTES - CASTING
           </a>
         </h1>
