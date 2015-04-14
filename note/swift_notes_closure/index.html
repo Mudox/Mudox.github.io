@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> SWIFT NOTES - CLOSURE &middot; Mudox </title>
+
+    
+    <link rel="stylesheet" href="/lib/normalize/normalize.css">
+    <link rel="stylesheet" href="/lib/mudox_hyde.css">
+
+    
+    
+    <link rel="stylesheet" href="/lib/fonts/fonts.css">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/lib/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <script src="/lib/jquery/jquery.min.js"></script>
+
+    
+    
+    
+    <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css">
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
+
+    
+    <script src="/lib/particles/particles.js"></script>
+
+    
+    
+    
+
+    
+    <link rel="stylesheet" href="/lib/animate/animate.min.css">
+
+  </head>
+
+<body class="theme-base-blue">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js"> </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+
+    <nav id=sidebar-menu>
+      
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="cloud-container">
+      <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
+        
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/viml">viml</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch">arch</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/win">win</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error">error</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
+        <a href="/tags/awesome">awesome</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/tool">tool</a> 
+        <a href="/tags/unicode">unicode</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+
+    <div class="sidebar-about sidebar-sticky">
+      <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
+      </div>
+      <p class="lead">
+        My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
+      </p>
+      <p>&copy; 2015. All rights reserved. </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>SWIFT NOTES - CLOSURE</h1>
+            <span class="post-date">Tue, Apr 14, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">Sugar #0 &ndash; trailing closure</a></li>
+<li><a href="#toc_1">Sugar #1 &ndash; return type inference</a></li>
+<li><a href="#toc_2">Sugar #2 &ndash; parameter type inference</a></li>
+<li><a href="#toc_3">Sugar #3 &ndash; parenthesis-less</a></li>
+<li><a href="#toc_4">Sugar #4 &ndash; return statement inference</a></li>
+<li><a href="#toc_5">Sugar #5 &ndash; shorthand parameter name</a></li>
+<li><a href="#toc_6">Sugar #6 &ndash; operator as a closure</a></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<p>Thanks to the host of technologies provided by the Swift
+compiler, the closure comes with a bunch of syntactic
+sugars that can sweet you to diabetes.</p>
+
+<p>The full syntax of a closure:</p>
+
+<pre><code class="language-swift">{
+  (parameters) -&gt; retrunType in
+  ... statements ...
+}
+</code></pre>
+
+<p>Here is an example that uses the array&rsquo;s method <code>sorted</code> to sort an array of
+word.</p>
+
+<pre><code class="language-swift">var words = [ &quot;Dolor&quot;, &quot;eum&quot;, &quot;id&quot;, &quot;suscipit&quot;, &quot;necessitatibus&quot;, &quot;quod&quot;, &quot;hic&quot;, &quot;dignissimos&quot; ]
+
+let sortedWords = words.sorted({
+  (lhs: String, rhs: String) -&gt; Bool in
+  return lhs &lt; rhs
+})
+</code></pre>
+
+<p>As the sugars introduced in, we will cut the lines above into an incredibly one
+line of code.</p>
+
+<h1 id="toc_0">Sugar #0 &ndash; trailing closure</h1>
+
+<p>Often, closure parameter is placed last in parameter list. Swift thus provides
+<strong>trailing closure</strong>, which means your can write the inline closure just
+outside the parameter list, following the closing <code>)</code>.</p>
+
+<p>Furthermore, if the closure is the only parameter, then the parenthesis can be
+omitted.</p>
+
+<pre><code class="language-swift">// trailing closure
+let sortedWords = words.sorted/*()*/ {
+  (lhs: String, rhs: String) -&gt; Bool in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h1 id="toc_1">Sugar #1 &ndash; return type inference</h1>
+
+<p><strong>return type</strong> can be inferred by swift compiler.</p>
+
+<pre><code class="language-swift">// omit return type
+let sortedWords = words.sorted {
+  (lhs: String, rhs: String) /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h1 id="toc_2">Sugar #2 &ndash; parameter type inference</h1>
+
+<p><strong>parameter types</strong> can be inferred by swift compiler as well.</p>
+
+<pre><code class="language-swift">// omit parameter types
+let sortedWords = words.sorted {
+  (lhs/*: String*/, rhs/*: String*/) /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h1 id="toc_3">Sugar #3 &ndash; parenthesis-less</h1>
+
+<p>Since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
+
+<pre><code class="language-swift">// omit parenthesis
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
+  return lhs &lt; rhs
+}
+</code></pre>
+
+<h1 id="toc_4">Sugar #4 &ndash; return statement inference</h1>
+
+<p>If the closure has one statement, then the <strong>return</strong> statement can also be
+inferred.</p>
+
+<pre><code class="language-swift">// omit 'return'
+let sortedWords = words.sorted {
+  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
+  /*return*/ lhs &lt; rhs
+}
+
+//then we got:
+let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
+</code></pre>
+
+<h1 id="toc_5">Sugar #5 &ndash; shorthand parameter name</h1>
+
+<p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
+the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
+returType in</code> statement can be completely omitted</p>
+
+<pre><code class="language-swift">// use shorthand parameters, omit the whole 'in' statement
+let sortedWords = words.sorted {
+  /*(lhs: String, rhs: String) -&gt; Bool in*/
+  /*return*/ $0 &lt; $1
+}
+
+// then we got:
+let sortedWords = words.sorted { $0 &lt; $1 }
+</code></pre>
+
+<h1 id="toc_6">Sugar #6 &ndash; operator as a closure</h1>
+
+<p>In swift, <strong>operator</strong> is a function, which in turn is a <strong>special closure</strong>, so&hellip;</p>
+
+<pre><code class="language-swift">// comes operator!
+let sortedWords = words.sorted(&lt;)
+</code></pre>
+
+        </div>
+    </div>
+
+        
+    <script src="/lib/mudox.js"></script>
+</body>
+</html>
+
