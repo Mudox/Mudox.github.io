@@ -142,6 +142,117 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/note/ios_notes_lbs/">
+            iOS NOTES - LOCATION BASED SERVIES
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Apr 17, 2015</span>
+
+        
+
+<p>Quick steps to use iOS&rsquo;s LBS technology and AMaps(高德地图)&rsquo;s APIs.</p>
+
+<h1 id="toc_0">Core Location</h1>
+
+<p>iOS devices integrates various hardware components, such as:</p>
+
+<ul>
+<li><p>GPS (Global Positioning System) for positioning</p></li>
+
+<li><p>Hardware compass for heading monitoring.</p></li>
+
+<li><p>WiFi for positioning.</p></li>
+
+<li><p>Cellular network for cell-tower triangulation.</p></li>
+
+<li><p>Blue tooth for iBeacon ranging.</p></li>
+
+<li><p>some data sensors for improve positioning accuracy under some circumstances.</p></li>
+</ul>
+
+<p>to provides users with following LBS abilities as much as possible:</p>
+
+<ol>
+<li><p>Location Updates</p>
+
+<ol>
+<li><p>Standard location updates</p></li>
+
+<li><p>Significant location updates</p></li>
+</ol></li>
+
+<li><p>Heading monitoring</p></li>
+
+<li><p>Region monitoring</p></li>
+
+<li><p>iBeacon ranging</p></li>
+
+<li><p>Visit events</p></li>
+</ol>
+
+<p>The <code>CLLocationManager</code> acts just like an <code>NSNotificationCenter</code> (but it is not
+a singleton) between the LBS hardwares and your App, you use it to request the
+authorization for LBS functionalities you are planning to use afterwords, and
+adjusts the relevant parameters of the them before starts their notification
+updating loops.</p>
+
+<p>Example code:</p>
+
+<pre><code class="language-swift">
+
+</code></pre>
+
+<p>After you call one of its&rsquo; <code>start***</code> or <code>request***</code> methods to emit requests
+for one of the 5 LBS abilities mentioned above, the <code>CLLocationManager</code>
+activate relevant hardware components, when the data is available it notifies
+you asynchronously by calling one of the its&rsquo; delegate&rsquo;s methods.</p>
+
+<p><img src="../../../note/core_location_map.png" alt="Core Location Map" />
+</p>
+
+<h2 id="toc_1">Work flow of using LBS abilities.</h2>
+
+<ol>
+<li><p>Project setup</p>
+
+<ol>
+<li><p>Enable <em>Background Location Updates Background Mode</em> capability.</p></li>
+
+<li><p>Add <em>NSLocationAlwaysUsageDescriptions</em> or
+<em>NSLocationWhenInUseUsageDescription</em> key to info.plist.</p></li>
+</ol></li>
+
+<li><p>Configuring <code>CLLocationManager</code></p>
+
+<ol>
+<li><p>Creating a <code>CllocationManager</code> instance and hold a strong reference to it.</p></li>
+
+<li><p>Specify location manager&rsquo;s delegate, usually be a view controller.</p></li>
+
+<li><p>Check &amp; request authorization status.</p></li>
+
+<li><p>Configures the relevant properties for the LBS functionality you are about
+to use.</p></li>
+
+<li><p>Before starting each LBS updating functions, there are also corresponding
+APIs you can invoke to check the services availability.</p></li>
+
+<li><p>Call <code>start**</code> methods to start the various LBS notification loops.</p></li>
+</ol></li>
+
+<li><p>Implement <code>CLLocationManagerDelegate</code> methods in you designated delegate
+object.</p></li>
+</ol>
+
+<h1 id="toc_2">MapKit</h1>
+
+<h1 id="toc_3">AMap (高德地图) API</h1>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/note/swift_notes_closure/">
             SWIFT NOTES - CLOSURE
           </a>
@@ -885,8 +996,9 @@ complicates things.</p></li>
 <li><p><strong>DO NOT</strong> auto-layout a subview within a auto-layout&rsquo;ed <code>UIScrollView</code> when
 you plan to perform zooming operation in it.</p></li>
 
-<li><p>After getting a reused cell, make sure all its&rsquo; states get reset to a new
-value or the default value, or invalid states set by last usage will remain.</p></li>
+<li><p>After getting a reused cell, make sure all its&rsquo; states get reset to the current
+value or the default value, otherwise the remained states set by last usage
+would mess your up.</p></li>
 </ul>
 
       </div>
@@ -1555,41 +1667,6 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_javascript/">
-            ERROR COLLECTION - JAVASCRIPT
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day when writing the JavaScript language.</p>
-
-<ul>
-<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
-</ul>
-
-<pre><code class="language-javascript">window.onload = init/*()*/
-
-function init() {
-  // ...
-}
-</code></pre>
-
-<ul>
-<li>appending <code>()</code> to a property name.</li>
-</ul>
-
-<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
-</code></pre>
-
-<ul>
-<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_bash/">
             ERROR COLLECTION - BASH
           </a>
@@ -1625,6 +1702,41 @@ a real number.</p></li>
 
 <pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
 </code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+
+<ul>
+<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
+</ul>
+
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
+</code></pre>
+
+<ul>
+<li>appending <code>()</code> to a property name.</li>
+</ul>
+
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+</code></pre>
+
+<ul>
+<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
+</ul>
 
       </div>
       

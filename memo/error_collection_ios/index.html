@@ -186,8 +186,9 @@ complicates things.</p></li>
 <li><p><strong>DO NOT</strong> auto-layout a subview within a auto-layout&rsquo;ed <code>UIScrollView</code> when
 you plan to perform zooming operation in it.</p></li>
 
-<li><p>After getting a reused cell, make sure all its&rsquo; states get reset to a new
-value or the default value, or invalid states set by last usage will remain.</p></li>
+<li><p>After getting a reused cell, make sure all its&rsquo; states get reset to the current
+value or the default value, otherwise the remained states set by last usage
+would mess your up.</p></li>
 </ul>
 
         </div>
