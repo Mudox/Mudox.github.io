@@ -205,12 +205,6 @@ authorization for LBS functionalities you are planning to use afterwords, and
 adjusts the relevant parameters of the them before starts their notification
 updating loops.</p>
 
-<p>Example code:</p>
-
-<pre><code class="language-swift">
-
-</code></pre>
-
 <p>After you call one of its&rsquo; <code>start***</code> or <code>request***</code> methods to emit requests
 for one of the 5 LBS abilities mentioned above, the <code>CLLocationManager</code>
 activate relevant hardware components, when the data is available it notifies
@@ -247,13 +241,50 @@ to use.</p></li>
 APIs you can invoke to check the services availability.</p></li>
 
 <li><p>Call <code>start**</code> methods to start the various LBS notification loops.</p></li>
-</ol></li>
+</ol>
+
+<pre><code class="language-swift">// declare as some long-standing reference outside of function body.
+let locationManager = CLLocationManager()
+--------------------
+// within functions ( be it in viewDidLoad() )
+// designate delegate
+locationManager.delegate = self
+// request for authorization
+locationManager.requestAlwaysAuthorization()
+// configure updating related settings
+locationManager.activityType = .AutomotiveNavigation
+locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+locationManager.distanceFilter = 10
+// finally check device &amp; service availability before starting notification loop.
+if CLLocationManager.locationServicesEnabled() {
+  locationManager.startUpdatingLocation()
+} else {
+  let alert = UIAlertController(
+    title: &quot;Service Not Available&quot;,
+    message: &quot;The location is not available or has been shut down.&quot;,
+    preferredStyle: .Alert)
+  presentViewController(alert, animated: true, completion: nil)
+}
+</code></pre></li>
 
 <li><p>Implement <code>CLLocationManagerDelegate</code> methods in you designated delegate
-object.</p></li>
+object to:</p>
+
+<ul>
+<li><p>handle received location data updates.</p></li>
+
+<li><p>handle LBS failures.</p></li>
+
+<li><p>handle authorization status changes.</p></li>
+
+<li><p>&hellip;</p></li>
+</ul></li>
 </ol>
 
 <h1 id="toc_2">MapKit</h1>
+
+<p><img src="../../../note/map_kit_map.svg" alt="MapKit map" />
+</p>
 
 <h1 id="toc_3">AMap (高德地图) API</h1>
 
