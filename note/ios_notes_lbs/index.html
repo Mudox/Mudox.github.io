@@ -151,7 +151,6 @@
 <li><a href="#toc_1">Work flow of using LBS abilities.</a></li>
 </ul></li>
 <li><a href="#toc_2">MapKit</a></li>
-<li><a href="#toc_3">AMap (高德地图) API</a></li>
 </ul>
 </nav>
             </div>
@@ -202,7 +201,7 @@
 <p>The <code>CLLocationManager</code> acts just like an <code>NSNotificationCenter</code> (but it is not
 a singleton) between the LBS hardwares and your App, you use it to request the
 authorization for LBS functionalities you are planning to use afterwords, and
-adjusts the relevant parameters of the them before starts their notification
+adjusts the relevant parameters of them before starting their notification
 updating loops.</p>
 
 <p>After you call one of its&rsquo; <code>start***</code> or <code>request***</code> methods to emit requests
@@ -283,10 +282,64 @@ object to:</p>
 
 <h1 id="toc_2">MapKit</h1>
 
+<p>In general, MapKit:</p>
+
+<ol>
+<li><p>shows map in one of three map types:</p>
+
+<ul>
+<li><p>Standard</p></li>
+
+<li><p>Satellite</p></li>
+
+<li><p>Hybrid</p></li>
+</ul></li>
+
+<li><p>along with many built-in elements:</p>
+
+<ul>
+<li><p>compass</p></li>
+
+<li><p>POIs (points of interest)</p></li>
+</ul></li>
+
+<li><p>and provides developer with two kinds of customizable presentation
+facilities:</p>
+
+<ul>
+<li><p>annotations</p></li>
+
+<li><p>overlays</p></li>
+</ul></li>
+</ol>
+
+<p>As of managing annotations, MapKit adopts the same design pattern as that is
+heavily used by <code>UITableView</code> &ndash; decoupling data model from presentation tools
+through <strong>reuse pool</strong>. Hence, there comes separate class hierarchies for
+storing annotation (overlay) data, and presenting them respectively.</p>
+
+<ul>
+<li><p>data object</p>
+
+<ul>
+<li><p>all objects that conforms to <code>MKAnnotation</code> protocol, are responsible for
+storing data for annotations, such as location, textual info, etc.</p></li>
+
+<li><p>all objects that conforms to <code>MKOverlay</code> protocol, are responsible for
+storing data for overlays, such as location, etc.</p></li>
+</ul></li>
+
+<li><p>presentation tools</p>
+
+<ul>
+<li><p>instances that inherit from <code>MKAnnotationView</code> can be <strong>reused</strong> to display a data objects.</p></li>
+
+<li><p>instances that inherit from <code>MKOverlayRenderer</code> can be used to display a overlay objects.</p></li>
+</ul></li>
+</ul>
+
 <p><img src="../../../note/map_kit_map.svg" alt="MapKit map" />
 </p>
-
-<h1 id="toc_3">AMap (高德地图) API</h1>
 
         </div>
     </div>
