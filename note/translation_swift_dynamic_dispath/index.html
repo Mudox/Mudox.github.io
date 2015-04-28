@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Appdev &middot; Mudox </title>
+    <title> Swift 官博文章翻译 - 通过减少动态分配来拉升程序性能 &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/tags/appdev/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-0f">
+<body class="theme-base-blue">
 
-<div class="sidebar">
+    <div class="sidebar">
 
   
   <div id="particles-js"> </div>
@@ -137,71 +137,59 @@
 </div>
 
 
-  <div class="content container">
-    <ul class="posts">
-        
-        <li>
-          <span><a href="http://mudox.github.io/note/translation_swift_dynamic_dispath/">Swift 官博文章翻译 - 通过减少动态分配来拉升程序性能</a>
-            <time class="pull-right post-list">Wed, Apr 29, 2015</time></span>
-          <p><p>原文链接：<a href="(https://developer.apple.com/swift/blog/?id=27">Increasing Performance by Reducing Dynamic Dispatch </a></p>
+    <div class="content container">
+        <div class="post">
+            
+            <h1>Swift 官博文章翻译 - 通过减少动态分配来拉升程序性能</h1>
+            <span class="post-date">Wed, Apr 29, 2015</span>
+
+            
+            <div id="toc">
+                
+            </div>
+
+            
+            <p>原文链接：<a href="(https://developer.apple.com/swift/blog/?id=27">Increasing Performance by Reducing Dynamic Dispatch </a></p>
 
 <p>译者：Mudox</p>
 
 <p>和其他很多语言一样，Swift 运行程序员改写从父类集成来的方法和属性。这意味着程序得在运行时也只用在运行时才能判断所引用的具体的方法或属性，并间接的调用或访问他们。这一技术名为“动态分配 dynamic dispatch”，通过为每次间接调用或访问增加常亮时间的开销来换取语言表达能力的提升。对于性能苛刻的代码，这类开销是不可取的。本文将展示三种通过消除此类动态性来拉升程序性能的方法：<code>final</code>，<code>private</code> 以及整模块优化策略。</p>
-</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/note/translation_swift_memory_safety/">Swift 官博文章翻译 - 内存安全：确保值在使用前先初始化</a>
-            <time class="pull-right post-list">Tue, Apr 28, 2015</time></span>
-          <p><p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=28">Memory Safety: Ensuring Values are Initialized Before Use</a></p>
 
-<p>译者：Mudox</p>
+<p>请看如下代码:</p>
 
-<p>我们设计 Swift 这门语言时的一个重要的发力方向就是改进编程模型的内存安全性。内存安全有很多方面，本文将由浅入深，先从一个简单的问题开始：如果确保值在使用前被初始化。</p>
-</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/note/ios_notes_amap/">iOS NOTES - AMAP API DEPICTED</a>
-            <time class="pull-right post-list">Tue, Apr 28, 2015</time></span>
-          <p><p>AMap (高德地图) APIs depicted in several graphs I draw.</p>
-</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/note/ios_notes_lbs/">iOS NOTES - LOCATION BASED SERVIES</a>
-            <time class="pull-right post-list">Fri, Apr 17, 2015</time></span>
-          <p><p>Quick steps to use iOS&rsquo;s LBS technology.</p>
-</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/note/swift_notes_functions/">SWIFT NOTES - FUNCTIONS</a>
-            <time class="pull-right post-list">Mon, Apr 13, 2015</time></span>
-          <p><p>Excerpts from the &ldquo;Functions&rdquo; section of the official docuemnt &ldquo;The Swift
-Programming Language&rdquo;</p>
-</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/note/ios_notes_casting/">iOS NOTES - CASTING</a>
-            <time class="pull-right post-list">Sun, Apr 12, 2015</time></span>
-          <p><p>Collect all my gain from study &amp; using Swift&rsquo;s casting mechanism here.</p>
-</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/note/ios_notes_keyboard/">iOS NOTES - KEYBOARD</a>
-            <time class="pull-right post-list">Wed, Apr 8, 2015</time></span>
-          <p><p>Handle iOS keyboard poppu &amp; resignment gracefully.</p>
-</p>
-        </li>
-        
-    </ul>
-  </div>
+<pre><code class="language-swift">class ParticleModel {
+	var point = ( 0.0, 0.0 )
+	var velocity = 100.0
 
-    
+	func updatePoint(newPoint: (Double, Double), newVelocity: Double) {
+		point = newPoint
+		velocity = newVelocity
+	}
+
+	func update(newP: (Double, Double), newV: Double) {
+		updatePoint(newP, newVelocity: newV)
+	}
+}
+
+var p = ParticleModel()
+for i in stride(from: 0.0, through: 360, by: 1.0) {
+	p.update((i * sin(i), i), newV:i*1000)
+}
+</code></pre>
+
+<p>编译器将会生成如下动态分派代码：</p>
+
+<ol>
+<li>调用 <code>update</code> 于 <code>p</code>。</li>
+<li>调用  <code>updatePoint</code> 于 <code>p</code>。</li>
+<li>访问 <code>p</code> 的 <code>point</code> 元祖属性。</li>
+<li>访问 <code>p</code> 的 <code>velocity</code> 属性。</li>
+</ol>
+
+        </div>
+    </div>
+
+        
     <script src="/lib/mudox.js"></script>
 </body>
 </html>

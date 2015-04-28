@@ -143,6 +143,54 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/note/translation_swift_dynamic_dispath/">
+            Swift 官博文章翻译 - 通过减少动态分配来拉升程序性能
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Apr 29, 2015</span>
+
+        <p>原文链接：<a href="(https://developer.apple.com/swift/blog/?id=27">Increasing Performance by Reducing Dynamic Dispatch </a></p>
+
+<p>译者：Mudox</p>
+
+<p>和其他很多语言一样，Swift 运行程序员改写从父类集成来的方法和属性。这意味着程序得在运行时也只用在运行时才能判断所引用的具体的方法或属性，并间接的调用或访问他们。这一技术名为“动态分配 dynamic dispatch”，通过为每次间接调用或访问增加常亮时间的开销来换取语言表达能力的提升。对于性能苛刻的代码，这类开销是不可取的。本文将展示三种通过消除此类动态性来拉升程序性能的方法：<code>final</code>，<code>private</code> 以及整模块优化策略。</p>
+
+<p>请看如下代码:</p>
+
+<pre><code class="language-swift">class ParticleModel {
+	var point = ( 0.0, 0.0 )
+	var velocity = 100.0
+
+	func updatePoint(newPoint: (Double, Double), newVelocity: Double) {
+		point = newPoint
+		velocity = newVelocity
+	}
+
+	func update(newP: (Double, Double), newV: Double) {
+		updatePoint(newP, newVelocity: newV)
+	}
+}
+
+var p = ParticleModel()
+for i in stride(from: 0.0, through: 360, by: 1.0) {
+	p.update((i * sin(i), i), newV:i*1000)
+}
+</code></pre>
+
+<p>编译器将会生成如下动态分派代码：</p>
+
+<ol>
+<li>调用 <code>update</code> 于 <code>p</code>。</li>
+<li>调用  <code>updatePoint</code> 于 <code>p</code>。</li>
+<li>访问 <code>p</code> 的 <code>point</code> 元祖属性。</li>
+<li>访问 <code>p</code> 的 <code>velocity</code> 属性。</li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/note/translation_swift_memory_safety/">
             Swift 官博文章翻译 - 内存安全：确保值在使用前先初始化
           </a>
@@ -153,6 +201,8 @@
         
 
 <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=28">Memory Safety: Ensuring Values are Initialized Before Use</a></p>
+
+<p>译者：Mudox</p>
 
 <p>我们设计 Swift 这门语言时的一个重要的发力方向就是改进编程模型的内存安全性。内存安全有很多方面，本文将由浅入深，先从一个简单的问题开始：如果确保值在使用前被初始化。</p>
 
