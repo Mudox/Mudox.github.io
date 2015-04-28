@@ -151,7 +151,7 @@
 
         
 
-<p>Quick steps to use iOS&rsquo;s LBS technology and AMaps(高德地图)&rsquo;s APIs.</p>
+<p>Quick steps to use iOS&rsquo;s LBS technology.</p>
 
 <h1 id="toc_0">Core Location</h1>
 
@@ -333,6 +333,22 @@ storing data for overlays, such as location, etc.</p></li>
 
 <p><img src="../../../note/map_kit_map.svg" alt="MapKit map" />
 </p>
+
+<h2 id="toc_3">Customize annotation view</h2>
+
+<p>A annotation view usually consist of 2 parts:</p>
+
+<ol>
+<li>The view view.</li>
+</ol>
+
+<p>Set its&rsquo; <code>image</code> property to change its&rsquo; appearance.</p>
+
+<ol>
+<li>The callout view, which is popped up when the pin view is selected.</li>
+</ol>
+
+<p>The built-in callout view is not exposed for customization, so we should disable the <code>canShowCallout</code> property</p>
 
       </div>
       
@@ -1084,6 +1100,8 @@ you plan to perform zooming operation in it.</p></li>
 <li><p>After getting a reused cell, make sure all its&rsquo; states get reset to the current
 value or the default value, otherwise the remained states set by last usage
 would mess your up.</p></li>
+
+<li><p>setting <code>clipsToBounds</code> to true will clips layer shadow off.</p></li>
 </ul>
 
       </div>

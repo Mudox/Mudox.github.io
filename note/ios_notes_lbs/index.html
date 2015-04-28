@@ -150,7 +150,10 @@
 <ul>
 <li><a href="#toc_1">Work flow of using LBS abilities.</a></li>
 </ul></li>
-<li><a href="#toc_2">MapKit</a></li>
+<li><a href="#toc_2">MapKit</a>
+<ul>
+<li><a href="#toc_3">Customize annotation view</a></li>
+</ul></li>
 </ul>
 </nav>
             </div>
@@ -158,7 +161,7 @@
             
             
 
-<p>Quick steps to use iOS&rsquo;s LBS technology and AMaps(高德地图)&rsquo;s APIs.</p>
+<p>Quick steps to use iOS&rsquo;s LBS technology.</p>
 
 <h1 id="toc_0">Core Location</h1>
 
@@ -340,6 +343,22 @@ storing data for overlays, such as location, etc.</p></li>
 
 <p><img src="../../../note/map_kit_map.svg" alt="MapKit map" />
 </p>
+
+<h2 id="toc_3">Customize annotation view</h2>
+
+<p>A annotation view usually consist of 2 parts:</p>
+
+<ol>
+<li>The view view.</li>
+</ol>
+
+<p>Set its&rsquo; <code>image</code> property to change its&rsquo; appearance.</p>
+
+<ol>
+<li>The callout view, which is popped up when the pin view is selected.</li>
+</ol>
+
+<p>The built-in callout view is not exposed for customization, so we should disable the <code>canShowCallout</code> property</p>
 
         </div>
     </div>
