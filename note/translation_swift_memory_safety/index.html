@@ -177,9 +177,9 @@
 <pre><code class="language-swift">var myInstance : MyClass  // Uninitialized non-nullable class reference
 
 if x &gt; 42 {
-	myInstance = MyClass(intValue: 13)
+  myInstance = MyClass(intValue: 13)
 } else {
-	myInstance = MyClass(floatValue: 92.3)
+  myInstance = MyClass(floatValue: 92.3)
 }
 
 // Okay because myInstance is initialized on all paths
@@ -193,11 +193,11 @@ myInstance.printIt()
 <pre><code class="language-swift">var myInstance : MyClass
 
 if x &gt; 10 {
-	myInstance = MyClass(intValue: 13)
+  myInstance = MyClass(intValue: 13)
 }
 // ...
 if x &gt; 42 {
-	myInstance.printIt()
+  myInstance.printIt()
 }
 </code></pre>
 

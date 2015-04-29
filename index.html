@@ -160,22 +160,22 @@
 <p>请看如下代码:</p>
 
 <pre><code class="language-swift">class ParticleModel {
-	var point = ( 0.0, 0.0 )
-	var velocity = 100.0
+  var point = ( 0.0, 0.0 )
+  var velocity = 100.0
 
-	func updatePoint(newPoint: (Double, Double), newVelocity: Double) {
-		point = newPoint
-		velocity = newVelocity
-	}
+  func updatePoint(newPoint: (Double, Double), newVelocity: Double) {
+    point = newPoint
+    velocity = newVelocity
+  }
 
-	func update(newP: (Double, Double), newV: Double) {
-		updatePoint(newP, newVelocity: newV)
-	}
+  func update(newP: (Double, Double), newV: Double) {
+    updatePoint(newP, newVelocity: newV)
+  }
 }
 
 var p = ParticleModel()
 for i in stride(from: 0.0, through: 360, by: 1.0) {
-	p.update((i * sin(i), i), newV:i*1000)
+  p.update((i * sin(i), i), newV:i*1000)
 }
 </code></pre>
 
@@ -220,9 +220,9 @@ for i in stride(from: 0.0, through: 360, by: 1.0) {
 <pre><code class="language-swift">var myInstance : MyClass  // Uninitialized non-nullable class reference
 
 if x &gt; 42 {
-	myInstance = MyClass(intValue: 13)
+  myInstance = MyClass(intValue: 13)
 } else {
-	myInstance = MyClass(floatValue: 92.3)
+  myInstance = MyClass(floatValue: 92.3)
 }
 
 // Okay because myInstance is initialized on all paths
@@ -236,11 +236,11 @@ myInstance.printIt()
 <pre><code class="language-swift">var myInstance : MyClass
 
 if x &gt; 10 {
-	myInstance = MyClass(intValue: 13)
+  myInstance = MyClass(intValue: 13)
 }
 // ...
 if x &gt; 42 {
-	myInstance.printIt()
+  myInstance.printIt()
 }
 </code></pre>
 
@@ -1210,6 +1210,13 @@ animated along with the revealing of keyboard perfectly.</p>
         <p>Words groups I collected when expand my vocabulary.</p>
 
 <p>Will expand it day by day!</p>
+
+<blockquote>
+<p>Hew out of the mountain of despair a stone of hope and you can make you life
+a splendid one!</p>
+</blockquote>
+
+<hr />
 
 <p>amnesia<br />
 anemia (anaemia), anaemic<br />

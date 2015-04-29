@@ -159,22 +159,22 @@
 <p>请看如下代码:</p>
 
 <pre><code class="language-swift">class ParticleModel {
-	var point = ( 0.0, 0.0 )
-	var velocity = 100.0
+  var point = ( 0.0, 0.0 )
+  var velocity = 100.0
 
-	func updatePoint(newPoint: (Double, Double), newVelocity: Double) {
-		point = newPoint
-		velocity = newVelocity
-	}
+  func updatePoint(newPoint: (Double, Double), newVelocity: Double) {
+    point = newPoint
+    velocity = newVelocity
+  }
 
-	func update(newP: (Double, Double), newV: Double) {
-		updatePoint(newP, newVelocity: newV)
-	}
+  func update(newP: (Double, Double), newV: Double) {
+    updatePoint(newP, newVelocity: newV)
+  }
 }
 
 var p = ParticleModel()
 for i in stride(from: 0.0, through: 360, by: 1.0) {
-	p.update((i * sin(i), i), newV:i*1000)
+  p.update((i * sin(i), i), newV:i*1000)
 }
 </code></pre>
 
