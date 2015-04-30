@@ -82,6 +82,7 @@
         <a href="/languages">languages</a> 
         <a href="/languages/bash">bash</a> 
         <a href="/languages/c">c</a> 
+        <a href="/languages/chinese">chinese</a> 
         <a href="/languages/css">css</a> 
         <a href="/languages/english">english</a> 
         <a href="/languages/go">go</a> 
@@ -144,6 +145,63 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/post/trans_swift_nullability_and_objective_c/">
+            Swift 官博文章翻译 - 可为空性和 Objective-C
+          </a>
+        </h1>
+
+        <span class="post-date">Thu, Apr 30, 2015</span>
+
+        
+
+<p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=25">Nullability and Objective-C</a></p>
+
+<p>译者：Mudox</p>
+
+<p>Swift 语言的一个很棒的特性就是它能透明的和 Objective-C 代码互操作，不管是系统提供 Objective-C 框架还是那些你自己写的代码都能。然而，在 Swift 中，可为空的值与不可为空的值引用之间使用明显区别的。比如说 <code>NSView</code> 和 <code>NSView?</code> 在 Swift 中是两个截然不同的类型，但在 Objective-C 中他们都用 <code>NSView *</code> 表示。由于 Swift 无法判断 <code>NSView *</code> 到底是可为空的引用还是不可为空的引用，所以 Swift 把此类型转换为一个隐式拆箱的可为空类型（implicitly unwrapped optional）—— <code>NSView!</code></p>
+
+<p>在此前的 Xcode 版本中，Apple 公司对一些框架做了特殊处理，以让它们在 Swift 被转换为适当的可为空类型。Xcode 6.3 引入了一个新的 Objective-C 特性：可为空性注释（nullability annotation），是的程序也能对自己的代码做出同样的处理。</p>
+
+<h1 id="toc_0">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
+
+<p>这项新特性的核心就是两个关键字：<code>__nullable</code>，<code>__nonnull</code>。正如你所想的那样，所有 <code>__nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>__nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
+
+<pre><code class="language-swift">@interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
+// ...
+- (AAPLListItem * __nullable)itemWithName:(NSString * __nonnull)name;
+@property (copy, readonly) NSArray * __nonnull allItems;
+// ...
+@end
+
+// --------------
+
+[self.list itemWithName:nil]; // warning!
+</code></pre>
+
+<p>在您的 Objective-C 代码中，您几乎可以在任何可以用到 <code>const</code> 关键字的地方使用 <code>__nullable</code>，<code>__nonnull</code>，当然必须是修饰指针类型。Swift 还未常用的场景提供了更加漂亮的注释方式：对于那些简单的对象类型或者块类型的类成员声明，您可以使用 <code>__nullable</code>，<code>__nonnull</code> 非下划线版本来就注释他们。</p>
+
+<pre><code class="language-swift">- (nullable AAPLListItem *)itemWithName:(nonnull NSString *)name;
+- (NSInteger)indexOfItem:(nonnull AAPLListItem *)item;
+</code></pre>
+
+<p>对于属性，您也可以使用非下划线的版本，这次不是放在属性名前面，而是把他们挪到属性列表中（括号里面）。</p>
+
+<pre><code class="language-swift">@property (copy, nullable) NSString *name;
+@property (copy, readonly, nonnull) NSArray *allItems;
+</code></pre>
+
+<p>非下划线的版本看起来更加舒服，但是您任然需要把他们加到所有需要的头文件中。您可以使用监控区域（audited region）来简化这个过程，并让头文件变得更加干净。</p>
+
+<h1 id="toc_1">监控区域（andited region)</h1>
+
+<h1 id="toc_2">兼容性</h1>
+
+<h1 id="toc_3">回到 Swift</h1>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/note/ios_notes_media_frameworks/">
             iOS NOTES - Media Frameworks
           </a>
@@ -167,7 +225,7 @@
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/note/translation_swift_dynamic_dispath/">
+          <a href="http://mudox.github.io/post/translation_swift_dynamic_dispath/">
             Swift 官博文章翻译 - 通过减少动态调度来拉升程序性能
           </a>
         </h1>
@@ -312,7 +370,7 @@ for i in stride(from: 0.0, through: times, by: 1.0) {
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/note/translation_swift_memory_safety/">
+          <a href="http://mudox.github.io/post/translation_swift_memory_safety/">
             Swift 官博文章翻译 - 内存安全：确保值在使用前先初始化
           </a>
         </h1>
@@ -372,7 +430,7 @@ if x &gt; 42 {
 
 <p>除了明确初始化之外，Swift 在特定情况下也会采用一些其他的策略。您很可能已经在其他语言中碰到过这些策略，因此我们将在本文中简短的介绍下他们。他们都用各自不足之处，所以 Swift 并没有将他们当做主要策略来使用。</p>
 
-<p><strong>将安全性交给程序</strong>：鉴于 C 的普及程度，我们有必要了解下简单的将安全性责任交给程序员这种做法的利与弊。在 C 中使用未经初始化的值会导致<a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">不确定的行为 undefined behavior</a>，经常表现为程序的运行时异常。C 语言依赖程序永远都不要犯错误。我们设计 Swift 语言的初衷之一就是让它从本质上就是安全的，所以这一策略果断被我们排除于绝大部分情况之外。但是，Swift 还是提供了诸如 <code>UnsafePointer</code> 这样的 API，以允许你再绝对必要的情况下启用这种策略。</p>
+<p><strong>将安全性交给程序员</strong>：鉴于 C 的普及程度，我们有必要了解下简单的将安全性责任交给程序员这种做法的利与弊。在 C 中使用未经初始化的值会导致<a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">不确定的行为 undefined behavior</a>，经常表现为程序的运行时异常。C 语言依赖程序永远都不要犯错误。我们设计 Swift 语言的初衷之一就是让它从本质上就是安全的，所以这一策略果断被我们排除于绝大部分情况之外。但是，Swift 还是提供了诸如 <code>UnsafePointer</code> 这样的 API，以允许你再绝对必要的情况下启用这种策略。</p>
 
 <p><strong>隐式的默认值初始化</strong>：可以让编译器隐式的初始化一个值，以确保其安全性。比如，在 Objective-C 中，给实例的成员变量设置一个初始的“零值”，或者像 C++ 那样给类提供默认的初始化器。我们曾深入探索过这一方法，但做种决定不广泛使用它。因为：</p>
 

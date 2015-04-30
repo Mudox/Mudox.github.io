@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Lua &middot; Mudox </title>
+    <title> Swift 官博文章翻译 - 可为空性和 Objective-C &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/languages/lua/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-0f">
+<body class="theme-base-blue">
 
-<div class="sidebar">
+    <div class="sidebar">
 
   
   <div id="particles-js"> </div>
@@ -139,32 +139,75 @@
 </div>
 
 
-  <div class="content container">
-    <ul class="posts">
-        
-        <li>
-          <span><a href="http://mudox.github.io/memo/setup_my_archlinux_environment/">SETUP MY ARCH LINUX ENVIRONMENT</a>
-            <time class="pull-right post-list">Sat, Nov 8, 2014</time></span>
-          <p><p>The marathon of installing &amp; tunning the Arch Linux to my flavor.</p>
-</p>
-        </li>
-        
-        <li>
-          <span><a href="http://mudox.github.io/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
-            <time class="pull-right post-list">Wed, Nov 5, 2014</time></span>
-          <p><p>Awesome WM let you maniplate system windows like using Vim, besides its
-bleeding fast window UI rendering &amp; switching speed on *nix platform I&rsquo;ve ever
-seen.</p>
+    <div class="content container">
+        <div class="post">
+            
+            <h1>Swift 官博文章翻译 - 可为空性和 Objective-C</h1>
+            <span class="post-date">Thu, Apr 30, 2015</span>
 
-<p>Below records my steps of setting up the Awesome window manager on my Arch
-Linux progressively.</p>
-</p>
-        </li>
-        
-    </ul>
-  </div>
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">核心关键字: <code>__nullable</code>，<code>__nonnull</code></a></li>
+<li><a href="#toc_1">监控区域（andited region)</a></li>
+<li><a href="#toc_2">兼容性</a></li>
+<li><a href="#toc_3">回到 Swift</a></li>
+</ul>
+</nav>
+            </div>
 
-    
+            
+            
+
+<p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=25">Nullability and Objective-C</a></p>
+
+<p>译者：Mudox</p>
+
+<p>Swift 语言的一个很棒的特性就是它能透明的和 Objective-C 代码互操作，不管是系统提供 Objective-C 框架还是那些你自己写的代码都能。然而，在 Swift 中，可为空的值与不可为空的值引用之间使用明显区别的。比如说 <code>NSView</code> 和 <code>NSView?</code> 在 Swift 中是两个截然不同的类型，但在 Objective-C 中他们都用 <code>NSView *</code> 表示。由于 Swift 无法判断 <code>NSView *</code> 到底是可为空的引用还是不可为空的引用，所以 Swift 把此类型转换为一个隐式拆箱的可为空类型（implicitly unwrapped optional）—— <code>NSView!</code></p>
+
+<p>在此前的 Xcode 版本中，Apple 公司对一些框架做了特殊处理，以让它们在 Swift 被转换为适当的可为空类型。Xcode 6.3 引入了一个新的 Objective-C 特性：可为空性注释（nullability annotation），是的程序也能对自己的代码做出同样的处理。</p>
+
+<h1 id="toc_0">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
+
+<p>这项新特性的核心就是两个关键字：<code>__nullable</code>，<code>__nonnull</code>。正如你所想的那样，所有 <code>__nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>__nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
+
+<pre><code class="language-swift">@interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
+// ...
+- (AAPLListItem * __nullable)itemWithName:(NSString * __nonnull)name;
+@property (copy, readonly) NSArray * __nonnull allItems;
+// ...
+@end
+
+// --------------
+
+[self.list itemWithName:nil]; // warning!
+</code></pre>
+
+<p>在您的 Objective-C 代码中，您几乎可以在任何可以用到 <code>const</code> 关键字的地方使用 <code>__nullable</code>，<code>__nonnull</code>，当然必须是修饰指针类型。Swift 还未常用的场景提供了更加漂亮的注释方式：对于那些简单的对象类型或者块类型的类成员声明，您可以使用 <code>__nullable</code>，<code>__nonnull</code> 非下划线版本来就注释他们。</p>
+
+<pre><code class="language-swift">- (nullable AAPLListItem *)itemWithName:(nonnull NSString *)name;
+- (NSInteger)indexOfItem:(nonnull AAPLListItem *)item;
+</code></pre>
+
+<p>对于属性，您也可以使用非下划线的版本，这次不是放在属性名前面，而是把他们挪到属性列表中（括号里面）。</p>
+
+<pre><code class="language-swift">@property (copy, nullable) NSString *name;
+@property (copy, readonly, nonnull) NSArray *allItems;
+</code></pre>
+
+<p>非下划线的版本看起来更加舒服，但是您任然需要把他们加到所有需要的头文件中。您可以使用监控区域（audited region）来简化这个过程，并让头文件变得更加干净。</p>
+
+<h1 id="toc_1">监控区域（andited region)</h1>
+
+<h1 id="toc_2">兼容性</h1>
+
+<h1 id="toc_3">回到 Swift</h1>
+
+        </div>
+    </div>
+
+        
     <script src="/lib/mudox.js"></script>
 </body>
 </html>

@@ -82,6 +82,7 @@
         <a href="/languages">languages</a> 
         <a href="/languages/bash">bash</a> 
         <a href="/languages/c">c</a> 
+        <a href="/languages/chinese">chinese</a> 
         <a href="/languages/css">css</a> 
         <a href="/languages/english">english</a> 
         <a href="/languages/go">go</a> 
@@ -140,6 +141,41 @@
 
   <div class="content container">
     <ul class="posts">
+        
+        <li>
+          <span><a href="http://mudox.github.io/post/trans_swift_nullability_and_objective_c/">Swift 官博文章翻译 - 可为空性和 Objective-C</a>
+            <time class="pull-right post-list">Thu, Apr 30, 2015</time></span>
+          <p><p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=25">Nullability and Objective-C</a></p>
+
+<p>译者：Mudox</p>
+
+<p>Swift 语言的一个很棒的特性就是它能透明的和 Objective-C 代码互操作，不管是系统提供 Objective-C 框架还是那些你自己写的代码都能。然而，在 Swift 中，可为空的值与不可为空的值引用之间使用明显区别的。比如说 <code>NSView</code> 和 <code>NSView?</code> 在 Swift 中是两个截然不同的类型，但在 Objective-C 中他们都用 <code>NSView *</code> 表示。由于 Swift 无法判断 <code>NSView *</code> 到底是可为空的引用还是不可为空的引用，所以 Swift 把此类型转换为一个隐式拆箱的可为空类型（implicitly unwrapped optional）—— <code>NSView!</code></p>
+
+<p>在此前的 Xcode 版本中，Apple 公司对一些框架做了特殊处理，以让它们在 Swift 被转换为适当的可为空类型。Xcode 6.3 引入了一个新的 Objective-C 特性：可为空性注释（nullability annotation），是的程序也能对自己的代码做出同样的处理。</p>
+</p>
+        </li>
+        
+        <li>
+          <span><a href="http://mudox.github.io/post/translation_swift_dynamic_dispath/">Swift 官博文章翻译 - 通过减少动态调度来拉升程序性能</a>
+            <time class="pull-right post-list">Wed, Apr 29, 2015</time></span>
+          <p><p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=27">Increasing Performance by Reducing Dynamic Dispatch </a></p>
+
+<p>译者：Mudox</p>
+
+<p>和其他很多语言一样，Swift 运行程序员改写从父类集成来的方法和属性。这意味着程序得在运行时也只用在运行时才能判断所引用的具体的方法或属性，并间接的调用或访问他们。这一技术名为“动态分配 dynamic dispatch”，通过为每次间接调用或访问增加常亮时间的开销来换取语言表达能力的提升。对于性能苛刻的代码，这类开销是不可取的。本文将展示三种通过消除此类动态性来拉升程序性能的方法：<code>final</code>，<code>private</code> 以及整模块优化策略。</p>
+</p>
+        </li>
+        
+        <li>
+          <span><a href="http://mudox.github.io/post/translation_swift_memory_safety/">Swift 官博文章翻译 - 内存安全：确保值在使用前先初始化</a>
+            <time class="pull-right post-list">Tue, Apr 28, 2015</time></span>
+          <p><p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=28">Memory Safety: Ensuring Values are Initialized Before Use</a></p>
+
+<p>译者：Mudox</p>
+
+<p>我们设计 Swift 这门语言时的一个重要的发力方向就是改进编程模型的内存安全性。内存安全有很多方面，本文将由浅入深，先从一个简单的问题开始：如果确保值在使用前被初始化。</p>
+</p>
+        </li>
         
         <li>
           <span><a href="http://mudox.github.io/post/about_the_site/">ABOUT THE SITE</a>
