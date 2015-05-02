@@ -296,7 +296,7 @@ animal as! Dog  // triggers a runtime error
 
 <p>这项新特性的核心就是两个关键字：<code>__nullable</code>，<code>__nonnull</code>。正如你所想的那样，所有 <code>__nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>__nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
 
-<pre><code class="language-swift">@interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
+<pre><code class="language-objc">@interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
 // ...
 - (AAPLListItem * __nullable)itemWithName:(NSString * __nonnull)name;
 @property (copy, readonly) NSArray * __nonnull allItems;
@@ -310,13 +310,13 @@ animal as! Dog  // triggers a runtime error
 
 <p>在您的 Objective-C 代码中，您几乎可以在任何可以用到 <code>const</code> 关键字的地方使用 <code>__nullable</code>，<code>__nonnull</code>，当然必须是修饰指针类型。Swift 还未常用的场景提供了更加漂亮的注释方式：对于那些简单的对象类型或者块类型的类成员声明，您可以使用 <code>__nullable</code>，<code>__nonnull</code> 非下划线版本来就注释他们。</p>
 
-<pre><code class="language-swift">- (nullable AAPLListItem *)itemWithName:(nonnull NSString *)name;
+<pre><code class="language-objc">- (nullable AAPLListItem *)itemWithName:(nonnull NSString *)name;
 - (NSInteger)indexOfItem:(nonnull AAPLListItem *)item;
 </code></pre>
 
 <p>对于属性，您也可以使用非下划线的版本，这次不是放在属性名前面，而是把他们挪到属性列表中（括号里面）。</p>
 
-<pre><code class="language-swift">@property (copy, nullable) NSString *name;
+<pre><code class="language-objc">@property (copy, nullable) NSString *name;
 @property (copy, readonly, nonnull) NSArray *allItems;
 </code></pre>
 
@@ -324,9 +324,84 @@ animal as! Dog  // triggers a runtime error
 
 <h1 id="toc_1">监控区域（andited region)</h1>
 
+<p>为了简化新注释关键字的使用，您可以把您的 Objective-C 头文件中的某段代码标记为 <strong>对可为空性进行监控</strong>。在此代码段中，所有的简单指针类型都被编译器默认认为是不可能为空的，也就是 <code>__nonnull</code>。这就大大减少了我们早前的示例中需要做的变动。</p>
+
+<pre><code class="language-objc">NS_ASSUME_NONNULL_BEGIN
+@interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
+// ...
+- (nullable AAPLListItem *)itemWithName:(NSString *)name;
+- (NSInteger)indexOfItem:(AAPLListItem *)item;
+
+@property (copy, nullable) NSString *name;
+@property (copy, readonly) NSArray *allItems;
+// ...
+@end
+NS_ASSUME_NONNULL_END
+
+// --------------
+
+self.list.name = nil;   // okay
+
+AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
+</code></pre>
+
+<p>处于安全性的考量，该规则有如下例外情况：</p>
+
+<ul>
+<li><p><code>typedef</code> 类型别名语句，根据上下文，本身就是有确定的可为空性。它不受监控区域假设的影响。也就是说在监控区域内，<code>typedef</code> 语句定义的指针类型并不是默认为 <code>nonnull</code> 的，而是取决于定义它的原始类型。</p></li>
+
+<li><p>复杂的指针类型必须明确的注释可为空性，不能省略。比如声明一个不可为空的指针只想一个可为空的对象的引用，必须用 <code>__nullable id * __nonnull</code> 来声明。</p></li>
+
+<li><p><code>NSError</code> 是一个特殊的类型，它被用来通过参数返回错误。它总是一个指向一个可为空 <code>NSError</code> 对象指针的可为空指针，即 <code>__nullable NSError * __nullable</code>。</p></li>
+</ul>
+
 <h1 id="toc_2">兼容性</h1>
 
+<p>那么如果您已经有了自己的 Objective-C 框架，现在要混合使用些类型安全么？当然，答案是肯定的。</p>
+
+<ul>
+<li><p>现存的，已经编译好的 Objective-C 框架代码依然会继续工作，他们的应用二进制接口（ABI）并没有变（其实变化只发生在编译时）。这样意味着，老代码不会扑捉到错误的 nil 赋值。</p></li>
+
+<li><p>当你转而使用新的 Swift 编译时，它能对您的使用旧框架代码的当前代码中不安全的行为发出警报。</p></li>
+
+<li><p><code>nonnull</code> 不会影响编译器优化。如果为了向后兼容，您仍然可以对您可以在代码中加入检查指针是否为空的逻辑。</p></li>
+</ul>
+
+<p>大体上您可以把 <code>nonnull</code> 和 <code>nullable</code> 当做断言或者异常捕捉特性来使用：违反协议是程序员本身的错误。毕竟是由您完全控制您的函数会返回什么值，因此在不该返回 <code>nil</code> 的函数中，您应该负责确保它不会返回空值，除非是为了向后兼容。</p>
+
 <h1 id="toc_3">回到 Swift</h1>
+
+<p>现在我们已经在我们的 Objective-C 一端用上了可为空性注释，让我们看看 Swift 一端该跟着怎么变：</p>
+
+<p>在用到注释之前：</p>
+
+<pre><code class="language-swift">class AAPLList : NSObject, NSCoding, NSCopying {
+  // ...
+  func itemWithName(name: String!) -&gt; AAPLListItem!
+  func indexOfItem(item: AAPLListItem!) -&gt; Int
+
+  @NSCopying var name: String! { get set }
+  @NSCopying var allItems: [AnyObject]! { get }
+  // ...
+}
+</code></pre>
+
+<p>Objective-C 一端添加了注释之后：</p>
+
+<pre><code class="language-swift">class AAPLList : NSObject, NSCoding, NSCopying {
+  // ...
+  func itemWithName(name: String) -&gt; AAPLListItem?
+  func indexOfItem(item: AAPLListItem) -&gt; Int
+
+  @NSCopying var name: String? { get set }
+  @NSCopying var allItems: [AnyObject] { get }
+  // ...
+}
+</code></pre>
+
+<p>是不是比以前清爽了？虽然只是细微的变化（少了几个类型后缀 <code>!</code>），但是这必将使您在 Swift 中使用以前的框架的心情更加愉快。</p>
+
+<p>详情请参考 <a href="http://developer.apple.com/go/?id=xcode-6.3-beta-release-notes">Xcode 6.3 Release Notes</a></p>
 
       </div>
       
