@@ -145,6 +145,83 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/post/trans_swift_the_as_bang_operator/">
+            as! 运算符
+          </a>
+        </h1>
+
+        <span class="post-date">Sat, May 2, 2015</span>
+
+        <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=23">The as! Operator</a></p>
+
+<p>译者：Mudox</p>
+
+<p>在 Swift 1.2 之前，<code>as</code> 运算符可以用来完成两种不同类型转换操作。取决要转换的表达式的类型，和要转化到的类型，<code>as</code> 运算符可以完成如下两种转化：</p>
+
+<ul>
+<li><p><strong>总是能成功的类型转化</strong>，编译器能在编译时判断出这类转换总是能成功。比如向上转换（upcasting —— 将一个对象引用转化为自己的一个父类或者祖先类类型) 或者在给字面值常亮添加类型注释（比如, <code>1 as Float</code>）。</p></li>
+
+<li><p><strong>强制类型转化</strong>，此类转换 Swift 编译器不能确保其绝对成功，如果不成功就引发运行时异常。比如乡下转换（downcasting —— 将一个对象引用转化为其某个子孙类类型）。</p></li>
+</ul>
+
+<p>Swift 1.2 把这两中操作分割开来，变成了两个独立的运算符。总是能成功的转化还是使用 <code>as</code> 运算符，二强制转化则使用新的 <code>as!</code> 运算符（注意这里不是两个运算符叠加在一起，它就是<strong>一个</strong>运算符）。 <code>!</code> 暗示此类型转化可能会失败。这样，你一眼扫过代码就能知道那个类型转化会引发程序奔溃。</p>
+
+<p>如下示例展示了这个新的语言变更：</p>
+
+<pre><code class="language-swift">class Animal {}
+class Dog: Animal {}
+
+let a: Animal = Dog()
+a as Dog                // now raises the error:  &quot;'Animal is not convertible to 'Dog';
+                        // ... did you mean to use 'as!' to force downcast?&quot;
+
+a as! Dog               // forced downcast is allowed
+
+let d = Dog()
+d as Animal             // upcast succeeds
+</code></pre>
+
+<p>注意区分作为表达式后缀运算符的 <code>!</code> 和 <code>?</code> 以及转换运算符 <code>as!</code>，<code>as?</code>：</p>
+
+<p>译者注，用于类型注释时（type annotation）：</p>
+
+<ul>
+<li><p>后缀运算符 <code>!</code> 表示要强制拆箱可为空类型 (forced unwrapping)</p></li>
+
+<li><p>后缀运算符 <code>?</code> 可为空类型的级联访问（optional chaining）</p></li>
+</ul>
+
+<p>在声明可为空类型时：</p>
+
+<ul>
+<li><p><code>!</code> 后缀声明一个隐式拆箱的可为空类型（implicitly unwrapped optional）</p></li>
+
+<li><p><code>?</code> 类型后缀声明一个普通的可为空类型（optional）</p></li>
+</ul>
+
+<pre><code class="language-swift">class Animal {}
+
+class Cat: Animal {}
+
+class Dog: Animal {
+  var name = &quot;Spot&quot;
+}
+
+let dog: Dog? = nil
+dog?.name               // evaluates to nil
+dog!.name               // triggers a runtime error
+
+let animal: Animal = Cat()
+animal as? Dog  // evaluates to nil
+animal as! Dog  // triggers a runtime error
+</code></pre>
+
+<p>你可能简单记忆为：在 Swift 中 <code>!</code> 暗示 <strong>可能会失败</strong>，<code>?</code> 暗示 <strong>可能为空 nil</strong>。</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/note/wwdc_my_summary/">
             MY WATCH GUIDE &amp; SUGGESTIONS ABOUT WWDC SESSION VIDEOS
           </a>
@@ -160,9 +237,9 @@
 <li><p>About View &amp; View Controllers</p>
 
 <ol>
-<li>◑ - Custom Transitions Using View Controllers (2013)</li>
+<li>◎ - Custom Transitions Using View Controllers (2013)</li>
 <li>◑ - View Controller Advancements for iOS 8 (2014)</li>
-<li>◎ - Building Adaptive Apps with UIKit (2014)</li>
+<li>◑ - Building Adaptive Apps with UIKit (2014)</li>
 <li>◉ - A Look Inside Presentation Controllers (2014)</li>
 </ol></li>
 
