@@ -143,7 +143,7 @@
     <ul class="posts">
         
         <li>
-          <span><a href="http://mudox.github.io/post/trans_swift_the_as_bang_operator/">as! 运算符</a>
+          <span><a href="http://mudox.github.io/post/trans_swift_the_as_bang_operator/">Swift 官博文章翻译 - as! 运算符</a>
             <time class="pull-right post-list">Sat, May 2, 2015</time></span>
           <p>原文链接：The as! Operator 译者：Mudox 在 Swift 1.2 之前，as 运算符可以用来完成两种不同类型转换操作。取决要转换的表达式的类型，和要转化到的类型，as 运算符可以完成如下两种转化： 总是能成功的类型转化，编译器能在编译时判断出这类转换总是能成功。比如向上转换（upcasting —— 将一个对象引用转化为自己的一个父类或者祖先类类型) 或者在给字面值常亮添加类型注释（比如, 1 as Float）。 强制类型转化，此类转换 Swift 编译器不能确保其绝对成功，如果不成功就引发运行时异常。比如乡下转换（downcasting —— 将一个对象引用转化为其某个子孙类类型）。 Swift 1.2 把这两中操作分割开来，变成了两个独立的运算符。总是能成功的转化还是使用 as 运算符，二强制转化则使用新的 as! 运算符（注意这里不是两个运算符叠加在一起，它就是一个运算符）。 ! 暗示此类型转化可能会失败。这样，你一眼扫过代码就能知道那个类型转化会引发程序奔溃。 如下示例展示了这个新的语言变更： class Animal {} class Dog: Animal {} let a: Animal = Dog() a as Dog // now raises the error: &quot;'Animal is not convertible to 'Dog'; // ... did you mean to use 'as!' to force downcast?&quot; a as!</p>
         </li>
