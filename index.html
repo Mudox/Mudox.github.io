@@ -145,7 +145,93 @@
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/post/trans_swift_the_as_bang_operator/">
+          <a href="http://mudox.github.io/note/ios_notes_animations/">
+            iOS NOTES - iOS Animations
+          </a>
+        </h1>
+
+        <span class="post-date">Sun, May 3, 2015</span>
+
+        
+
+<h1 id="toc_0">iOS Animation API Clusters From Top to Bottom</h1>
+
+<ol>
+<li><p>UIView <code>begin...</code> &amp; <code>commit...</code> style APIs</p>
+
+<p>They are the oldest APIs before block was introduced into the framework,
+with <code>begin...</code> to start recording an animation, a bunch of
+<code>setAnimation...</code> to be called subsequently to set configure various
+animations detailes, and then ends with a <code>commit...</code> call.</p></li>
+
+<li><p>UIView block based APIs</p>
+
+<p>In iOS 4.0, block was introduced to facilitates the creation of UIView
+animations (replacing the old <code>begin...</code> &amp; <code>commit</code> APIs).</p>
+
+<p>Note that during the animation block, you can still call the
+<code>setAnimation...</code> functions to tweak details of animation.</p>
+
+<p>The full form of the function accepts 5 arguments:</p>
+
+<ol>
+<li><p>Duration</p></li>
+
+<li><p>Delay</p></li>
+
+<li><p>Animation options</p></li>
+
+<li><p>The animation block</p></li>
+
+<li><p>Completion block</p></li>
+</ol>
+
+<p>The block based animation is just like creating, configuring &amp; adding
+<code>CABasicAnimation</code> to layers of each involved view in the block.</p></li>
+
+<li><p>UIView spring Animation</p>
+
+<p>As its name suggests, it can do some kind of <em>underdamped oscillation</em>. It
+arguments list is similar to full form of block based function, with two
+more paramters:</p>
+
+<ol>
+<li><p>Damping ratio</p></li>
+
+<li><p>Initial velocity</p></li>
+</ol></li>
+
+<li><p>UIView view transition APIs</p>
+
+<p>2 convenient methods were added to faciliate the common occasions when you
+want to animation subview changes in one view a whole, or replacing one
+view with another.</p></li>
+
+<li><p>UIView key frame Based APIs</p>
+
+<p>It only have 2 methods, call <code>animateKeyframes...</code> to start the whole
+animation, and within a block, call <code>addKeyframe...</code> multiple times with
+apprioate relative timming setting to layout the key frames duraing the
+whole animation.</p>
+
+<p>Using it is just like adding <code>CAKeyframeAnimation</code> to the layer of involved
+views in the block.</p></li>
+
+<li><p>Core Animation</p>
+
+<p>Provided by the <em>Core Quartz</em> framework. It is the basis of everything
+mention above.</p>
+
+<p>It provides concepts of layer, animcation object, animation transaction,
+etc. When you can not achieve effect you want through APIs listed above,
+come for it.</p></li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/post/translation_swift_the_as_bang_operator/">
             Swift 官博文章翻译 - as! 运算符
           </a>
         </h1>
@@ -222,60 +308,22 @@ animal as! Dog  // triggers a runtime error
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/note/wwdc_my_summary/">
-            MY WATCH GUIDE &amp; SUGGESTIONS ABOUT WWDC SESSION VIDEOS
+          <a href="http://mudox.github.io/post/translation_swift_introduction_to_the_swift_repl/">
+            Swift 官博文章翻译 - Swift REPL 交互式解释环境介绍
           </a>
         </h1>
 
-        <span class="post-date">Fri, May 1, 2015</span>
+        <span class="post-date">Thu, Apr 30, 2015</span>
 
-        <p>There has been hundreds of WWDC session videos on <a href="https://developer.apple.com/videos/">Apple WWDC</a>, which provide first-hand knowledges about iOS development from Apple&rsquo;s engineers&rsquo; perspective.</p>
+        <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=18">Introduction to the Swift REPL</a></p>
 
-<p>Here records my sorting after watching progressively, mainly about the order and prerequisites of watching part of them.</p>
-
-<ul>
-<li><p>About View &amp; View Controllers</p>
-
-<ol>
-<li>◎ - Custom Transitions Using View Controllers (2013)</li>
-<li>◑ - View Controller Advancements for iOS 8 (2014)</li>
-<li>◑ - Building Adaptive Apps with UIKit (2014)</li>
-<li>◉ - A Look Inside Presentation Controllers (2014)</li>
-</ol></li>
-
-<li><p>About Objective-C</p></li>
-
-<li><p>About Swift</p>
-
-<ol>
-<li>◎  - Introduction to Swift (2014)</li>
-<li>◎  - Intermediate Swift (2014)</li>
-<li>◎  - Swift Interoperability in Depth (2014)</li>
-<li>◎  - Swift Playgrounds (2014)</li>
-</ol></li>
-
-<li><p>About Text &amp; Font</p></li>
-
-<li><p>About The Developing Tools</p>
-
-<ol>
-<li>◎  - Xcode Core Concepts (2013)</li>
-<li>◎  - Testing in Xcode 6 (2014)</li>
-</ol></li>
-
-<li><p>Other</p>
-
-<ol>
-<li>◎  - Protecting Secrets with the Keychain (2013)</li>
-<li>◉  - Keychain and Authentication With Touch ID (2014)</li>
-</ol></li>
-</ul>
+<p>译者：Mudox</p>
 
       </div>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/post/trans_swift_nullability_and_objective_c/">
+          <a href="http://mudox.github.io/post/translation_swift_nullability_and_objective_c/">
             Swift 官博文章翻译 - 可为空性和 Objective-C
           </a>
         </h1>
@@ -1504,9 +1552,11 @@ for meta in asset.commonMetadata as! [AVMetadataItem] {
 <h1 id="toc_0">UIWindow provide 6 keyboard related notifications</h1>
 
 <ul>
-<li><code>UIKeyboard[Will/Did]ShowNotification</code></li>
-<li><code>UIKeyboard[Will/Did]HideNotification</code></li>
-<li><code>UIKeyboard[Will/Did]ChangeFrameNotification</code></li>
+<li><p><code>UIKeyboard[Will/Did]ShowNotification</code></p></li>
+
+<li><p><code>UIKeyboard[Will/Did]HideNotification</code></p></li>
+
+<li><p><code>UIKeyboard[Will/Did]ChangeFrameNotification</code></p></li>
 </ul>
 
 <p>After playing with these notifications above, I found:</p>
@@ -4398,6 +4448,85 @@ loop object.</p></li>
 
 <li><p>Perform selector routines</p></li>
 </ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/wwdc_my_summary/">
+            
+          </a>
+        </h1>
+
+        <span class="post-date">Mon, Jan 1, 0001</span>
+
+        <p>++
+date = &ldquo;2015-05-01T14:43:56+08:00&rdquo;
+draft = true
+title = &ldquo;MY WATCH GUIDE &amp; SUGGESTIONS ABOUT WWDC SESSION VIDEOS&rdquo;</p>
+
+<p>tags      = [&ldquo;Cocoa&rdquo;, &ldquo;AppDev&rdquo;]
+languages = [&ldquo;Swift&rdquo;, &ldquo;ObjC&rdquo;]
+platforms = [&ldquo;MacOS&rdquo;, &ldquo;iOS&rdquo;]
++++</p>
+
+<p>There has been hundreds of WWDC session videos on <a href="https://developer.apple.com/videos/">Apple WWDC</a>, which provide first-hand knowledges about iOS development from Apple&rsquo;s engineers&rsquo; perspective.</p>
+
+<p>Here records my sorting after watching progressively, mainly about the order and prerequisites of watching part of them.</p>
+
+<ul>
+<li><p>About View &amp; View Controllers</p>
+
+<ol>
+<li>◑ - Custom Transitions Using View Controllers (2013)</li>
+<li>◑ - View Controller Advancements for iOS 8 (2014)</li>
+<li>◑ - Building Adaptive Apps with UIKit (2014)</li>
+<li>◑ - Bkuilding Interruptible and Responsive Interactions (2014)</li>
+<li>◉ - A Look Inside Presentation Controllers (2014)</li>
+</ol></li>
+
+<li><p>About Transitions</p>
+
+<ol>
+<li>◑ - Building Adaptive Apps with UIKit (2014)</li>
+<li>◎ - Getting Started with UIKit Dynamics (2013)</li>
+<li>◎ - Advanced Techniques with UIKit Dynamics (2013)</li>
+</ol></li>
+
+<li><p>About Auto-Layout</p>
+
+<ol>
+<li>◎ - Introduction to Auto Layout for iOS and OS X (2012)</li>
+<li>◎ - Taking Control of Auto Layout in Xcode 5 (2012)</li>
+</ol></li>
+
+<li><p>About Objective-C</p></li>
+
+<li><p>About Swift</p>
+
+<ol>
+<li>◎  - Introduction to Swift (2014)</li>
+<li>◎  - Intermediate Swift (2014)</li>
+<li>◎  - Swift Interoperability in Depth (2014)</li>
+<li>◎  - Swift Playgrounds (2014)</li>
+</ol></li>
+
+<li><p>About Text &amp; Font</p></li>
+
+<li><p>About The Developing Tools</p>
+
+<ol>
+<li>◎  - Xcode Core Concepts (2013)</li>
+<li>◎  - Testing in Xcode 6 (2014)</li>
+</ol></li>
+
+<li><p>Other</p>
+
+<ol>
+<li>◎  - Protecting Secrets with the Keychain (2013)</li>
+<li>◉  - Keychain and Authentication With Touch ID (2014)</li>
+</ol></li>
+</ul>
 
       </div>
       

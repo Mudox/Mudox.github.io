@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Platforms &middot; Mudox </title>
+    <title> iOS NOTES - iOS Animations &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/platforms/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-0b">
+<body class="theme-base-blue">
 
-<div class="sidebar">
+    <div class="sidebar">
 
   
   <div id="particles-js"> </div>
@@ -139,27 +139,101 @@
 </div>
 
 
-  <div class="main content container">
-    <h1 id="title">Platforms</h1>
-    <ul>
-      
-      
-      <li><a href="/platforms/macos"> macos </a> 28 </li>
-      
-      <li><a href="/platforms/ios"> ios </a> 18 </li>
-      
-      <li><a href="/platforms/linux"> linux </a> 12 </li>
-      
-      <li><a href="/platforms/win"> win </a> 11 </li>
-      
-      <li><a href="/platforms/web"> web </a> 4 </li>
-      
-      <li><a href="/platforms/arch"> arch </a> 3 </li>
-      
-    </ul>
-  </div>
-  
-      
+    <div class="content container">
+        <div class="post">
+            
+            <h1>iOS NOTES - iOS Animations</h1>
+            <span class="post-date">Sun, May 3, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">iOS Animation API Clusters From Top to Bottom</a></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<h1 id="toc_0">iOS Animation API Clusters From Top to Bottom</h1>
+
+<ol>
+<li><p>UIView <code>begin...</code> &amp; <code>commit...</code> style APIs</p>
+
+<p>They are the oldest APIs before block was introduced into the framework,
+with <code>begin...</code> to start recording an animation, a bunch of
+<code>setAnimation...</code> to be called subsequently to set configure various
+animations detailes, and then ends with a <code>commit...</code> call.</p></li>
+
+<li><p>UIView block based APIs</p>
+
+<p>In iOS 4.0, block was introduced to facilitates the creation of UIView
+animations (replacing the old <code>begin...</code> &amp; <code>commit</code> APIs).</p>
+
+<p>Note that during the animation block, you can still call the
+<code>setAnimation...</code> functions to tweak details of animation.</p>
+
+<p>The full form of the function accepts 5 arguments:</p>
+
+<ol>
+<li><p>Duration</p></li>
+
+<li><p>Delay</p></li>
+
+<li><p>Animation options</p></li>
+
+<li><p>The animation block</p></li>
+
+<li><p>Completion block</p></li>
+</ol>
+
+<p>The block based animation is just like creating, configuring &amp; adding
+<code>CABasicAnimation</code> to layers of each involved view in the block.</p></li>
+
+<li><p>UIView spring Animation</p>
+
+<p>As its name suggests, it can do some kind of <em>underdamped oscillation</em>. It
+arguments list is similar to full form of block based function, with two
+more paramters:</p>
+
+<ol>
+<li><p>Damping ratio</p></li>
+
+<li><p>Initial velocity</p></li>
+</ol></li>
+
+<li><p>UIView view transition APIs</p>
+
+<p>2 convenient methods were added to faciliate the common occasions when you
+want to animation subview changes in one view a whole, or replacing one
+view with another.</p></li>
+
+<li><p>UIView key frame Based APIs</p>
+
+<p>It only have 2 methods, call <code>animateKeyframes...</code> to start the whole
+animation, and within a block, call <code>addKeyframe...</code> multiple times with
+apprioate relative timming setting to layout the key frames duraing the
+whole animation.</p>
+
+<p>Using it is just like adding <code>CAKeyframeAnimation</code> to the layer of involved
+views in the block.</p></li>
+
+<li><p>Core Animation</p>
+
+<p>Provided by the <em>Core Quartz</em> framework. It is the basis of everything
+mention above.</p>
+
+<p>It provides concepts of layer, animcation object, animation transaction,
+etc. When you can not achieve effect you want through APIs listed above,
+come for it.</p></li>
+</ol>
+
+        </div>
+    </div>
+
+        
     <script src="/lib/mudox.js"></script>
 </body>
 </html>
