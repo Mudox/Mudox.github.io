@@ -159,6 +159,9 @@
 
 <h1 id="toc_0">iOS Animation API Clusters From Top to Bottom</h1>
 
+<p>In general there are 2 groups of APIs: the view based animation APIs &amp; the
+underlying Core Animation APIs that is backing the former.</p>
+
 <ol>
 <li><p>UIView <code>begin...</code> &amp; <code>commit...</code> style APIs</p>
 
@@ -222,8 +225,8 @@ views in the block.</p></li>
 
 <li><p>Core Animation</p>
 
-<p>Provided by the <em>Core Quartz</em> framework. It is the basis of everything
-mention above.</p>
+<p>Provided by the <em>Quartz Core</em> framework from <em>Media Layer</em>. It is the basis
+of everything mentioned above.</p>
 
 <p>It provides concepts of layer, animcation object, animation transaction,
 etc. When you can not achieve effect you want through APIs listed above,
