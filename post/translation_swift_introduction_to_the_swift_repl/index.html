@@ -144,17 +144,156 @@
         <div class="post">
             
             <h1>Swift 官博文章翻译 - Swift REPL 交互式解释环境介绍</h1>
-            <span class="post-date">Thu, Apr 30, 2015</span>
+            <span class="post-date">Mon, May 4, 2015</span>
 
             
             <div id="toc">
-                
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">多行历史记录</a></li>
+<li><a href="#toc_1">多行编辑</a></li>
+<li><a href="#toc_2">快速参考</a></li>
+</ul>
+</nav>
             </div>
 
             
-            <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=18">Introduction to the Swift REPL</a></p>
+            
+
+<p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=18">Introduction to the Swift REPL</a></p>
 
 <p>译者：Mudox</p>
+
+<p>Xcode 6.1 引入了一种新的方式来体验 Swift 语言，那就是通过交互式的读取解释打印循环（Read Eval Print Loop —— REPL）。如果您之前在其他语言里用到过他，您将很快适应 Swift 的 REPL，就算是经验丰富人士在使用过程中也能发现 Swift REPL 的独到之处。</p>
+
+<p>要开始使用它，请在您的 Mac OS X Yosemite 上启动 Terminal.app（在 /Applications/Utilities 里），然后打 “swift” 命令。如果您的系统是 OS X Mavericks 就打 “xcrun swift” 命令。这样您就进入了 Swift REPL 环境了：</p>
+
+<pre><code class="language-swift">// Welcome to Swift version 1.1 (swift-600.0.20.0). Type :help for assistance.
+  1&gt; ▌
+</code></pre>
+
+<p>您只需要像往常那样键入 Swift 的语句，REPL 就会马上执行您的代码。执行的结果会被自动格式化，并加上他们的类型注释（就像 Swift 的变量或者常量声明语法那样）打印在您刚刚键入的代码下：</p>
+
+<pre><code class="language-swift">  1&gt; &quot;100&quot;.toInt()
+$R0: Int? = 100
+  2&gt; let name = &quot;Katherine&quot;
+name: String = &quot;Katherine&quot;
+  3&gt; println(&quot;Hello, \(name)&quot;)
+Hello, Katherine
+</code></pre>
+
+<p>Swift REPL 会将每次的计算结果存放在一个特定命名的变量里（即使您的代码并没有把计算结果赋值给具体的变量）。这样您就可以在后续的代码中引用之前的计算结果了：</p>
+
+<pre><code class="language-swfit"> 4&gt; $R0! + 200      // 这里用 $R0 来引用上面第一行代码的计算结果
+$R1: Int = 300
+</code></pre>
+
+<p>Swift 编译器能判断出您键入的语句是否完整，并在必要时自动提示您继续输入代码以完成语句。它甚至能像 Xcode 那样自动缩进您的代码。比如当您键入如下函数声明代码时：</p>
+
+<pre><code class="language-swift">5&gt; func timesTwo() {
+6.     ▌
+</code></pre>
+
+<p>这里第 6 行为续行提示符（数字后跟一个点），这样您一眼就能明白 REPL 需要您继续键入剩余的代码。此时您可以继续键入余下的代码：</p>
+
+<pre><code class="language-swift">5&gt; func timesTwo() {
+6.      return value * 2
+7. }▌
+</code></pre>
+
+<p>这里有三点值得说明下：</p>
+
+<ul>
+<li><p>首先 REPL 在第 6 行自动缩进了代码，当我们在第 7 行键入 <code>}</code> 后，REPL 又帮您自动缩进回来。</p></li>
+
+<li><p>其次，我们在函数体内引用了一个我们忘了声明的变量名 <code>value</code>，并且函数也忘了声明返回类型，您需要把这两个都加上。</p></li>
+
+<li><p>最后，就算您忘了添加变量声明和返回类型声明而按下了回车键，这也不会太晚，REPL 还能给您挽救的机会。</p></li>
+</ul>
+
+<h1 id="toc_0">多行历史记录</h1>
+
+<h1 id="toc_1">多行编辑</h1>
+
+<h1 id="toc_2">快速参考</h1>
+
+<p>为了帮助你快速开始使用 Swift REPL 环境，下面给了常用的编辑和导航快捷键：</p>
+
+<table>
+<thead>
+<tr>
+<th>按键组合</th>
+<th>注释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>方向键</td>
+<td>上下左右移动光标</td>
+</tr>
+
+<tr>
+<td>Control + F</td>
+<td>向右移动光标一个字符，和按下右方向键一样</td>
+</tr>
+
+<tr>
+<td>Control + B</td>
+<td>向左移动光标一个字符，和按下左方向键一样</td>
+</tr>
+
+<tr>
+<td>Control + P</td>
+<td>向上移动光标一个字符，和按下上方向键一样</td>
+</tr>
+
+<tr>
+<td>Control + N</td>
+<td>向下移动光标一个字符，和按下下方向键一样</td>
+</tr>
+
+<tr>
+<td>Control + D</td>
+<td>删除光标键下的字符</td>
+</tr>
+
+<tr>
+<td>Option + Left</td>
+<td>将光标移动到上一个单词的开始处</td>
+</tr>
+
+<tr>
+<td>Option + Right</td>
+<td>将光标移动到下一个单词的开始处</td>
+</tr>
+
+<tr>
+<td>Control + A</td>
+<td>将光标移动到本行首</td>
+</tr>
+
+<tr>
+<td>Control + E</td>
+<td>将光标移动到本行末</td>
+</tr>
+
+<tr>
+<td>Delete</td>
+<td>删除光标前面的一个字符（这里指主键盘区的回退键 Backspace）</td>
+</tr>
+
+<tr>
+<td>Esc &lt;</td>
+<td>将光标移动到第一行的行首</td>
+</tr>
+
+<tr>
+<td>Esc &gt;</td>
+<td>将光标移动到最后一行的行末</td>
+</tr>
+</tbody>
+</table>
 
         </div>
     </div>
