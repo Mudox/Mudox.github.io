@@ -113,6 +113,7 @@
         <a href="/tags/git">git</a> 
         <a href="/tags/libraries">libraries</a> 
         <a href="/tags/me">me</a> 
+        <a href="/tags/networking">networking</a> 
         <a href="/tags/setup">setup</a> 
         <a href="/tags/shell">shell</a> 
         <a href="/tags/system">system</a> 
@@ -143,6 +144,240 @@
   <div class="content container">
     <div class="posts">
 
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/ios_notes_oss_networking_frameworks/">
+            iOS NOTES - NETWORKING OPEN SOURCE FRAMEWORKS
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, May 5, 2015</span>
+
+        
+
+<p>Here records the simple usage that I learned from the 3 well-known open source
+networking frameworks:</p>
+
+<ol>
+<li><p><a href="http/allseeing-i.com/ASIHTTPRequest/">ASIHTTPRequest</a> for Objective-C language</p></li>
+
+<li><p><a href="https/github.com/AFNetworking/AFNetworking">AFNetworking</a> for Objective-C language</p></li>
+
+<li><p><a href="https/github.com/Alamofire/Alamofire">Alamofire</a> for Swift Language</p></li>
+</ol>
+
+<p>All example below are run asynchronously.</p>
+
+<h1 id="toc_0">Use Case #1 - Simple GET Request</h1>
+
+<h2 id="toc_1">With ASIHTTPRequest</h2>
+
+<p>Create &amp; configure request object and emit request.</p>
+
+<ol>
+<li><p>Define a long-standing reference somewhere, e.g. as a property of you view
+controller class.</p></li>
+
+<li><p>Initialize the <code>ASIHTTPRequest</code> instance with target URL string (make sure
+it properly encoded).</p></li>
+
+<li><p>set progress feedback settings if you want them.</p></li>
+
+<li><p>set delegate and emit the request.</p></li>
+</ol>
+
+<pre><code class="language-objc">(IBAction)grabSomethingInBackground: (id)sender {
+// step #1
+//   use Url string to initialize a instance of ASIHTTPRequest
+
+  NSString *strURL = @&quot;....&quot;
+  // better call this method to ensure string is properly encoded.
+  strURL = [strURL stringByAddingPercentEscapesUsingEncodingSUTF8StringEncoding];
+  // request instance should stand as long as possible to cover the whole fetching process
+  self.request = [ASIHTTPRequest requestWithURLtrURL];
+
+// step #2
+//   get download progress feedback
+
+  [self.request setDownloadProgressDelegateelf];
+  self.request.showAccurateProgress = YES;
+  [ASIHTTPRequest setShouldUpdateNetworkActivityIndicator: YES];
+
+// step #3
+// set delegate &amp; emit request ansynchronously
+
+  [self.request setDelegate: self];
+  [self.request startAsynchronous];
+}
+</code></pre>
+
+<p>Implement delegate methods to handle results (succeed or fail).</p>
+
+<ol>
+<li><p>implement <code>requestFinished:</code> delegate methods to fetch response content.</p></li>
+
+<li><p>implement <code>requestFailed:</code> delegate methods to handle failure.</p></li>
+
+<li><p>implement <code>setProgress:</code> delegate methods to report the download progress.</p></li>
+</ol>
+
+<pre><code class="language-objc">#pragma mark - ASIHTTPRequestDelegate
+// request succeeded
+- (void)requestFinished: (ASIHTTPRequest *)request
+{
+  // fetch response content as NSData
+  NSData *data = [request responseData];
+
+  // fetch response content as NSString
+  NSString *str = [request responseString];
+}
+
+// reqeust failed
+- (void)requestFailed: (ASIHTTPRequest *)request
+{
+    NSLog(@&quot;ERROR: %@&quot;, [request.error localizedDescription]);
+}
+
+#pragma mark - ASIProgressDelegate
+- (void)setProgressfloat)newProgress
+{
+  // average download speed in bytes/second
+  unsigned long byte = [ASIHTTPRequest averageBandwidthUsedPerSecond];
+
+  // current completion percent (between 0.0 ~ 1.0) from argument:
+  newProgress;
+}
+
+@end
+</code></pre>
+
+<h2 id="toc_2">With AFNetworking</h2>
+
+<h2 id="toc_3">With Alamofire</h2>
+
+<h1 id="toc_4">Use Case #2 - Simple POST Request</h1>
+
+<h2 id="toc_5">With ASIHTTPRequest</h2>
+
+<p>Same as the &lsquo;Simle GET Request&rsquo; above, excepts:</p>
+
+<ul>
+<li><p>You should initialize a instance of ASIFormDataRequest instead of
+ASIHTTPRequest.</p></li>
+
+<li><p>You set <code>setRequestMethod:</code> with <code>POST</code> parameter to switch to POST request
+type.</p></li>
+
+<li><p>You should call <code>addRequestHeader:</code> methods to add at least <code>Content-Type</code>
+field.</p></li>
+
+<li><p>You should put the query string in URL string into the HTTP request body by
+calling <code>setPostBody</code> method, either in URL query string form or JSON form.</p></li>
+</ul>
+
+<pre><code class="language-objc">// use Url string to initialize a instance of ASIFormDataRequest
+
+  NSString *strURL = @&quot;...&quot;;
+  // better call this method to ensure string is properly encoded.
+  NSURL *strURL = strURL stringByAddingPercentEscapesUsingEncoding: SUTF8StringEncoding];
+
+// set request methods to 'POST'
+
+  [self.formRequest setRequestMethod: &quot;POST&quot;];
+
+// add http pack header &amp; body respectively
+
+  self.formRequest = [ASIFormDataRequest requestWithURL: strURL];
+  [self.formRequest addRequestHeader: &quot;Content-Type&quot; value: &quot;application/x-www-form-urlencoded&quot;];
+
+  // body string in URL query string format
+  NSMutableData *body = [@&quot;type=focus-c&quot; dataUsingEncoding: SUTF8StringEncoding];
+
+  // body string in JSON format
+  // NSMutableData *body = [@&quot;p={\&quot;a\&quot;: ,\&quot;b\&quot;: }&quot; dataUsingEncoding: SUTF8StringEncoding];;
+
+  [self.formRequest setPostBody: NSMutableData*)[body dataUsingEncoding: SUTF8StringEncoding]];
+
+// set delegate &amp; emit request ansynchronously
+
+  [self.formRequest setDelegate: elf];
+  [self.formRequest startAsynchronous];
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/post/trans_swift_failable_initializer/">
+            Swift 官博文章翻译 - 可能失败的初始化器
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, May 5, 2015</span>
+
+        <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=22">Failable Initializers</a></p>
+
+<p>译者：Mudox</p>
+
+<p>Xcode 6.1 带来了 Swift 1.1，后者引入了一个新的特性：可能失败的初始化器。初始化是给类或者结构体的存储属性一个初始值，并建立起实例的不变性的过程。在某些情况下，初始化可能会失败。</p>
+
+<p>比如，初始化过程需要访问某个资源（例如从文件中加载图片）：</p>
+
+<pre><code class="language-swift">NSImage(contentsOfFile: &quot;swift.png&quot;)
+</code></pre>
+
+<p>如果这个文件不存在或者处于某种原因不能访问，那么上面的 <code>NSImage</code> 的初始化就会失败。有了 Swift 1.1 我们可以用可能失败的初始化器（failable initializer）来报告失败的初始化操作。通过可能失败的初始化器构建对象，返回的结果被包裹在可为空类型里，如果成功就返回包含初始化了的对象的可为空值，如果失败就返回 <code>nil</code>。因此上面的初始化需要对返回的可为空值做拆箱操作：</p>
+
+<pre><code class="language-swift">if let image = NSImage(contentsOfFile: &quot;swift.png&quot;) {
+  // loaded the image successfully
+} else {
+  // could not load the image
+}
+</code></pre>
+
+<p>我们可以在 Swift 的初始化器声明后加上 <code>!</code> 或者 <code>?</code> 后缀来表示该初始化过程会返回可为空值，且具体是那种可为空类型。比我们可以对 <code>Int</code> 类型增加一个可能失败的初始化器以尝试将从一个字符串中初始化出一个整形值来：</p>
+
+<pre><code class="language-swift">extension Int {
+  init?(fromString: String) { 
+    if let i = fromString.toInt() {
+      // Initialize
+      self = i
+    } else { 
+      // return nil, discarding self is implied
+      return nil
+    }
+  }
+}
+</code></pre>
+
+<p>在可能失败的初始化器中返回 <code>nil</code> 指示这个初始化过程失败了，因为没有其他的值可以返回。在上面的字符串初始化整型值的例子中，如果字符串不成功的被解析为一个整形数字，那么就只能返回 nil 了。如果成功，就将 <code>self</code> 赋值为解析出来的整型值。</p>
+
+<p>可能失败的初始化器大大降低了使用工厂方法（factory methods）的必要性，在此之前我们只能用工厂方法来报告失败的对象初始化。比如那些关联了原始类型的枚举类型，他们之前都是通过一个 <code>fromRaw</code> 工厂类方法来返回可为空的枚举值，以报告可能失败的初始化。现在 Swift 编译器会对那些尝试从一个原始类型值映射到一个枚举值的情况自动合成一个可能失败的初始化器。</p>
+
+<pre><code class="language-swift">enum Color : Int {
+  case Red = 0, Green = 1, Blue = 2
+
+  // implicitly synthesized
+  var rawValue: Int { /* returns raw value for current case */ }
+
+  // implicitly synthesized
+  init?(rawValue: Int) {
+    switch rawValue { 
+      case 0: self = .Red
+      case 1: self = .Green
+      case 2: self = .Blue
+      default: return nil
+    }
+  }
+}
+</code></pre>
+
+<p>通过使用可能失败的初始化器，Swift 使其构造语法更加的统一，同时也消除了 Objective-C 中工厂方法和构造函数相互重复带来的困扰，从而大大的简化了新语言。有了可能失败的初始化器，Swift 现在把更多的带 <code>NSError *</code> 参数的 Cocoa 工厂方法视为初始化器处理，从而提供给用户更加统一，简洁的对象构造体验。</p>
+
+<p>您可以在这里了解到更详细的关于可能失败的初始化器的内容：<a href="https://developer.apple.com/library/mac/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-XID_339">Swift 编程语言</a></p>
+
+      </div>
       
       <div class="post">
         <h1 class="post-title">
@@ -208,11 +443,57 @@ $R1: Int = 300
 
 <h1 id="toc_0">多行历史记录</h1>
 
+<p>您的代码被提交给编译器的同时，也会被 REPL 环境记录下来。这使得您能更加轻松的修改之前的代码。接着上面的代码，如果您按下回车键就会得到如下的提示：</p>
+
+<pre><code class="language-bash">error: use of unresolved identifier 'value'
+</code></pre>
+
+<p>和其他环境下的历史记录功能使用方法一样，您可以按下 <code>↓</code> 键来调出之前出入过的代码行。REPL 一次性把我们上面输入的三行代码全部调了出来，并将光标放在的最后一行的末尾。按照下节的指引您就能更正之前的错误了。</p>
+
+<p>每次会话保存的历史记录是能够保留到下次会话的，总共能保存上几百段代码。您可以从代码的首行按向上键（或者 Ctrl+P）调出更早输入的代码，也可以从最后一行代码下面的空行上按 <code>↓</code> 键调出稍近的代码。我们将在下面解释为什么最后一行往下还会出现一行空行。</p>
+
 <h1 id="toc_1">多行编辑</h1>
+
+<p>尽管 Swift REPL 环境表现得像传统的命令行编辑器，它还是提供了多行编辑的能力，这样像输入类定义，函数定义这样经常需要多行一起输入的情况，编辑起来就变得简单了。在上面的函数定义的示例中，在您在最后一行尾按下回车键之前，您可以按下 <code>↑</code> 将光标移动到上面的行，并使用 <code>←</code> 键移动到参数列表的 <code>(</code> 后面来修改，添加参数：</p>
+
+<pre><code class="language-swift">5&gt; func timesTwo(▌ {
+6.     return value * 2
+7. }
+</code></pre>
+
+<p>现在键入参数声明，然后按 <code>→</code> 键移动到 <code>(</code> 之后，然后加上返回类型声明：</p>
+
+<pre><code class="language-swift">5&gt; func timesTwo(value: Int) -&gt; Int▌  {
+6.              return value * 2
+7. }
+</code></pre>
+
+<p>在代码中间按下回车键是不能结束代码输入，提交 REPL 的。在中间按回车键只能插入新的一行以便您想在函数或者方法体内加入新行。您这里想要的是移动光标到代码最末尾，您可以按 <code>↓</code> 键两次，或者使用 Emacs 的按键序列 <code>Esc &gt;</code> (<code>Esc</code> 键之后跟一个左尖括号)。在最末尾按下回车键就能将新修改的函数定义提交了：</p>
+
+<pre><code class="language-swift">  8&gt;  timesTwo(21)
+$R2: (Int) = 42
+</code></pre>
+
+<p>自动侦测语句完整性意味着大多数情况下您只管输入心中的代码，让 REPL 来干剩下的脏活。但是某些情况下，您需要一次提交多个语句，因为他们之间相互依赖。设想有下面的代码：</p>
+
+<pre><code class="language-swift">func foo() {
+  bar()
+}
+func bar() {
+  foo()
+}
+</code></pre>
+
+<p>如果您只是一行一行的输入上面的代码，当您输入完第三行代码之后就为把第一个函数提交给 REPL 执行，自然会得到如下的警告：</p>
+
+<pre><code class="language-bash">error: use of unresolved identifier 'bar'
+</code></pre>
+
+<p>当然您可以一行定义两个函数，两个语句之间用分号隔开，但是还有一个更好的方法。在您输入完第三行之后按下 <code>↓</code> 键就会插入并移动到第四行，这是您再就可以继续输入第二个函数的声明了。这两个语句被一次性提交给编译器，达到相互递归的意图。</p>
 
 <h1 id="toc_2">快速参考</h1>
 
-<p>为了帮助你快速开始使用 Swift REPL 环境，下面给了常用的编辑和导航快捷键：</p>
+<p>为了帮助你快速开始使用 Swift REPL 环境，面给了常用的编辑和导航快捷键：</p>
 
 <table>
 <thead>
@@ -230,22 +511,22 @@ $R1: Int = 300
 
 <tr>
 <td>Control + F</td>
-<td>向右移动光标一个字符，和按下右方向键一样</td>
+<td>向右移动光标一个字符，和按下 <code>→</code> 键一样</td>
 </tr>
 
 <tr>
 <td>Control + B</td>
-<td>向左移动光标一个字符，和按下左方向键一样</td>
+<td>向左移动光标一个字符，和按下 <code>←</code> 键一样</td>
 </tr>
 
 <tr>
 <td>Control + P</td>
-<td>向上移动光标一个字符，和按下上方向键一样</td>
+<td>向上移动光标一个字符，和按下 <code>↑</code> 键一样</td>
 </tr>
 
 <tr>
 <td>Control + N</td>
-<td>向下移动光标一个字符，和按下下方向键一样</td>
+<td>向下移动光标一个字符，和按下 <code>↓</code> 键一样</td>
 </tr>
 
 <tr>
@@ -397,7 +678,7 @@ use(x)
       <div class="post">
         <h1 class="post-title">
           <a href="http://mudox.github.io/note/ios_notes_animations/">
-            iOS NOTES - iOS Animations
+            iOS NOTES - iOS ANIMATIONS
           </a>
         </h1>
 
@@ -695,7 +976,7 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
       <div class="post">
         <h1 class="post-title">
           <a href="http://mudox.github.io/note/ios_notes_media_frameworks/">
-            iOS NOTES - Media Frameworks
+            iOS NOTES - MEDIA FRAMEWORKS
           </a>
         </h1>
 

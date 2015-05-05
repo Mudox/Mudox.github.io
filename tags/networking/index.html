@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> GO&#39;S TEMPLATE LIBRARY &middot; Mudox </title>
+    <title> Networking &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="http://mudox.github.io/tags/networking/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-blue">
+<body class="theme-base-0f">
 
-    <div class="sidebar">
+<div class="sidebar">
 
   
   <div id="particles-js"> </div>
@@ -141,120 +141,43 @@
 </div>
 
 
-    <div class="content container">
-        <div class="post">
-            
-            <h1>GO&#39;S TEMPLATE LIBRARY</h1>
-            <span class="post-date">Fri, Sep 26, 2014</span>
-
-            
-            <div id="toc">
-                <nav id="TableOfContents">
-<ul>
-<li><a href="#toc_0">3 Steps Using The Template Object</a></li>
-<li><a href="#toc_1">6 Action Families</a></li>
-<li><a href="#toc_2">Argument Types</a></li>
-</ul>
-</nav>
-            </div>
-
-            
-            
-
-<p>I come across this library when I started to use <a href="http://gohugo.io">Hugo</a>,
-which says:</p>
-
-<blockquote>
-<p>It is an extremely <strong>lightweight</strong> engine that provides a very small amount of
-logic. In our experience it is <strong>just the right amount of logic</strong> to be able to
-create a good static website.</p>
-</blockquote>
-
-<h1 id="toc_0">3 Steps Using The Template Object</h1>
+  <div class="content container">
+    <ul class="posts">
+        
+        <li>
+          <span><a href="http://mudox.github.io/note/ios_notes_oss_networking_frameworks/">iOS NOTES - NETWORKING OPEN SOURCE FRAMEWORKS</a>
+            <time class="pull-right post-list">Tue, May 5, 2015</time></span>
+          <p><p>Here records the simple usage that I learned from the 3 well-known open source
+networking frameworks:</p>
 
 <ol>
-<li><p><code>New</code> an template object.</p></li>
+<li><p><a href="http/allseeing-i.com/ASIHTTPRequest/">ASIHTTPRequest</a> for Objective-C language</p></li>
 
-<li><p><code>Parse</code> template text.</p></li>
+<li><p><a href="https/github.com/AFNetworking/AFNetworking">AFNetworking</a> for Objective-C language</p></li>
 
-<li><p><code>Execute</code> (apply) the template to data structure.</p></li>
+<li><p><a href="https/github.com/Alamofire/Alamofire">Alamofire</a> for Swift Language</p></li>
 </ol>
 
-<h1 id="toc_1">6 Action Families</h1>
-
-<p><strong>comment</strong></p>
-
-<pre><code class="language-go">{{/* comment here, line spanning allowed */}}
-</code></pre>
-
-<p><strong>pipeline</strong> like variable expansion (substitution)</p>
-
-<pre><code class="language-go">{{pipeline}}
-</code></pre>
-
-<p><strong>if</strong> family for branching logic</p>
-
-<pre><code class="language-go">{{if _pipline_}} T1 {{end}}
-{{if _pipline_}} T1 {{else}} T0 {{end}}
-{{if _pipline_}} T1 {{else if _pipeline_ }} T0 {{end}}
-
-</code></pre>
-
-<p><strong>range</strong> family for iteration (loop)</p>
-
-<pre><code class="language-go">{{range pipepine}} T1 {{end}}
-{{range pipepine}} T1 {{else}} T0 {{end}}
-
-</code></pre>
-
-<p><strong>with</strong> family for cursor (dot) moving</p>
-
-<pre><code class="language-go">{{with pipeline}} T1 {{end}}
-{{with pipeline}} T1 {{else}} T0 {{end}}
-
-</code></pre>
-
-<p><strong>template</strong> family for tempates invocation</p>
-
-<pre><code class="language-go">// with the dot '.' set to nil.
-{{tempalte &quot;name&quot;}}
-// with the dot '.' set to value of 'pipeline'.
-{{tempalte &quot;name&quot; pipeline}}
-
-</code></pre>
-
-<h1 id="toc_2">Argument Types</h1>
-
-<ul>
-<li><p>untyped <strong>constants</strong> in go syntax</p></li>
-
-<li><p><strong>nil</strong> &ndash; the special constant</p></li>
-
-<li><p><strong>variable</strong> name</p>
-
-<p><code>$variable_name</code> or <code>$</code></p></li>
-
-<li><p><code>.</code> &ndash; the so called &lsquo;context&rsquo; constant</p></li>
-
-<li><p>dot chain consist of: <strong>field</strong> name,  <strong>key</strong> name,  niladic <strong>method</strong> name</p></li>
-</ul>
-
-<pre><code class="language-go">(.Field.Key.Method args...).Field.Key ...
-</code></pre>
-
-<ul>
-<li><p>niladic <strong>function</strong> name</p></li>
-
-<li><p>parenthesized <strong>group</strong> of above</p></li>
-</ul>
-
-<pre><code class="language-go">print (func arg...) (.method arg...)
-</code></pre>
-
-        </div>
-    </div>
-
+<p>All example below are run asynchronously.</p>
+</p>
+        </li>
         
+        <li>
+          <span><a href="http://mudox.github.io/note/ios_notes_cocoa_concurrency/">iOS NOTES - COCOA CONCURRENCY</a>
+            <time class="pull-right post-list">Wed, Sep 24, 2014</time></span>
+          <p>Members Of Cocoa Concurrency Operation Queue abstract base class NSOperation concrete subclass NSInvocation concrete subclass NSBlockOperation Dispatch Queue Dispatch Source Operation Queue Features graph-based dependencies completion block execution status monitoring prioritizeing canceling</p>
+        </li>
+        
+        <li>
+          <span><a href="http://mudox.github.io/note/ios_notes_cocoa_threading/">iOS NOTES - COCOA THREADING</a>
+            <time class="pull-right post-list">Wed, Sep 24, 2014</time></span>
+          <p>Run Loop 4 roles participate in the run loop game: Run Loop which is represented by NSRun Loop &amp; CFRunLoop. Run Loop Mode which is represented by CFStringRef associated to each instance of run loop object. Run Loop Source which is represented by CFRunloopSource. Input source Port-based source Perform selctor on other threads Custom source Timer which is represented by CFRunloopTimerRef. Explictly defined timer Perform selector on current thread with delay Perform selector Run Loop Observer 4 ways to kill a run loop iteration: no sources exists since some system routines may install certain input sources to the run loop implictly, we should not kill a run loop iteration by clearing &lsquo;all&lsquo; sources we known.</p>
+        </li>
+        
+    </ul>
+  </div>
+
+    
     <script src="/lib/mudox.js"></script>
 </body>
 </html>

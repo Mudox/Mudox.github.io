@@ -113,6 +113,7 @@
         <a href="/tags/git">git</a> 
         <a href="/tags/libraries">libraries</a> 
         <a href="/tags/me">me</a> 
+        <a href="/tags/networking">networking</a> 
         <a href="/tags/setup">setup</a> 
         <a href="/tags/shell">shell</a> 
         <a href="/tags/system">system</a> 
@@ -213,11 +214,57 @@ $R1: Int = 300
 
 <h1 id="toc_0">多行历史记录</h1>
 
+<p>您的代码被提交给编译器的同时，也会被 REPL 环境记录下来。这使得您能更加轻松的修改之前的代码。接着上面的代码，如果您按下回车键就会得到如下的提示：</p>
+
+<pre><code class="language-bash">error: use of unresolved identifier 'value'
+</code></pre>
+
+<p>和其他环境下的历史记录功能使用方法一样，您可以按下 <code>↓</code> 键来调出之前出入过的代码行。REPL 一次性把我们上面输入的三行代码全部调了出来，并将光标放在的最后一行的末尾。按照下节的指引您就能更正之前的错误了。</p>
+
+<p>每次会话保存的历史记录是能够保留到下次会话的，总共能保存上几百段代码。您可以从代码的首行按向上键（或者 Ctrl+P）调出更早输入的代码，也可以从最后一行代码下面的空行上按 <code>↓</code> 键调出稍近的代码。我们将在下面解释为什么最后一行往下还会出现一行空行。</p>
+
 <h1 id="toc_1">多行编辑</h1>
+
+<p>尽管 Swift REPL 环境表现得像传统的命令行编辑器，它还是提供了多行编辑的能力，这样像输入类定义，函数定义这样经常需要多行一起输入的情况，编辑起来就变得简单了。在上面的函数定义的示例中，在您在最后一行尾按下回车键之前，您可以按下 <code>↑</code> 将光标移动到上面的行，并使用 <code>←</code> 键移动到参数列表的 <code>(</code> 后面来修改，添加参数：</p>
+
+<pre><code class="language-swift">5&gt; func timesTwo(▌ {
+6.     return value * 2
+7. }
+</code></pre>
+
+<p>现在键入参数声明，然后按 <code>→</code> 键移动到 <code>(</code> 之后，然后加上返回类型声明：</p>
+
+<pre><code class="language-swift">5&gt; func timesTwo(value: Int) -&gt; Int▌  {
+6.              return value * 2
+7. }
+</code></pre>
+
+<p>在代码中间按下回车键是不能结束代码输入，提交 REPL 的。在中间按回车键只能插入新的一行以便您想在函数或者方法体内加入新行。您这里想要的是移动光标到代码最末尾，您可以按 <code>↓</code> 键两次，或者使用 Emacs 的按键序列 <code>Esc &gt;</code> (<code>Esc</code> 键之后跟一个左尖括号)。在最末尾按下回车键就能将新修改的函数定义提交了：</p>
+
+<pre><code class="language-swift">  8&gt;  timesTwo(21)
+$R2: (Int) = 42
+</code></pre>
+
+<p>自动侦测语句完整性意味着大多数情况下您只管输入心中的代码，让 REPL 来干剩下的脏活。但是某些情况下，您需要一次提交多个语句，因为他们之间相互依赖。设想有下面的代码：</p>
+
+<pre><code class="language-swift">func foo() {
+  bar()
+}
+func bar() {
+  foo()
+}
+</code></pre>
+
+<p>如果您只是一行一行的输入上面的代码，当您输入完第三行代码之后就为把第一个函数提交给 REPL 执行，自然会得到如下的警告：</p>
+
+<pre><code class="language-bash">error: use of unresolved identifier 'bar'
+</code></pre>
+
+<p>当然您可以一行定义两个函数，两个语句之间用分号隔开，但是还有一个更好的方法。在您输入完第三行之后按下 <code>↓</code> 键就会插入并移动到第四行，这是您再就可以继续输入第二个函数的声明了。这两个语句被一次性提交给编译器，达到相互递归的意图。</p>
 
 <h1 id="toc_2">快速参考</h1>
 
-<p>为了帮助你快速开始使用 Swift REPL 环境，下面给了常用的编辑和导航快捷键：</p>
+<p>为了帮助你快速开始使用 Swift REPL 环境，面给了常用的编辑和导航快捷键：</p>
 
 <table>
 <thead>
@@ -235,22 +282,22 @@ $R1: Int = 300
 
 <tr>
 <td>Control + F</td>
-<td>向右移动光标一个字符，和按下右方向键一样</td>
+<td>向右移动光标一个字符，和按下 <code>→</code> 键一样</td>
 </tr>
 
 <tr>
 <td>Control + B</td>
-<td>向左移动光标一个字符，和按下左方向键一样</td>
+<td>向左移动光标一个字符，和按下 <code>←</code> 键一样</td>
 </tr>
 
 <tr>
 <td>Control + P</td>
-<td>向上移动光标一个字符，和按下上方向键一样</td>
+<td>向上移动光标一个字符，和按下 <code>↑</code> 键一样</td>
 </tr>
 
 <tr>
 <td>Control + N</td>
-<td>向下移动光标一个字符，和按下下方向键一样</td>
+<td>向下移动光标一个字符，和按下 <code>↓</code> 键一样</td>
 </tr>
 
 <tr>

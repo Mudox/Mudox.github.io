@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> GO&#39;S TEMPLATE LIBRARY &middot; Mudox </title>
+    <title> Swift 官博文章翻译 - 可能失败的初始化器 &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -144,112 +144,75 @@
     <div class="content container">
         <div class="post">
             
-            <h1>GO&#39;S TEMPLATE LIBRARY</h1>
-            <span class="post-date">Fri, Sep 26, 2014</span>
+            <h1>Swift 官博文章翻译 - 可能失败的初始化器</h1>
+            <span class="post-date">Tue, May 5, 2015</span>
 
             
             <div id="toc">
-                <nav id="TableOfContents">
-<ul>
-<li><a href="#toc_0">3 Steps Using The Template Object</a></li>
-<li><a href="#toc_1">6 Action Families</a></li>
-<li><a href="#toc_2">Argument Types</a></li>
-</ul>
-</nav>
+                
             </div>
 
             
-            
+            <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=22">Failable Initializers</a></p>
 
-<p>I come across this library when I started to use <a href="http://gohugo.io">Hugo</a>,
-which says:</p>
+<p>译者：Mudox</p>
 
-<blockquote>
-<p>It is an extremely <strong>lightweight</strong> engine that provides a very small amount of
-logic. In our experience it is <strong>just the right amount of logic</strong> to be able to
-create a good static website.</p>
-</blockquote>
+<p>Xcode 6.1 带来了 Swift 1.1，后者引入了一个新的特性：可能失败的初始化器。初始化是给类或者结构体的存储属性一个初始值，并建立起实例的不变性的过程。在某些情况下，初始化可能会失败。</p>
 
-<h1 id="toc_0">3 Steps Using The Template Object</h1>
+<p>比如，初始化过程需要访问某个资源（例如从文件中加载图片）：</p>
 
-<ol>
-<li><p><code>New</code> an template object.</p></li>
-
-<li><p><code>Parse</code> template text.</p></li>
-
-<li><p><code>Execute</code> (apply) the template to data structure.</p></li>
-</ol>
-
-<h1 id="toc_1">6 Action Families</h1>
-
-<p><strong>comment</strong></p>
-
-<pre><code class="language-go">{{/* comment here, line spanning allowed */}}
+<pre><code class="language-swift">NSImage(contentsOfFile: &quot;swift.png&quot;)
 </code></pre>
 
-<p><strong>pipeline</strong> like variable expansion (substitution)</p>
+<p>如果这个文件不存在或者处于某种原因不能访问，那么上面的 <code>NSImage</code> 的初始化就会失败。有了 Swift 1.1 我们可以用可能失败的初始化器（failable initializer）来报告失败的初始化操作。通过可能失败的初始化器构建对象，返回的结果被包裹在可为空类型里，如果成功就返回包含初始化了的对象的可为空值，如果失败就返回 <code>nil</code>。因此上面的初始化需要对返回的可为空值做拆箱操作：</p>
 
-<pre><code class="language-go">{{pipeline}}
+<pre><code class="language-swift">if let image = NSImage(contentsOfFile: &quot;swift.png&quot;) {
+  // loaded the image successfully
+} else {
+  // could not load the image
+}
 </code></pre>
 
-<p><strong>if</strong> family for branching logic</p>
+<p>我们可以在 Swift 的初始化器声明后加上 <code>!</code> 或者 <code>?</code> 后缀来表示该初始化过程会返回可为空值，且具体是那种可为空类型。比我们可以对 <code>Int</code> 类型增加一个可能失败的初始化器以尝试将从一个字符串中初始化出一个整形值来：</p>
 
-<pre><code class="language-go">{{if _pipline_}} T1 {{end}}
-{{if _pipline_}} T1 {{else}} T0 {{end}}
-{{if _pipline_}} T1 {{else if _pipeline_ }} T0 {{end}}
-
+<pre><code class="language-swift">extension Int {
+  init?(fromString: String) { 
+    if let i = fromString.toInt() {
+      // Initialize
+      self = i
+    } else { 
+      // return nil, discarding self is implied
+      return nil
+    }
+  }
+}
 </code></pre>
 
-<p><strong>range</strong> family for iteration (loop)</p>
+<p>在可能失败的初始化器中返回 <code>nil</code> 指示这个初始化过程失败了，因为没有其他的值可以返回。在上面的字符串初始化整型值的例子中，如果字符串不成功的被解析为一个整形数字，那么就只能返回 nil 了。如果成功，就将 <code>self</code> 赋值为解析出来的整型值。</p>
 
-<pre><code class="language-go">{{range pipepine}} T1 {{end}}
-{{range pipepine}} T1 {{else}} T0 {{end}}
+<p>可能失败的初始化器大大降低了使用工厂方法（factory methods）的必要性，在此之前我们只能用工厂方法来报告失败的对象初始化。比如那些关联了原始类型的枚举类型，他们之前都是通过一个 <code>fromRaw</code> 工厂类方法来返回可为空的枚举值，以报告可能失败的初始化。现在 Swift 编译器会对那些尝试从一个原始类型值映射到一个枚举值的情况自动合成一个可能失败的初始化器。</p>
 
+<pre><code class="language-swift">enum Color : Int {
+  case Red = 0, Green = 1, Blue = 2
+
+  // implicitly synthesized
+  var rawValue: Int { /* returns raw value for current case */ }
+
+  // implicitly synthesized
+  init?(rawValue: Int) {
+    switch rawValue { 
+      case 0: self = .Red
+      case 1: self = .Green
+      case 2: self = .Blue
+      default: return nil
+    }
+  }
+}
 </code></pre>
 
-<p><strong>with</strong> family for cursor (dot) moving</p>
+<p>通过使用可能失败的初始化器，Swift 使其构造语法更加的统一，同时也消除了 Objective-C 中工厂方法和构造函数相互重复带来的困扰，从而大大的简化了新语言。有了可能失败的初始化器，Swift 现在把更多的带 <code>NSError *</code> 参数的 Cocoa 工厂方法视为初始化器处理，从而提供给用户更加统一，简洁的对象构造体验。</p>
 
-<pre><code class="language-go">{{with pipeline}} T1 {{end}}
-{{with pipeline}} T1 {{else}} T0 {{end}}
-
-</code></pre>
-
-<p><strong>template</strong> family for tempates invocation</p>
-
-<pre><code class="language-go">// with the dot '.' set to nil.
-{{tempalte &quot;name&quot;}}
-// with the dot '.' set to value of 'pipeline'.
-{{tempalte &quot;name&quot; pipeline}}
-
-</code></pre>
-
-<h1 id="toc_2">Argument Types</h1>
-
-<ul>
-<li><p>untyped <strong>constants</strong> in go syntax</p></li>
-
-<li><p><strong>nil</strong> &ndash; the special constant</p></li>
-
-<li><p><strong>variable</strong> name</p>
-
-<p><code>$variable_name</code> or <code>$</code></p></li>
-
-<li><p><code>.</code> &ndash; the so called &lsquo;context&rsquo; constant</p></li>
-
-<li><p>dot chain consist of: <strong>field</strong> name,  <strong>key</strong> name,  niladic <strong>method</strong> name</p></li>
-</ul>
-
-<pre><code class="language-go">(.Field.Key.Method args...).Field.Key ...
-</code></pre>
-
-<ul>
-<li><p>niladic <strong>function</strong> name</p></li>
-
-<li><p>parenthesized <strong>group</strong> of above</p></li>
-</ul>
-
-<pre><code class="language-go">print (func arg...) (.method arg...)
-</code></pre>
+<p>您可以在这里了解到更详细的关于可能失败的初始化器的内容：<a href="https://developer.apple.com/library/mac/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-XID_339">Swift 编程语言</a></p>
 
         </div>
     </div>

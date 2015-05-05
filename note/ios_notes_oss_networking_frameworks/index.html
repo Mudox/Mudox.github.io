@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> iOS NOTES - NETWORKING OPEN SOURCE FRAMEWORKS &middot; Mudox </title>
+
+    
+    <link rel="stylesheet" href="/lib/normalize/normalize.css">
+    <link rel="stylesheet" href="/lib/mudox_hyde.css">
+
+    
+    
+    <link rel="stylesheet" href="/lib/fonts/fonts.css">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/lib/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <script src="/lib/jquery/jquery.min.js"></script>
+
+    
+    
+    
+    <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css">
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
+
+    
+    <script src="/lib/particles/particles.js"></script>
+
+    
+    
+    
+
+    
+    <link rel="stylesheet" href="/lib/animate/animate.min.css">
+
+  </head>
+
+<body class="theme-base-blue">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js"> </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+
+    <nav id=sidebar-menu>
+      
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="cloud-container">
+      <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
+        
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/chinese">chinese</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/viml">viml</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch">arch</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/win">win</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error">error</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
+        <a href="/tags/awesome">awesome</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/networking">networking</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/tool">tool</a> 
+        <a href="/tags/translation">translation</a> 
+        <a href="/tags/unicode">unicode</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/vocabulary">vocabulary</a> 
+        <a href="/tags/xcode">xcode</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+
+    <div class="sidebar-about sidebar-sticky">
+      <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
+      </div>
+      <p class="lead">
+        My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
+      </p>
+      <p>&copy; 2015. All rights reserved. </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>iOS NOTES - NETWORKING OPEN SOURCE FRAMEWORKS</h1>
+            <span class="post-date">Tue, May 5, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">Use Case #1 - Simple GET Request</a>
+<ul>
+<li><a href="#toc_1">With ASIHTTPRequest</a></li>
+<li><a href="#toc_2">With AFNetworking</a></li>
+<li><a href="#toc_3">With Alamofire</a></li>
+</ul></li>
+<li><a href="#toc_4">Use Case #2 - Simple POST Request</a>
+<ul>
+<li><a href="#toc_5">With ASIHTTPRequest</a></li>
+</ul></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<p>Here records the simple usage that I learned from the 3 well-known open source
+networking frameworks:</p>
+
+<ol>
+<li><p><a href="http/allseeing-i.com/ASIHTTPRequest/">ASIHTTPRequest</a> for Objective-C language</p></li>
+
+<li><p><a href="https/github.com/AFNetworking/AFNetworking">AFNetworking</a> for Objective-C language</p></li>
+
+<li><p><a href="https/github.com/Alamofire/Alamofire">Alamofire</a> for Swift Language</p></li>
+</ol>
+
+<p>All example below are run asynchronously.</p>
+
+<h1 id="toc_0">Use Case #1 - Simple GET Request</h1>
+
+<h2 id="toc_1">With ASIHTTPRequest</h2>
+
+<p>Create &amp; configure request object and emit request.</p>
+
+<ol>
+<li><p>Define a long-standing reference somewhere, e.g. as a property of you view
+controller class.</p></li>
+
+<li><p>Initialize the <code>ASIHTTPRequest</code> instance with target URL string (make sure
+it properly encoded).</p></li>
+
+<li><p>set progress feedback settings if you want them.</p></li>
+
+<li><p>set delegate and emit the request.</p></li>
+</ol>
+
+<pre><code class="language-objc">(IBAction)grabSomethingInBackground: (id)sender {
+// step #1
+//   use Url string to initialize a instance of ASIHTTPRequest
+
+  NSString *strURL = @&quot;....&quot;
+  // better call this method to ensure string is properly encoded.
+  strURL = [strURL stringByAddingPercentEscapesUsingEncodingSUTF8StringEncoding];
+  // request instance should stand as long as possible to cover the whole fetching process
+  self.request = [ASIHTTPRequest requestWithURLtrURL];
+
+// step #2
+//   get download progress feedback
+
+  [self.request setDownloadProgressDelegateelf];
+  self.request.showAccurateProgress = YES;
+  [ASIHTTPRequest setShouldUpdateNetworkActivityIndicator: YES];
+
+// step #3
+// set delegate &amp; emit request ansynchronously
+
+  [self.request setDelegate: self];
+  [self.request startAsynchronous];
+}
+</code></pre>
+
+<p>Implement delegate methods to handle results (succeed or fail).</p>
+
+<ol>
+<li><p>implement <code>requestFinished:</code> delegate methods to fetch response content.</p></li>
+
+<li><p>implement <code>requestFailed:</code> delegate methods to handle failure.</p></li>
+
+<li><p>implement <code>setProgress:</code> delegate methods to report the download progress.</p></li>
+</ol>
+
+<pre><code class="language-objc">#pragma mark - ASIHTTPRequestDelegate
+// request succeeded
+- (void)requestFinished: (ASIHTTPRequest *)request
+{
+  // fetch response content as NSData
+  NSData *data = [request responseData];
+
+  // fetch response content as NSString
+  NSString *str = [request responseString];
+}
+
+// reqeust failed
+- (void)requestFailed: (ASIHTTPRequest *)request
+{
+    NSLog(@&quot;ERROR: %@&quot;, [request.error localizedDescription]);
+}
+
+#pragma mark - ASIProgressDelegate
+- (void)setProgressfloat)newProgress
+{
+  // average download speed in bytes/second
+  unsigned long byte = [ASIHTTPRequest averageBandwidthUsedPerSecond];
+
+  // current completion percent (between 0.0 ~ 1.0) from argument:
+  newProgress;
+}
+
+@end
+</code></pre>
+
+<h2 id="toc_2">With AFNetworking</h2>
+
+<h2 id="toc_3">With Alamofire</h2>
+
+<h1 id="toc_4">Use Case #2 - Simple POST Request</h1>
+
+<h2 id="toc_5">With ASIHTTPRequest</h2>
+
+<p>Same as the &lsquo;Simle GET Request&rsquo; above, excepts:</p>
+
+<ul>
+<li><p>You should initialize a instance of ASIFormDataRequest instead of
+ASIHTTPRequest.</p></li>
+
+<li><p>You set <code>setRequestMethod:</code> with <code>POST</code> parameter to switch to POST request
+type.</p></li>
+
+<li><p>You should call <code>addRequestHeader:</code> methods to add at least <code>Content-Type</code>
+field.</p></li>
+
+<li><p>You should put the query string in URL string into the HTTP request body by
+calling <code>setPostBody</code> method, either in URL query string form or JSON form.</p></li>
+</ul>
+
+<pre><code class="language-objc">// use Url string to initialize a instance of ASIFormDataRequest
+
+  NSString *strURL = @&quot;...&quot;;
+  // better call this method to ensure string is properly encoded.
+  NSURL *strURL = strURL stringByAddingPercentEscapesUsingEncoding: SUTF8StringEncoding];
+
+// set request methods to 'POST'
+
+  [self.formRequest setRequestMethod: &quot;POST&quot;];
+
+// add http pack header &amp; body respectively
+
+  self.formRequest = [ASIFormDataRequest requestWithURL: strURL];
+  [self.formRequest addRequestHeader: &quot;Content-Type&quot; value: &quot;application/x-www-form-urlencoded&quot;];
+
+  // body string in URL query string format
+  NSMutableData *body = [@&quot;type=focus-c&quot; dataUsingEncoding: SUTF8StringEncoding];
+
+  // body string in JSON format
+  // NSMutableData *body = [@&quot;p={\&quot;a\&quot;: ,\&quot;b\&quot;: }&quot; dataUsingEncoding: SUTF8StringEncoding];;
+
+  [self.formRequest setPostBody: NSMutableData*)[body dataUsingEncoding: SUTF8StringEncoding]];
+
+// set delegate &amp; emit request ansynchronously
+
+  [self.formRequest setDelegate: elf];
+  [self.formRequest startAsynchronous];
+</code></pre>
+
+        </div>
+    </div>
+
+        
+    <script src="/lib/mudox.js"></script>
+</body>
+</html>
+
