@@ -169,7 +169,7 @@
 
 <h1 id="toc_0">重定义标识符</h1>
 
-<p>Swift 编译器自动检测出大量的代码错误，其中就包括对一个标识符重复定义两次。</p>
+<p>Swift 编译器能自动检测出大量的代码错误，其中就包括重复定义标识符。</p>
 
 <pre><code class="language-bash">swiftc -
 var x = &quot;The Answer&quot;
@@ -178,7 +178,7 @@ var x = 42
 error: invalid redeclaration of 'x'
 </code></pre>
 
-<p>在非交互式的代码编写场景中，这是合情合理的。但是在 REPL 交互式环境中，应该让用户更加容易的修改之前的代码。我们在 REPL 在设计时考虑到了这些方面：</p>
+<p>在一般的代码编写场景中，这是合情合理的。但是在 REPL 交互式环境中，应该让用户更加容易的修改之前的代码。我们在设计 Swift REPL 时考虑到了这一点：</p>
 
 <pre><code class="language-swfit">  1&gt; var x = &quot;The Answer&quot;
 x: String = &quot;The Answer&quot;
@@ -188,7 +188,7 @@ x: Int = 42
 $R0: Int = 52
 </code></pre>
 
-<p>较近的定义会覆盖所有之前的定义。如上所示，您甚至可以在重复定义中改变变量的类型。重复定义方便您返回的调优您的代码。比如您可以这样开始设计一个递归的函数。</p>
+<p>同一个标识符较近的定义会覆盖所有之前的定义。如上所示，您甚至可以在在下一次重复定义时改变变量的类型。重复定义方便您反复的修改优化您的代码。比如您要设计一个递归的函数：</p>
 
 <pre><code class="language-swfit">  4&gt; func fib(index: Int) -&gt; Int {
   5.   if index &lt;= 1 {
@@ -220,7 +220,7 @@ $R2: Int = 165580141
 
 <h1 id="toc_1">重定义还是重载？</h1>
 
-<p>我们可以在 Swift REPL 中轻松重定义常量，变量，类型。正如上面所见，重定义函数也是很直观的。但是问题来了，函数重定义和函数重载怎么交互呢？REPL 只会覆盖函数名和函数签名相同的函数定义。如果只是函数名相同，但是签名不同，那么只会引入一个函数重载。请记住，在 Swift 中就算两个函数的签名只有返回类型不同，也算是函数重载。比如：</p>
+<p>我们可以在 Swift REPL 中轻松重定义常量，变量，类型还有函数，一切都很直观，方便。但是问题来了，REPL 怎么区分并让函数重定义和函数重载共存能呢？Swift REPL 只会覆盖函数名和函数签名完全都相同的函数定义。如果只是函数名相同而签名不同，那么只会引入一个函数重载。请记住，在 Swift 中就算两个函数的签名只有返回类型不同，也算是函数重载。比如：</p>
 
 <pre><code class="language-swift"> 22&gt; func foo() {
  23.    println(&quot;Foo!&quot;)
@@ -232,7 +232,7 @@ $R2: Int = 165580141
 error: ambiguous use of 'foo'
 </code></pre>
 
-<p>上面的两个函数只有返回类型不同，所以您在调用他们时的上下文必须能让编译器推导出函数具体能返回的类型（从而判断出您要调用的具体是哪个函数）：</p>
+<p>上面的两个函数只有返回类型不同，所以您在调用他们时必须提供足够的上下文让编译器能够推导出被调用的函数具体的返回类型（从而判断出您要调用的到底是哪个函数）：</p>
 
 <pre><code class="language-swift"> 28&gt; var foo: String = foo()
 foo: String = &quot;Foo!&quot;
@@ -242,7 +242,7 @@ Foo!
 
 <h1 id="toc_2">捕捉定义</h1>
 
-<p>尽管 REPL 允许重复定义，但是它只对后续的出现的标识符有效。之前已经被 REPL 编译过的代码行中的标识符引用的都还是之前的定义。这就好像新的定义只是替后面的代码挡住了旧的定义，而不是彻底的擦除了他们。下面的例子展示这个机制具体是如果运作的：</p>
+<p>尽管 REPL 允许重复定义，但是它只对后续出现的标识符有效。而之前已经被 REPL 编译过的那些代码行中的标识符引用的都还是之前的定义。这就好像新的定义只是替后面的代码遮住了旧的定义，而不是彻底的擦除了他们。下面的例子展示这个机制具体是如果运作的：</p>
 
 <pre><code class="language-swfit"> 30&gt; var message = &quot;Hello, World!&quot;
 message: String = &quot;Hello, World!&quot;
@@ -261,11 +261,11 @@ Goodbye
 New Message
 </code></pre>
 
-<p>让我们一行一行的看看到底发生了什么，第 30 行我们定义了一个名为 <code>message</code> 的变量，里面保存的是程序御用问候语。第 31 ~ 33 定义了一个函数 <code>printMessage()</code> ，它打印出第 30 行定义的变量 <code>message</code> 保存的问候语。我们在第 34 行调用了 <code>printMessage()</code> ，问候语被打印出来。到目前为止，一切都很正常。</p>
+<p>让我们一行一行的看看到底发生了什么，第 30 行我们定义了一个名为 <code>message</code> 的变量，里面保存的是程序员御用问候语。第 31 ~ 33 定义了一个函数 <code>printMessage()</code> ，它打印出第 30 行定义的变量 <code>message</code> 保存的问候语。我们在第 34 行调用了 <code>printMessage()</code> ，问候语被打印出来。到目前为止，一切都很正常。</p>
 
-<p>我们在第 35 行对之前在第 30 行定义的 <code>message</code>  变量赋予新值。在第 36 行我们再次调用 <code>printMessage()</code> ，正如我们预期的一样，打印出来的是新赋予的字符串。然后我们在第 37 行重新定义了变量 <code>message</code>，这样就遮住了之前的定义，让后面的代码只能看到 <code>message</code> 的新的定义。但是我们在 38 调用的时 <code>printMessage()</code> 函数, 它使在对 <code>message</code> 重新定义之前定义的，它保留的是 <code>message</code> 之前的定义，因此打印还是之前的字符串。 而在第 39 行，我们敲入的是新代码，它引用的自然就是重定义之后的 <code>message</code>。</p>
+<p>接着我们在第 35 行对之前在第 30 行定义的 <code>message</code>  变量赋予新值。在第 36 行我们再次调用 <code>printMessage()</code> ，和我们预期的一样，打印出来的是新赋予的字符串。然后我们在第 37 行重新定义了变量 <code>message</code>，这样就遮住了之前的定义，让后面的代码只能看到 <code>message</code> 的新的定义。但是我们在 38 调用的是 <code>printMessage()</code> 函数, 它恰恰是在重定义 <code>message</code> 之前定义的，因此它保留的是 <code>message</code> 之前的定义，打印还是之前的字符串。 而在第 39 行，我们敲入的是新代码，它引用的自然就是重定义之后的 <code>message</code>。</p>
 
-<p>无论是函数，变量还是类型，他们在 REPL 中的重定义机制都是如此。尽管 REPL 能让您轻松的重定义标识符，但是重定义之前的被编译了的引用不会再改变。如果上面的 <code>message</code> 被重定义为一个类型而非变量会发生什么情况呢？<code>printMessage</code> 将不会再编译（这和我的实验不符，message 函数依然能被调用，打印的时之前的值）。与其每每碰到边界情况时没完没了的询问用户该怎么做，Swift REPL 坚持自我一致的世界观。</p>
+<p>无论是函数，变量还是类型，他们在 REPL 中的重定义机制都是如此。尽管 REPL 能让您轻松的重定义标识符，但是重定义之前的被编译了的引用不会再改变。如果上面的 <code>message</code> 被重定义为一个类型而非变量会发生什么情况呢？<code>printMessage</code> 将不会再编译（这和我的实验不符，message 函数依然能被调用，打印的是之前的值）。与其每每碰到边界情况时没完没了的询问用户该怎么做，Swift REPL 努力坚持一个自我一致的世界观。</p>
 
         </div>
     </div>
