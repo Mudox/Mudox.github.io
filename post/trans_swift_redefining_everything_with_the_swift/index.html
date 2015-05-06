@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> Swift 官博文章翻译 - Swift REPL 的重定义特性 &middot; Mudox </title>
+
+    
+    <link rel="stylesheet" href="/lib/normalize/normalize.css">
+    <link rel="stylesheet" href="/lib/mudox_hyde.css">
+
+    
+    
+    <link rel="stylesheet" href="/lib/fonts/fonts.css">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/lib/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <script src="/lib/jquery/jquery.min.js"></script>
+
+    
+    
+    
+    <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css">
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
+
+    
+    <script src="/lib/particles/particles.js"></script>
+
+    
+    
+    
+
+    
+    <link rel="stylesheet" href="/lib/animate/animate.min.css">
+
+  </head>
+
+<body class="theme-base-blue">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js"> </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+
+    <nav id=sidebar-menu>
+      
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="cloud-container">
+      <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
+        
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/chinese">chinese</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/viml">viml</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch">arch</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/win">win</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error">error</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
+        <a href="/tags/awesome">awesome</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/networking">networking</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/tool">tool</a> 
+        <a href="/tags/translation">translation</a> 
+        <a href="/tags/unicode">unicode</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/vocabulary">vocabulary</a> 
+        <a href="/tags/xcode">xcode</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+
+    <div class="sidebar-about sidebar-sticky">
+      <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
+      </div>
+      <p class="lead">
+        My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
+      </p>
+      <p>&copy; 2015. All rights reserved. </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>Swift 官博文章翻译 - Swift REPL 的重定义特性</h1>
+            <span class="post-date">Wed, May 6, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#toc_0">重定义标识符</a></li>
+<li><a href="#toc_1">重定义还是重载？</a></li>
+<li><a href="#toc_2">捕捉定义</a></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=20">Redefining Everything with Swift REPL</a></p>
+
+<p>译者：Mudox</p>
+
+<p>我们的之前的<a href="/post/translation_swift_introduction_to_the_swift_repl/">第一篇关于 Swift REPL 的文章</a>只是简单的介绍了如何利用 REPL 来帮助您学习 Swift 语言的。本文将详细介绍 REPL 是如果绕过一些常规的语言编写规则来协助您开发 Swift 应用的。</p>
+
+<h1 id="toc_0">重定义标识符</h1>
+
+<p>Swift 编译器自动检测出大量的代码错误，其中就包括对一个标识符重复定义两次。</p>
+
+<pre><code class="language-bash">swiftc -
+var x = &quot;The Answer&quot;
+var x = 42
+^D
+error: invalid redeclaration of 'x'
+</code></pre>
+
+<p>在非交互式的代码编写场景中，这是合情合理的。但是在 REPL 交互式环境中，应该让用户更加容易的修改之前的代码。我们在 REPL 在设计时考虑到了这些方面：</p>
+
+<pre><code class="language-swfit">  1&gt; var x = &quot;The Answer&quot;
+x: String = &quot;The Answer&quot;
+  2&gt; var x = 42
+x: Int = 42
+  3&gt; x + 10
+$R0: Int = 52
+</code></pre>
+
+<p>较近的定义会覆盖所有之前的定义。如上所示，您甚至可以在重复定义中改变变量的类型。重复定义方便您返回的调优您的代码。比如您可以这样开始设计一个递归的函数。</p>
+
+<pre><code class="language-swfit">  4&gt; func fib(index: Int) -&gt; Int {
+  5.   if index &lt;= 1 {
+  6.     return 1
+  7.   }
+  8.   return fib(index - 1) + fib(index - 2)
+  9. }
+ 10&gt; fib(40)
+$R1: Int = 165580141
+</code></pre>
+
+<p>这是只是这个函数的其中一种实现。在 REPL 中您可以尽情的试验用其他的算法或者 API 来实现您的函数：</p>
+
+<pre><code class="language-swift"> 11&gt; func fib(index: Int) -&gt; Int {
+ 12.   var lastValue = 1
+ 13.   var currentValue = 1
+ 14.   for var iteration = 2; iteration &lt;= index; ++iteration {
+ 15.     let newValue = lastValue + currentValue
+ 16.     lastValue = currentValue
+ 17.     currentValue = newValue
+ 18.   }
+ 19.   return currentValue
+ 20. }
+ 21&gt; fib(40)
+$R2: Int = 165580141
+</code></pre>
+
+<p>直接把上面的重复的函数定义敲入 REPL 中，<code>fib</code> 函数的定义就会被 REPL 更新。这是只是一个很简单的例子，但是它展示了 REPL 是如果方便您反复试验并改进代码的。</p>
+
+<h1 id="toc_1">重定义还是重载？</h1>
+
+<p>我们可以在 Swift REPL 中轻松重定义常量，变量，类型。正如上面所见，重定义函数也是很直观的。但是问题来了，函数重定义和函数重载怎么交互呢？REPL 只会覆盖函数名和函数签名相同的函数定义。如果只是函数名相同，但是签名不同，那么只会引入一个函数重载。请记住，在 Swift 中就算两个函数的签名只有返回类型不同，也算是函数重载。比如：</p>
+
+<pre><code class="language-swift"> 22&gt; func foo() {
+ 23.    println(&quot;Foo!&quot;)
+ 24. }
+ 25&gt; func foo() -&gt; String {
+ 26.    return &quot;Foo!&quot;
+ 27. }
+ 28&gt; foo()
+error: ambiguous use of 'foo'
+</code></pre>
+
+<p>上面的两个函数只有返回类型不同，所以您在调用他们时的上下文必须能让编译器推导出函数具体能返回的类型（从而判断出您要调用的具体是哪个函数）：</p>
+
+<pre><code class="language-swift"> 28&gt; var foo: String = foo()
+foo: String = &quot;Foo!&quot;
+ 29&gt; foo() as Void
+Foo!
+</code></pre>
+
+<h1 id="toc_2">捕捉定义</h1>
+
+<p>尽管 REPL 允许重复定义，但是它只对后续的出现的标识符有效。之前已经被 REPL 编译过的代码行中的标识符引用的都还是之前的定义。这就好像新的定义只是替后面的代码挡住了旧的定义，而不是彻底的擦除了他们。下面的例子展示这个机制具体是如果运作的：</p>
+
+<pre><code class="language-swfit"> 30&gt; var message = &quot;Hello, World!&quot;
+message: String = &quot;Hello, World!&quot;
+ 31&gt; func printMessage() {
+ 32.    println(message)
+ 33. }
+ 34&gt; printMessage()
+Hello, World!
+ 35&gt; message = &quot;Goodbye&quot;
+ 36&gt; printMessage()
+Goodbye
+ 37&gt; var message = &quot;New Message&quot;
+ 38&gt; printMessage()
+Goodbye
+ 39&gt; println(message)
+New Message
+</code></pre>
+
+<p>让我们一行一行的看看到底发生了什么，第 30 行我们定义了一个名为 <code>message</code> 的变量，里面保存的是程序御用问候语。第 31 ~ 33 定义了一个函数 <code>printMessage()</code> ，它打印出第 30 行定义的变量 <code>message</code> 保存的问候语。我们在第 34 行调用了 <code>printMessage()</code> ，问候语被打印出来。到目前为止，一切都很正常。</p>
+
+<p>我们在第 35 行对之前在第 30 行定义的 <code>message</code>  变量赋予新值。在第 36 行我们再次调用 <code>printMessage()</code> ，正如我们预期的一样，打印出来的是新赋予的字符串。然后我们在第 37 行重新定义了变量 <code>message</code>，这样就遮住了之前的定义，让后面的代码只能看到 <code>message</code> 的新的定义。但是我们在 38 调用的时 <code>printMessage()</code> 函数, 它使在对 <code>message</code> 重新定义之前定义的，它保留的是 <code>message</code> 之前的定义，因此打印还是之前的字符串。 而在第 39 行，我们敲入的是新代码，它引用的自然就是重定义之后的 <code>message</code>。</p>
+
+<p>无论是函数，变量还是类型，他们在 REPL 中的重定义机制都是如此。尽管 REPL 能让您轻松的重定义标识符，但是重定义之前的被编译了的引用不会再改变。如果上面的 <code>message</code> 被重定义为一个类型而非变量会发生什么情况呢？<code>printMessage</code> 将不会再编译（这和我的实验不符，message 函数依然能被调用，打印的时之前的值）。与其每每碰到边界情况时没完没了的询问用户该怎么做，Swift REPL 坚持自我一致的世界观。</p>
+
+        </div>
+    </div>
+
+        
+    <script src="/lib/mudox.js"></script>
+</body>
+</html>
+
