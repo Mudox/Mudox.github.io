@@ -147,6 +147,221 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/post/translation_swift_optionals_case_study_valuesforkeys/">
+            Swift 官博文章翻译 - 可为空类型案例分析：valueForKeys
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, May 8, 2015</span>
+
+        
+
+<p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=12">Optionals Case Study: valuesFoyKeys</a></p>
+
+<p>译者：Mudox</p>
+
+<p>本文我们将探索下可为空类型（optionals）是如果帮助 Swift 保持类型安全的。我将创建一个 Ojbective-C API 的 Swift 版本。尽管在 Swift 我们并不需要用到它，但是它确实一个有趣的例子。</p>
+
+<p>在 Objective-C 中，<code>NSDictionary</code> 类有一个方法 <code>objectsForKeys:notFoundMarker</code>，它接受一个 <code>NSArray</code> 参数，您把要查询的键值对的键放进去，它会就把对应的值存放进另一个 <code>NSArray</code> 中返回。文档上说，返回的数组中的值和您存入到数组中的键是一一对应的。但是如果其中一个键在字典里没有对应的值呢？所以我们还需要传入另一个参数 <code>notFoundMarker</code>。对于那些在字典中没有对应值的键，<code>objectsForKeys:notFoundMarker</code> 会在返回的数组中用 <code>notFoundMarker</code> 的值来填补空位。Foundation 框架甚至为我们预定义好了一个专门表示空值的类： <code>NSNull</code>。</p>
+
+<p>在 Swift 中 <code>Dictionary</code> 类型并没有提供与 <code>objectsForKeys</code> 对应的方法。下面我们将要通过延展来给 <code>Dictionary</code> 类型添加这个方法。</p>
+
+<pre><code class="language-swift">extension Dictionary {
+  func valuesForKeys(keys: [K], notFoundMarker: V) -&gt; [V] {
+    // To be implemented
+  }
+}
+</code></pre>
+
+<p>Swif 与 Objective-C 不同，它有很严格的类型检查。因此上面的方法返回的数组只能存放一种类型，所以不能用放入 <code>NSNull</code> 来表示空值。但是 Swift 提供了更好的解决方法：我们可以返回一组可为空值，所有的值被包裹进可为空值里。这样我们就能直接用 <code>nil</code> 来表示空值了。</p>
+
+<pre><code class="language-swift">extension Dictionary {
+  func valuesForKeys(keys: [Key]) -&gt; [Value?] {
+    var result = [Value?]()
+    result.reserveCapacity(keys.count)
+    for key in keys {
+      result.append(self[key])
+    }
+    return result
+  }
+}
+</code></pre>
+
+<p>你们可能已经想到为什么 Swift 的 <code>Dictionary</code> 不提供 <code>objectsForKeys</code> 方法了，因为我们可以用如下简短的代码，达到同样的效果：</p>
+
+<pre><code class="language-swift">extension Dictionary {
+  func valuesForKeys(keys: [Key]) -&gt; [Value?] {
+    return keys.map { self[$0] }
+  }
+}
+</code></pre>
+
+<p>这就是为什么 Swift 类型总是比他们的 Objective-C 里的对应的类型提供的 API 要少很多的原因：通过 <code>map</code> 方法，我们可以轻松完成各种旧 API 的工作，而且有更多可能性。</p>
+
+<p>现在我们来试用一下上面定义的 <code>objectsForKeys</code> 方法：</p>
+
+<pre><code class="language-swift">let dict = [&quot;A&quot;: &quot;Amir&quot;, &quot;B&quot;: &quot;Bertha&quot;, &quot;C&quot;: &quot;Ching&quot;]
+
+dict.valuesForKeys([&quot;A&quot;, &quot;C&quot;])
+// [Optional(&quot;Amir&quot;), Optional(&quot;Ching&quot;)]
+
+dict.valuesForKeys([&quot;B&quot;, &quot;D&quot;])
+// [Optional(&quot;Bertha&quot;), nil]
+
+dict.valuesForKeys([])
+// []
+</code></pre>
+
+<h1 id="toc_0">可为空值嵌套</h1>
+
+<p>现在我们修改一下上面的代码，在每行后面加个 <code>.last</code>， 去结果集的最后一个元素：</p>
+
+<pre><code class="language-swift">dict.valuesForKeys([&quot;A&quot;, &quot;C&quot;]).last
+// Optional(Optional(&quot;Ching&quot;))
+
+dict.valuesForKeys([&quot;B&quot;, &quot;D&quot;]).last
+// Optional(nil)
+
+dict.valuesForKeys([]).last
+// nil
+</code></pre>
+
+<p>奇怪了，第一行代码返回了两个嵌套的可为空值。第二为 <code>Optional(nil)</code>。这是怎么回事呢？</p>
+
+<p>还记得 <code>.last</code> 的定义么：</p>
+
+<pre><code class="language-swift">var last: T? { get }
+</code></pre>
+
+<p><code>last</code> 是一个计算属性，其类型是可为空的元素类型。由于上面的 <code>objectsForKeys</code> 放回的数组的元素本身也是可为空类型，所以我们得到就是嵌套的可为空类型了。</p>
+
+<p>那么 <code>Optional(nil)</code> 又是什么意思呢：</p>
+
+<p>我们知道 Objective-C 中我们需要用 <code>NSNull</code> 来作为空值占位符。上面代码的 Objective-C 版本应该是：</p>
+
+<pre><code class="language-objc">[dict valuesForKeys:@[@&quot;A&quot;, @&quot;C&quot;] notFoundMarker:[NSNull null]].lastObject
+// @&quot;Ching&quot;
+
+[dict valuesForKeys:@[@&quot;B&quot;, @&quot;D&quot;] notFoundMarker:[NSNull null]].lastObject
+// NSNull
+
+[dict valuesForKeys:@[] notFoundMarker:[NSNull null]].lastObject
+// nil
+</code></pre>
+
+<p>不管是在 Swift 中还是 Objective-C 中，返回 <code>nil</code> 都表示中间结果集为空，因为空集没有最后元素。当 Swift 的版本返回 <code>Optional(nil)</code> （或者 Objective-C 版本返回 <code>NSNull</code> ）时，这表示中间结果集里是有元素的，只是这个元素表示空值。Objective-C 必须预定义一个类型 <code>NSNull</code> 来表示空值，而 Swift 的类型系统直接就能表示它。</p>
+
+<h1 id="toc_1">提供默认值</h1>
+
+<p>最后，如果您依然想用其他的值来替代字典中确实的值呢？很容易：</p>
+
+<pre><code class="language-swift">extension Dictionary {
+  func valuesForKeys(keys: [Key], notFoundMarker: Value) -&gt; [Value] {
+    return self.valuesForKeys(keys).map { $0 ?? notFoundMarker }
+  }
+}
+</code></pre>
+
+<p>Swift 的类型系统提供了丰富语法支持来处理一可为空类型返回的结果，而不用像 Objective-C 那样要定义一个类型来作为占位符。</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/post/translation_swift_what_happened_to_nsmethodsiganiture/">
+            Swift 官博文章翻译 - NSMethodSiganiture 发生了什么？
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, May 6, 2015</span>
+
+        <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=19">What Happened to NSMethodSiganiture?</a></p>
+
+<p>译者：Mudox</p>
+
+<p>将 Cocoa 框架引入 Swift 语言带给我们一个独一无二的机会，让我们能从一个全新的角度重新审视之前的 APIs 的合理性。我们发现，多数是由于 Swift 对安全性的要求，Cocoa 框架中的一些 API 不能很好的适应 Swift。那些与动态方法调用有关的的类无法导入到 Swift 中，比如 <code>NSInvocation</code>，<code>NSMethodSiganiture</code>。</p>
+
+<p>我们最近收到了一个开发人员的 bug 报告，他试图把他的的代码移植到 Swift，打算使用 <code>NSMethodSiganiture</code> 来检视方法实参的类型，结果发现 <code>NSMethodSiganiture</code> 并没有导入到 Swift 中。他要移植的代码需要接受不同签名的 HTTP 处理函数，比如：</p>
+
+<pre><code class="language-swift">func handleRequest(request: HTTPRequest, queryStringArguments: [String: String]) { }
+func handleRequest(request: HTTPRequest, jsonBody: JSON) { }
+</code></pre>
+
+<p>在 Objective-C 中，可以用 <code>NSMethodSiganiture</code> 判断出第一个方法需要 <code>[String: String]</code> 作为实参，而第二个方法则需要 <code>JSON</code> 值。而 Swift 的功能十分强大，无需 <code>NSMethodSiganiture</code>，也不会违反编译器提供类型和内存安全性规则就能轻松处理好此类情况。下面的代码用 Swift 的方式来解决上面的问题：</p>
+
+<pre><code class="language-swift">struct HTTPRequest {
+  // ...
+}
+
+protocol HTTPHandlerType {
+  typealias Data
+
+  /// :returns: true if the request was handled; false otherwise
+  func handle(request: HTTPRequest, data: Data) -&gt; Bool
+}
+</code></pre>
+
+<p>我们首先声明一个协议定义处理 HTTP 请求需要满足的接口。这个协议非常简单，只有一个方法。</p>
+
+<p>为什么不子类型化 <code>HTTPHandler</code> 呢，因为使用协议能提供更大灵活性，由用户来决定用什么来实现。如果我们定义的时一个 <code>HTTPHandler</code> 类，那么就会要求用户只能使用类类型，强迫他们使用引用类型。反之使用协议的换，用户可以自用的决定用什么来实现协议，用类，结构体甚至是枚举类型都可以。</p>
+
+<pre><code class="language-swift">class HTTPServer {
+  func addHandler&lt;T: HTTPHandlerType&gt;(handler: T) {
+    handlers.append { (request: HTTPRequest, args: Any) -&gt; Bool in
+      if let typedArgs = args as? T.Data {
+        return handler.handle(request, data: typedArgs)
+      }
+      return false
+    }
+  }
+
+  // ...
+}
+</code></pre>
+
+<p>然后我们定义一个 <code>HTTPServer</code> 类，给它添加一个泛型方法，接受一个遵守 <code>HTTPHandlerType</code> 协议的类型参数。有了这个关联的类型参数，我们就可以通过对传入的请求数据执行条件化的向下转化来判断某个处理函数是否能处理此类数据。这就是定义协议的好处，<code>HTTPServer</code> 不需要知道处理器如何处理数据，甚至不需要知道它的具体类型。它只需确认这个对象有处理请求的能力（接口）就好了。</p>
+
+<pre><code class="language-swift">class HTTPServer {
+  // ...
+
+  private var handlers: [(HTTPRequest, Any) -&gt; Bool] = []
+
+  func dispatch(req: HTTPRequest, args: Any) -&gt; Bool {
+    for handler in handlers {
+      if handler(req, args) {
+        return true
+      }
+    }
+    return false
+  }
+}
+</code></pre>
+
+<p>当我们的 <code>HTTPServer</code> 需要处理请求是，它只需便利我们的请求处理对象，看哪个能处理传入的请求和数据。</p>
+
+<p>现在我们就可以轻松的创建处理各式各样类型数据的请求处理对象，并把他们注册到 <code>HTTPServer</code> 上。</p>
+
+<pre><code class="language-swift">class MyHandler : HTTPHandlerType {
+  func handle(request: HTTPRequest, data: Int) -&gt; Bool {
+    return data &gt; 5
+  }
+}
+
+let server = HTTPServer()
+server.addHandler(MyHandler())
+server.dispatch(HTTPRequest(...), args: &quot;x&quot;) // returns false
+server.dispatch(HTTPRequest(...), args: 5)   // returns false
+server.dispatch(HTTPRequest(...), args: 10)  // returns true
+</code></pre>
+
+<p>通过配合使用协议和泛型，我们可以用 Swift 优雅的定义处理各式各样数据类型的 HTTP 请求对象。同时也不会破坏编译器已有的安全性规则，并获得出色的运行时表现。</p>
+
+<p>您可以下载本文完整的示例代码，我们把它放在了一个 <a href="https://developer.apple.com/swift/blog/downloads/Request.zip">Swift Playground</a> 中。</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/post/translation_swift_redefining_everything_with_the_swift/">
             Swift 官博文章翻译 - Swift REPL 的重定义特性
           </a>
@@ -261,100 +476,6 @@ New Message
 <p>接着我们在第 35 行对之前在第 30 行定义的 <code>message</code>  变量赋予新值。在第 36 行我们再次调用 <code>printMessage()</code> ，和我们预期的一样，打印出来的是新赋予的字符串。然后我们在第 37 行重新定义了变量 <code>message</code>，这样就遮住了之前的定义，让后面的代码只能看到 <code>message</code> 的新的定义。但是我们在 38 调用的是 <code>printMessage()</code> 函数, 它恰恰是在重定义 <code>message</code> 之前定义的，因此它保留的是 <code>message</code> 之前的定义，打印还是之前的字符串。 而在第 39 行，我们敲入的是新代码，它引用的自然就是重定义之后的 <code>message</code>。</p>
 
 <p>无论是函数，变量还是类型，他们在 REPL 中的重定义机制都是如此。尽管 REPL 能让您轻松的重定义标识符，但是重定义之前的被编译了的引用不会再改变。如果上面的 <code>message</code> 被重定义为一个类型而非变量会发生什么情况呢？<code>printMessage</code> 将不会再编译（这和我的实验不符，message 函数依然能被调用，打印的是之前的值）。与其每每碰到边界情况时没完没了的询问用户该怎么做，Swift REPL 努力坚持一个自我一致的世界观。</p>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/post/translation_swift_what_happened_to_nsmethodsiganiture/">
-            Swift 官博文章翻译 - NSMethodSiganiture 发生了什么？
-          </a>
-        </h1>
-
-        <span class="post-date">Wed, May 6, 2015</span>
-
-        <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=19">What Happened to NSMethodSiganiture?</a></p>
-
-<p>译者：Mudox</p>
-
-<p>将 Cocoa 框架引入 Swift 语言带给我们一个独一无二的机会，让我们能从一个全新的角度重新审视之前的 APIs 的合理性。我们发现，多数是由于 Swift 对安全性的要求，Cocoa 框架中的一些 API 不能很好的适应 Swift。那些与动态方法调用有关的的类无法导入到 Swift 中，比如 <code>NSInvocation</code>，<code>NSMethodSiganiture</code>。</p>
-
-<p>我们最近收到了一个开发人员的 bug 报告，他试图把他的的代码移植到 Swift，打算使用 <code>NSMethodSiganiture</code> 来检视方法实参的类型，结果发现 <code>NSMethodSiganiture</code> 并没有导入到 Swift 中。他要移植的代码需要接受不同签名的 HTTP 处理函数，比如：</p>
-
-<pre><code class="language-swift">func handleRequest(request: HTTPRequest, queryStringArguments: [String: String]) { }
-func handleRequest(request: HTTPRequest, jsonBody: JSON) { }
-</code></pre>
-
-<p>在 Objective-C 中，可以用 <code>NSMethodSiganiture</code> 判断出第一个方法需要 <code>[String: String]</code> 作为实参，而第二个方法则需要 <code>JSON</code> 值。而 Swift 的功能十分强大，无需 <code>NSMethodSiganiture</code>，也不会违反编译器提供类型和内存安全性规则就能轻松处理好此类情况。下面的代码用 Swift 的方式来解决上面的问题：</p>
-
-<pre><code class="language-swift">struct HTTPRequest {
-  // ...
-}
-
-protocol HTTPHandlerType {
-  typealias Data
-
-  /// :returns: true if the request was handled; false otherwise
-  func handle(request: HTTPRequest, data: Data) -&gt; Bool
-}
-</code></pre>
-
-<p>我们首先声明一个协议定义处理 HTTP 请求需要满足的接口。这个协议非常简单，只有一个方法。</p>
-
-<p>为什么不子类型化 <code>HTTPHandler</code> 呢，因为使用协议能提供更大灵活性，由用户来决定用什么来实现。如果我们定义的时一个 <code>HTTPHandler</code> 类，那么就会要求用户只能使用类类型，强迫他们使用引用类型。反之使用协议的换，用户可以自用的决定用什么来实现协议，用类，结构体甚至是枚举类型都可以。</p>
-
-<pre><code class="language-swift">class HTTPServer {
-  func addHandler&lt;T: HTTPHandlerType&gt;(handler: T) {
-    handlers.append { (request: HTTPRequest, args: Any) -&gt; Bool in
-      if let typedArgs = args as? T.Data {
-        return handler.handle(request, data: typedArgs)
-      }
-      return false
-    }
-  }
-
-  // ...
-}
-</code></pre>
-
-<p>然后我们定义一个 <code>HTTPServer</code> 类，给它添加一个泛型方法，接受一个遵守 <code>HTTPHandlerType</code> 协议的类型参数。有了这个关联的类型参数，我们就可以通过对传入的请求数据执行条件化的向下转化来判断某个处理函数是否能处理此类数据。这就是定义协议的好处，<code>HTTPServer</code> 不需要知道处理器如何处理数据，甚至不需要知道它的具体类型。它只需确认这个对象有处理请求的能力（接口）就好了。</p>
-
-<pre><code class="language-swift">class HTTPServer {
-  // ...
-
-  private var handlers: [(HTTPRequest, Any) -&gt; Bool] = []
-
-  func dispatch(req: HTTPRequest, args: Any) -&gt; Bool {
-    for handler in handlers {
-      if handler(req, args) {
-        return true
-      }
-    }
-    return false
-  }
-}
-</code></pre>
-
-<p>当我们的 <code>HTTPServer</code> 需要处理请求是，它只需便利我们的请求处理对象，看哪个能处理传入的请求和数据。</p>
-
-<p>现在我们就可以轻松的创建处理各式各样类型数据的请求处理对象，并把他们注册到 <code>HTTPServer</code> 上。</p>
-
-<pre><code class="language-swift">class MyHandler : HTTPHandlerType {
-  func handle(request: HTTPRequest, data: Int) -&gt; Bool {
-    return data &gt; 5
-  }
-}
-
-let server = HTTPServer()
-server.addHandler(MyHandler())
-server.dispatch(HTTPRequest(...), args: &quot;x&quot;) // returns false
-server.dispatch(HTTPRequest(...), args: 5)   // returns false
-server.dispatch(HTTPRequest(...), args: 10)  // returns true
-</code></pre>
-
-<p>通过组合使用协议和泛型，我们可以用 Swift 优雅的定义处理各式各样数据类型的 HTTP 请求对象。同时也不会破坏编译器施加的安全性规则，并获得出色的运行时表现。</p>
-
-<p>您可以下载本文完整的示例代码，我们把它放在了一个 <a href="https://developer.apple.com/swift/blog/downloads/Request.zip">Swift Playground</a> 中。</p>
 
       </div>
       
