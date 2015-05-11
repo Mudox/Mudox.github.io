@@ -176,11 +176,11 @@
 <p>我们可以在 Swift 的初始化器声明后加上 <code>!</code> 或者 <code>?</code> 后缀来表示该初始化过程会返回可为空值，且具体是那种可为空类型。比我们可以对 <code>Int</code> 类型增加一个可能失败的初始化器以尝试将从一个字符串中初始化出一个整形值来：</p>
 
 <pre><code class="language-swift">extension Int {
-  init?(fromString: String) { 
+  init?(fromString: String) {
     if let i = fromString.toInt() {
       // Initialize
       self = i
-    } else { 
+    } else {
       // return nil, discarding self is implied
       return nil
     }
@@ -200,7 +200,7 @@
 
   // implicitly synthesized
   init?(rawValue: Int) {
-    switch rawValue { 
+    switch rawValue {
       case 0: self = .Red
       case 1: self = .Green
       case 2: self = .Blue

@@ -966,11 +966,11 @@ calling <code>setPostBody</code> method, either in URL query string form or JSON
 <p>我们可以在 Swift 的初始化器声明后加上 <code>!</code> 或者 <code>?</code> 后缀来表示该初始化过程会返回可为空值，且具体是那种可为空类型。比我们可以对 <code>Int</code> 类型增加一个可能失败的初始化器以尝试将从一个字符串中初始化出一个整形值来：</p>
 
 <pre><code class="language-swift">extension Int {
-  init?(fromString: String) { 
+  init?(fromString: String) {
     if let i = fromString.toInt() {
       // Initialize
       self = i
-    } else { 
+    } else {
       // return nil, discarding self is implied
       return nil
     }
@@ -990,7 +990,7 @@ calling <code>setPostBody</code> method, either in URL query string form or JSON
 
   // implicitly synthesized
   init?(rawValue: Int) {
-    switch rawValue { 
+    switch rawValue {
       case 0: self = .Red
       case 1: self = .Green
       case 2: self = .Blue
@@ -1442,7 +1442,7 @@ d as Animal             // upcast succeeds
 <p>在声明可为空类型时：</p>
 
 <ul>
-<li><p><code>!</code> 后缀声明一个隐式拆箱的可为空类型（implicitly unwrapped optional）</p></li>
+<li><p><code>!</code> 类型后缀声明一个隐式拆箱的可为空类型（implicitly unwrapped optional）</p></li>
 
 <li><p><code>?</code> 类型后缀声明一个普通的可为空类型（optional）</p></li>
 </ul>
@@ -1482,14 +1482,14 @@ animal as! Dog  // triggers a runtime error
 <p>Here records my sorting after watching progressively, mainly about the order and prerequisites of watching part of them.</p>
 
 <ul>
-<li><p><strong>About View</strong></p>
+<li><p><strong>View</strong></p>
 
 <ol>
 <li>◉ - Introducing Collection View (2012)</li>
 <li>◎ - Advanced Collection Views and Building Custom Layouts (2012)</li>
 </ol></li>
 
-<li><p><strong>About View Controllers</strong></p>
+<li><p><strong>View Controllers</strong></p>
 
 <ol>
 <li>◑ - Custom Transitions Using View Controllers (2013)</li>
@@ -1499,7 +1499,7 @@ animal as! Dog  // triggers a runtime error
 <li>◉ - A Look Inside Presentation Controllers (2014)</li>
 </ol></li>
 
-<li><p><strong>About Transitions</strong></p>
+<li><p><strong>Transitions</strong></p>
 
 <ol>
 <li>◎ - Best Practices for Cocoa Animation (2013)</li>
@@ -1509,16 +1509,25 @@ animal as! Dog  // triggers a runtime error
 <li>◎ - Advanced Techniques with UIKit Dynamics (2013)</li>
 </ol></li>
 
-<li><p><strong>About Auto-Layout</strong></p>
+<li><p><strong>Auto-Layout</strong></p>
 
 <ol>
-<li>◎ - Introduction to Auto Layout for iOS and OS X (2012)</li>
+<li>◉ - Introduction to Auto Layout for iOS and OS X (2012)</li>
+<li>◎ - Best Practices for Mastering Auto Layout (2012)</li>
+<li>◎ - Auto Layout by Examples (2012)</li>
+<li>◎ - The Evolution of View Controllers on iOS (2012)</li>
 <li>◎ - Taking Control of Auto Layout in Xcode 5 (2012)</li>
 </ol></li>
 
-<li><p><strong>About Objective-C</strong></p></li>
+<li><p><strong>Networking</strong></p>
 
-<li><p><strong>About Swift</strong></p>
+<ol>
+<li>◑ - Networking Best Practices (2012)</li>
+</ol></li>
+
+<li><p><strong>Objective-C</strong></p></li>
+
+<li><p><strong>Swift</strong></p>
 
 <p>see <a href="https://developer.apple.com/swift/resources/">Swift Resources Page</a></p>
 
@@ -1533,9 +1542,9 @@ animal as! Dog  // triggers a runtime error
 <li>◎  - Advanced Swift Debugging in LLDB</li>
 </ol></li>
 
-<li><p><strong>About Text &amp; Font</strong></p></li>
+<li><p><strong>Text &amp; Font</strong></p></li>
 
-<li><p><strong>About The Developing Tools</strong></p>
+<li><p><strong>The Developing Tools</strong></p>
 
 <ol>
 <li>◎  - Xcode Core Concepts (2013)</li>
