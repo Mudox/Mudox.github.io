@@ -757,31 +757,53 @@ networking frameworks:</p>
 
 <h2 id="toc_1">1.1 With ASIHTTPRequest</h2>
 
-<p>ASIHTTPRequest provides 3 ways to handle responses:</p>
-
-<ol>
-<li><p>completion handler selector</p></li>
-
-<li><p>completion handler block</p></li>
-
-<li><p>delegate</p></li>
-</ol>
-
-<h3 id="toc_2">Using delegation</h3>
-
 <p>Create &amp; configure request object and emit request.</p>
 
 <ol>
-<li><p>Define a long-standing reference somewhere, e.g. as a property of you view
-controller class.</p></li>
+<li><p>create <code>ASIHTTPRequest</code> isntance with an <code>NSURL</code>.</p></li>
 
-<li><p>Initialize the <code>ASIHTTPRequest</code> instance with target URL string (make sure
-it properly encoded).</p></li>
+<li><p>set progress feedback settings if you want.</p>
 
-<li><p>set progress feedback settings if you want them.</p></li>
+<p><code>ASIHTTPRequest</code> provides uploading &amp; downloading progress reporting by
+default. You can simply assign an <code>UIProgressView</code> or <code>NSProgress</code> instance
+object to them respectively.</p></li>
 
-<li><p>set delegate and emit the request.</p></li>
+<li><p>choose and set response handling scheme:</p>
+
+<p>ASIHTTPRequest provides 3 ways to handle responses:</p>
+
+<ol>
+<li><p>delegation pattern</p>
+
+<p>you delegate object must implement the required methods.</p></li>
 </ol>
+
+<pre><code class="language-objc">  - (void)requestFinished:(ASIHTTPRequest *)request
+  - (void)requestFailed:(ASIHTTPRequest *)request
+</code></pre>
+
+<ol>
+<li><p>target + selector pattern</p>
+
+<p>you are free to implement more than one methods for a events and name
+  them arbitrarily.</p></li>
+</ol>
+
+<pre><code class="language-objc">  @property (assign) SEL didFinishSelector;
+  @property (assign) SEL didFailSelector;
+</code></pre>
+
+<ol>
+<li><p>block</p>
+
+<p>you get a succinct codebase, but should be aware of retain-circle
+  issue.</p></li>
+</ol></li>
+
+<li><p>start loading</p></li>
+</ol>
+
+<h3 id="toc_2">Using delegation</h3>
 
 <pre><code class="language-objc">- (IBAction)grabSomethingInBackground: (id)sender {
 // step #1
@@ -892,7 +914,10 @@ will be ignored.</p>
 <h2 id="toc_4">1.2 With AFNetworking</h2>
 
 <ol>
-<li><p>Gain the singleton manager.</p></li>
+<li><p>create a manager instance.</p>
+
+<p>the <code>AFHTTPRequestOperationManager</code> class holds global settings for
+subsequently created instances.</p></li>
 
 <li><p>invode GET method &amp; set everything in just one call.</p></li>
 </ol>
@@ -1553,7 +1578,15 @@ animal as! Dog  // triggers a runtime error
 
         <p>There has been hundreds of WWDC session videos on <a href="https://developer.apple.com/videos/">Apple WWDC</a>, which provide first-hand knowledges about iOS development from Apple&rsquo;s engineers&rsquo; perspective.</p>
 
-<p>Here records my sorting after watching progressively, mainly about the order and prerequisites of watching part of them.</p>
+<p>Here records progressively my summaries after watching, mainly about the order and prerequisites of watching parts of them.</p>
+
+<p>For those who are new to it, I highly recommend the <a href="http://asciiwwdc.com/">ASCIIwwdc</a> website.</p>
+
+<blockquote>
+<p>Searchable full-text transcripts of WWDC sessions</p>
+
+<p>Find the content you&rsquo;re looking for, without scrubbing through videos</p>
+</blockquote>
 
 <ul>
 <li><p><strong>View</strong></p>
