@@ -151,8 +151,8 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">内建的标识符</a></li>
-<li><a href="#toc_1">获取调用者的位置</a></li>
+<li><a href="#内建的标识符:1203c4203865e1578ec8699277eb6578">内建的标识符</a></li>
+<li><a href="#获取调用者的位置:1203c4203865e1578ec8699277eb6578">获取调用者的位置</a></li>
 </ul>
 </nav>
             </div>
@@ -166,7 +166,7 @@
 
 <p>大家都知道 C 语言里有两个宏 <code>__LINE__</code>，<code>__FILE__</code> 在某些场合下很有用。在编译器开始编译之前，预编译器都会将他们展开为当前的文件名和行号。尽管 Swift 没有预编译器，但是它也提供了这两个名字，并具有相同的作用，只是其运行机制截然不同。</p>
 
-<h1 id="toc_0">内建的标识符</h1>
+<h1 id="内建的标识符:1203c4203865e1578ec8699277eb6578">内建的标识符</h1>
 
 <p>正如<a href="http://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/LexicalStructure.html">《Swift 语言编程指南》</a>说所，Swift 有一些内建的标识符，其中就包括 <code>__FLIE__</code>，<code>__LINE__</code>，<code>__COLUMN__</code> 和 <code>__FUNCTION__</code>。您可以在代码中的任何地方使用他们，Swift 编译器会将他们转变成表示当前代码位置的字符串或者和整形常量。当您想要手动记录事件时，比如在退出前打印出当前代码的位置，他们会非常有用。</p>
 
@@ -182,7 +182,7 @@
 
 <p>上面的代码只会打印出 <code>assert()</code> 函数体内部的位置，而不是我们想要的调用它的代码的位置。</p>
 
-<h1 id="toc_1">获取调用者的位置</h1>
+<h1 id="获取调用者的位置:1203c4203865e1578ec8699277eb6578">获取调用者的位置</h1>
 
 <p>Swift 从 D 语言那里借鉴来一个非常聪明的做法：讲这些特殊的位置标识符作为参数的默认值。于是我们将 <code>asssert()</code> 函数定义为：</p>
 

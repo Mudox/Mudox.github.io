@@ -151,10 +151,10 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">核心关键字: <code>__nullable</code>，<code>__nonnull</code></a></li>
-<li><a href="#toc_1">监控区域（andited region)</a></li>
-<li><a href="#toc_2">兼容性</a></li>
-<li><a href="#toc_3">回到 Swift</a></li>
+<li><a href="#核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>__nullable</code>，<code>__nonnull</code></a></li>
+<li><a href="#监控区域-andited-region:cebb39200789161d04153b9fa938a694">监控区域（andited region)</a></li>
+<li><a href="#兼容性:cebb39200789161d04153b9fa938a694">兼容性</a></li>
+<li><a href="#回到-swift:cebb39200789161d04153b9fa938a694">回到 Swift</a></li>
 </ul>
 </nav>
             </div>
@@ -170,7 +170,7 @@
 
 <p>在此前的 Xcode 版本中，Apple 公司对一些框架做了特殊处理，以让它们在 Swift 被转换为适当的可为空类型。Xcode 6.3 引入了一个新的 Objective-C 特性：可为空性注释（nullability annotation），是的程序也能对自己的代码做出同样的处理。</p>
 
-<h1 id="toc_0">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
+<h1 id="核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
 
 <p>这项新特性的核心就是两个关键字：<code>__nullable</code>，<code>__nonnull</code>。正如你所想的那样，所有 <code>__nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>__nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
 
@@ -200,7 +200,7 @@
 
 <p>非下划线的版本看起来更加舒服，但是您任然需要把他们加到所有需要的头文件中。您可以使用监控区域（audited region）来简化这个过程，并让头文件变得更加干净。</p>
 
-<h1 id="toc_1">监控区域（andited region)</h1>
+<h1 id="监控区域-andited-region:cebb39200789161d04153b9fa938a694">监控区域（andited region)</h1>
 
 <p>为了简化新注释关键字的使用，您可以把您的 Objective-C 头文件中的某段代码标记为 <strong>对可为空性进行监控</strong>。在此代码段中，所有的简单指针类型都被编译器默认认为是不可能为空的，也就是 <code>__nonnull</code>。这就大大减少了我们早前的示例中需要做的变动。</p>
 
@@ -233,7 +233,7 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
 <li><p><code>NSError</code> 是一个特殊的类型，它被用来通过参数返回错误。它总是一个指向一个可为空 <code>NSError</code> 对象指针的可为空指针，即 <code>__nullable NSError * __nullable</code>。</p></li>
 </ul>
 
-<h1 id="toc_2">兼容性</h1>
+<h1 id="兼容性:cebb39200789161d04153b9fa938a694">兼容性</h1>
 
 <p>那么如果您已经有了自己的 Objective-C 框架，现在要混合使用些类型安全么？当然，答案是肯定的。</p>
 
@@ -247,7 +247,7 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
 
 <p>大体上您可以把 <code>nonnull</code> 和 <code>nullable</code> 当做断言或者异常捕捉特性来使用：违反协议是程序员本身的错误。毕竟是由您完全控制您的函数会返回什么值，因此在不该返回 <code>nil</code> 的函数中，您应该负责确保它不会返回空值，除非是为了向后兼容。</p>
 
-<h1 id="toc_3">回到 Swift</h1>
+<h1 id="回到-swift:cebb39200789161d04153b9fa938a694">回到 Swift</h1>
 
 <p>现在我们已经在我们的 Objective-C 一端用上了可为空性注释，让我们看看 Swift 一端该跟着怎么变：</p>
 

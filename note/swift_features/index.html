@@ -151,24 +151,24 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">Powerful <code>switch</code> Statement</a></li>
-<li><a href="#toc_1">Closure &ndash; Too Much Sugar!</a>
+<li><a href="#powerful-switch-statement:6f99ebcff8075df5d44ac5528331bee0">Powerful <code>switch</code> Statement</a></li>
+<li><a href="#closure-too-much-sugar:6f99ebcff8075df5d44ac5528331bee0">Closure &ndash; Too Much Sugar!</a>
 <ul>
-<li><a href="#toc_2">Sugar #0 &ndash; trailing closure</a></li>
-<li><a href="#toc_3">Sugar #1 &ndash; return type inference</a></li>
-<li><a href="#toc_4">Sugar #2 &ndash; parameter type inference</a></li>
-<li><a href="#toc_5">Sugar #3 &ndash; parenthesis-less</a></li>
-<li><a href="#toc_6">Sugar #4 &ndash; return statement inference</a></li>
-<li><a href="#toc_7">Sugar #5 &ndash; shorthand parameter name</a></li>
-<li><a href="#toc_8">Sugar #6 &ndash; operator as a closure</a></li>
+<li><a href="#sugar-0-trailing-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #0 &ndash; trailing closure</a></li>
+<li><a href="#sugar-1-return-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #1 &ndash; return type inference</a></li>
+<li><a href="#sugar-2-parameter-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #2 &ndash; parameter type inference</a></li>
+<li><a href="#sugar-3-parenthesis-less:6f99ebcff8075df5d44ac5528331bee0">Sugar #3 &ndash; parenthesis-less</a></li>
+<li><a href="#sugar-4-return-statement-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #4 &ndash; return statement inference</a></li>
+<li><a href="#sugar-5-shorthand-parameter-name:6f99ebcff8075df5d44ac5528331bee0">Sugar #5 &ndash; shorthand parameter name</a></li>
+<li><a href="#sugar-6-operator-as-a-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #6 &ndash; operator as a closure</a></li>
 </ul></li>
-<li><a href="#toc_9">Fully-fledged Enumeration</a>
+<li><a href="#fully-fledged-enumeration:6f99ebcff8075df5d44ac5528331bee0">Fully-fledged Enumeration</a>
 <ul>
-<li><a href="#toc_10">Flexible definition syntax</a></li>
-<li><a href="#toc_11">Type inference</a></li>
-<li><a href="#toc_12">Associated Value</a></li>
-<li><a href="#toc_13">Raw type</a></li>
-<li><a href="#toc_14">Struct like enumeration</a></li>
+<li><a href="#flexible-definition-syntax:6f99ebcff8075df5d44ac5528331bee0">Flexible definition syntax</a></li>
+<li><a href="#type-inference:6f99ebcff8075df5d44ac5528331bee0">Type inference</a></li>
+<li><a href="#associated-value:6f99ebcff8075df5d44ac5528331bee0">Associated Value</a></li>
+<li><a href="#raw-type:6f99ebcff8075df5d44ac5528331bee0">Raw type</a></li>
+<li><a href="#struct-like-enumeration:6f99ebcff8075df5d44ac5528331bee0">Struct like enumeration</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -180,7 +180,7 @@
 <p>During the learning of the Swift programming language, many of it&rsquo;s features
 impressed me.</p>
 
-<h1 id="toc_0">Powerful <code>switch</code> Statement</h1>
+<h1 id="powerful-switch-statement:6f99ebcff8075df5d44ac5528331bee0">Powerful <code>switch</code> Statement</h1>
 
 <ol>
 <li><p>no implicitly fall-through</p></li>
@@ -247,7 +247,7 @@ case let (x, y):
 }
 </code></pre>
 
-<h1 id="toc_1">Closure &ndash; Too Much Sugar!</h1>
+<h1 id="closure-too-much-sugar:6f99ebcff8075df5d44ac5528331bee0">Closure &ndash; Too Much Sugar!</h1>
 
 <p>The closure in Swift language adopts many syntactic sugar.</p>
 
@@ -269,7 +269,7 @@ let sortedWords = words.sorted({
 })
 </code></pre>
 
-<h2 id="toc_2">Sugar #0 &ndash; trailing closure</h2>
+<h2 id="sugar-0-trailing-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #0 &ndash; trailing closure</h2>
 
 <p>Often, closure parameter is placed last in parameter list. Swift thus provides
 <strong>trailing closure</strong>, which means your can write the inline closure just
@@ -285,7 +285,7 @@ let sortedWords = words.sorted/*()*/ {
 }
 </code></pre>
 
-<h2 id="toc_3">Sugar #1 &ndash; return type inference</h2>
+<h2 id="sugar-1-return-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #1 &ndash; return type inference</h2>
 
 <p><strong>return type</strong> can be inferred by swift compiler.</p>
 
@@ -296,7 +296,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h2 id="toc_4">Sugar #2 &ndash; parameter type inference</h2>
+<h2 id="sugar-2-parameter-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #2 &ndash; parameter type inference</h2>
 
 <p><strong>parameter types</strong> can be inferred by swift compiler as well.</p>
 
@@ -307,7 +307,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h2 id="toc_5">Sugar #3 &ndash; parenthesis-less</h2>
+<h2 id="sugar-3-parenthesis-less:6f99ebcff8075df5d44ac5528331bee0">Sugar #3 &ndash; parenthesis-less</h2>
 
 <p>Since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
 
@@ -318,7 +318,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h2 id="toc_6">Sugar #4 &ndash; return statement inference</h2>
+<h2 id="sugar-4-return-statement-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #4 &ndash; return statement inference</h2>
 
 <p>If the closure has one statement, then the <strong>return</strong> statement can also be
 inferred.</p>
@@ -333,7 +333,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
 </code></pre>
 
-<h2 id="toc_7">Sugar #5 &ndash; shorthand parameter name</h2>
+<h2 id="sugar-5-shorthand-parameter-name:6f99ebcff8075df5d44ac5528331bee0">Sugar #5 &ndash; shorthand parameter name</h2>
 
 <p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
 the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
@@ -349,7 +349,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { $0 &lt; $1 }
 </code></pre>
 
-<h2 id="toc_8">Sugar #6 &ndash; operator as a closure</h2>
+<h2 id="sugar-6-operator-as-a-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #6 &ndash; operator as a closure</h2>
 
 <p>In swift, <strong>operator</strong> is a function, which in turn is a special closure, so&hellip;</p>
 
@@ -357,22 +357,22 @@ let sortedWords = words.sorted { $0 &lt; $1 }
 let sortedWords = words.sorted(&lt;)
 </code></pre>
 
-<h1 id="toc_9">Fully-fledged Enumeration</h1>
+<h1 id="fully-fledged-enumeration:6f99ebcff8075df5d44ac5528331bee0">Fully-fledged Enumeration</h1>
 
 <p>In Swift, enumeration is fully-fledged type. You can associate different data
 with each enumeration member, or define a raw type for enumeration.</p>
 
-<h2 id="toc_10">Flexible definition syntax</h2>
+<h2 id="flexible-definition-syntax:6f99ebcff8075df5d44ac5528331bee0">Flexible definition syntax</h2>
 
 <p>you can define more than one member a line.</p>
 
-<h2 id="toc_11">Type inference</h2>
+<h2 id="type-inference:6f99ebcff8075df5d44ac5528331bee0">Type inference</h2>
 
-<h2 id="toc_12">Associated Value</h2>
+<h2 id="associated-value:6f99ebcff8075df5d44ac5528331bee0">Associated Value</h2>
 
-<h2 id="toc_13">Raw type</h2>
+<h2 id="raw-type:6f99ebcff8075df5d44ac5528331bee0">Raw type</h2>
 
-<h2 id="toc_14">Struct like enumeration</h2>
+<h2 id="struct-like-enumeration:6f99ebcff8075df5d44ac5528331bee0">Struct like enumeration</h2>
 
 <p>enumeration in Swift can have properties &amp; methods.</p>
 

@@ -151,9 +151,9 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">Swift 的方式</a></li>
-<li><a href="#toc_1">本地变量的明确初始化</a></li>
-<li><a href="#toc_2">其他的方式</a></li>
+<li><a href="#swift-的方式:79a7d0d1a66d48b992ef5e7d40e90189">Swift 的方式</a></li>
+<li><a href="#本地变量的明确初始化:79a7d0d1a66d48b992ef5e7d40e90189">本地变量的明确初始化</a></li>
+<li><a href="#其他的方式:79a7d0d1a66d48b992ef5e7d40e90189">其他的方式</a></li>
 </ul>
 </nav>
             </div>
@@ -167,13 +167,13 @@
 
 <p>我们设计 Swift 这门语言时的一个重要的发力方向就是改进编程模型的内存安全性。内存安全有很多方面，本文将由浅入深，先从一个简单的问题开始：如果确保值在使用前被初始化。</p>
 
-<h1 id="toc_0">Swift 的方式</h1>
+<h1 id="swift-的方式:79a7d0d1a66d48b992ef5e7d40e90189">Swift 的方式</h1>
 
 <p>如果每当一个变量第一次被访问时，该变量都有一个有效的初始值，那么该变量就被认为是“安全”的。不同的语言采用了不同的方式来提供这种安全性。比如 C 语言，它将责任完全交给程序员——这种方法强大，但是也很有难度。C++ 和 Objective-C 通过施加一些强制性的模式来改善此类情况，还有一些语言则（比较极端的）要求变量在定义时就必须初始化。</p>
 
 <p>Swift 采用的主要技术是通过其先进的编译器来对代码的数据流进行分析。由编译器在编译时确保变量在使用前正确初始化，这是是一种名为 <a href="http://en.wikipedia.org/wiki/Definite_assignment_analysis">明确初始化——Definitive Initialization</a> 的策略。还有很多语言比如 Java，C# 都采用了类似的策略，而 Swift 则是的该策略的一个扩展版本应用于更大范围的变量上面。</p>
 
-<h1 id="toc_1">本地变量的明确初始化</h1>
+<h1 id="本地变量的明确初始化:79a7d0d1a66d48b992ef5e7d40e90189">本地变量的明确初始化</h1>
 
 <p>在 Swift 中有很多场景都用到了该策略，其中最简单的场景就是用于本地变量。相较于“隐式的默认值初始化 implicit default initialization”，明确初始化初始化提供了更大的灵活性，因为它运行你写出如下的代码：</p>
 
@@ -208,7 +208,7 @@ if x &gt; 42 {
 
 <p>Swift 使初始化一个变量变得极其简单。事实上用 Swift 在声明时给出初始化值 <code>var x = 0</code> 比声明一个未初始化的变量 <code>var x: Int</code> 所得到的代码更简短。Swift 提倡在任何可能的时候给声明的变量一个明确的初始化值。还有更加强大的方法就是通过调用 <code>init()</code> 方法来初始化一个变量。想要了解更加详细的信息，请参阅 Swfit Programming Language 的“<a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html">初始化 Initialization</a>” 一章。</p>
 
-<h1 id="toc_2">其他的方式</h1>
+<h1 id="其他的方式:79a7d0d1a66d48b992ef5e7d40e90189">其他的方式</h1>
 
 <p>除了明确初始化之外，Swift 在特定情况下也会采用一些其他的策略。您很可能已经在其他语言中碰到过这些策略，因此我们将在本文中简短的介绍下他们。他们都用各自不足之处，所以 Swift 并没有将他们当做主要策略来使用。</p>
 

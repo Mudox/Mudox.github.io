@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/index.xml/" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="http://mudox.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -179,7 +179,7 @@
 
 <p>大家都知道 C 语言里有两个宏 <code>__LINE__</code>，<code>__FILE__</code> 在某些场合下很有用。在编译器开始编译之前，预编译器都会将他们展开为当前的文件名和行号。尽管 Swift 没有预编译器，但是它也提供了这两个名字，并具有相同的作用，只是其运行机制截然不同。</p>
 
-<h1 id="toc_0">内建的标识符</h1>
+<h1 id="内建的标识符:1203c4203865e1578ec8699277eb6578">内建的标识符</h1>
 
 <p>正如<a href="http://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/LexicalStructure.html">《Swift 语言编程指南》</a>说所，Swift 有一些内建的标识符，其中就包括 <code>__FLIE__</code>，<code>__LINE__</code>，<code>__COLUMN__</code> 和 <code>__FUNCTION__</code>。您可以在代码中的任何地方使用他们，Swift 编译器会将他们转变成表示当前代码位置的字符串或者和整形常量。当您想要手动记录事件时，比如在退出前打印出当前代码的位置，他们会非常有用。</p>
 
@@ -195,7 +195,7 @@
 
 <p>上面的代码只会打印出 <code>assert()</code> 函数体内部的位置，而不是我们想要的调用它的代码的位置。</p>
 
-<h1 id="toc_1">获取调用者的位置</h1>
+<h1 id="获取调用者的位置:1203c4203865e1578ec8699277eb6578">获取调用者的位置</h1>
 
 <p>Swift 从 D 语言那里借鉴来一个非常聪明的做法：讲这些特殊的位置标识符作为参数的默认值。于是我们将 <code>asssert()</code> 函数定义为：</p>
 
@@ -259,7 +259,7 @@
 
 <p>本文我们将探讨下他们各自的优点，以及如何在他们之间做选择。</p>
 
-<h1 id="toc_0">可变性在安全性上扮演的角色</h1>
+<h1 id="可变性在安全性上扮演的角色:abaf0d41cf4a1e03e15f85ef4e251eb3">可变性在安全性上扮演的角色</h1>
 
 <p>每次我们选择使用值类型而非引用类型时一个最主要的原因就是能够让代码更加清晰明了，这样我们就更容易掌控代码。如果您得到总是一份独一无二的数据拷贝，您就能确信在您的代码的其他地方不会私下改动您当前的数据。这在多线程环境中是非常有用的，因为线程经常可能在您不经意间改变了您的数据，而这种错误一旦产生又非常难排查。</p>
 
@@ -267,7 +267,7 @@
 
 <p>您可能在想某些情况下让类类型不可修改也是很有必要的呀。这样我们既能使用 Cocoa 的 <code>NSObject</code> 对象，又能享受到值语义的好处。今天，通过只定义只读的存储属性，以及避免暴露那些会更改状态的 API 接口，您也能用 Swift 创建出不可修改的类来。事实上，很多常用的 Cocoa 类，比如 <code>NSURL</code>，都被设计为不可修改的类。但是 Swift 并没有像对结构体，枚举那样，在语言层面上提供确保类不变性的机制（比如施加在子类上面）。</p>
 
-<h1 id="toc_1">如何选择?</h1>
+<h1 id="如何选择:abaf0d41cf4a1e03e15f85ef4e251eb3">如何选择?</h1>
 
 <p>那么当您要构建一个新的类型时，您如果决定使用那种类型的语义呢？当您要使用 Cocoa 时，许多 API 都要用到 <code>NSObject</code> 的子类，因此您必须使用类类型。对于其他的情况，这里有一些指导建议：</p>
 
@@ -324,7 +324,7 @@
 
 <p>Swift 版的 <code>assert()</code> 提供和 C 版本同样的功能，没有用到预编译，而且我们以一种更加干净的方式实现了它。</p>
 
-<h1 id="toc_0">实参的延迟计算</h1>
+<h1 id="实参的延迟计算:1ff54446be0f7d5c899f5dfff8f1c495">实参的延迟计算</h1>
 
 <p>我们在实现 <code>assert()</code> 时，首先碰到的挑战就是，在 Swift 中没有明显的方法让一个函数接受一个表达式，而不立马求它的值。比方说，我们尝试用了：</p>
 
@@ -387,7 +387,7 @@
 
 <p>Swift 将表达式的右操作数声明为自动闭包以让它的估值得以延迟。</p>
 
-<h1 id="toc_1">自动闭包</h1>
+<h1 id="自动闭包:1ff54446be0f7d5c899f5dfff8f1c495">自动闭包</h1>
 
 <p>自动闭包和 C 语言宏一样强大，所以我们必须谨慎使用它。因为使用闭包时，调用方很容易意识不到他传入的实参的求值时机被改变了。我们还限制自动闭包不接受任何参数。您不应该拿他们当某种控制流来使用。只有当用它可以实现用户预期的语义效果时，我们才使用它，而不是用它来仅仅为了消除闭包的语法的花括号。</p>
 
@@ -462,7 +462,7 @@ dict.valuesForKeys([])
 // []
 </code></pre>
 
-<h1 id="toc_0">可为空值嵌套</h1>
+<h1 id="可为空值嵌套:f3c6d5d9a6b6d063de9276398810fb9a">可为空值嵌套</h1>
 
 <p>现在我们修改一下上面的代码，在每行后面加个 <code>.last</code>， 去结果集的最后一个元素：</p>
 
@@ -501,7 +501,7 @@ dict.valuesForKeys([]).last
 
 <p>不管是在 Swift 中还是 Objective-C 中，返回 <code>nil</code> 都表示中间结果集为空，因为空集没有最后元素。当 Swift 的版本返回 <code>Optional(nil)</code> （或者 Objective-C 版本返回 <code>NSNull</code> ）时，这表示中间结果集里是有元素的，只是这个元素表示空值。Objective-C 必须预定义一个类型 <code>NSNull</code> 来表示空值，而 Swift 的类型系统直接就能表示它。</p>
 
-<h1 id="toc_1">提供默认值</h1>
+<h1 id="提供默认值:f3c6d5d9a6b6d063de9276398810fb9a">提供默认值</h1>
 
 <p>如果您依然想用其他的值来替代字典中缺失的值呢？很容易：</p>
 
@@ -533,7 +533,7 @@ dict.valuesForKeys([]).last
 
 <p>我们的之前的<a href="/post/translation_swift_introduction_to_the_swift_repl/">第一篇关于 Swift REPL 的文章</a>只是简单的介绍了如何利用 REPL 来帮助您学习 Swift 语言的。本文将详细介绍 REPL 是如果绕过一些常规的语言编写规则来协助您开发 Swift 应用的。</p>
 
-<h1 id="toc_0">重定义标识符</h1>
+<h1 id="重定义标识符:ca9498e6434c2ded5c124cc16a7b024d">重定义标识符</h1>
 
 <p>Swift 编译器能自动检测出大量的代码错误，其中就包括重复定义标识符。</p>
 
@@ -584,7 +584,7 @@ $R2: Int = 165580141
 
 <p>直接把上面的重复的函数定义敲入 REPL 中，<code>fib</code> 函数的定义就会被 REPL 更新。这是只是一个很简单的例子，但是它展示了 REPL 是如果方便您反复试验并改进代码的。</p>
 
-<h1 id="toc_1">重定义还是重载？</h1>
+<h1 id="重定义还是重载:ca9498e6434c2ded5c124cc16a7b024d">重定义还是重载？</h1>
 
 <p>我们可以在 Swift REPL 中轻松重定义常量，变量，类型还有函数，一切都很直观，方便。但是问题来了，REPL 怎么区分并让函数重定义和函数重载共存能呢？Swift REPL 只会覆盖函数名和函数签名完全都相同的函数定义。如果只是函数名相同而签名不同，那么只会引入一个函数重载。请记住，在 Swift 中就算两个函数的签名只有返回类型不同，也算是函数重载。比如：</p>
 
@@ -606,7 +606,7 @@ foo: String = &quot;Foo!&quot;
 Foo!
 </code></pre>
 
-<h1 id="toc_2">捕捉定义</h1>
+<h1 id="捕捉定义:ca9498e6434c2ded5c124cc16a7b024d">捕捉定义</h1>
 
 <p>尽管 REPL 允许重复定义，但是它只对后续出现的标识符有效。而之前已经被 REPL 编译过的那些代码行中的标识符引用的都还是之前的定义。这就好像新的定义只是替后面的代码遮住了旧的定义，而不是彻底的擦除了他们。下面的例子展示这个机制具体是如果运作的：</p>
 
@@ -753,9 +753,9 @@ networking frameworks:</p>
 
 <p>All example below are run asynchronously.</p>
 
-<h1 id="toc_0">Use Case #1 - Simple GET Request</h1>
+<h1 id="use-case-1-simple-get-request:59d3d3090a17518d96879b55d4323031">Use Case #1 - Simple GET Request</h1>
 
-<h2 id="toc_1">1.1 With ASIHTTPRequest</h2>
+<h2 id="1-1-with-asihttprequest:59d3d3090a17518d96879b55d4323031">1.1 With ASIHTTPRequest</h2>
 
 <p>Create &amp; configure request object and emit request.</p>
 
@@ -770,26 +770,43 @@ object to them respectively.</p></li>
 
 <li><p>choose and set response handling scheme:</p>
 
-<p>ASIHTTPRequest provides 3 ways to handle responses:</p>
+<p>ASIHTTPRequest provides 4 ways to handle responses:</p>
 
 <ol>
-<li><p>delegation pattern</p>
+<li><p>delegation</p>
 
-<p>you delegate object must implement the required methods.</p></li>
+<p>implement the following methods (usually the first 2 are all you need)
+in your delegate objects, they will be called in some queue when events
+arrive.</p></li>
 </ol>
 
-<pre><code class="language-objc">  - (void)requestFinished:(ASIHTTPRequest *)request
-  - (void)requestFailed:(ASIHTTPRequest *)request
+<pre><code class="language-objc">  // These are the default delegate methods for request status
+  // You can use different ones by setting didStartSelector / didFinishSelector / didFailSelector
+  - (void)requestFinished:   (ASIHTTPRequest *)request;
+  - (void)requestFailed:     (ASIHTTPRequest *)request;
+
+  - (void)requestStarted:    (ASIHTTPRequest *)request;
+
+  - (void)request:           (ASIHTTPRequest *)request didReceiveResponseHeaders:(NSDictionary *)responseHeaders;
+  - (void)request:           (ASIHTTPRequest *)request willRedirectToURL:(NSURL *)newURL;
+  - (void)requestRedirected: (ASIHTTPRequest *)request;
+
+
+  // When a delegate implements this method, it is expected to process all incoming data itself
+  // This means that responseData / responseString / downloadDestinationPath etc are ignored
+  // You can have the request call a different method by setting didReceiveDataSelector
+  - (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data;
 </code></pre>
 
 <ol>
 <li><p>target + selector pattern</p>
 
-<p>you are free to implement more than one methods for a events and name
-  them arbitrarily.</p></li>
+<p>you are free to implement, in one delegate obect, more than one
+  methods for a given event and name them arbitrarily.</p></li>
 </ol>
 
-<pre><code class="language-objc">  @property (assign) SEL didFinishSelector;
+<pre><code class="language-objc">  @property (assign) SEL didStartSelector;
+  @property (assign) SEL didFinishSelector;
   @property (assign) SEL didFailSelector;
 </code></pre>
 
@@ -797,47 +814,66 @@ object to them respectively.</p></li>
 <li><p>block</p>
 
 <p>you get a succinct codebase, but should be aware of retain-circle
-  issue.</p></li>
-</ol></li>
+  issue.</p>
 
-<li><p>start loading</p></li>
+<p>usually the first 2 are all you need.</p></li>
 </ol>
 
-<h3 id="toc_2">Using delegation</h3>
+<pre><code class="language-objc">  - (void)setCompletionBlock:                (ASIBasicBlock) aCompletionBlock;
+  - (void)setFailedBlock:                    (ASIBasicBlock) aFailedBlock;
 
-<pre><code class="language-objc">- (IBAction)grabSomethingInBackground: (id)sender {
-// step #1
-//   use Url string to initialize a instance of ASIHTTPRequest instance
+  - (void)setStartedBlock:                   (ASIBasicBlock) aStartedBlock;
+  - (void)setHeadersReceivedBlock:           (ASIHeadersBlock) aReceivedBlock;
+  - (void)setBytesReceivedBlock:             (ASIProgressBlock) aBytesReceivedBlock;
+  - (void)setBytesSentBlock:                 (ASIProgressBlock) aBytesSentBlock;
+  - (void)setDownloadSizeIncrementedBlock:   (ASISizeBlock) aDownloadSizeIncrementedBlock;
+  - (void)setUploadSizeIncrementedBlock:     (ASISizeBlock) anUploadSizeIncrementedBlock;
+  - (void)setDataReceivedBlock:              (ASIDataBlock) aReceivedBlock;
+  - (void)setAuthenticationNeededBlock:      (ASIBasicBlock) anAuthenticationBlock;
+  - (void)setProxyAuthenticationNeededBlock: (ASIBasicBlock) aProxyAuthenticationBlock;
+  - (void)setRequestRedirectedBlock:         (ASIBasicBlock) aRedirectBlock;
+</code></pre>
 
-  NSString *strURL = @&quot;....&quot;
-  // better call this method to ensure string is properly encoded.
-  strURL = [strURL stringByAddingPercentEscapesUsingEncodingSUTF8StringEncoding];
-  // request instance should stand as long as possible to cover the whole fetching process
-  ASIHTTPRequest *request = [ASIHTTPRequest requestWithURLtrURL];
+<ol>
+<li><p>subclassing</p>
+
+<p>subclass <code>ASIHTTPRequest</code>, and overwrite following methods, which is
+  very rare occassion.</p></li>
+</ol>
+
+<pre><code class="language-objc">  - (void)requestFinished:(ASIHTTPRequest *)request
+  - (void)requestFailed:(ASIHTTPRequest *)request
+</code></pre></li>
+
+<li><p>start loading by invoking:</p>
+
+<pre><code class="language-objc">  -(void)startSynchronous
+  -(void)startAsynchronous
+</code></pre></li>
+</ol>
+
+<h3 id="1-1-1-using-delegation:59d3d3090a17518d96879b55d4323031">1.1.1 Using delegation</h3>
+
+<pre><code class="language-objc">// step #1
+// initialize a instance of ASIHTTPRequest instance
+ASIHTTPRequest *request = [ASIHTTPRequest requestWithURLtrURL];
 
 // step #2 (optional)
-//   get download progress feedback
-
-  request.downloadProgressDelegate = self;
-  request.showAccurateProgress = YES;
-  [ASIHTTPRequest setShouldUpdateNetworkActivityIndicator: YES];
+// get download progress feedback
+request.showAccurateProgress = YES;
+request.downloadProgressDelegate = self;
+[ASIHTTPRequest setShouldUpdateNetworkActivityIndicator: YES];
 
 // step #3
 // set delegate &amp; emit request ansynchronously
-
-  request.delegate = self;
-  [request startAsynchronous];
-}
+request.delegate = self;
+[request startAsynchronous];
 </code></pre>
 
 <p>Implement delegate methods to handle results (succeed or fail).</p>
 
 <ol>
-<li><p>implement <code>requestFinished:</code> delegate methods to fetch response content.</p></li>
-
-<li><p>implement <code>requestFailed:</code> delegate methods to handle failure.</p></li>
-
-<li><p>implement <code>setProgress:</code> delegate methods to report the download progress.</p></li>
+<li>implement <code>requestFinished:</code> delegate methods to fetch response content.</li>
 </ol>
 
 <pre><code class="language-objc">#pragma mark - ASIHTTPRequestDelegate
@@ -850,14 +886,25 @@ object to them respectively.</p></li>
   // fetch response content as NSString
   NSString *str = [request responseString];
 }
+</code></pre>
 
-// reqeust failed
+<ol>
+<li>implement <code>requestFailed:</code> delegate methods to handle failure.</li>
+</ol>
+
+<pre><code class="language-objc">// reqeust failed
 - (void)requestFailed: (ASIHTTPRequest *)request
 {
   NSLog(@&quot;ERROR: %@&quot;, [request.error localizedDescription]);
 }
+</code></pre>
 
-#pragma mark - ASIProgressDelegate
+<ol>
+<li>implement <code>setProgress:</code> delegate methods to report the download progress,
+if you want.</li>
+</ol>
+
+<pre><code class="language-objc">#pragma mark - ASIProgressDelegate
 - (void)setProgress: (float)newProgress
 {
   // average download speed in bytes/second
@@ -868,10 +915,10 @@ object to them respectively.</p></li>
 }
 
 @end
-
 </code></pre>
 
-<p>Another alternative is to set selectors for success &amp; fail handling respectively.</p>
+<p>Another alternative mentioned above is the target-selector pattern: setting
+selectors for success &amp; fail handling respectively.</p>
 
 <pre><code class="language-objc">  [request setDidFinishSelector:@selector(requestDone:)];
   [request setDidFailSelector:@selector(requestWentWrong:)];
@@ -880,19 +927,15 @@ object to them respectively.</p></li>
 <p>If you set completion selectors like above, your delegate&rsquo;s completion methods
 will be ignored.</p>
 
-<h3 id="toc_3">Using blocks</h3>
+<h3 id="1-1-2-using-blocks:59d3d3090a17518d96879b55d4323031">1.1.2 Using blocks</h3>
 
-<pre><code class="language-objc">- (IBAction)grabSomethingInBackground: (id)sender
-{
-// step #1
+<pre><code class="language-objc">// step #1
 //   create request instance
-  NSString *strURL = @&quot;....&quot;
-  strURL = [strURL stringByAddingPercentEscapesUsingEncodingSUTF8StringEncoding];
 
   // use keyword __block to make 'request' variable capturable and modifiable by blocks following
-  __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+  ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 
-// setp #2 -
+// setp #2
 //   set blocks instead of delegate to handle results
 
   [request setCompletionBlock:^{
@@ -911,13 +954,13 @@ will be ignored.</p>
 }
 </code></pre>
 
-<h2 id="toc_4">1.2 With AFNetworking</h2>
+<h2 id="1-2-with-afnetworking:59d3d3090a17518d96879b55d4323031">1.2 With AFNetworking</h2>
 
 <ol>
 <li><p>create a manager instance.</p>
 
-<p>the <code>AFHTTPRequestOperationManager</code> class holds global settings for
-subsequently created instances.</p></li>
+<p>the <code>AFHTTPRequestOperationManager</code> class holds settings globally for
+subsequently created request operation instances.</p></li>
 
 <li><p>invode GET method &amp; set everything in just one call.</p></li>
 </ol>
@@ -934,9 +977,9 @@ subsequently created instances.</p></li>
 ];
 </code></pre>
 
-<h2 id="toc_5">1.3 With Alamofire</h2>
+<h2 id="1-3-with-alamofire:59d3d3090a17518d96879b55d4323031">1.3 With Alamofire</h2>
 
-<p>Just one call.</p>
+<p>Just one call (actually a line of method chaining).</p>
 
 <pre><code class="language-swift">Alamofire.request(.GET, &quot;http://httpbin.org/get&quot;, parameters: [&quot;foo&quot;: &quot;bar&quot;])
          .response { (request, response, data, error) in
@@ -946,9 +989,9 @@ subsequently created instances.</p></li>
                    }
 </code></pre>
 
-<h1 id="toc_6">Use Case #2 - Simple POST Request</h1>
+<h1 id="use-case-2-simple-post-request:59d3d3090a17518d96879b55d4323031">Use Case #2 - Simple POST Request</h1>
 
-<h2 id="toc_7">With ASIHTTPRequest</h2>
+<h2 id="with-asihttprequest:59d3d3090a17518d96879b55d4323031">With ASIHTTPRequest</h2>
 
 <p>Same as the &lsquo;Simle GET Request&rsquo; above, excepts:</p>
 
@@ -1021,7 +1064,9 @@ calling <code>setPostBody</code> method, either in URL query string form or JSON
   [self.formRequest startAsynchronous];
 </code></pre>
 
-<h1 id="toc_8">Framework Office Documentation</h1>
+<h1 id="use-case-3-progress-watching:59d3d3090a17518d96879b55d4323031">Use Case #3 - Progress Watching</h1>
+
+<h1 id="framework-office-documentation:59d3d3090a17518d96879b55d4323031">Framework Office Documentation</h1>
 
 <ol>
 <li><p><a href="http://allseeing-i.com/ASIHTTPRequest/How-to-use">ASIHTTPRequest</a></p></li>
@@ -1167,7 +1212,7 @@ $R1: Int = 300
 <li><p>最后，就算您忘了添加变量声明和返回类型声明而按下了回车键，这也不会太晚，REPL 还能给您挽救的机会。</p></li>
 </ul>
 
-<h1 id="toc_0">多行历史记录</h1>
+<h1 id="多行历史记录:fc6a0e1689710ada03e3c834636918f4">多行历史记录</h1>
 
 <p>您的代码被提交给编译器的同时，也会被 REPL 环境记录下来。这使得您能更加轻松的修改之前的代码。接着上面的代码，如果您按下回车键就会得到如下的提示：</p>
 
@@ -1178,7 +1223,7 @@ $R1: Int = 300
 
 <p>每次会话保存的历史记录是能够保留到下次会话的，总共能保存上几百段代码。您可以从代码的首行按向上键（或者 Ctrl+P）调出更早输入的代码，也可以从最后一行代码下面的空行上按 <code>↓</code> 键调出稍近的代码。我们将在下面解释为什么最后一行往下还会出现一行空行。</p>
 
-<h1 id="toc_1">多行编辑</h1>
+<h1 id="多行编辑:fc6a0e1689710ada03e3c834636918f4">多行编辑</h1>
 
 <p>尽管 Swift REPL 环境表现得像传统的命令行编辑器，它还是提供了多行编辑的能力，这样像输入类定义，函数定义这样经常需要多行一起输入的情况，编辑起来就变得简单了。在上面的函数定义的示例中，在您在最后一行尾按下回车键之前，您可以按下 <code>↑</code> 将光标移动到上面的行，并使用 <code>←</code> 键移动到参数列表的 <code>(</code> 后面来修改，添加参数：</p>
 
@@ -1217,7 +1262,7 @@ func bar() {
 
 <p>当然您可以一行定义两个函数，两个语句之间用分号隔开，但是还有一个更好的方法。在您输入完第三行之后按下 <code>↓</code> 键就会插入并移动到第四行，这是您再就可以继续输入第二个函数的声明了。这两个语句被一次性提交给编译器，达到相互递归的意图。</p>
 
-<h1 id="toc_2">快速参考</h1>
+<h1 id="快速参考:fc6a0e1689710ada03e3c834636918f4">快速参考</h1>
 
 <p>为了帮助你快速开始使用 Swift REPL 环境，面给了常用的编辑和导航快捷键：</p>
 
@@ -1318,7 +1363,7 @@ func bar() {
 编译器性能得到显著提升，还带了很多新的 Swift 语言特性。
 如需了解全部的变更，请参阅本次的版本说明。本文将着重介绍其中的若干亮点。</p>
 
-<h1 id="toc_0">编译器改进</h1>
+<h1 id="编译器改进:d124b5b2ef71926267c03416702d075a">编译器改进</h1>
 
 <p>Swift 1.2 的编译器变得更加稳定，并全面提升了编译器性能。同时它能带来了诸多特性能是您再 Xcode 中使用 Swift 时有更好的体验。其中一些明显的改进包括：</p>
 
@@ -1340,7 +1385,7 @@ func bar() {
 <p>我们修复了大多数用户常见的 SourceKit 警告。您将不再被此类提示困扰。</p></li>
 </ul>
 
-<h1 id="toc_1">新的语言特性</h1>
+<h1 id="新的语言特性:d124b5b2ef71926267c03416702d075a">新的语言特性</h1>
 
 <p>在 1.2 中我们进一步改善了 Swift 语言，使之更加安全，可预测。我们继续改进 Swift 和 Objective-C 之间的交互。其中一些显著的进步包括：</p>
 
@@ -1395,7 +1440,7 @@ use(x)
 <p><code>Set</code> 是一个和 <code>NSSet</code> 完美桥接的数据类型，用来表示一组无序的，唯一的数据。和 <code>Array</code>，<code>Dictionary</code> 一样，它在 Swift 中是一个值而非引用。</p></li>
 </ul>
 
-<h1 id="toc_2">总结</h1>
+<h1 id="总结:d124b5b2ef71926267c03416702d075a">总结</h1>
 
 <p>我们由衷的欢迎您提交任何 bug 报告，希望所有常见的问题都在这个 beta 版得到解决。Swift 1.2 对于语言本身和其工具来说都是一次巨大的改进。它也引入了一些不向后兼容的改动，需要您对之前的代码做出修改，因此 Xcode 6.3 包含了一个移植工具来帮助您自动化这个过程。要使用该工具，请选 <em>Edit</em> 菜单，然后选择 <em>Convert -&gt; To Latest Swift Syntax&hellip;</em> 选项。</p>
 
@@ -1412,7 +1457,7 @@ use(x)
 
         
 
-<h1 id="toc_0">iOS Animation API Clusters From Top to Bottom</h1>
+<h1 id="ios-animation-api-clusters-from-top-to-bottom:b33fda6739dec0c54d817f820b410e41">iOS Animation API Clusters From Top to Bottom</h1>
 
 <p>In general there are 2 groups of APIs: the view based animation APIs &amp; the
 underlying Core Animation APIs that is backing the former.</p>
@@ -1570,7 +1615,7 @@ animal as! Dog  // triggers a runtime error
       <div class="post">
         <h1 class="post-title">
           <a href="http://mudox.github.io/note/wwdc_my_summary/">
-            MY WATCH GUIDE &amp; SUGGESTIONS ABOUT WWDC SESSION VIDEOS
+            MY SUMMARIES OF WWDC SESSION VIDEOS
           </a>
         </h1>
 
@@ -1687,7 +1732,7 @@ animal as! Dog  // triggers a runtime error
 
 <p>在此前的 Xcode 版本中，Apple 公司对一些框架做了特殊处理，以让它们在 Swift 被转换为适当的可为空类型。Xcode 6.3 引入了一个新的 Objective-C 特性：可为空性注释（nullability annotation），是的程序也能对自己的代码做出同样的处理。</p>
 
-<h1 id="toc_0">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
+<h1 id="核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
 
 <p>这项新特性的核心就是两个关键字：<code>__nullable</code>，<code>__nonnull</code>。正如你所想的那样，所有 <code>__nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>__nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
 
@@ -1717,7 +1762,7 @@ animal as! Dog  // triggers a runtime error
 
 <p>非下划线的版本看起来更加舒服，但是您任然需要把他们加到所有需要的头文件中。您可以使用监控区域（audited region）来简化这个过程，并让头文件变得更加干净。</p>
 
-<h1 id="toc_1">监控区域（andited region)</h1>
+<h1 id="监控区域-andited-region:cebb39200789161d04153b9fa938a694">监控区域（andited region)</h1>
 
 <p>为了简化新注释关键字的使用，您可以把您的 Objective-C 头文件中的某段代码标记为 <strong>对可为空性进行监控</strong>。在此代码段中，所有的简单指针类型都被编译器默认认为是不可能为空的，也就是 <code>__nonnull</code>。这就大大减少了我们早前的示例中需要做的变动。</p>
 
@@ -1750,7 +1795,7 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
 <li><p><code>NSError</code> 是一个特殊的类型，它被用来通过参数返回错误。它总是一个指向一个可为空 <code>NSError</code> 对象指针的可为空指针，即 <code>__nullable NSError * __nullable</code>。</p></li>
 </ul>
 
-<h1 id="toc_2">兼容性</h1>
+<h1 id="兼容性:cebb39200789161d04153b9fa938a694">兼容性</h1>
 
 <p>那么如果您已经有了自己的 Objective-C 框架，现在要混合使用些类型安全么？当然，答案是肯定的。</p>
 
@@ -1764,7 +1809,7 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
 
 <p>大体上您可以把 <code>nonnull</code> 和 <code>nullable</code> 当做断言或者异常捕捉特性来使用：违反协议是程序员本身的错误。毕竟是由您完全控制您的函数会返回什么值，因此在不该返回 <code>nil</code> 的函数中，您应该负责确保它不会返回空值，除非是为了向后兼容。</p>
 
-<h1 id="toc_3">回到 Swift</h1>
+<h1 id="回到-swift:cebb39200789161d04153b9fa938a694">回到 Swift</h1>
 
 <p>现在我们已经在我们的 Objective-C 一端用上了可为空性注释，让我们看看 Swift 一端该跟着怎么变：</p>
 
@@ -1811,12 +1856,12 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
 
         
 
-<h1 id="toc_0">iOS Media Frameworks Stack</h1>
+<h1 id="ios-media-frameworks-stack:f95209d9a4b109157ca40ecdf8a06f6a">iOS Media Frameworks Stack</h1>
 
 <p><img src="../../../note/media_stack.svg" alt="iOS media frameworks Stack" />
 </p>
 
-<h1 id="toc_1">The Trunk Relation Graph</h1>
+<h1 id="the-trunk-relation-graph:f95209d9a4b109157ca40ecdf8a06f6a">The Trunk Relation Graph</h1>
 
 <p><img src="../../../note/media_trunk_graph.svg" alt="iOS media framework trunk relation graph" />
 </p>
@@ -1875,7 +1920,7 @@ for i in stride(from: 0.0, through: 360, by: 1.0) {
 
 <p>在 Swift 中，动态调度通过从函数表中搜索正确的函数并间接调用他们来实现。这显然比直接调用来的慢。此外，间接调用还会阻碍很多编译器对代码的优化，这又进一步增加了程序运行的开销。在性能关键的代码中，Swift 提供了一些技术来关闭某些不必要的动态调度以拉升程序性能。</p>
 
-<h2 id="toc_0">当你确定某个声明不会被覆盖时，使用 <code>final</code> 关键字</h2>
+<h2 id="当你确定某个声明不会被覆盖时-使用-final-关键字:52ba0b4377510c6a656bb32f897c03ec">当你确定某个声明不会被覆盖时，使用 <code>final</code> 关键字</h2>
 
 <p>关键字 <code>final</code> 可以修饰类，方法或者属性的声明，它指示编译器这些声明不会被后续代码覆盖。这样编译器就能放心的在这些对象上关闭动态调度特性（不生成动态调度的代码）。比如下面的类属性 <code>point</code>，<code>velocity</code> 和函数 <code>updatePoint()</code> 将被直接访问和调用。而方法 <code>update()</code> 仍然需要通过动态调度来间接的被调用，它也因此能被子类们覆盖。</p>
 
@@ -1905,7 +1950,7 @@ for i in stride(from: 0.0, through: 360, by: 1.0) {
 }
 </code></pre>
 
-<h2 id="toc_1">为 <code>private</code> 声明自动推导 <code>final</code> 语义</h2>
+<h2 id="为-private-声明自动推导-final-语义:52ba0b4377510c6a656bb32f897c03ec">为 <code>private</code> 声明自动推导 <code>final</code> 语义</h2>
 
 <p>被 <code>private</code> 修饰的声明其可见性会限制在声明它的文件里。如果在该文件里，没有发现对该声明的覆盖，编译器就不会为该声明生成动态调度代码，而是直接的访问他们。</p>
 
@@ -1938,7 +1983,7 @@ Assuming there is no class overriding ParticleModel in the current file, the com
 }
 </code></pre>
 
-<h1 id="toc_2">通过模块级的优化来对 <code>internal</code> 声明推导出 <code>final</code> 语义</h1>
+<h1 id="通过模块级的优化来对-internal-声明推导出-final-语义:52ba0b4377510c6a656bb32f897c03ec">通过模块级的优化来对 <code>internal</code> 声明推导出 <code>final</code> 语义</h1>
 
 <p>在 Swift 中，所有声明的可见性默认为 <code>internal</code>，也就是说他们只能在定义他们的模块内可见。编译器通常会单独的编译模块内的每个文件，因此它在变异某一个源文件时，无法判断在同意模块内的其他源文件里是否对该源文件内定义的 <code>internal</code> 声明的覆盖。但是如果我们启用了编译器的 <code>Whole Module Optimization</code> 模块级优选项，所以的文件将在一次编译过程中全部被编译。这样编译器就能在整个模块范围类分析是否某个 <code>internal</code> 声明被覆盖了，从而推导出 <code>final</code> 语义以关闭动态调度特性。</p>
 
@@ -1985,13 +2030,13 @@ for i in stride(from: 0.0, through: times, by: 1.0) {
 
 <p>我们设计 Swift 这门语言时的一个重要的发力方向就是改进编程模型的内存安全性。内存安全有很多方面，本文将由浅入深，先从一个简单的问题开始：如果确保值在使用前被初始化。</p>
 
-<h1 id="toc_0">Swift 的方式</h1>
+<h1 id="swift-的方式:79a7d0d1a66d48b992ef5e7d40e90189">Swift 的方式</h1>
 
 <p>如果每当一个变量第一次被访问时，该变量都有一个有效的初始值，那么该变量就被认为是“安全”的。不同的语言采用了不同的方式来提供这种安全性。比如 C 语言，它将责任完全交给程序员——这种方法强大，但是也很有难度。C++ 和 Objective-C 通过施加一些强制性的模式来改善此类情况，还有一些语言则（比较极端的）要求变量在定义时就必须初始化。</p>
 
 <p>Swift 采用的主要技术是通过其先进的编译器来对代码的数据流进行分析。由编译器在编译时确保变量在使用前正确初始化，这是是一种名为 <a href="http://en.wikipedia.org/wiki/Definite_assignment_analysis">明确初始化——Definitive Initialization</a> 的策略。还有很多语言比如 Java，C# 都采用了类似的策略，而 Swift 则是的该策略的一个扩展版本应用于更大范围的变量上面。</p>
 
-<h1 id="toc_1">本地变量的明确初始化</h1>
+<h1 id="本地变量的明确初始化:79a7d0d1a66d48b992ef5e7d40e90189">本地变量的明确初始化</h1>
 
 <p>在 Swift 中有很多场景都用到了该策略，其中最简单的场景就是用于本地变量。相较于“隐式的默认值初始化 implicit default initialization”，明确初始化初始化提供了更大的灵活性，因为它运行你写出如下的代码：</p>
 
@@ -2026,7 +2071,7 @@ if x &gt; 42 {
 
 <p>Swift 使初始化一个变量变得极其简单。事实上用 Swift 在声明时给出初始化值 <code>var x = 0</code> 比声明一个未初始化的变量 <code>var x: Int</code> 所得到的代码更简短。Swift 提倡在任何可能的时候给声明的变量一个明确的初始化值。还有更加强大的方法就是通过调用 <code>init()</code> 方法来初始化一个变量。想要了解更加详细的信息，请参阅 Swfit Programming Language 的“<a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html">初始化 Initialization</a>” 一章。</p>
 
-<h1 id="toc_2">其他的方式</h1>
+<h1 id="其他的方式:79a7d0d1a66d48b992ef5e7d40e90189">其他的方式</h1>
 
 <p>除了明确初始化之外，Swift 在特定情况下也会采用一些其他的策略。您很可能已经在其他语言中碰到过这些策略，因此我们将在本文中简短的介绍下他们。他们都用各自不足之处，所以 Swift 并没有将他们当做主要策略来使用。</p>
 
@@ -2059,7 +2104,7 @@ if x &gt; 42 {
 
 <p>AMap (高德地图) APIs depicted in several graphs I draw.</p>
 
-<h1 id="toc_0">AMap Searching API</h1>
+<h1 id="amap-searching-api:7d3496c6caad31fc2575ab72f7c17e8d">AMap Searching API</h1>
 
 <p><img src="../../../note/amap_searching_graph.svg" alt="AMap Searching API Graph" />
 </p>
@@ -2079,7 +2124,7 @@ if x &gt; 42 {
 
 <p>Quick steps to use iOS&rsquo;s LBS technology.</p>
 
-<h1 id="toc_0">Core Location</h1>
+<h1 id="core-location:53977196f326bcef27e672608f2b7b53">Core Location</h1>
 
 <p>iOS devices integrates various hardware components, such as:</p>
 
@@ -2131,7 +2176,7 @@ you asynchronously by calling one of the its&rsquo; delegate&rsquo;s methods.</p
 <p><img src="../../../note/core_location_map.svg" alt="Core Location Map" />
 </p>
 
-<h2 id="toc_1">Work flow of using LBS abilities.</h2>
+<h2 id="work-flow-of-using-lbs-abilities:53977196f326bcef27e672608f2b7b53">Work flow of using LBS abilities.</h2>
 
 <ol>
 <li><p>Project setup</p>
@@ -2199,7 +2244,7 @@ object to:</p>
 </ul></li>
 </ol>
 
-<h1 id="toc_2">MapKit</h1>
+<h1 id="mapkit:53977196f326bcef27e672608f2b7b53">MapKit</h1>
 
 <p>In general, MapKit:</p>
 
@@ -2260,7 +2305,7 @@ storing data for overlays, such as location, etc.</p></li>
 <p><img src="../../../note/map_kit_map.svg" alt="MapKit map" />
 </p>
 
-<h2 id="toc_3">Customize annotation view</h2>
+<h2 id="customize-annotation-view:53977196f326bcef27e672608f2b7b53">Customize annotation view</h2>
 
 <p>A annotation view usually consist of 2 parts:</p>
 
@@ -2315,7 +2360,7 @@ let sortedWords = words.sorted({
 <p>As the sugars introduced in, we will cut the lines above into an incredibly one
 line of code.</p>
 
-<h1 id="toc_0">Sugar #0 &ndash; trailing closure</h1>
+<h1 id="sugar-0-trailing-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #0 &ndash; trailing closure</h1>
 
 <p>Often, closure parameter is placed last in parameter list. Swift thus provides
 <strong>trailing closure</strong>, which means your can write the inline closure just
@@ -2331,7 +2376,7 @@ let sortedWords = words.sorted/*()*/ {
 }
 </code></pre>
 
-<h1 id="toc_1">Sugar #1 &ndash; return type inference</h1>
+<h1 id="sugar-1-return-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #1 &ndash; return type inference</h1>
 
 <p><strong>return type</strong> can be inferred by swift compiler.</p>
 
@@ -2342,7 +2387,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="toc_2">Sugar #2 &ndash; parameter type inference</h1>
+<h1 id="sugar-2-parameter-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #2 &ndash; parameter type inference</h1>
 
 <p><strong>parameter types</strong> can be inferred by swift compiler as well.</p>
 
@@ -2353,7 +2398,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="toc_3">Sugar #3 &ndash; parenthesis-less</h1>
+<h1 id="sugar-3-parenthesis-less:a40f4ebf5561eeafcff0342811dbdf21">Sugar #3 &ndash; parenthesis-less</h1>
 
 <p>Since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
 
@@ -2364,7 +2409,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="toc_4">Sugar #4 &ndash; return statement inference</h1>
+<h1 id="sugar-4-return-statement-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; return statement inference</h1>
 
 <p>If the closure has one statement, then the <strong>return</strong> statement can also be
 inferred.</p>
@@ -2379,7 +2424,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
 </code></pre>
 
-<h1 id="toc_5">Sugar #5 &ndash; shorthand parameter name</h1>
+<h1 id="sugar-5-shorthand-parameter-name:a40f4ebf5561eeafcff0342811dbdf21">Sugar #5 &ndash; shorthand parameter name</h1>
 
 <p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
 the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
@@ -2395,7 +2440,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { $0 &lt; $1 }
 </code></pre>
 
-<h1 id="toc_6">Sugar #6 &ndash; operator as a closure</h1>
+<h1 id="sugar-6-operator-as-a-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #6 &ndash; operator as a closure</h1>
 
 <p>In swift, <strong>operator</strong> is a function, which in turn is a <strong>special closure</strong>, so&hellip;</p>
 
@@ -2537,9 +2582,9 @@ character.</p>
 <p>Excerpts from the &ldquo;Functions&rdquo; section of the official docuemnt <a href="http://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/LexicalStructure.html">《The Swift
 Programming Language》</a></p>
 
-<h1 id="toc_0">Function Parameters</h1>
+<h1 id="function-parameters:9001fbf6bb512c5ae93dad9f83646181">Function Parameters</h1>
 
-<h2 id="toc_1">Parameter names</h2>
+<h2 id="parameter-names:9001fbf6bb512c5ae93dad9f83646181">Parameter names</h2>
 
 <p>A parameter name can have a <strong>internal name</strong> and an <strong>external name</strong> declared
 in the form of: <code>external_name internal_name: type</code>.</p>
@@ -2569,7 +2614,7 @@ println(join(aString: &quot;Hello&quot;, toString: &quot; World!&quot;))
 println(join(&quot;Hello&quot;, &quot; World!&quot;))
 </code></pre>
 
-<h2 id="toc_2">Parameters with default value</h2>
+<h2 id="parameters-with-default-value:9001fbf6bb512c5ae93dad9f83646181">Parameters with default value</h2>
 
 <p>Default parameter values of the <code>[external_name /_/#]internal_name: type =
 default_value</code> should be placed at end of the parameter list.</p>
@@ -2586,7 +2631,7 @@ which is not recommended.)</p>
 Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
 </code></pre>
 
-<h2 id="toc_3">Variadic parameters</h2>
+<h2 id="variadic-parameters:9001fbf6bb512c5ae93dad9f83646181">Variadic parameters</h2>
 
 <p>Declare variadic parameter in form <code>name: type...</code>, which, in the function
 body, is of type <code>[type]</code>.</p>
@@ -2594,7 +2639,7 @@ body, is of type <code>[type]</code>.</p>
 <p>Only one variadic parameter is allowed in a parameter list, and it should be
 placed after all other normal parameters or parameters with default value.</p>
 
-<h2 id="toc_4">Variable parameters</h2>
+<h2 id="variable-parameters:9001fbf6bb512c5ae93dad9f83646181">Variable parameters</h2>
 
 <p>Prefix parameter names with keyword <code>var</code> to make them modifiable inside the
 function body.</p>
@@ -2602,7 +2647,7 @@ function body.</p>
 <p>It is just another small syntactic sugar brought by Swift, the change made in
 the function body will not propagate outside the function body.</p>
 
-<h2 id="toc_5">In-Out parameters</h2>
+<h2 id="in-out-parameters:9001fbf6bb512c5ae93dad9f83646181">In-Out parameters</h2>
 
 <p>Prefix parameters names with keyword <code>inout</code> (which implies <code>var</code>) to make the
 change to the parameter inside function body propagate outside.</p>
@@ -2626,7 +2671,7 @@ swapTwoInts(&amp;a, &amp;b)
 println(&quot;after swapping, a = \(a), b = \(b)&quot;)
 </code></pre>
 
-<h1 id="toc_6">Function Return Values</h1>
+<h1 id="function-return-values:9001fbf6bb512c5ae93dad9f83646181">Function Return Values</h1>
 
 <p>Functions without a defined return type return a special value of type
 <strong>Void</strong>.  This is simply an empty tuple, in effect a tuple with zero elements,
@@ -2647,7 +2692,7 @@ if let minMax = minMax([1,2,3]) {
 }
 </code></pre>
 
-<h1 id="toc_7">Function Types</h1>
+<h1 id="function-types:9001fbf6bb512c5ae93dad9f83646181">Function Types</h1>
 
 <p>In Swift, function is first class object, so feel free to use them as other
 normal objects:</p>
@@ -2715,7 +2760,7 @@ class Subclass: SuperClass {
 }
 </code></pre>
 
-<h1 id="toc_0">3 Kinds of Castings</h1>
+<h1 id="3-kinds-of-castings:e373237e3c83a4aeea99bd7089919495">3 Kinds of Castings</h1>
 
 <ol>
 <li><p>Natural Casting</p>
@@ -2750,7 +2795,7 @@ applicalbe, instead of emitting a panic, it returns nil.</p></li>
 <li><p>Conditional &amp; Unconditional castings are used in <em>might-fail</em> castings.</p></li>
 </ul>
 
-<h1 id="toc_1">2 Operator for Casting</h1>
+<h1 id="2-operator-for-casting:e373237e3c83a4aeea99bd7089919495">2 Operator for Casting</h1>
 
 <ol>
 <li><p>The <code>is</code> operator</p></li>
@@ -2758,9 +2803,9 @@ applicalbe, instead of emitting a panic, it returns nil.</p></li>
 <li><p>The <code>as</code> operators - <code>as</code>, <code>as?</code>, <code>as!</code></p></li>
 </ol>
 
-<h1 id="toc_2">Special casting scenarios in practice</h1>
+<h1 id="special-casting-scenarios-in-practice:e373237e3c83a4aeea99bd7089919495">Special casting scenarios in practice</h1>
 
-<h2 id="toc_3">Protocol Casting</h2>
+<h2 id="protocol-casting:e373237e3c83a4aeea99bd7089919495">Protocol Casting</h2>
 
 <p>In Swift the relationship between a protocol and the classes adopting that
 protocol is like the relationship between a super class and its&rsquo; sub-classes.
@@ -2800,7 +2845,7 @@ must be imported. (Usually, you import <code>UIKit</code> or <code>AppKit</code>
 import <code>Foundation</code> framework). Only then can swift compiler be able to
 recognize the <code>@objc</code> keyword, and have Objective-C type bridging ability.</p>
 
-<h2 id="toc_4">Optional AnyObject Collection Casting</h2>
+<h2 id="optional-anyobject-collection-casting:e373237e3c83a4aeea99bd7089919495">Optional AnyObject Collection Casting</h2>
 
 <p>For a optional of Collection of AnyObject that reference objects of the same
 class (or super class) T, can be [un]conditionally casted to [T] (without
@@ -2896,7 +2941,7 @@ for meta in asset.commonMetadata as! [AVMetadataItem] {
 
 <p>Handle iOS keyboard poppu &amp; resignment gracefully.</p>
 
-<h1 id="toc_0">UIWindow provide 6 keyboard related notifications</h1>
+<h1 id="uiwindow-provide-6-keyboard-related-notifications:b614ebfeac035ea8194198b4de0bef0c">UIWindow provide 6 keyboard related notifications</h1>
 
 <ul>
 <li><p><code>UIKeyboard[Will/Did]ShowNotification</code></p></li>
@@ -2925,9 +2970,9 @@ first shown and before it is hidden. When the keyboard is first shown or is
 resigned, the <code>Begin</code> or <code>End</code> frame is equal.</p></li>
 </ol>
 
-<h1 id="toc_1">Strategies for move contents above the keyboard:</h1>
+<h1 id="strategies-for-move-contents-above-the-keyboard:b614ebfeac035ea8194198b4de0bef0c">Strategies for move contents above the keyboard:</h1>
 
-<h2 id="toc_2">For contents embedded in <code>UISCrollView</code>s</h2>
+<h2 id="for-contents-embedded-in-uiscrollview-s:b614ebfeac035ea8194198b4de0bef0c">For contents embedded in <code>UISCrollView</code>s</h2>
 
 <p>Way #1 &ndash; Adjust the bottom edge inset value of the containing scroll view&rsquo;s
 contentsInset property and scroll active view into visible area using
@@ -2940,7 +2985,7 @@ properties.</p>
 <code>scrollIndicatorInsets</code>&rsquo;s bottom edge inset value to make the indicator fully
 un-obscured from the keyboard.</p>
 
-<h2 id="toc_3">For contents outside any <code>UIScrollView</code></h2>
+<h2 id="for-contents-outside-any-uiscrollview:b614ebfeac035ea8194198b4de0bef0c">For contents outside any <code>UIScrollView</code></h2>
 
 <p>Recalculate and set its&rsquo; frame.origin.y value in
 <code>UIKeyboardWillShowNotification</code> handler method, and the movement will be
@@ -2968,7 +3013,7 @@ animated along with the revealing of keyboard perfectly.</p>
 }
 </code></pre>
 
-<h1 id="toc_4">References:</h1>
+<h1 id="references:b614ebfeac035ea8194198b4de0bef0c">References:</h1>
 
 <ul>
 <li><p><a href="https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW7">Moving Contents That is Located Under the Keyboard in Text Programming Guide for iOS</a></p></li>
@@ -3352,7 +3397,7 @@ would mess your up.</p></li>
 
 <p>The marathon of installing &amp; tunning the Arch Linux to my flavor.</p>
 
-<h1 id="toc_0">SUMMARY</h1>
+<h1 id="summary:5d619d5b4274de60cd7271d307f17fb2">SUMMARY</h1>
 
 <p><a href="https://wiki.archlinux.org">Arch Linux</a> + <a href="http://awesome.naquadah.org">Awesome WM</a> + <a href="http://invisible-island.net/xterm/">xterm</a>, that is the
 main skeleton of my system.</p>
@@ -3382,7 +3427,7 @@ I can see.</p></li>
 <p>Among various <a href="https://wiki.archlinux.org/index.php/lightdm#Greeter">greeters</a>, I currently use <code>lightdm-gtk3-greeter</code>. It
 has a simplistic and neat login screen, just the necessary elements I need.</p>
 
-<h1 id="toc_1">THE WINDOW MANAGER &ndash; AWESOME WM</h1>
+<h1 id="the-window-manager-awesome-wm:5d619d5b4274de60cd7271d307f17fb2">THE WINDOW MANAGER &ndash; AWESOME WM</h1>
 
 <p>I have tried two ways of starting Awesome WM during system boot.</p>
 
@@ -3414,9 +3459,9 @@ startup process pretty faster than the <em>xinit</em> way.</p></li>
 I&rsquo;ve seen, took more time to initiates.</p></li>
 </ul>
 
-<h2 id="toc_2">With display manager</h2>
+<h2 id="with-display-manager:5d619d5b4274de60cd7271d307f17fb2">With display manager</h2>
 
-<h3 id="toc_3">Installing LightDM</h3>
+<h3 id="installing-lightdm:5d619d5b4274de60cd7271d307f17fb2">Installing LightDM</h3>
 
 <p>First, install <code>LightDM</code> &amp; <code>lightdm-gtk3-greeter</code> from official repository. An
 extra advantage of choosing <code>lightdm-gtk3-greeter</code> is that you do not need to
@@ -3431,16 +3476,16 @@ automatically.</p>
 sudo systemctl enable lightdm.service
 </code></pre>
 
-<h3 id="toc_4">Configuring LightDM</h3>
+<h3 id="configuring-lightdm:5d619d5b4274de60cd7271d307f17fb2">Configuring LightDM</h3>
 
-<h2 id="toc_5">Without display manager</h2>
+<h2 id="without-display-manager:5d619d5b4274de60cd7271d307f17fb2">Without display manager</h2>
 
 <p>Without display manager, you should first login into the <code>tty1</code>, then type
 <code>startx</code> to start the <em>Awesome WM</em>.</p>
 
 <p>Through some configuration, the 2 steps mentioned above can be automated:</p>
 
-<h3 id="toc_6">Step 1 &ndash; automatic login to virtual console</h3>
+<h3 id="step-1-automatic-login-to-virtual-console:5d619d5b4274de60cd7271d307f17fb2">Step 1 &ndash; automatic login to virtual console</h3>
 
 <p>create the following file and its&rsquo; parent directory if not exists.</p>
 
@@ -3452,7 +3497,7 @@ ExecStart=-/usr/bin/agetty --autologin mudox --noclear %I 38400 linux
 Type=idle
 </code></pre>
 
-<h3 id="toc_7">Step 2 &ndash; start X at login</h3>
+<h3 id="step-2-start-x-at-login:5d619d5b4274de60cd7271d307f17fb2">Step 2 &ndash; start X at login</h3>
 
 <p>First install the <code>xorg-xinit</code> package from the Arch Linux official
 repository, which provides the <code>xinit</code> command &amp; its&rsquo; front end &ndash; the <code>startx</code>
@@ -3502,7 +3547,7 @@ ArchWiki</a></p></li>
 <li><p><a href="https://wiki.archlinux.org/index.php/Xinitrc">xinitrc form ArchWiki</a></p></li>
 </ul>
 
-<h1 id="toc_8">MOUSE ACCELERATION</h1>
+<h1 id="mouse-acceleration:5d619d5b4274de60cd7271d307f17fb2">MOUSE ACCELERATION</h1>
 
 <p>Type <code>xset q | grep Pointer</code> to see current mouse acceleration setting.</p>
 
@@ -3529,7 +3574,7 @@ be a fraction, so if you want to slow down the mouse you can use <sup>1</sup>&fr
 <li><a href="https://wiki.archlinux.org/index.php/Mouse_acceleration">Mouse acceleration from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_9">INPUT METHOD</h1>
+<h1 id="input-method:5d619d5b4274de60cd7271d307f17fb2">INPUT METHOD</h1>
 
 <p>The <strong>ibus + isbus-rime</strong> combinations works nicely on my Arch Linux.</p>
 
@@ -3570,7 +3615,7 @@ ibus-daemon -drx
 <li><a href="https://wiki.archlinux.org/index.php/Ibus">IBus from ArchWiki</a></li>
 </ul>
 
-<h1 id="toc_10">WINDOW MANAGER</h1>
+<h1 id="window-manager:5d619d5b4274de60cd7271d307f17fb2">WINDOW MANAGER</h1>
 
 <p>On Linux platforms, I prefer WMs to DEs.</p>
 
@@ -3579,7 +3624,7 @@ ibus-daemon -drx
 <p>see <a href="/memo/setup_my_aweseome_wm_environment/">SETUP MY AWESOME WM ENVIRONMENT</a>
 for details.</p>
 
-<h1 id="toc_11">SHELL ENVIRONMENT</h1>
+<h1 id="shell-environment:5d619d5b4274de60cd7271d307f17fb2">SHELL ENVIRONMENT</h1>
 
 <p>I have used several terminal emulators (gnome-terminal, xvrt &hellip;), and finally
 I settled myself on <strong>xterm</strong>, which I feel it:</p>
@@ -3612,7 +3657,7 @@ bash &amp; fish shells. the reason is obvious:</p>
 </ul></li>
 </ul>
 
-<h2 id="toc_12">Pull down dot-files repo</h2>
+<h2 id="pull-down-dot-files-repo:5d619d5b4274de60cd7271d307f17fb2">Pull down dot-files repo</h2>
 
 <p>My configuration resource related to termianl emulator &amp; shells are managed in
 a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files</a>.</p>
@@ -3621,7 +3666,7 @@ a github repo &ndash; <a href="https://github.com/Mudox/dot-files.git">dot-files
 git clone https://github.com/Mudox/dot-files.git
 </code></pre>
 
-<h2 id="toc_13">Setup xterm</h2>
+<h2 id="setup-xterm:5d619d5b4274de60cd7271d307f17fb2">Setup xterm</h2>
 
 <p>First, install xterm from Arch Linux&rsquo;s official repository.</p>
 
@@ -3634,13 +3679,13 @@ cd ~
 ln -sf Git/dot-files/Xresources .Xresources
 </code></pre>
 
-<h2 id="toc_14">Setup zsh</h2>
+<h2 id="setup-zsh:5d619d5b4274de60cd7271d307f17fb2">Setup zsh</h2>
 
 <p>see <a href="/memo/setup_my_zsh_environment/">SETUP MY ZSH ENVIRONMENTS</a> for details.</p>
 
-<h1 id="toc_15">SETUP VIRTUALBOX</h1>
+<h1 id="setup-virtualbox:5d619d5b4274de60cd7271d307f17fb2">SETUP VIRTUALBOX</h1>
 
-<h2 id="toc_16">Installing Virtualbox</h2>
+<h2 id="installing-virtualbox:5d619d5b4274de60cd7271d307f17fb2">Installing Virtualbox</h2>
 
 <p>First, from the official repository, install <code>virtualbox</code> package, which comes
 with <code>virtualbox-host-modules</code>.</p>
@@ -3662,7 +3707,7 @@ sudo echo 'vboxdrv' &gt; /etc/modules-load.d/virtualbox.conf
 sudo gpasswd -a &quot;${USER}&quot; vboxusers
 </code></pre>
 
-<h2 id="toc_17">Configuring Virtualbox</h2>
+<h2 id="configuring-virtualbox:5d619d5b4274de60cd7271d307f17fb2">Configuring Virtualbox</h2>
 
 <ol>
 <li><p>Set <em>Host Key Combination</em> to <code>right &lt;winkey&gt;</code> which is consistent with
@@ -3682,9 +3727,9 @@ Clipboard-&gt;Bidirectional</em> of virtual machine window.</p></li>
 <li><p><a href="https://wiki.archlinux.org/index.php/Kernel_modules">kernel_modules from ArchWiki</a></p></li>
 </ul>
 
-<h1 id="toc_18">VPN</h1>
+<h1 id="vpn:5d619d5b4274de60cd7271d307f17fb2">VPN</h1>
 
-<h2 id="toc_19">Setup pptpclient</h2>
+<h2 id="setup-pptpclient:5d619d5b4274de60cd7271d307f17fb2">Setup pptpclient</h2>
 
 <ol>
 <li><p>install pptpclient from the official repository of Arch Linux.</p></li>
@@ -3744,9 +3789,9 @@ ip addr show
 sudo pon &lt;tunnel_name&gt;
 </code></pre>
 
-<h2 id="toc_20">Route all traffic through VPN connection</h2>
+<h2 id="route-all-traffic-through-vpn-connection:5d619d5b4274de60cd7271d307f17fb2">Route all traffic through VPN connection</h2>
 
-<h3 id="toc_21">Manually</h3>
+<h3 id="manually:5d619d5b4274de60cd7271d307f17fb2">Manually</h3>
 
 <p>Use the powerfull <code>ip</code> command to add a route rule into route table.</p>
 
@@ -3757,7 +3802,7 @@ ip route add default dev ppp0
 <p>This route rule is only effective during this ppp session. after your tear down
 the VPN connection by <code>sudo pon &lt;tunnel_name&gt;</code>, it will vanish.</p>
 
-<h3 id="toc_22">Automatically</h3>
+<h3 id="automatically:5d619d5b4274de60cd7271d307f17fb2">Automatically</h3>
 
 <p>Every executable scripts under /etc/ppp/ip-up.d/ will be called when a VPN
 connection startup. Hence, we can use it to automatically set route rules.</p>
@@ -3788,7 +3833,7 @@ co
 sudo chmod +x /etc/ppp/ip-up.d/01-routes.sh
 </code></pre>
 
-<h2 id="toc_23">Modify DNS server list</h2>
+<h2 id="modify-dns-server-list:5d619d5b4274de60cd7271d307f17fb2">Modify DNS server list</h2>
 
 <p>If you found you still can not access some site (e.g. youtube, twitter, etc.)
 after establishing the VPN connection, then you should insert <code>servername
@@ -3800,7 +3845,7 @@ nameserver 8.8.8.8
 nameserver 192.168.0.1
 </code></pre>
 
-<h3 id="toc_24">My hacky way</h3>
+<h3 id="my-hacky-way:5d619d5b4274de60cd7271d307f17fb2">My hacky way</h3>
 
 <p>I wrote a script to get around of this:</p>
 
@@ -3872,7 +3917,7 @@ full of surprise and happy.</p>
 <p>Below records my steps of setting up my Vim environment after every system
 re-installation.</p>
 
-<h1 id="toc_0">Installing Vim</h1>
+<h1 id="installing-vim:e10e07abd5cce05e9f08a532342378a4">Installing Vim</h1>
 
 <p>my vim config have be tested on:</p>
 
@@ -3887,7 +3932,7 @@ re-installation.</p>
 <p><strong>NOTE</strong>: currently I prefer to GUI version than terminal version, hence most
 of my configurations are tailored to GUI environments.</p>
 
-<h1 id="toc_1">Setup My Vim-Config Repo</h1>
+<h1 id="setup-my-vim-config-repo:e10e07abd5cce05e9f08a532342378a4">Setup My Vim-Config Repo</h1>
 
 <p>First pull down my <a href="https://github.com/Mudox/vim-config">vim-config</a> repo from github.</p>
 
@@ -3908,9 +3953,9 @@ cd chameleon
 echo 'all' &gt; cur_mode
 </code></pre>
 
-<h1 id="toc_2">Install Prerequisites Vim Plugins</h1>
+<h1 id="install-prerequisites-vim-plugins:e10e07abd5cce05e9f08a532342378a4">Install Prerequisites Vim Plugins</h1>
 
-<h2 id="toc_3">Install <a href="https://github.com/Mudox/vim-chameleon">vim-chameleon</a></h2>
+<h2 id="install-vim-chameleon-chameleon:e10e07abd5cce05e9f08a532342378a4">Install <a href="https://github.com/Mudox/vim-chameleon">vim-chameleon</a></h2>
 
 <p><a href="https://github.com/Mudox/vim-chameleon">vim-chameleon</a> is my own plugin for managing massive and ever
 growing vim &amp; vim plugin configurations.</p>
@@ -3920,7 +3965,7 @@ growing vim &amp; vim plugin configurations.</p>
 git clone https://github.com/Mudox/vim-chameleon chameleon
 </code></pre>
 
-<h2 id="toc_4">Install <a href="https://github.com/Shougo/neobundle.vim">neobundle</a>.</h2>
+<h2 id="install-neobundle-neobundle:e10e07abd5cce05e9f08a532342378a4">Install <a href="https://github.com/Shougo/neobundle.vim">neobundle</a>.</h2>
 
 <p><a href="https://github.com/Shougo/neobundle.vim">neobundle</a> is a sophisticated vim plugin manager that I have been
 using for a long time.</p>
@@ -3930,7 +3975,7 @@ using for a long time.</p>
 git clone https://github.com/Shougo/neobundle.vim neobundle
 </code></pre>
 
-<h2 id="toc_5">Install &amp; compile <a href="https://github.com/Shougo/vimproc.vim">vimproc</a>.</h2>
+<h2 id="install-compile-vimproc-vimproc:e10e07abd5cce05e9f08a532342378a4">Install &amp; compile <a href="https://github.com/Shougo/vimproc.vim">vimproc</a>.</h2>
 
 <p><a href="https://github.com/Shougo/vimproc.vim">vimproc</a> is another plugin written by <a href="https://github.com/Shougo">Shougo</a> that is very
 useful, and is required by <a href="https://github.com/Shougo/neobundle.vim">neobundle</a>. The point is that you need to
@@ -3944,20 +3989,20 @@ cd vimproc
 make # see vimproc/README.md for compilation commands for various platforms.
 </code></pre>
 
-<h2 id="toc_6">Run vim to see all other 140+ plugins get installed.</h2>
+<h2 id="run-vim-to-see-all-other-140-plugins-get-installed:e10e07abd5cce05e9f08a532342378a4">Run vim to see all other 140+ plugins get installed.</h2>
 
 <p>You can run vim in terminals or open gVim. Better run vim in terminal to watch
 the plugins installing progress and spot any errors clearly.</p>
 
-<h1 id="toc_7">Vim Environment For Specific Use Case</h1>
+<h1 id="vim-environment-for-specific-use-case:e10e07abd5cce05e9f08a532342378a4">Vim Environment For Specific Use Case</h1>
 
-<h2 id="toc_8">Web Developing</h2>
+<h2 id="web-developing:e10e07abd5cce05e9f08a532342378a4">Web Developing</h2>
 
 <p>Node.js (and NPM which comes with it) is the essentials of everything below.</p>
 
-<h3 id="toc_9">HTML</h3>
+<h3 id="html:e10e07abd5cce05e9f08a532342378a4">HTML</h3>
 
-<h3 id="toc_10">JavaScript</h3>
+<h3 id="javascript:e10e07abd5cce05e9f08a532342378a4">JavaScript</h3>
 
 <p>I use:</p>
 
@@ -3977,7 +4022,7 @@ npm install eslint -g
 npm install js-beautify -g
 </code></pre>
 
-<h3 id="toc_11">CSS</h3>
+<h3 id="css:e10e07abd5cce05e9f08a532342378a4">CSS</h3>
 
 <p>I use:</p>
 
@@ -3991,13 +4036,13 @@ npm install js-beautify -g
 npm install csscomb -g
 </code></pre>
 
-<h2 id="toc_12">Python Scripting</h2>
+<h2 id="python-scripting:e10e07abd5cce05e9f08a532342378a4">Python Scripting</h2>
 
-<h2 id="toc_13">Lua Scripting</h2>
+<h2 id="lua-scripting:e10e07abd5cce05e9f08a532342378a4">Lua Scripting</h2>
 
-<h2 id="toc_14">Go Scripting</h2>
+<h2 id="go-scripting:e10e07abd5cce05e9f08a532342378a4">Go Scripting</h2>
 
-<h2 id="toc_15">C/C++ Coding</h2>
+<h2 id="c-c-coding:e10e07abd5cce05e9f08a532342378a4">C/C++ Coding</h2>
 
       </div>
       
@@ -4043,6 +4088,37 @@ a real number.</p></li>
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -4078,37 +4154,6 @@ function init() {
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/setup_my_zsh_environment/">
             SETUP MY ZSH ENVIRONMENT
           </a>
@@ -4121,9 +4166,9 @@ expanded string as a <strong>single word</strong>.</p></li>
 <p>Steps of setting up zsh environment on my systems (Arch Linux, MacOS,
 Windows/Cygwin).</p>
 
-<h2 id="toc_0">the <code>z</code> command</h2>
+<h2 id="the-z-command:083df0fa20dd0fcc5a85cc56da642ee0">the <code>z</code> command</h2>
 
-<h2 id="toc_1">the <code>fzf</code> command</h2>
+<h2 id="the-fzf-command:083df0fa20dd0fcc5a85cc56da642ee0">the <code>fzf</code> command</h2>
 
       </div>
       
@@ -4145,7 +4190,7 @@ seen.</p>
 <p>Below records my steps of setting up the Awesome window manager on my Arch
 Linux progressively.</p>
 
-<h1 id="toc_0">Installing Awesome Packages</h1>
+<h1 id="installing-awesome-packages:66355fb726e6b8de6d3a750a0810518c">Installing Awesome Packages</h1>
 
 <p>The awesome package is in the official repository of Arch Linux.</p>
 
@@ -4154,7 +4199,7 @@ Linux progressively.</p>
 <pre><code class="language-bash">sudo pacman -S awesome xorg-xephyr
 </code></pre>
 
-<h1 id="toc_1">Pulling Down My Awesome-Config Repository</h1>
+<h1 id="pulling-down-my-awesome-config-repository:66355fb726e6b8de6d3a750a0810518c">Pulling Down My Awesome-Config Repository</h1>
 
 <p>The pulled down repo must be put in ~/.config/awesome, where awesome will
 correctly load the configuration resources.</p>
@@ -4183,35 +4228,35 @@ git submodule update --init --recursive
 efficiency onto Windows.
 Below is the steps of setting up the Cygwin environment on my Windows.</p>
 
-<h1 id="toc_0">Why Cygwin over other tools.</h1>
+<h1 id="why-cygwin-over-other-tools:aa9a9c6695db4af23c5ee4d16b684b46">Why Cygwin over other tools.</h1>
 
-<h1 id="toc_1">Setup Cygwin</h1>
+<h1 id="setup-cygwin:aa9a9c6695db4af23c5ee4d16b684b46">Setup Cygwin</h1>
 
-<h2 id="toc_2">Cygwin path remapping</h2>
+<h2 id="cygwin-path-remapping:aa9a9c6695db4af23c5ee4d16b684b46">Cygwin path remapping</h2>
 
-<h2 id="toc_3">mintty setting</h2>
+<h2 id="mintty-setting:aa9a9c6695db4af23c5ee4d16b684b46">mintty setting</h2>
 
-<h2 id="toc_4">color</h2>
+<h2 id="color:aa9a9c6695db4af23c5ee4d16b684b46">color</h2>
 
-<h3 id="toc_5">mintty color palette</h3>
+<h3 id="mintty-color-palette:aa9a9c6695db4af23c5ee4d16b684b46">mintty color palette</h3>
 
-<h3 id="toc_6">ls_color</h3>
+<h3 id="ls-color:aa9a9c6695db4af23c5ee4d16b684b46">ls_color</h3>
 
-<h3 id="toc_7">colorful manpage</h3>
+<h3 id="colorful-manpage:aa9a9c6695db4af23c5ee4d16b684b46">colorful manpage</h3>
 
-<h3 id="toc_8">colout</h3>
+<h3 id="colout:aa9a9c6695db4af23c5ee4d16b684b46">colout</h3>
 
-<h2 id="toc_9">encoding</h2>
+<h2 id="encoding:aa9a9c6695db4af23c5ee4d16b684b46">encoding</h2>
 
-<h2 id="toc_10">other settings</h2>
+<h2 id="other-settings:aa9a9c6695db4af23c5ee4d16b684b46">other settings</h2>
 
-<h2 id="toc_11">Shell environment setup</h2>
+<h2 id="shell-environment-setup:aa9a9c6695db4af23c5ee4d16b684b46">Shell environment setup</h2>
 
-<h2 id="toc_12">Cygwin package manager</h2>
+<h2 id="cygwin-package-manager:aa9a9c6695db4af23c5ee4d16b684b46">Cygwin package manager</h2>
 
-<h1 id="toc_13">Cygwin Using Tips</h1>
+<h1 id="cygwin-using-tips:aa9a9c6695db4af23c5ee4d16b684b46">Cygwin Using Tips</h1>
 
-<h2 id="toc_14">Working with gVim of Windows</h2>
+<h2 id="working-with-gvim-of-windows:aa9a9c6695db4af23c5ee4d16b684b46">Working with gVim of Windows</h2>
 
 <p>Most of the time, I prefer gui version of Vim than terminal version for it
 being free of various shackles of terminal emulator, such as key confliction,
@@ -4242,11 +4287,11 @@ gvim --remote-tab /path/of/file
 
         
 
-<h1 id="toc_0">Note To Myself</h1>
+<h1 id="note-to-myself:5f6054d7075677fd69776a41fe9c84fe">Note To Myself</h1>
 
-<h2 id="toc_1">When to use</h2>
+<h2 id="when-to-use:5f6054d7075677fd69776a41fe9c84fe">When to use</h2>
 
-<h3 id="toc_2">&lt;code&gt;</h3>
+<h3 id="code:5f6054d7075677fd69776a41fe9c84fe">&lt;code&gt;</h3>
 
 <ul>
 <li><p>in-line command line.</p></li>
@@ -4258,15 +4303,15 @@ gvim --remote-tab /path/of/file
 <li><p>file path</p></li>
 </ul>
 
-<h3 id="toc_3">&lt;strong&gt;</h3>
+<h3 id="strong:5f6054d7075677fd69776a41fe9c84fe">&lt;strong&gt;</h3>
 
 <ul>
 <li>single word or words that should be prominent in a sentence.</li>
 </ul>
 
-<h3 id="toc_4">&lt;em&gt;</h3>
+<h3 id="em:5f6054d7075677fd69776a41fe9c84fe">&lt;em&gt;</h3>
 
-<h2 id="toc_5">To-Do List of the Site</h2>
+<h2 id="to-do-list-of-the-site:5f6054d7075677fd69776a41fe9c84fe">To-Do List of the Site</h2>
 
 <ul>
 <li><p>plural view customization.</p></li>
@@ -4288,22 +4333,22 @@ gvim --remote-tab /path/of/file
 <li><p>translation posts.</p></li>
 </ul>
 
-<h1 id="toc_6">Acknowledgements</h1>
+<h1 id="acknowledgements:5f6054d7075677fd69776a41fe9c84fe">Acknowledgements</h1>
 
-<h2 id="toc_7"><a href="http://gohugo.io/">Hugo</a></h2>
+<h2 id="hugo-hugo:5f6054d7075677fd69776a41fe9c84fe"><a href="http://gohugo.io/">Hugo</a></h2>
 
 <blockquote>
 <p>A Fast and Flexible Static Site Generator built with love by spf13 in GoLang.</p>
 </blockquote>
 
-<h2 id="toc_8"><a href="https://github.com/spf13/hyde.git">Hyde</a></h2>
+<h2 id="hyde-hyde:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/spf13/hyde.git">Hyde</a></h2>
 
 <blockquote>
 <p>Hyde is a brazen two-column hugo theme based on the Jekyll theme of the same
 name. It pairs a prominent sidebar with uncomplicated content.</p>
 </blockquote>
 
-<h2 id="toc_9"><a href="http://jquery.com/">JQuery</a></h2>
+<h2 id="jquery-jquery:5f6054d7075677fd69776a41fe9c84fe"><a href="http://jquery.com/">JQuery</a></h2>
 
 <blockquote>
 <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things
@@ -4313,7 +4358,7 @@ browsers. With a combination of versatility and extensibility, jQuery has
 changed the way that millions of people write JavaScript.</p>
 </blockquote>
 
-<h2 id="toc_10"><a href="https://github.com/isagalaev/highlight.js.git">Highlight.js</a></h2>
+<h2 id="highlight-js-hljs:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/isagalaev/highlight.js.git">Highlight.js</a></h2>
 
 <blockquote>
 <p>Highlight.js is a syntax highlighter written in JavaScript. It works in the
@@ -4321,7 +4366,7 @@ browser as well as on the server. It works with pretty much any markup,
 doesn&rsquo;t depend on any framework and has automatic language detection.</p>
 </blockquote>
 
-<h2 id="toc_11"><a href="http://www.nodejs.org/">Node.js</a></h2>
+<h2 id="node-js-nodejs:5f6054d7075677fd69776a41fe9c84fe"><a href="http://www.nodejs.org/">Node.js</a></h2>
 
 <blockquote>
 <p>Node.js® is a platform built on Chrome&rsquo;s JavaScript runtime for easily
@@ -4330,7 +4375,7 @@ non-blocking I/O model that makes it lightweight and efficient, perfect for
 data-intensive real-time applications that run across distributed devices.</p>
 </blockquote>
 
-<h2 id="toc_12"><a href="http://bower.io/">Bower</a></h2>
+<h2 id="bower-bower:5f6054d7075677fd69776a41fe9c84fe"><a href="http://bower.io/">Bower</a></h2>
 
 <blockquote>
 <p>A package manager for the web.</p>
@@ -4342,52 +4387,52 @@ packages is up to you. Bower provides hooks to facilitate using packages in
 your tools and workflows.</p>
 </blockquote>
 
-<h2 id="toc_13"><a href="http://www.goat1000.com/tagcanvas.php">TagCanvas</a></h2>
+<h2 id="tagcanvas-tagcanvas:5f6054d7075677fd69776a41fe9c84fe"><a href="http://www.goat1000.com/tagcanvas.php">TagCanvas</a></h2>
 
 <blockquote>
 <p>TagCanvas is a Javascript class which will draw and animate a HTML5 canvas
 based tag cloud.</p>
 </blockquote>
 
-<h2 id="toc_14"><a href="https://github.com/VincentGarreau/particles.js">particles.js</a></h2>
+<h2 id="particles-js-particles:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/VincentGarreau/particles.js">particles.js</a></h2>
 
 <blockquote>
 <p>A lightweight JavaScript library for creating particles.</p>
 </blockquote>
 
-<h2 id="toc_15"><a href="https://github.com/necolas/normalize.css">normalize.css</a></h2>
+<h2 id="normalize-css-normalize:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/necolas/normalize.css">normalize.css</a></h2>
 
 <blockquote>
 <p>A collection of HTML element and attribute style-normalizations.</p>
 </blockquote>
 
-<h2 id="toc_16"><a href="https://github.com/ramswaroop/animatescroll.js">animatescroll.js</a></h2>
+<h2 id="animatescroll-js-animatescroll:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/ramswaroop/animatescroll.js">animatescroll.js</a></h2>
 
 <blockquote>
 <p>A Simple jQuery Plugin for Animating Scroll</p>
 </blockquote>
 
-<h2 id="toc_17"><a href="https://github.com/daneden/animate.css">animate.css</a></h2>
+<h2 id="animate-css-animatecss:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/daneden/animate.css">animate.css</a></h2>
 
 <blockquote>
 <p>A cross-browser library of CSS animations. As easy to use as an easy thing.
 <a href="http://daneden.github.io/animate.css">http://daneden.github.io/animate.css</a></p>
 </blockquote>
 
-<h2 id="toc_18"><a href="https://github.com/hakimel/stroll.js">stroll.js</a></h2>
+<h2 id="stroll-js-stroll:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/hakimel/stroll.js">stroll.js</a></h2>
 
 <blockquote>
 <p>CSS3 list scroll effects <a href="http://lab.hakim.se/scroll-effects">http://lab.hakim.se/scroll-effects</a></p>
 </blockquote>
 
-<h2 id="toc_19"><a href="https://github.com/knsv/mermaid.git">mermaid.js</a></h2>
+<h2 id="mermaid-js-mermaid:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/knsv/mermaid.git">mermaid.js</a></h2>
 
 <blockquote>
 <p>Generation of diagrams and flowcharts from text in a similar manner as
 markdown.</p>
 </blockquote>
 
-<h2 id="toc_20"><a href="https://github.com/mbostock/d3">D3.js</a></h2>
+<h2 id="d3-js-d3:5f6054d7075677fd69776a41fe9c84fe"><a href="https://github.com/mbostock/d3">D3.js</a></h2>
 
 <blockquote>
 <p>D3.js is a JavaScript library for manipulating documents based on data. D3
@@ -4397,7 +4442,7 @@ yourself to a proprietary framework, combining powerful visualization
 components and a data-driven approach to DOM manipulation.</p>
 </blockquote>
 
-<h2 id="toc_21"><a href="http://www.vim.org">gVim</a></h2>
+<h2 id="gvim-vim:5f6054d7075677fd69776a41fe9c84fe"><a href="http://www.vim.org">gVim</a></h2>
 
 <blockquote>
 <p>the editor.</p>
@@ -4421,21 +4466,21 @@ full of surprise and happy.</p>
 
 <p>Below records my thoughts and rules of customizing my Vim.</p>
 
-<h1 id="toc_0">About Mapping</h1>
+<h1 id="about-mapping:2b959da5557a3fb5a90ef838ab600646">About Mapping</h1>
 
-<h2 id="toc_1">Good prefixes for normal mode mappings</h2>
+<h2 id="good-prefixes-for-normal-mode-mappings:2b959da5557a3fb5a90ef838ab600646">Good prefixes for normal mode mappings</h2>
 
-<h3 id="toc_2">The comma <code>,</code></h3>
+<h3 id="the-comma:2b959da5557a3fb5a90ef838ab600646">The comma <code>,</code></h3>
 
 <p>use 2 ~ 3 suffix characters, then we can get more candidates key combinations
 for mapping.</p>
 
-<h3 id="toc_3">The backslash <code>\</code></h3>
+<h3 id="the-backslash:2b959da5557a3fb5a90ef838ab600646">The backslash <code>\</code></h3>
 
 <p>different keyboard layouts have different locations for <code>\</code>, so it should be
 used less frequently than <code>,</code>.</p>
 
-<h3 id="toc_4">The space key <code>&lt;Space&gt;</code></h3>
+<h3 id="the-space-key-space:2b959da5557a3fb5a90ef838ab600646">The space key <code>&lt;Space&gt;</code></h3>
 
 <p>the <code>&lt;Space&gt;</code> is the best prefix for normal mappings I&rsquo;ve ever found. It spans
 a long distance at the bottom of the keyboard, which makes it&rsquo;s very easy and
@@ -4451,17 +4496,17 @@ comfortable to touch.</p>
 <li><p><a href="https://github.com/Mudox/vim-chameleon">my &lsquo;vim-chameleon&rsquo;</a> mappings</p></li>
 </ul>
 
-<h3 id="toc_5">The enter <code>&lt;Cr&gt;</code> or <code>&lt;Enter&gt;</code></h3>
+<h3 id="the-enter-cr-or-enter:2b959da5557a3fb5a90ef838ab600646">The enter <code>&lt;Cr&gt;</code> or <code>&lt;Enter&gt;</code></h3>
 
 <p>since many vim itself and many plugin use <Cr>, so I should use it sparely.
 when a single click of <Cr> is needed, you will feel a noticeable response lag.</p>
 
-<h3 id="toc_6">The backspace key <code>&lt;BS&gt;</code></h3>
+<h3 id="the-backspace-key-bs:2b959da5557a3fb5a90ef838ab600646">The backspace key <code>&lt;BS&gt;</code></h3>
 
 <p>by default, the <code>&lt;BS&gt;</code> acts the same as <code>h</code>, <code>Ctrl-H</code> and <code>&lt;Left&gt;</code> keys on
 normal mode. so I have substituted it with the <code>&lt;Enter&gt;</code> key as a main prefix.</p>
 
-<h3 id="toc_7">other possible key for prefixes</h3>
+<h3 id="other-possible-key-for-prefixes:2b959da5557a3fb5a90ef838ab600646">other possible key for prefixes</h3>
 
 <ul>
 <li><p><code>&lt;C-P&gt;</code></p></li>
@@ -4471,7 +4516,7 @@ normal mode. so I have substituted it with the <code>&lt;Enter&gt;</code> key as
 <li><p><code>=</code></p></li>
 </ul>
 
-<h2 id="toc_8">Mapping toggling commands</h2>
+<h2 id="mapping-toggling-commands:2b959da5557a3fb5a90ef838ab600646">Mapping toggling commands</h2>
 
 <ol>
 <li><p>use <code>co</code> prefix, which is derived from <a href="https://github.com/tpope/vim-unimpaired.git">tpope&rsquo;s &lsquo;unimpaired&rsquo;</a> plugin.</p></li>
@@ -4495,7 +4540,7 @@ normal mode. so I have substituted it with the <code>&lt;Enter&gt;</code> key as
 <p>Learning notes about object oriented features of the Swift programming
 language.</p>
 
-<h1 id="toc_0">Class Like Constructs In Swift</h1>
+<h1 id="class-like-constructs-in-swift:979ff8b73f8c4f38dbd0977e0ed18f60">Class Like Constructs In Swift</h1>
 
 <p>In Swift, <code>enum</code>, <code>struct</code>, <code>class</code> all can:</p>
 
@@ -4525,19 +4570,19 @@ subscript syntax.</p></li>
 are both value types.</p></li>
 </ol>
 
-<h1 id="toc_1">Properties</h1>
+<h1 id="properties:979ff8b73f8c4f38dbd0977e0ed18f60">Properties</h1>
 
-<h2 id="toc_2">stored properties</h2>
+<h2 id="stored-properties:979ff8b73f8c4f38dbd0977e0ed18f60">stored properties</h2>
 
-<h3 id="toc_3">lazy properties</h3>
+<h3 id="lazy-properties:979ff8b73f8c4f38dbd0977e0ed18f60">lazy properties</h3>
 
-<h2 id="toc_4">computed properties</h2>
+<h2 id="computed-properties:979ff8b73f8c4f38dbd0977e0ed18f60">computed properties</h2>
 
-<h3 id="toc_5">shorthand setter syntax</h3>
+<h3 id="shorthand-setter-syntax:979ff8b73f8c4f38dbd0977e0ed18f60">shorthand setter syntax</h3>
 
-<h3 id="toc_6">shorthand read-only getter syntax</h3>
+<h3 id="shorthand-read-only-getter-syntax:979ff8b73f8c4f38dbd0977e0ed18f60">shorthand read-only getter syntax</h3>
 
-<h1 id="toc_7">Initializers</h1>
+<h1 id="initializers:979ff8b73f8c4f38dbd0977e0ed18f60">Initializers</h1>
 
       </div>
       
@@ -4554,9 +4599,9 @@ are both value types.</p></li>
 
 <p>Here records what I learned about JavaScript&rsquo;s type conversion.</p>
 
-<h1 id="toc_0">Sepcial Value Or Types In JavaScript</h1>
+<h1 id="sepcial-value-or-types-in-javascript:11695086b1c5f382c2a264dc36bd0fca">Sepcial Value Or Types In JavaScript</h1>
 
-<h2 id="toc_1">The <code>undefined</code></h2>
+<h2 id="the-undefined:11695086b1c5f382c2a264dc36bd0fca">The <code>undefined</code></h2>
 
 <p>The <code>undefined</code> is the only value of <code>undefined</code>, represents unknown value of any
 other types, including primitive types &amp; object.</p>
@@ -4570,7 +4615,7 @@ Boolean(undefined)                /* false            */
 Number(undefined)                 /* NaN              */
 </code></pre>
 
-<h2 id="toc_2">The <code>null</code></h2>
+<h2 id="the-null:11695086b1c5f382c2a264dc36bd0fca">The <code>null</code></h2>
 
 <p>The <code>null</code>, by standards, should be the only value of <code>null</code> type, but in certain
 browser (e.g. firfox, chrome), it is of type <code>object</code>. <code>null</code> is used to
@@ -4587,7 +4632,7 @@ Boolean(null)                     /* false            */
 Number(null)                      /* 0                */
 </code></pre>
 
-<h2 id="toc_3">The <code>NaN</code></h2>
+<h2 id="the-nan:11695086b1c5f382c2a264dc36bd0fca">The <code>NaN</code></h2>
 
 <p>The <code>NaN</code> is a <code>Number</code> that can not be represented as a number.</p>
 
@@ -4606,15 +4651,15 @@ NaN == 0/0                        /* true             */
 isNaN(0/0)                        /* true             */
 </code></pre>
 
-<h1 id="toc_4">Implicit Type Conversions</h1>
+<h1 id="implicit-type-conversions:11695086b1c5f382c2a264dc36bd0fca">Implicit Type Conversions</h1>
 
-<h2 id="toc_5">When other types need to be converted into a number</h2>
+<h2 id="when-other-types-need-to-be-converted-into-a-number:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a number</h2>
 
 <p>When different types are mixed in a relational operation (i.e <code>== != &lt; &lt;= &gt;
 &gt;=</code>) except the <code>===</code> operator, or an arithmetic operation, except
 the <code>+</code> operator, they would be converted into numbers first.</p>
 
-<h3 id="toc_6">For Boolean:</h3>
+<h3 id="for-boolean:11695086b1c5f382c2a264dc36bd0fca">For Boolean:</h3>
 
 <ul>
 <li><p>true would be converted to 1</p></li>
@@ -4622,7 +4667,7 @@ the <code>+</code> operator, they would be converted into numbers first.</p>
 <li><p>false would be converted to 0</p></li>
 </ul>
 
-<h3 id="toc_7">For String:</h3>
+<h3 id="for-string:11695086b1c5f382c2a264dc36bd0fca">For String:</h3>
 
 <p>It is converted literally, i.e.</p>
 
@@ -4641,9 +4686,9 @@ if (!emptyText) {
 }
 </code></pre>
 
-<h2 id="toc_8">When other types need to be converted into a string</h2>
+<h2 id="when-other-types-need-to-be-converted-into-a-string:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a string</h2>
 
-<h3 id="toc_9">The special <code>+</code> operator</h3>
+<h3 id="the-special-operator:11695086b1c5f382c2a264dc36bd0fca">The special <code>+</code> operator</h3>
 
 <p>In JavaScript, the <code>+</code> is first a string concatenation operator, then a
 arithmetic addition operator.</p>
@@ -4651,7 +4696,7 @@ arithmetic addition operator.</p>
 <p>When one of <code>+</code>&rsquo;s operands is a string, JavaScript will try to convert the
 other operand into a string, and perform a concatenation operation.</p>
 
-<h3 id="toc_10">For Boolean:</h3>
+<h3 id="for-boolean-1:11695086b1c5f382c2a264dc36bd0fca">For Boolean:</h3>
 
 <ul>
 <li><p><code>true</code> would be conveted bo &ldquo;true&rdquo;</p></li>
@@ -4659,11 +4704,11 @@ other operand into a string, and perform a concatenation operation.</p>
 <li><p><code>false</code> would be conveted to &ldquo;false&rdquo;</p></li>
 </ul>
 
-<h3 id="toc_11">For <code>null</code>, <code>undefined</code> &amp; <code>NaN</code></h3>
+<h3 id="for-null-undefined-nan:11695086b1c5f382c2a264dc36bd0fca">For <code>null</code>, <code>undefined</code> &amp; <code>NaN</code></h3>
 
 <p>they all be converted literally.</p>
 
-<h2 id="toc_12">When other types need to be converted into a boolean value</h2>
+<h2 id="when-other-types-need-to-be-converted-into-a-boolean-value:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a boolean value</h2>
 
 <p>from 《Head First JavaScript Programming》:</p>
 
@@ -4705,13 +4750,13 @@ different policy. There are <strong>5</strong> falsey value in JavaScript:</p>
 
         
 
-<h1 id="toc_0">Liquid Layout</h1>
+<h1 id="liquid-layout:d330e0ced825aa98f556e67b35fbdd0a">Liquid Layout</h1>
 
 <p>This is the browser&rsquo;s default layout behavior, if you did not add any CSS to
 style a page. The block elements, like liquid, just fill as much space as they
 can in the pages.</p>
 
-<h1 id="toc_1">Frozen Layout</h1>
+<h1 id="frozen-layout:d330e0ced825aa98f556e67b35fbdd0a">Frozen Layout</h1>
 
 <p>By using the CSS attribute combination of <code>float</code> and <code>width</code>, we can put a
 <strong>containing</strong> block (i.e. <code>&lt;seciton&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;div&gt;</code>) to float on to
@@ -4722,20 +4767,20 @@ column.</p>
 <p>Use CSS attribute <code>clear: [left | right]</code> to let a block to layout fully
 underneath a floating elements.</p>
 
-<h1 id="toc_2">Jello Layout</h1>
+<h1 id="jello-layout:d330e0ced825aa98f556e67b35fbdd0a">Jello Layout</h1>
 
 <p>On the basis of frozen layout, we can use containing fixed-width block to wrap
 all columns (floating or flowing), and by using <code>margin-left: auto;
 margin-right: auto;</code> CSS style, to center the contained columns in the page.</p>
 
-<h1 id="toc_3">Absolute Position</h1>
+<h1 id="absolute-position:d330e0ced825aa98f556e67b35fbdd0a">Absolute Position</h1>
 
 <p>By using the CSS attribute combination of <code>position: [absolute | fixed]</code> and
 <code>left | right | top | bottom: ...</code>, we can take the column fully out of layout
 flow, and fix their position relative to the page (<code>position: absolute</code>), or to
 the viewport (<code>position: fixed</code>).</p>
 
-<h1 id="toc_4">Table Display</h1>
+<h1 id="table-display:d330e0ced825aa98f556e67b35fbdd0a">Table Display</h1>
 
 <p>Use CSS attribute <code>display: [table | table-row | table-cell]</code> to organize HTML
 elements into an invisible table.</p>
@@ -4758,7 +4803,7 @@ elements into an invisible table.</p>
 <p>During the learning of the Swift programming language, many of it&rsquo;s features
 impressed me.</p>
 
-<h1 id="toc_0">Powerful <code>switch</code> Statement</h1>
+<h1 id="powerful-switch-statement:6f99ebcff8075df5d44ac5528331bee0">Powerful <code>switch</code> Statement</h1>
 
 <ol>
 <li><p>no implicitly fall-through</p></li>
@@ -4825,7 +4870,7 @@ case let (x, y):
 }
 </code></pre>
 
-<h1 id="toc_1">Closure &ndash; Too Much Sugar!</h1>
+<h1 id="closure-too-much-sugar:6f99ebcff8075df5d44ac5528331bee0">Closure &ndash; Too Much Sugar!</h1>
 
 <p>The closure in Swift language adopts many syntactic sugar.</p>
 
@@ -4847,7 +4892,7 @@ let sortedWords = words.sorted({
 })
 </code></pre>
 
-<h2 id="toc_2">Sugar #0 &ndash; trailing closure</h2>
+<h2 id="sugar-0-trailing-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #0 &ndash; trailing closure</h2>
 
 <p>Often, closure parameter is placed last in parameter list. Swift thus provides
 <strong>trailing closure</strong>, which means your can write the inline closure just
@@ -4863,7 +4908,7 @@ let sortedWords = words.sorted/*()*/ {
 }
 </code></pre>
 
-<h2 id="toc_3">Sugar #1 &ndash; return type inference</h2>
+<h2 id="sugar-1-return-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #1 &ndash; return type inference</h2>
 
 <p><strong>return type</strong> can be inferred by swift compiler.</p>
 
@@ -4874,7 +4919,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h2 id="toc_4">Sugar #2 &ndash; parameter type inference</h2>
+<h2 id="sugar-2-parameter-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #2 &ndash; parameter type inference</h2>
 
 <p><strong>parameter types</strong> can be inferred by swift compiler as well.</p>
 
@@ -4885,7 +4930,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h2 id="toc_5">Sugar #3 &ndash; parenthesis-less</h2>
+<h2 id="sugar-3-parenthesis-less:6f99ebcff8075df5d44ac5528331bee0">Sugar #3 &ndash; parenthesis-less</h2>
 
 <p>Since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
 
@@ -4896,7 +4941,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h2 id="toc_6">Sugar #4 &ndash; return statement inference</h2>
+<h2 id="sugar-4-return-statement-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #4 &ndash; return statement inference</h2>
 
 <p>If the closure has one statement, then the <strong>return</strong> statement can also be
 inferred.</p>
@@ -4911,7 +4956,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
 </code></pre>
 
-<h2 id="toc_7">Sugar #5 &ndash; shorthand parameter name</h2>
+<h2 id="sugar-5-shorthand-parameter-name:6f99ebcff8075df5d44ac5528331bee0">Sugar #5 &ndash; shorthand parameter name</h2>
 
 <p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
 the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
@@ -4927,7 +4972,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { $0 &lt; $1 }
 </code></pre>
 
-<h2 id="toc_8">Sugar #6 &ndash; operator as a closure</h2>
+<h2 id="sugar-6-operator-as-a-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #6 &ndash; operator as a closure</h2>
 
 <p>In swift, <strong>operator</strong> is a function, which in turn is a special closure, so&hellip;</p>
 
@@ -4935,22 +4980,22 @@ let sortedWords = words.sorted { $0 &lt; $1 }
 let sortedWords = words.sorted(&lt;)
 </code></pre>
 
-<h1 id="toc_9">Fully-fledged Enumeration</h1>
+<h1 id="fully-fledged-enumeration:6f99ebcff8075df5d44ac5528331bee0">Fully-fledged Enumeration</h1>
 
 <p>In Swift, enumeration is fully-fledged type. You can associate different data
 with each enumeration member, or define a raw type for enumeration.</p>
 
-<h2 id="toc_10">Flexible definition syntax</h2>
+<h2 id="flexible-definition-syntax:6f99ebcff8075df5d44ac5528331bee0">Flexible definition syntax</h2>
 
 <p>you can define more than one member a line.</p>
 
-<h2 id="toc_11">Type inference</h2>
+<h2 id="type-inference:6f99ebcff8075df5d44ac5528331bee0">Type inference</h2>
 
-<h2 id="toc_12">Associated Value</h2>
+<h2 id="associated-value:6f99ebcff8075df5d44ac5528331bee0">Associated Value</h2>
 
-<h2 id="toc_13">Raw type</h2>
+<h2 id="raw-type:6f99ebcff8075df5d44ac5528331bee0">Raw type</h2>
 
-<h2 id="toc_14">Struct like enumeration</h2>
+<h2 id="struct-like-enumeration:6f99ebcff8075df5d44ac5528331bee0">Struct like enumeration</h2>
 
 <p>enumeration in Swift can have properties &amp; methods.</p>
 
@@ -4991,7 +5036,7 @@ accounted type).</p>
 
         
 
-<h1 id="toc_0">Alias</h1>
+<h1 id="alias:1c1ef82aae62aeea8eedcb5f455b129b">Alias</h1>
 
 <ul>
 <li><p>working tree, working directory</p></li>
@@ -5001,7 +5046,7 @@ accounted type).</p>
 <li><p>commit[ted] history, commit[ted] snapshot</p></li>
 </ul>
 
-<h1 id="toc_1">The <code>add</code> &amp; <code>rm</code> &amp; <code>reset</code> &amp; <code>commit</code> &amp; <code>checkout</code> Sub-commands.</h1>
+<h1 id="the-add-rm-reset-commit-checkout-sub-commands:1c1ef82aae62aeea8eedcb5f455b129b">The <code>add</code> &amp; <code>rm</code> &amp; <code>reset</code> &amp; <code>commit</code> &amp; <code>checkout</code> Sub-commands.</h1>
 
 <ul>
 <li><p>between the <em>committed history</em> &amp; <em>staging area</em></p>
@@ -5064,9 +5109,9 @@ direcotry.</p></li>
 </ul></li>
 </ul>
 
-<h1 id="toc_2">The <code>git Rebase</code> Sub-command</h1>
+<h1 id="the-git-rebase-sub-command:1c1ef82aae62aeea8eedcb5f455b129b">The <code>git Rebase</code> Sub-command</h1>
 
-<h2 id="toc_3">Advantage of <code>rebase</code>:</h2>
+<h2 id="advantage-of-rebase:1c1ef82aae62aeea8eedcb5f455b129b">Advantage of <code>rebase</code>:</h2>
 
 <ul>
 <li><p>no additional merge commit</p></li>
@@ -5074,7 +5119,7 @@ direcotry.</p></li>
 <li><p>linear commit history</p></li>
 </ul>
 
-<h2 id="toc_4">Disadvantage of <code>rebase</code>:</h2>
+<h2 id="disadvantage-of-rebase:1c1ef82aae62aeea8eedcb5f455b129b">Disadvantage of <code>rebase</code>:</h2>
 
 <ul>
 <li><p>safety</p></li>
@@ -5082,11 +5127,11 @@ direcotry.</p></li>
 <li><p>tracability: the evidences of merging are wiped away.</p></li>
 </ul>
 
-<h2 id="toc_5">Golden rule of <code>git rebase</code>:</h2>
+<h2 id="golden-rule-of-git-rebase:1c1ef82aae62aeea8eedcb5f455b129b">Golden rule of <code>git rebase</code>:</h2>
 
 <p><strong>never</strong> use it on <strong>public</strong> branches.</p>
 
-<h2 id="toc_6">When to use <code>rebase</code></h2>
+<h2 id="when-to-use-rebase:1c1ef82aae62aeea8eedcb5f455b129b">When to use <code>rebase</code></h2>
 
 <ul>
 <li><p>Local cleanup</p></li>
@@ -5096,7 +5141,7 @@ direcotry.</p></li>
 <li><p>Integrating a approved feature</p></li>
 </ul>
 
-<h1 id="toc_7">The <code>reset</code>, <code>checkout</code> And <code>revert</code> Sub-commands</h1>
+<h1 id="the-reset-checkout-and-revert-sub-commands:1c1ef82aae62aeea8eedcb5f455b129b">The <code>reset</code>, <code>checkout</code> And <code>revert</code> Sub-commands</h1>
 
 <blockquote>
 <p>The parameters that you pass to <code>git reset</code> and <code>git checkout</code> determine
@@ -5106,7 +5151,7 @@ operate on whole commits.  Note that git revert has no file-level counterpart</p
 
 <p>from <a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations">atlassian&rsquo;s git tutorials</a></p>
 
-<h2 id="toc_8">Commit level operations</h2>
+<h2 id="commit-level-operations:1c1ef82aae62aeea8eedcb5f455b129b">Commit level operations</h2>
 
 <p><code>git reset --[soft | mixed | hard] &lt;commit-ish&gt;</code> <strong>move</strong> branch tips backwards
 or even forwards, while affecting <em>staging area</em> &amp; <em>working direcotry</em> according to
@@ -5152,7 +5197,7 @@ options it is given.</p>
 to undo commits, while <code>git reset</code> is dangerous (irreversible) way to undo
 commits.</p>
 
-<h2 id="toc_9">File level operations</h2>
+<h2 id="file-level-operations:1c1ef82aae62aeea8eedcb5f455b129b">File level operations</h2>
 
 <pre><code>git [reset|checkout] &lt;commit-ish&gt; &lt;pathspec&gt;
 </code></pre>
@@ -5184,7 +5229,7 @@ commits.</p>
 </tbody>
 </table>
 
-<h1 id="toc_10">Summary</h1>
+<h1 id="summary:1c1ef82aae62aeea8eedcb5f455b129b">Summary</h1>
 
 <table>
 <thead>
@@ -5240,7 +5285,7 @@ MacVim and Youcompleteme can found buidling dependencies in default paths.</p>
 
 <p>While <a href="https://github.com/yyuu/pyenv">pyenv</a> will shadow <a href="https://github.com/b4winckler/macvim">Macvim</a>&rsquo;s default python &hellip;</p>
 
-<h1 id="toc_0">Preparation</h1>
+<h1 id="preparation:6117e3c7c463327edad178e37c509b2a">Preparation</h1>
 
 <ul>
 <li><p>disable pyenv</p>
@@ -5258,7 +5303,7 @@ MacVim and Youcompleteme can found buidling dependencies in default paths.</p>
 </ol></li>
 </ul>
 
-<h1 id="toc_1">Compile YCM</h1>
+<h1 id="compile-ycm:6117e3c7c463327edad178e37c509b2a">Compile YCM</h1>
 
 <p>On MacOSX using native clang package has proven to be very stable, besides, it
 drastically accelerates the installing process &ndash; leaving <code>install.sh</code> no need
@@ -5268,7 +5313,7 @@ to download the prebuild binaries from LLVM&rsquo;s site.</p>
     ./install.sh --clang-completer --system-libclang
 </code></pre>
 
-<h1 id="toc_2">Compile MacVim</h1>
+<h1 id="compile-macvim:6117e3c7c463327edad178e37c509b2a">Compile MacVim</h1>
 
 <pre><code class="language-bash">make distclean
 ./configure               \
@@ -5299,7 +5344,7 @@ make
 
 <p>Records here the steps of making a small and neat vim-chameleon startup screen.</p>
 
-<h1 id="toc_0">On Windows:</h1>
+<h1 id="on-windows:0aefc4bb066f559ff9ae71fb7b50b95c">On Windows:</h1>
 
 <ol>
 <li><p>create a shortcut from gVim.exe.</p></li>
@@ -5320,7 +5365,7 @@ make
 <li>optionally, put this shortcut under paths listed in system&rsquo;s $PATH environment variable.</li>
 </ol>
 
-<h1 id="toc_1">On Mac OSX:</h1>
+<h1 id="on-mac-osx:0aefc4bb066f559ff9ae71fb7b50b95c">On Mac OSX:</h1>
 
 <p>the <code>MacVim.app</code> does not accepts arguemnts above, we should use:</p>
 
@@ -5338,7 +5383,7 @@ make
         -c &quot;ChamStartup&quot;
 </code></pre>
 
-<h1 id="toc_2">On Linux:</h1>
+<h1 id="on-linux:0aefc4bb066f559ff9ae71fb7b50b95c">On Linux:</h1>
 
 <pre><code class="language-bash">
 </code></pre>
@@ -5356,7 +5401,7 @@ make
 
         
 
-<h1 id="toc_0">1. Main Branches</h1>
+<h1 id="1-main-branches:719fcccbc90f26c415458f02f4c9dfa0">1. Main Branches</h1>
 
 <ul>
 <li><p>the <code>main</code> branch</p>
@@ -5374,9 +5419,9 @@ into master must have a new incremental version number.</p></li>
 <p>nitghly build built from it.</p></li>
 </ul>
 
-<h1 id="toc_1">2. Supporting Branches</h1>
+<h1 id="2-supporting-branches:719fcccbc90f26c415458f02f4c9dfa0">2. Supporting Branches</h1>
 
-<h2 id="toc_2">2.1 feature (or topic) branches</h2>
+<h2 id="2-1-feature-or-topic-branches:719fcccbc90f26c415458f02f4c9dfa0">2.1 feature (or topic) branches</h2>
 
 <p>branch off from: <code>develop</code> branch</p>
 
@@ -5394,7 +5439,7 @@ git merge --no-ff some-feature
 git push origin develop
 </code></pre>
 
-<h2 id="toc_3">2.2 release branches</h2>
+<h2 id="2-2-release-branches:719fcccbc90f26c415458f02f4c9dfa0">2.2 release branches</h2>
 
 <p>branch off from: <code>develop</code> branch</p>
 
@@ -5416,7 +5461,7 @@ git checkout develop
 git merge --no-ff release-&lt;version number&gt;
 </code></pre>
 
-<h2 id="toc_4">2.3 hotfix (or maintenance) branches</h2>
+<h2 id="2-3-hotfix-or-maintenance-branches:719fcccbc90f26c415458f02f4c9dfa0">2.3 hotfix (or maintenance) branches</h2>
 
 <p>branch off from: <code>master</code> branch
 merge into: <code>develop</code> &amp; <code>master</code> branch if no active release branch existed
@@ -5460,7 +5505,7 @@ logic. In our experience it is <strong>just the right amount of logic</strong> t
 create a good static website.</p>
 </blockquote>
 
-<h1 id="toc_0">3 Steps Using The Template Object</h1>
+<h1 id="3-steps-using-the-template-object:0e0d27dc1b2f9c1fc567c5130bb30398">3 Steps Using The Template Object</h1>
 
 <ol>
 <li><p><code>New</code> an template object.</p></li>
@@ -5470,7 +5515,7 @@ create a good static website.</p>
 <li><p><code>Execute</code> (apply) the template to data structure.</p></li>
 </ol>
 
-<h1 id="toc_1">6 Action Families</h1>
+<h1 id="6-action-families:0e0d27dc1b2f9c1fc567c5130bb30398">6 Action Families</h1>
 
 <p><strong>comment</strong></p>
 
@@ -5513,7 +5558,7 @@ create a good static website.</p>
 
 </code></pre>
 
-<h1 id="toc_2">Argument Types</h1>
+<h1 id="argument-types:0e0d27dc1b2f9c1fc567c5130bb30398">Argument Types</h1>
 
 <ul>
 <li><p>untyped <strong>constants</strong> in go syntax</p></li>
@@ -5554,7 +5599,7 @@ create a good static website.</p>
 
         
 
-<h1 id="toc_0">Members Of Cocoa Concurrency</h1>
+<h1 id="members-of-cocoa-concurrency:04cfe5a0cff108beff5a524b299c9576">Members Of Cocoa Concurrency</h1>
 
 <ul>
 <li><p>Operation Queue</p>
@@ -5572,7 +5617,7 @@ create a good static website.</p>
 <li><p>Dispatch Source</p></li>
 </ul>
 
-<h1 id="toc_1">Operation Queue Features</h1>
+<h1 id="operation-queue-features:04cfe5a0cff108beff5a524b299c9576">Operation Queue Features</h1>
 
 <ol>
 <li><p>graph-based dependencies</p></li>
@@ -5599,9 +5644,9 @@ create a good static website.</p>
 
         
 
-<h1 id="toc_0">Run Loop</h1>
+<h1 id="run-loop:30e6fa64331d0b9c75c70a3dbce1a3ff">Run Loop</h1>
 
-<h2 id="toc_1">4 roles participate in the run loop game:</h2>
+<h2 id="4-roles-participate-in-the-run-loop-game:30e6fa64331d0b9c75c70a3dbce1a3ff">4 roles participate in the run loop game:</h2>
 
 <ol>
 <li><p><strong>Run Loop</strong></p>
@@ -5644,7 +5689,7 @@ loop object.</p></li>
 <li><p><strong>Run Loop Observer</strong></p></li>
 </ol>
 
-<h2 id="toc_2">4 ways to kill a run loop iteration:</h2>
+<h2 id="4-ways-to-kill-a-run-loop-iteration:30e6fa64331d0b9c75c70a3dbce1a3ff">4 ways to kill a run loop iteration:</h2>
 
 <ol>
 <li><p>no sources exists</p>
@@ -5660,7 +5705,7 @@ loop object.</p></li>
 <li><p>explicitly stoped by <code>CRunloopStop</code></p></li>
 </ol>
 
-<h2 id="toc_3">3 kinds of perform selector sources.</h2>
+<h2 id="3-kinds-of-perform-selector-sources:30e6fa64331d0b9c75c70a3dbce1a3ff">3 kinds of perform selector sources.</h2>
 
 <table>
 <thead>
@@ -5700,7 +5745,7 @@ loop object.</p></li>
 </tbody>
 </table>
 
-<h1 id="toc_4">Alternatives To Threaing</h1>
+<h1 id="alternatives-to-threaing:30e6fa64331d0b9c75c70a3dbce1a3ff">Alternatives To Threaing</h1>
 
 <ol>
 <li><p>Operation Objects</p></li>
@@ -5716,7 +5761,7 @@ loop object.</p></li>
 <li><p>Separate processes</p></li>
 </ol>
 
-<h1 id="toc_5">Cocoa Support For Threading</h1>
+<h1 id="cocoa-support-for-threading:30e6fa64331d0b9c75c70a3dbce1a3ff">Cocoa Support For Threading</h1>
 
 <ol>
 <li><p>Cocoa threads</p></li>
@@ -5726,7 +5771,7 @@ loop object.</p></li>
 <li><p><del>Mutiprocessing Services</del> (<em>obsolete</em>)</p></li>
 </ol>
 
-<h1 id="toc_6">Inter-Thread Communication</h1>
+<h1 id="inter-thread-communication:30e6fa64331d0b9c75c70a3dbce1a3ff">Inter-Thread Communication</h1>
 
 <ol>
 <li><p>Direct messageing</p></li>
@@ -5744,7 +5789,7 @@ loop object.</p></li>
 <li><p>Cocoa distributed objects</p></li>
 </ol>
 
-<h1 id="toc_7">Synchronization Tools</h1>
+<h1 id="synchronization-tools:30e6fa64331d0b9c75c70a3dbce1a3ff">Synchronization Tools</h1>
 
 <ol>
 <li><p>Atomic operation</p>

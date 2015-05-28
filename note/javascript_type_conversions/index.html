@@ -151,26 +151,26 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">Sepcial Value Or Types In JavaScript</a>
+<li><a href="#sepcial-value-or-types-in-javascript:11695086b1c5f382c2a264dc36bd0fca">Sepcial Value Or Types In JavaScript</a>
 <ul>
-<li><a href="#toc_1">The <code>undefined</code></a></li>
-<li><a href="#toc_2">The <code>null</code></a></li>
-<li><a href="#toc_3">The <code>NaN</code></a></li>
+<li><a href="#the-undefined:11695086b1c5f382c2a264dc36bd0fca">The <code>undefined</code></a></li>
+<li><a href="#the-null:11695086b1c5f382c2a264dc36bd0fca">The <code>null</code></a></li>
+<li><a href="#the-nan:11695086b1c5f382c2a264dc36bd0fca">The <code>NaN</code></a></li>
 </ul></li>
-<li><a href="#toc_4">Implicit Type Conversions</a>
+<li><a href="#implicit-type-conversions:11695086b1c5f382c2a264dc36bd0fca">Implicit Type Conversions</a>
 <ul>
-<li><a href="#toc_5">When other types need to be converted into a number</a>
+<li><a href="#when-other-types-need-to-be-converted-into-a-number:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a number</a>
 <ul>
-<li><a href="#toc_6">For Boolean:</a></li>
-<li><a href="#toc_7">For String:</a></li>
+<li><a href="#for-boolean:11695086b1c5f382c2a264dc36bd0fca">For Boolean:</a></li>
+<li><a href="#for-string:11695086b1c5f382c2a264dc36bd0fca">For String:</a></li>
 </ul></li>
-<li><a href="#toc_8">When other types need to be converted into a string</a>
+<li><a href="#when-other-types-need-to-be-converted-into-a-string:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a string</a>
 <ul>
-<li><a href="#toc_9">The special <code>+</code> operator</a></li>
-<li><a href="#toc_10">For Boolean:</a></li>
-<li><a href="#toc_11">For <code>null</code>, <code>undefined</code> &amp; <code>NaN</code></a></li>
+<li><a href="#the-special-operator:11695086b1c5f382c2a264dc36bd0fca">The special <code>+</code> operator</a></li>
+<li><a href="#for-boolean-1:11695086b1c5f382c2a264dc36bd0fca">For Boolean:</a></li>
+<li><a href="#for-null-undefined-nan:11695086b1c5f382c2a264dc36bd0fca">For <code>null</code>, <code>undefined</code> &amp; <code>NaN</code></a></li>
 </ul></li>
-<li><a href="#toc_12">When other types need to be converted into a boolean value</a></li>
+<li><a href="#when-other-types-need-to-be-converted-into-a-boolean-value:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a boolean value</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -181,9 +181,9 @@
 
 <p>Here records what I learned about JavaScript&rsquo;s type conversion.</p>
 
-<h1 id="toc_0">Sepcial Value Or Types In JavaScript</h1>
+<h1 id="sepcial-value-or-types-in-javascript:11695086b1c5f382c2a264dc36bd0fca">Sepcial Value Or Types In JavaScript</h1>
 
-<h2 id="toc_1">The <code>undefined</code></h2>
+<h2 id="the-undefined:11695086b1c5f382c2a264dc36bd0fca">The <code>undefined</code></h2>
 
 <p>The <code>undefined</code> is the only value of <code>undefined</code>, represents unknown value of any
 other types, including primitive types &amp; object.</p>
@@ -197,7 +197,7 @@ Boolean(undefined)                /* false            */
 Number(undefined)                 /* NaN              */
 </code></pre>
 
-<h2 id="toc_2">The <code>null</code></h2>
+<h2 id="the-null:11695086b1c5f382c2a264dc36bd0fca">The <code>null</code></h2>
 
 <p>The <code>null</code>, by standards, should be the only value of <code>null</code> type, but in certain
 browser (e.g. firfox, chrome), it is of type <code>object</code>. <code>null</code> is used to
@@ -214,7 +214,7 @@ Boolean(null)                     /* false            */
 Number(null)                      /* 0                */
 </code></pre>
 
-<h2 id="toc_3">The <code>NaN</code></h2>
+<h2 id="the-nan:11695086b1c5f382c2a264dc36bd0fca">The <code>NaN</code></h2>
 
 <p>The <code>NaN</code> is a <code>Number</code> that can not be represented as a number.</p>
 
@@ -233,15 +233,15 @@ NaN == 0/0                        /* true             */
 isNaN(0/0)                        /* true             */
 </code></pre>
 
-<h1 id="toc_4">Implicit Type Conversions</h1>
+<h1 id="implicit-type-conversions:11695086b1c5f382c2a264dc36bd0fca">Implicit Type Conversions</h1>
 
-<h2 id="toc_5">When other types need to be converted into a number</h2>
+<h2 id="when-other-types-need-to-be-converted-into-a-number:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a number</h2>
 
 <p>When different types are mixed in a relational operation (i.e <code>== != &lt; &lt;= &gt;
 &gt;=</code>) except the <code>===</code> operator, or an arithmetic operation, except
 the <code>+</code> operator, they would be converted into numbers first.</p>
 
-<h3 id="toc_6">For Boolean:</h3>
+<h3 id="for-boolean:11695086b1c5f382c2a264dc36bd0fca">For Boolean:</h3>
 
 <ul>
 <li><p>true would be converted to 1</p></li>
@@ -249,7 +249,7 @@ the <code>+</code> operator, they would be converted into numbers first.</p>
 <li><p>false would be converted to 0</p></li>
 </ul>
 
-<h3 id="toc_7">For String:</h3>
+<h3 id="for-string:11695086b1c5f382c2a264dc36bd0fca">For String:</h3>
 
 <p>It is converted literally, i.e.</p>
 
@@ -268,9 +268,9 @@ if (!emptyText) {
 }
 </code></pre>
 
-<h2 id="toc_8">When other types need to be converted into a string</h2>
+<h2 id="when-other-types-need-to-be-converted-into-a-string:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a string</h2>
 
-<h3 id="toc_9">The special <code>+</code> operator</h3>
+<h3 id="the-special-operator:11695086b1c5f382c2a264dc36bd0fca">The special <code>+</code> operator</h3>
 
 <p>In JavaScript, the <code>+</code> is first a string concatenation operator, then a
 arithmetic addition operator.</p>
@@ -278,7 +278,7 @@ arithmetic addition operator.</p>
 <p>When one of <code>+</code>&rsquo;s operands is a string, JavaScript will try to convert the
 other operand into a string, and perform a concatenation operation.</p>
 
-<h3 id="toc_10">For Boolean:</h3>
+<h3 id="for-boolean-1:11695086b1c5f382c2a264dc36bd0fca">For Boolean:</h3>
 
 <ul>
 <li><p><code>true</code> would be conveted bo &ldquo;true&rdquo;</p></li>
@@ -286,11 +286,11 @@ other operand into a string, and perform a concatenation operation.</p>
 <li><p><code>false</code> would be conveted to &ldquo;false&rdquo;</p></li>
 </ul>
 
-<h3 id="toc_11">For <code>null</code>, <code>undefined</code> &amp; <code>NaN</code></h3>
+<h3 id="for-null-undefined-nan:11695086b1c5f382c2a264dc36bd0fca">For <code>null</code>, <code>undefined</code> &amp; <code>NaN</code></h3>
 
 <p>they all be converted literally.</p>
 
-<h2 id="toc_12">When other types need to be converted into a boolean value</h2>
+<h2 id="when-other-types-need-to-be-converted-into-a-boolean-value:11695086b1c5f382c2a264dc36bd0fca">When other types need to be converted into a boolean value</h2>
 
 <p>from 《Head First JavaScript Programming》:</p>
 

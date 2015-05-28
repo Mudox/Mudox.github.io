@@ -151,8 +151,8 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">可为空值嵌套</a></li>
-<li><a href="#toc_1">提供默认值</a></li>
+<li><a href="#可为空值嵌套:f3c6d5d9a6b6d063de9276398810fb9a">可为空值嵌套</a></li>
+<li><a href="#提供默认值:f3c6d5d9a6b6d063de9276398810fb9a">提供默认值</a></li>
 </ul>
 </nav>
             </div>
@@ -216,7 +216,7 @@ dict.valuesForKeys([])
 // []
 </code></pre>
 
-<h1 id="toc_0">可为空值嵌套</h1>
+<h1 id="可为空值嵌套:f3c6d5d9a6b6d063de9276398810fb9a">可为空值嵌套</h1>
 
 <p>现在我们修改一下上面的代码，在每行后面加个 <code>.last</code>， 去结果集的最后一个元素：</p>
 
@@ -255,7 +255,7 @@ dict.valuesForKeys([]).last
 
 <p>不管是在 Swift 中还是 Objective-C 中，返回 <code>nil</code> 都表示中间结果集为空，因为空集没有最后元素。当 Swift 的版本返回 <code>Optional(nil)</code> （或者 Objective-C 版本返回 <code>NSNull</code> ）时，这表示中间结果集里是有元素的，只是这个元素表示空值。Objective-C 必须预定义一个类型 <code>NSNull</code> 来表示空值，而 Swift 的类型系统直接就能表示它。</p>
 
-<h1 id="toc_1">提供默认值</h1>
+<h1 id="提供默认值:f3c6d5d9a6b6d063de9276398810fb9a">提供默认值</h1>
 
 <p>如果您依然想用其他的值来替代字典中缺失的值呢？很容易：</p>
 

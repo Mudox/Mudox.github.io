@@ -151,16 +151,16 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">Function Parameters</a>
+<li><a href="#function-parameters:9001fbf6bb512c5ae93dad9f83646181">Function Parameters</a>
 <ul>
-<li><a href="#toc_1">Parameter names</a></li>
-<li><a href="#toc_2">Parameters with default value</a></li>
-<li><a href="#toc_3">Variadic parameters</a></li>
-<li><a href="#toc_4">Variable parameters</a></li>
-<li><a href="#toc_5">In-Out parameters</a></li>
+<li><a href="#parameter-names:9001fbf6bb512c5ae93dad9f83646181">Parameter names</a></li>
+<li><a href="#parameters-with-default-value:9001fbf6bb512c5ae93dad9f83646181">Parameters with default value</a></li>
+<li><a href="#variadic-parameters:9001fbf6bb512c5ae93dad9f83646181">Variadic parameters</a></li>
+<li><a href="#variable-parameters:9001fbf6bb512c5ae93dad9f83646181">Variable parameters</a></li>
+<li><a href="#in-out-parameters:9001fbf6bb512c5ae93dad9f83646181">In-Out parameters</a></li>
 </ul></li>
-<li><a href="#toc_6">Function Return Values</a></li>
-<li><a href="#toc_7">Function Types</a></li>
+<li><a href="#function-return-values:9001fbf6bb512c5ae93dad9f83646181">Function Return Values</a></li>
+<li><a href="#function-types:9001fbf6bb512c5ae93dad9f83646181">Function Types</a></li>
 </ul>
 </nav>
             </div>
@@ -171,9 +171,9 @@
 <p>Excerpts from the &ldquo;Functions&rdquo; section of the official docuemnt <a href="http://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/LexicalStructure.html">《The Swift
 Programming Language》</a></p>
 
-<h1 id="toc_0">Function Parameters</h1>
+<h1 id="function-parameters:9001fbf6bb512c5ae93dad9f83646181">Function Parameters</h1>
 
-<h2 id="toc_1">Parameter names</h2>
+<h2 id="parameter-names:9001fbf6bb512c5ae93dad9f83646181">Parameter names</h2>
 
 <p>A parameter name can have a <strong>internal name</strong> and an <strong>external name</strong> declared
 in the form of: <code>external_name internal_name: type</code>.</p>
@@ -203,7 +203,7 @@ println(join(aString: &quot;Hello&quot;, toString: &quot; World!&quot;))
 println(join(&quot;Hello&quot;, &quot; World!&quot;))
 </code></pre>
 
-<h2 id="toc_2">Parameters with default value</h2>
+<h2 id="parameters-with-default-value:9001fbf6bb512c5ae93dad9f83646181">Parameters with default value</h2>
 
 <p>Default parameter values of the <code>[external_name /_/#]internal_name: type =
 default_value</code> should be placed at end of the parameter list.</p>
@@ -220,7 +220,7 @@ which is not recommended.)</p>
 Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
 </code></pre>
 
-<h2 id="toc_3">Variadic parameters</h2>
+<h2 id="variadic-parameters:9001fbf6bb512c5ae93dad9f83646181">Variadic parameters</h2>
 
 <p>Declare variadic parameter in form <code>name: type...</code>, which, in the function
 body, is of type <code>[type]</code>.</p>
@@ -228,7 +228,7 @@ body, is of type <code>[type]</code>.</p>
 <p>Only one variadic parameter is allowed in a parameter list, and it should be
 placed after all other normal parameters or parameters with default value.</p>
 
-<h2 id="toc_4">Variable parameters</h2>
+<h2 id="variable-parameters:9001fbf6bb512c5ae93dad9f83646181">Variable parameters</h2>
 
 <p>Prefix parameter names with keyword <code>var</code> to make them modifiable inside the
 function body.</p>
@@ -236,7 +236,7 @@ function body.</p>
 <p>It is just another small syntactic sugar brought by Swift, the change made in
 the function body will not propagate outside the function body.</p>
 
-<h2 id="toc_5">In-Out parameters</h2>
+<h2 id="in-out-parameters:9001fbf6bb512c5ae93dad9f83646181">In-Out parameters</h2>
 
 <p>Prefix parameters names with keyword <code>inout</code> (which implies <code>var</code>) to make the
 change to the parameter inside function body propagate outside.</p>
@@ -260,7 +260,7 @@ swapTwoInts(&amp;a, &amp;b)
 println(&quot;after swapping, a = \(a), b = \(b)&quot;)
 </code></pre>
 
-<h1 id="toc_6">Function Return Values</h1>
+<h1 id="function-return-values:9001fbf6bb512c5ae93dad9f83646181">Function Return Values</h1>
 
 <p>Functions without a defined return type return a special value of type
 <strong>Void</strong>.  This is simply an empty tuple, in effect a tuple with zero elements,
@@ -281,7 +281,7 @@ if let minMax = minMax([1,2,3]) {
 }
 </code></pre>
 
-<h1 id="toc_7">Function Types</h1>
+<h1 id="function-types:9001fbf6bb512c5ae93dad9f83646181">Function Types</h1>
 
 <p>In Swift, function is first class object, so feel free to use them as other
 normal objects:</p>

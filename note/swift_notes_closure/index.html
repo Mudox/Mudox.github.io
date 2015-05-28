@@ -151,13 +151,13 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#toc_0">Sugar #0 &ndash; trailing closure</a></li>
-<li><a href="#toc_1">Sugar #1 &ndash; return type inference</a></li>
-<li><a href="#toc_2">Sugar #2 &ndash; parameter type inference</a></li>
-<li><a href="#toc_3">Sugar #3 &ndash; parenthesis-less</a></li>
-<li><a href="#toc_4">Sugar #4 &ndash; return statement inference</a></li>
-<li><a href="#toc_5">Sugar #5 &ndash; shorthand parameter name</a></li>
-<li><a href="#toc_6">Sugar #6 &ndash; operator as a closure</a></li>
+<li><a href="#sugar-0-trailing-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #0 &ndash; trailing closure</a></li>
+<li><a href="#sugar-1-return-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #1 &ndash; return type inference</a></li>
+<li><a href="#sugar-2-parameter-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #2 &ndash; parameter type inference</a></li>
+<li><a href="#sugar-3-parenthesis-less:a40f4ebf5561eeafcff0342811dbdf21">Sugar #3 &ndash; parenthesis-less</a></li>
+<li><a href="#sugar-4-return-statement-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; return statement inference</a></li>
+<li><a href="#sugar-5-shorthand-parameter-name:a40f4ebf5561eeafcff0342811dbdf21">Sugar #5 &ndash; shorthand parameter name</a></li>
+<li><a href="#sugar-6-operator-as-a-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #6 &ndash; operator as a closure</a></li>
 </ul>
 </nav>
             </div>
@@ -191,7 +191,7 @@ let sortedWords = words.sorted({
 <p>As the sugars introduced in, we will cut the lines above into an incredibly one
 line of code.</p>
 
-<h1 id="toc_0">Sugar #0 &ndash; trailing closure</h1>
+<h1 id="sugar-0-trailing-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #0 &ndash; trailing closure</h1>
 
 <p>Often, closure parameter is placed last in parameter list. Swift thus provides
 <strong>trailing closure</strong>, which means your can write the inline closure just
@@ -207,7 +207,7 @@ let sortedWords = words.sorted/*()*/ {
 }
 </code></pre>
 
-<h1 id="toc_1">Sugar #1 &ndash; return type inference</h1>
+<h1 id="sugar-1-return-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #1 &ndash; return type inference</h1>
 
 <p><strong>return type</strong> can be inferred by swift compiler.</p>
 
@@ -218,7 +218,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="toc_2">Sugar #2 &ndash; parameter type inference</h1>
+<h1 id="sugar-2-parameter-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #2 &ndash; parameter type inference</h1>
 
 <p><strong>parameter types</strong> can be inferred by swift compiler as well.</p>
 
@@ -229,7 +229,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="toc_3">Sugar #3 &ndash; parenthesis-less</h1>
+<h1 id="sugar-3-parenthesis-less:a40f4ebf5561eeafcff0342811dbdf21">Sugar #3 &ndash; parenthesis-less</h1>
 
 <p>Since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
 
@@ -240,7 +240,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="toc_4">Sugar #4 &ndash; return statement inference</h1>
+<h1 id="sugar-4-return-statement-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; return statement inference</h1>
 
 <p>If the closure has one statement, then the <strong>return</strong> statement can also be
 inferred.</p>
@@ -255,7 +255,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
 </code></pre>
 
-<h1 id="toc_5">Sugar #5 &ndash; shorthand parameter name</h1>
+<h1 id="sugar-5-shorthand-parameter-name:a40f4ebf5561eeafcff0342811dbdf21">Sugar #5 &ndash; shorthand parameter name</h1>
 
 <p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
 the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
@@ -271,7 +271,7 @@ let sortedWords = words.sorted {
 let sortedWords = words.sorted { $0 &lt; $1 }
 </code></pre>
 
-<h1 id="toc_6">Sugar #6 &ndash; operator as a closure</h1>
+<h1 id="sugar-6-operator-as-a-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #6 &ndash; operator as a closure</h1>
 
 <p>In swift, <strong>operator</strong> is a function, which in turn is a <strong>special closure</strong>, so&hellip;</p>
 
