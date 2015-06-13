@@ -189,7 +189,7 @@ enum Either&lt;T1, T2&gt; {
 }
 </code></pre>
 
-<h2 id="do-satement:e190607d4f7a6a5e97b66be1e3f38a13"><code>do</code> Satement</h2>
+<h2 id="do-statement:e190607d4f7a6a5e97b66be1e3f38a13"><code>do</code> Statement</h2>
 
 <pre><code class="language-swift">do {
     // new containing scope
@@ -352,7 +352,7 @@ that the guard statement appears in.</p>
 <p>The <code>else</code> branch must transfer control to exit the code block that that
 guard statement appears in. It can do this with a control transfer statement
 such as <code>return</code>, <code>break</code>, or <code>continue</code>, or it can call a function or method that
-doesn’t return, such as <code>fatalError()</code>.</p>
+dosen&rsquo;t return, such as <code>fatalError()</code>.</p>
 </blockquote>
 
 <h2 id="case-uniformly-supported-in-control-flow-statements:e190607d4f7a6a5e97b66be1e3f38a13"><code>case</code> Uniformly Supported in Control Flow Statements</h2>
@@ -435,21 +435,40 @@ for value in mySequence where value != &quot;&quot; {
 
 <hr />
 
-<h2 id="throw-keyword:e190607d4f7a6a5e97b66be1e3f38a13"><code>throw</code> Keyword</h2>
+<h2 id="3-new-keywords-and-1-statements:e190607d4f7a6a5e97b66be1e3f38a13">3 New Keywords and 1 statements</h2>
 
-<p>failable funtion <code>throw</code>s instead of pass out <code>inout error: NSError?</code> (or <code>NSErrorPointer</code>)</p>
+<ol>
+<li><p>Fail-able functions <code>throw</code> errors instead of pass out <code>inout error: NSError?</code> (or <code>NSErrorPointer</code>)</p></li>
 
-<h2 id="try-keyword:e190607d4f7a6a5e97b66be1e3f38a13"><code>try</code> Keyword</h2>
+<li><p>Use <code>try</code> to mark &amp; invoke throw-able functions</p></li>
 
-<p>use <code>try</code> to mark &amp; invoke throw-able functions</p>
+<li><p>Use <code>try!</code> to assert that fail-able function must not fail.</p></li>
 
-<h2 id="try-keyword-1:e190607d4f7a6a5e97b66be1e3f38a13"><code>try!</code> Keyword</h2>
+<li><p>Use <code>do {...} catch ... {}</code> construct to try &amp; catch errors</p></li>
+</ol>
 
-<p>use <code>try!</code> to assert that failable function must not fail.</p>
+<pre><code class="language-swift">func mayFail() throw {
+  ...
+  throw {throw-able object}
+  ...
+}
 
-<h2 id="do-catch-construct:e190607d4f7a6a5e97b66be1e3f38a13"><code>do {...} catch ... {}</code> Construct</h2>
+// mark &amp; invoke a failable function
+try mayFail()
 
-<p>to try &amp; catch errors</p>
+// throwing out an error is just like assertion failed
+try! mayFail()
+
+// do {
+  try mayFail()
+} catch ErrorEnum.ErrorType {
+  // catch pattern matching
+} catch let error {
+  // catching &amp; binding
+} catch {
+  // catch everything
+}
+</code></pre>
 
 <h2 id="errortype-protocol:e190607d4f7a6a5e97b66be1e3f38a13"><code>ErrorType</code> protocol</h2>
 
