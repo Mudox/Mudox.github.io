@@ -147,6 +147,373 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/note/wwdc_notes_what_s_new_in_swift_2015/">
+            WWDC NOTES - WHAT&#39;S NEW IN SWIFT (2015)
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Jun 12, 2015</span>
+
+        
+
+<p>NOTES for What&rsquo;S New in Swift (2015) from WWDC15.</p>
+
+<h1 id="fundamentals:e190607d4f7a6a5e97b66be1e3f38a13">Fundamentals</h1>
+
+<hr />
+
+<h2 id="print-enum-s:e190607d4f7a6a5e97b66be1e3f38a13">Print <code>enum</code>s</h2>
+
+<pre><code class="language-swift">enum Animals {
+    case Dog, Cat, Troll, Dragon
+}
+
+let a = Animals.Dragon
+print(a) // get 'Animals.Dragon' instead of frustrating '(Enum Value)'
+</code></pre>
+
+<h2 id="associated-values-in-enum-s:e190607d4f7a6a5e97b66be1e3f38a13">Associated Values in <code>enum</code>s</h2>
+
+<pre><code class="language-swift">// a stronger version of C union
+enum Either&lt;T1, T2&gt; {
+  case First(T1)
+  case Second(T2)
+}
+</code></pre>
+
+<h2 id="recursive-enum-s:e190607d4f7a6a5e97b66be1e3f38a13">Recursive <code>enum</code>s</h2>
+
+<pre><code class="language-swift">enum Tree(T) {
+  case Leaf(T)
+  indirect case Node(Tree, Tree)
+}
+</code></pre>
+
+<h2 id="do-satement:e190607d4f7a6a5e97b66be1e3f38a13"><code>do</code> Satement</h2>
+
+<pre><code class="language-swift">do {
+    // new containing scope
+} catch ... {
+
+// for `do-while` in other languages, use `repeat` to avoid ambiguity
+repeat {
+    // repeating code lines
+} while ...
+</code></pre>
+
+<h2 id="options-sets:e190607d4f7a6a5e97b66be1e3f38a13">Options Sets</h2>
+
+<pre><code class="language-swift">// before swift 2.0
+viewAnimationOpetions = .Repeat | .CurveEaseIn | .TransitionCurlUp
+viewAnimationOpetions = nil
+if viewAnimationOpetions &amp; .TransitionCurlUp != nil {
+
+// in swift 2.0
+viewAnimationOpetions = [.Repeat, .CurveEaseIn, .TransitionCurlUp]
+viewAnimationOpetions = []
+if viewAnimationOpetions.contains(.TransitionCurlUp) {
+
+// new way of defining OptionSetType derived option types
+struct MyFontStyle : OptionSetType {
+    let rawValue: Int
+    static let Bold          = MyFontStyle(rawValue: 1)
+    static let Italic        = MyFontStyle(rawValue: 2)
+    static let Underline     = MyFontStyle(rawValue: 4)
+    static let Strikethrough = MyFontStyle(rawValue: 8)
+}
+
+myFont.style = []
+myFont.style = [.Underline]
+myFont.style = [.Bold, .Italic]
+
+if myFont.style.contains(.Strikethrough) {
+</code></pre>
+
+<h2 id="functions-and-methods:e190607d4f7a6a5e97b66be1e3f38a13">Functions and Methods</h2>
+
+<p>all <code>func</code> declarations are uniform:</p>
+
+<ul>
+<li><p>First argument is implied by the base function name</p></li>
+
+<li><p>Labels are used for subsequent arguments</p></li>
+
+<li><p>No special rules for defaulted parameters</p></li>
+
+<li><p><code>#</code> argument syntax has been removed</p></li>
+</ul>
+
+<h2 id="diagnostic:e190607d4f7a6a5e97b66be1e3f38a13">Diagnostic</h2>
+
+<ul>
+<li><p>New fix-it helps you add <code>mutating</code> ahead of mutating methods</p></li>
+
+<li><p>New Warnings</p>
+
+<ul>
+<li><p><code>var</code> defined variable never mutated</p></li>
+
+<li><p><code>let</code> defined constant never used</p></li>
+
+<li><p>unused <code>sort()</code> result, use in-place version <code>sortInPlace()</code></p></li>
+</ul></li>
+</ul>
+
+<h2 id="sdk-improvements:e190607d4f7a6a5e97b66be1e3f38a13">SDK Improvements</h2>
+
+<p>Adoption of new features and best practices:</p>
+
+<ul>
+<li><p>Nullability qualifiers</p></li>
+
+<li><p>Objective-C typed collections</p></li>
+
+<li><p><code>NS_ENUM</code>, <code>NS_OPTIONS</code>, instancetype, @property, etc</p></li>
+</ul>
+
+<p>see sessions:</p>
+
+<ol>
+<li><p><strong>Swift and Objective-C Interoperability</strong> (2015)</p></li>
+
+<li><p><strong>What&rsquo;s New in Cocoa</strong> (2015)</p></li>
+</ol>
+
+<p>for more details</p>
+
+<h2 id="unit-testing-and-access-control:e190607d4f7a6a5e97b66be1e3f38a13">Unit Testing and Access Control</h2>
+
+<p>see sessions:</p>
+
+<ol>
+<li><p><strong>What&rsquo;s New in Xcode</strong> (2015)</p></li>
+
+<li><p><strong>UI Testing in Xcode</strong> (2015)</p></li>
+</ol>
+
+<p>for more details</p>
+
+<h2 id="rich-comments:e190607d4f7a6a5e97b66be1e3f38a13">Rich Comments</h2>
+
+<p>see sessions:</p>
+
+<ol>
+<li><strong>Authoring Rich Playgrounds</strong> (2015)</li>
+</ol>
+
+<p>for more details</p>
+
+<h2 id="other-features:e190607d4f7a6a5e97b66be1e3f38a13">Other Features</h2>
+
+<ul>
+<li><p>Default implementations in protocols</p></li>
+
+<li><p>C function pointers + closures</p></li>
+
+<li><p>Recursive nested functions</p></li>
+
+<li><p><code>if</code>/<code>do</code> labeled break</p></li>
+
+<li><p>SIMD Vectors</p></li>
+
+<li><p>Mirrors API</p></li>
+
+<li><p><code>readline()</code></p></li>
+
+<li><p><code>@nonobjc</code></p></li>
+</ul>
+
+<p>see sessions:</p>
+
+<ol>
+<li><p><strong>The Swift Programming Language</strong> (Swift 2.0)</p></li>
+
+<li><p><strong>Xcode 7 release notes</strong></p></li>
+</ol>
+
+<p>for more details</p>
+
+<h1 id="pattern-matching:e190607d4f7a6a5e97b66be1e3f38a13">Pattern Matching</h1>
+
+<hr />
+
+<h2 id="guard-statement-for-early-exit:e190607d4f7a6a5e97b66be1e3f38a13"><code>guard</code> Statement for Early Exit</h2>
+
+<pre><code class="language-swift">guard let ...
+      let ... else {
+}
+</code></pre>
+
+<blockquote>
+<p>Any variables or constants that were assigned values using an optional
+binding as part of the condition are available for the rest of the code block
+that the guard statement appears in.</p>
+
+<p>The <code>else</code> branch must transfer control to exit the code block that that
+guard statement appears in. It can do this with a control transfer statement
+such as <code>return</code>, <code>break</code>, or <code>continue</code>, or it can call a function or method that
+doesn’t return, such as <code>fatalError()</code>.</p>
+</blockquote>
+
+<h2 id="case-uniformly-supported-in-control-flow-statements:e190607d4f7a6a5e97b66be1e3f38a13"><code>case</code> Uniformly Supported in Control Flow Statements</h2>
+
+<pre><code>```swift
+// switch with only one case you want to handle
+
+// before swift 2.0
+switch bar() {
+case .MyEnumCase(let value) where value != 42:
+    doThing(value)
+default: break
+}
+
+// in swift 2.0
+if case .MyEnumCase(let value) = bar() where value != 42 {
+    doThing(value)
+}
+```
+
+for now there are 4 kind of case statements
+
+1. switch case
+
+1. while case
+
+1. if case
+
+1. guard case
+
+1. for-in case
+</code></pre>
+
+<h2 id="for-in-filtering:e190607d4f7a6a5e97b66be1e3f38a13"><code>for ... in</code> Filtering</h2>
+
+<pre><code>```swift
+// before swift 2.0
+for value in mySequence {
+  if value != &quot;&quot; {
+    doThing(value)
+  }
+}
+
+// in swift 2.0
+for value in mySequence where value != &quot;&quot; {
+  doThing(value)
+}
+```
+</code></pre>
+
+<h1 id="api-availability-checking:e190607d4f7a6a5e97b66be1e3f38a13">API Availability Checking</h1>
+
+<hr />
+
+<pre><code class="language-swift">if|guard #available({platform name} {version}, ..., *) {
+  // statements to execute if the APIs are available
+} else {
+  // fallback statements to execute if the APIs are unavailable
+}
+</code></pre>
+
+<h1 id="protocol-extensions:e190607d4f7a6a5e97b66be1e3f38a13">Protocol Extensions</h1>
+
+<hr />
+
+<pre><code class="language-swift">extension Array {
+
+}
+</code></pre>
+
+<p>see sessions:</p>
+
+<ol>
+<li><strong>Protocol Oriented Programming in Swift</strong> (2015)</li>
+</ol>
+
+<p>for more details</p>
+
+<h1 id="error-handling:e190607d4f7a6a5e97b66be1e3f38a13">Error Handling</h1>
+
+<hr />
+
+<h2 id="throw-keyword:e190607d4f7a6a5e97b66be1e3f38a13"><code>throw</code> Keyword</h2>
+
+<p>failable funtion <code>throw</code>s instead of pass out <code>inout error: NSError?</code> (or <code>NSErrorPointer</code>)</p>
+
+<h2 id="try-keyword:e190607d4f7a6a5e97b66be1e3f38a13"><code>try</code> Keyword</h2>
+
+<p>use <code>try</code> to mark &amp; invoke throw-able functions</p>
+
+<h2 id="try-keyword-1:e190607d4f7a6a5e97b66be1e3f38a13"><code>try!</code> Keyword</h2>
+
+<p>use <code>try!</code> to assert that failable function must not fail.</p>
+
+<h2 id="do-catch-construct:e190607d4f7a6a5e97b66be1e3f38a13"><code>do {...} catch ... {}</code> Construct</h2>
+
+<p>to try &amp; catch errors</p>
+
+<h2 id="errortype-protocol:e190607d4f7a6a5e97b66be1e3f38a13"><code>ErrorType</code> protocol</h2>
+
+<p>Any type that conforms to <code>ErrorType</code> can be thrown and caught</p>
+
+<ul>
+<li><p><code>NSError</code> already conforms to <code>ErrorType</code></p></li>
+
+<li><p>Can make your own types conform as well</p></li>
+</ul>
+
+<h2 id="enum-is-great-for-groups-of-related-errors:e190607d4f7a6a5e97b66be1e3f38a13"><code>enum</code> is Great for Groups of Related Errors</h2>
+
+<ul>
+<li><p>Can carry data in a payload</p></li>
+
+<li><p>Compiler handles protocol conformance details automatically</p></li>
+</ul>
+
+<pre><code class="language-swift">enum DataError : ErrorType {
+case MissingName
+case MissingYear
+// add more later
+}
+
+func processSale(json: AnyObject) throws {
+guard let buyerJSON = json[&quot;buyer&quot;] as? NSDictionary {
+  throw DataError.MissingBuyer
+}
+let buyer = try processPerson(buyerJSON)
+
+guard let price = json[&quot;price&quot;] as? Int {
+  throw DataError.MissingPrice
+}
+
+return Sale(buyer, price)
+}
+</code></pre>
+
+<h2 id="defer-actions:e190607d4f7a6a5e97b66be1e3f38a13"><code>defer</code> actions</h2>
+
+<p>simlilar to the <code>defer</code> keywords in Go language.</p>
+
+<pre><code class="language-swift">func processSale(json: AnyObject) throws {
+  delegate?.didBeginReadingSale()
+  defer { delegate?.didEndReadingSale() }
+
+  guard let buyerJSON = json[&quot;buyer&quot;] as? NSDictionary {
+    throw DataError.MissingBuyer
+  }
+  let buyer = try processPerson(buyerJSON)
+
+  guard let price = json[&quot;price&quot;] as? Int {
+    throw DataError.MissingPrice
+  }
+
+  return Sale(buyer, price)
+}
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/post/translation_swift_interacting_with_c_pointers/">
             Swift 官博文章翻译 - 和指针类型交互
           </a>
@@ -762,95 +1129,77 @@ networking frameworks:</p>
 <ol>
 <li><p>create <code>ASIHTTPRequest</code> isntance with an <code>NSURL</code>.</p></li>
 
-<li><p>set progress feedback settings if you want.</p>
+<li><p>choose and set response handling scheme. <code>ASIHTTPRequest</code> provides 4 ways to handle responses:</p>
 
-<p><code>ASIHTTPRequest</code> provides uploading &amp; downloading progress reporting by
-default. You can simply assign an <code>UIProgressView</code> or <code>NSProgress</code> instance
-object to them respectively.</p></li>
+<ul>
+<li><strong>delegation</strong>,  implement the following methods (usually the first 2
+are all you need) in your delegate objects, they will be called in some
+queue when events arrive.</li>
+</ul>
 
-<li><p>choose and set response handling scheme:</p>
+<pre><code class="language-objc">// These are the default delegate methods for request status
+// You can use different ones by setting didStartSelector / didFinishSelector / didFailSelector
+- (void)requestFinished:   (ASIHTTPRequest *)request;
+- (void)requestFailed:     (ASIHTTPRequest *)request;
 
-<p>ASIHTTPRequest provides 4 ways to handle responses:</p>
+- (void)requestStarted:    (ASIHTTPRequest *)request;
 
-<ol>
-<li><p>delegation</p>
-
-<p>implement the following methods (usually the first 2 are all you need)
-in your delegate objects, they will be called in some queue when events
-arrive.</p></li>
-</ol>
-
-<pre><code class="language-objc">  // These are the default delegate methods for request status
-  // You can use different ones by setting didStartSelector / didFinishSelector / didFailSelector
-  - (void)requestFinished:   (ASIHTTPRequest *)request;
-  - (void)requestFailed:     (ASIHTTPRequest *)request;
-
-  - (void)requestStarted:    (ASIHTTPRequest *)request;
-
-  - (void)request:           (ASIHTTPRequest *)request didReceiveResponseHeaders:(NSDictionary *)responseHeaders;
-  - (void)request:           (ASIHTTPRequest *)request willRedirectToURL:(NSURL *)newURL;
-  - (void)requestRedirected: (ASIHTTPRequest *)request;
+- (void)request:           (ASIHTTPRequest *)request didReceiveResponseHeaders:(NSDictionary *)responseHeaders;
+- (void)request:           (ASIHTTPRequest *)request willRedirectToURL:(NSURL *)newURL;
+- (void)requestRedirected: (ASIHTTPRequest *)request;
 
 
-  // When a delegate implements this method, it is expected to process all incoming data itself
-  // This means that responseData / responseString / downloadDestinationPath etc are ignored
-  // You can have the request call a different method by setting didReceiveDataSelector
-  - (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data;
+// When a delegate implements this method, it is expected to process all incoming data itself
+// This means that responseData / responseString / downloadDestinationPath etc are ignored
+// You can have the request call a different method by setting didReceiveDataSelector
+- (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data;
 </code></pre>
 
-<ol>
-<li><p>target + selector pattern</p>
+<ul>
+<li><strong>target + selector pattern</strong>, you are free to implement, in one delegate
+obect, more than one methods for a given event and name them
+arbitrarily.</li>
+</ul>
 
-<p>you are free to implement, in one delegate obect, more than one
-  methods for a given event and name them arbitrarily.</p></li>
-</ol>
-
-<pre><code class="language-objc">  @property (assign) SEL didStartSelector;
-  @property (assign) SEL didFinishSelector;
-  @property (assign) SEL didFailSelector;
+<pre><code class="language-objc">@property (assign) SEL didStartSelector;
+@property (assign) SEL didFinishSelector;
+@property (assign) SEL didFailSelector;
 </code></pre>
 
-<ol>
-<li><p>block</p>
+<ul>
+<li><strong>block</strong>,  you get a succinct codebase, but should be aware of
+retain-circle issue. usually the first 2 are all you need.</li>
+</ul>
 
-<p>you get a succinct codebase, but should be aware of retain-circle
-  issue.</p>
+<pre><code class="language-objc">- (void)setCompletionBlock:                (ASIBasicBlock) aCompletionBlock;
+- (void)setFailedBlock:                    (ASIBasicBlock) aFailedBlock;
 
-<p>usually the first 2 are all you need.</p></li>
-</ol>
-
-<pre><code class="language-objc">  - (void)setCompletionBlock:                (ASIBasicBlock) aCompletionBlock;
-  - (void)setFailedBlock:                    (ASIBasicBlock) aFailedBlock;
-
-  - (void)setStartedBlock:                   (ASIBasicBlock) aStartedBlock;
-  - (void)setHeadersReceivedBlock:           (ASIHeadersBlock) aReceivedBlock;
-  - (void)setBytesReceivedBlock:             (ASIProgressBlock) aBytesReceivedBlock;
-  - (void)setBytesSentBlock:                 (ASIProgressBlock) aBytesSentBlock;
-  - (void)setDownloadSizeIncrementedBlock:   (ASISizeBlock) aDownloadSizeIncrementedBlock;
-  - (void)setUploadSizeIncrementedBlock:     (ASISizeBlock) anUploadSizeIncrementedBlock;
-  - (void)setDataReceivedBlock:              (ASIDataBlock) aReceivedBlock;
-  - (void)setAuthenticationNeededBlock:      (ASIBasicBlock) anAuthenticationBlock;
-  - (void)setProxyAuthenticationNeededBlock: (ASIBasicBlock) aProxyAuthenticationBlock;
-  - (void)setRequestRedirectedBlock:         (ASIBasicBlock) aRedirectBlock;
+- (void)setStartedBlock:                   (ASIBasicBlock) aStartedBlock;
+- (void)setHeadersReceivedBlock:           (ASIHeadersBlock) aReceivedBlock;
+- (void)setBytesReceivedBlock:             (ASIProgressBlock) aBytesReceivedBlock;
+- (void)setBytesSentBlock:                 (ASIProgressBlock) aBytesSentBlock;
+- (void)setDownloadSizeIncrementedBlock:   (ASISizeBlock) aDownloadSizeIncrementedBlock;
+- (void)setUploadSizeIncrementedBlock:     (ASISizeBlock) anUploadSizeIncrementedBlock;
+- (void)setDataReceivedBlock:              (ASIDataBlock) aReceivedBlock;
+- (void)setAuthenticationNeededBlock:      (ASIBasicBlock) anAuthenticationBlock;
+- (void)setProxyAuthenticationNeededBlock: (ASIBasicBlock) aProxyAuthenticationBlock;
+- (void)setRequestRedirectedBlock:         (ASIBasicBlock) aRedirectBlock;
 </code></pre>
 
-<ol>
-<li><p>subclassing</p>
+<ul>
+<li><strong>subclassing</strong>  subclass <code>ASIHTTPRequest</code>, and overwrite following methods, which is very rare occassion.</li>
+</ul>
 
-<p>subclass <code>ASIHTTPRequest</code>, and overwrite following methods, which is
-  very rare occassion.</p></li>
-</ol>
-
-<pre><code class="language-objc">  - (void)requestFinished:(ASIHTTPRequest *)request
-  - (void)requestFailed:(ASIHTTPRequest *)request
+<pre><code class="language-objc">- (void)requestFinished:(ASIHTTPRequest *)request
+- (void)requestFailed:(ASIHTTPRequest *)request
 </code></pre></li>
 
-<li><p>start loading by invoking:</p>
-
-<pre><code class="language-objc">  -(void)startSynchronous
-  -(void)startAsynchronous
-</code></pre></li>
+<li><p>start loading by invoking:</p></li>
 </ol>
+
+<pre><code class="language-objc">-(void)startSynchronous
+-(void)startAsynchronous
+</code></pre>
 
 <h3 id="1-1-1-using-delegation:59d3d3090a17518d96879b55d4323031">1.1.1 Using delegation</h3>
 
@@ -858,19 +1207,19 @@ arrive.</p></li>
 // initialize a instance of ASIHTTPRequest instance
 ASIHTTPRequest *request = [ASIHTTPRequest requestWithURLtrURL];
 
-// step #2 (optional)
-// get download progress feedback
-request.showAccurateProgress = YES;
-request.downloadProgressDelegate = self;
-[ASIHTTPRequest setShouldUpdateNetworkActivityIndicator: YES];
+// step #2
+// set delegate &amp; selectors if you choose the target-selecors pattern
+// or set blocks
+// set other reqeust attributes such as progress watch, cache ...
+request.delegate = self;
 
 // step #3
-// set delegate &amp; emit request ansynchronously
-request.delegate = self;
+// start this request operation
 [request startAsynchronous];
 </code></pre>
 
-<p>Implement delegate methods to handle results (succeed or fail).</p>
+<p>Implement delegate methods to participate in the loading process, you choose
+the delegation pattern.</p>
 
 <ol>
 <li>implement <code>requestFinished:</code> delegate methods to fetch response content.</li>
@@ -897,24 +1246,6 @@ request.delegate = self;
 {
   NSLog(@&quot;ERROR: %@&quot;, [request.error localizedDescription]);
 }
-</code></pre>
-
-<ol>
-<li>implement <code>setProgress:</code> delegate methods to report the download progress,
-if you want.</li>
-</ol>
-
-<pre><code class="language-objc">#pragma mark - ASIProgressDelegate
-- (void)setProgress: (float)newProgress
-{
-  // average download speed in bytes/second
-  unsigned long byte = [ASIHTTPRequest averageBandwidthUsedPerSecond];
-
-  // current completion percent (between 0.0 ~ 1.0) from argument:
-  newProgress;
-}
-
-@end
 </code></pre>
 
 <p>Another alternative mentioned above is the target-selector pattern: setting
@@ -993,78 +1324,111 @@ subsequently created request operation instances.</p></li>
 
 <h2 id="with-asihttprequest:59d3d3090a17518d96879b55d4323031">With ASIHTTPRequest</h2>
 
-<p>Same as the &lsquo;Simle GET Request&rsquo; above, excepts:</p>
+<p>Same as the above, excepts:</p>
 
-<ul>
-<li><p>You should initialize a instance of ASIFormDataRequest instead of
-ASIHTTPRequest.</p></li>
+<p>You should initialize a instance of <code>ASIFormDataRequest</code> instead of
+<code>ASIHTTPRequest</code>, which provide a bunch of extra methods to help you with
+composing form data body.</p>
 
-<li><p>You set <code>setRequestMethod:</code> with <code>POST</code> parameter to switch to POST request
-type.</p></li>
+<p>Set <code>setRequestMethod:</code> to <code>&quot;POST&quot;</code>, which is inherited from <code>ASIHTTPRequest</code>.</p>
 
-<li><p>You should call <code>addRequestHeader:</code> methods to add at least <code>Content-Type</code>
-field.</p></li>
+<p>For request header, you can call <code>addRequestHeader: value:</code> to customize request header.</p>
 
-<li><p>You should put the query string in URL string into the HTTP request body by
-calling <code>setPostBody</code> method, either in URL query string form or JSON form.</p></li>
-</ul>
+<p>For request body, you can either set it manually using <code>ASIHTTPRequest</code>&rsquo;s methods:</p>
 
-<pre><code class="language-objc">// step #1
-// use Url string to initialize a instance of ASIFormDataRequest
-
-  NSString *strURL = @&quot;...&quot;;
-  // better call this method to ensure string is properly encoded.
-  NSURL *strURL = strURL stringByAddingPercentEscapesUsingEncoding: SUTF8StringEncoding];
-
-// step #2
-// set request methods to 'POST'
-
-  [self.formRequest setRequestMethod: &quot;POST&quot;];
-
-// step #3
-// add http request header &amp; body respectively
-
-  self.formRequest = [ASIFormDataRequest requestWithURL: strURL];
-  [self.formRequest addRequestHeader: &quot;Content-Type&quot; value: &quot;application/x-www-form-urlencoded&quot;];
-
-  // body string in URL query string format
-  NSMutableData *body = [NSMutableData dataWithData:
-    [@&quot;type=focus-c&quot; dataUsingEncoding: SUTF8StringEncoding]];
-
-  // body string in JSON format
-  // NSMutableData *body = [NSMutableData dataWithData:
-    [@&quot;p={\&quot;a\&quot;: ,\&quot;b\&quot;: }&quot; dataUsingEncoding: NSUTF8StringEncoding]];
-
-  [self.formRequest setPostBody: NSMutableData*)[body dataUsingEncoding: NSUTF8StringEncoding]];
-
-  // ASIFormDataRequese provides a group of methods to help you // quickly
-  // construct the post body.
-  //
-  // setPostFilePath:
-  // ----
-  // setPostValue: forKey:
-  // addPostValue: forKey:
-  // ----
-  // setFile: forKey:
-  // setFile: withFileName: andContentType: forKey:
-  // ----
-  // setData: forKey:
-  // setData: withFileName: andContentType: forKey:
-  // ----
-  // setPostBody:
-  // setPostBodyFilePath:
-  // ----
-  // appendPostData:
-  // appendPostDataFromFile:
-
-// step #4
-// set delegate &amp; emit request ansynchronously
-
-  [self.formRequest setDelegate: self];
-  [self.formRequest startAsynchronous];
+<pre><code class="language-objc">- (void)setPostBody:(NSMutableData)data
+- (void)appendPostData:(NSData *)data;            // body data kept in memory
+- (void)appendPostDataFromFile:(NSString *)file;  // streamed from disk, suite for large content uploading
 </code></pre>
 
-<h1 id="use-case-3-progress-watching:59d3d3090a17518d96879b55d4323031">Use Case #3 - Progress Watching</h1>
+<p>or using <code>ASIFormDataRequest</code>s dedicated methods to compose request body:</p>
+
+<pre><code class="language-objc">// Using application/x-www-form-urlencoded Content-Type
+- (void)setPostValue:(id &lt;NSObject&gt;)value forKey:(NSString *)key;
+- (void)addPostValue:(id &lt;NSObject&gt;)value forKey:(NSString *)key;
+
+// Using multipart/form-data Content-Type
+- (void)addFile:(NSString *)filePath forKey:(NSString *)key;
+- (void)addFile:(NSString *)filePath withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key;
+- (void)setFile:(NSString *)filePath forKey:(NSString *)key;
+- (void)setFile:(NSString *)filePath withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key;
+
+- (void)addData:(NSData *)data forKey:(NSString *)key;
+- (void)addData:(id)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key;
+- (void)setData:(NSData *)data forKey:(NSString *)key;
+- (void)setData:(id)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key;
+</code></pre>
+
+<h1 id="use-case-3-downlaod-task:59d3d3090a17518d96879b55d4323031">Use Case #3 - Downlaod Task</h1>
+
+<h2 id="3-1-with-asihttprequest:59d3d3090a17518d96879b55d4323031">3.1 With ASIHTTPRequest</h2>
+
+<p>After creating an ASIHTTPRequest instance</p>
+
+<ul>
+<li><p>set <code>setDownlaodDestinationPath</code></p></li>
+
+<li><p>set <code>temporaryFileDownloadPath</code></p></li>
+
+<li><p>set <code>allowResumeForFileDownloads</code> to YES, which</p></li>
+</ul>
+
+<blockquote>
+<p>tells ASIHTTPRequest not to delete partial downloads, and allows it to use an
+existing file to resume a download. Defaults to NO.</p>
+</blockquote>
+
+<p>The names are very clarifying.</p>
+
+<h1 id="use-case-4-progress-watching:59d3d3090a17518d96879b55d4323031">Use Case #4 - Progress Watching</h1>
+
+<h2 id="4-1-with-asihttprequest:59d3d3090a17518d96879b55d4323031">4.1 With ASIHTTPRequest</h2>
+
+<p>First of all, set <code>showAccurateProgress</code> proeprty to <code>YES</code>, otherwise it would
+only notify you when a request is finished.</p>
+
+<p>For simple use case, just set a <code>UIProgressView</code> instance as the
+<code>ASIHTTPRequest</code>&rsquo;s dowloadProgressDelegate.</p>
+
+<pre><code class="language-objc">// on ASI request object
+
+setDownloadProgressDelegate:
+setUploadProgressDelegate:
+
+// on delegate implement ...
+
+// for most cases
+- (void)setProgress:(float)newProgress;
+</code></pre>
+
+<p>Implement <code>setProgress:</code> delegate methods to report the download progress, if
+you want.</p>
+
+<pre><code class="language-objc">- (void)setProgress: (float)newProgress
+{
+  // average download speed in bytes/second
+  unsigned long byte = [ASIHTTPRequest averageBandwidthUsedPerSecond];
+
+  // current completion percent (between 0.0 ~ 1.0) from argument:
+  newProgress;
+}
+
+@end
+</code></pre>
+
+<p>If you need more detail. <code>ASIProgressDelegate</code> protocol provides following
+methods for you to implement, whose name is rather clarifying.</p>
+
+<pre><code class="language-objc">- (void)request:(ASIHTTPRequest *)request didReceiveBytes:(long long)bytes;
+
+- (void)request:(ASIHTTPRequest *)request didSendBytes:(long long)bytes;
+
+- (void)request:(ASIHTTPRequest *)request incrementDownloadSizeBy:(long long)newLength;
+
+- (void)request:(ASIHTTPRequest *)request incrementUploadSizeBy:(long long)newLength;
+</code></pre>
+
+<p>If you ask for more details, <code>ASIHTTPRequest</code> provides.</p>
 
 <h1 id="framework-office-documentation:59d3d3090a17518d96879b55d4323031">Framework Office Documentation</h1>
 
@@ -1657,8 +2021,16 @@ animal as! Dog  // triggers a runtime error
 <li>◎ - Best Practices for Cocoa Animation (2013)</li>
 <li>◑ - Custom Transitions Using View Controllers (2013)</li>
 <li>◑ - Building Adaptive Apps with UIKit (2014)</li>
+<li>◎ - Advanced Techniques with UIKit Dynamics (2013)</li>
+</ol></li>
+
+<li><p><strong>Dynamics</strong></p>
+
+<ol>
 <li>◎ - Getting Started with UIKit Dynamics (2013)</li>
 <li>◎ - Advanced Techniques with UIKit Dynamics (2013)</li>
+<li>◎ - Creating Custom iOS User Interface (2014)</li>
+<li>◎ - What&rsquo; New in UIKit Dynamics and Visual Effects (2015)</li>
 </ol></li>
 
 <li><p><strong>Auto-Layout</strong></p>
@@ -1684,14 +2056,15 @@ animal as! Dog  // triggers a runtime error
 <p>see <a href="https://developer.apple.com/swift/resources/">Swift Resources Page</a></p>
 
 <ol>
-<li>◎  - Introduction to Swift</li>
-<li>◎  - Intermediate Swift</li>
-<li>◎  - Advanced Swift</li>
-<li>◎  - Swift Playgrounds</li>
-<li>◎  - Integrating Swift with Objective-C</li>
-<li>◎  - Swift Interoperability In Depth</li>
-<li>◎  - Introduction to LLDB and the Swift REPL</li>
-<li>◎  - Advanced Swift Debugging in LLDB</li>
+<li>◎  - Introduction to Swift (2014)</li>
+<li>◎  - Intermediate Swift (2014)</li>
+<li>◎  - Advanced Swift (2014)</li>
+<li>◎  - Swift Playgrounds (2014)</li>
+<li>◎  - Integrating Swift with Objective-C (2014)</li>
+<li>◎  - Swift Interoperability In Depth (2014)</li>
+<li>◎  - Introduction to LLDB and the Swift REPL (2014)</li>
+<li>◎  - Advanced Swift Debugging in LLDB (2014)</li>
+<li>◎  - What&rsquo;s New in Swift (2015)</li>
 </ol></li>
 
 <li><p><strong>Text &amp; Font</strong></p></li>
@@ -4088,37 +4461,6 @@ a real number.</p></li>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
-
-<ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
-</ul>
-
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
-</code></pre>
-
-<ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
-
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_javascript/">
             ERROR COLLECTION - JAVASCRIPT
           </a>
@@ -4148,6 +4490,37 @@ function init() {
 
 <ul>
 <li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+
+<ul>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+</ul>
+
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
+</code></pre>
+
+<ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
+
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
 </ul>
 
       </div>
@@ -5027,7 +5400,7 @@ accounted type).</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/note/git/">
+          <a href="http://mudox.github.io/note/git_notes_git_basic/">
             GIT MISC
           </a>
         </h1>
@@ -5036,7 +5409,7 @@ accounted type).</p>
 
         
 
-<h1 id="alias:1c1ef82aae62aeea8eedcb5f455b129b">Alias</h1>
+<h1 id="alias:7ffc696f5390a6cbb2edb7b7d7734aec">Alias</h1>
 
 <ul>
 <li><p>working tree, working directory</p></li>
@@ -5046,7 +5419,7 @@ accounted type).</p>
 <li><p>commit[ted] history, commit[ted] snapshot</p></li>
 </ul>
 
-<h1 id="the-add-rm-reset-commit-checkout-sub-commands:1c1ef82aae62aeea8eedcb5f455b129b">The <code>add</code> &amp; <code>rm</code> &amp; <code>reset</code> &amp; <code>commit</code> &amp; <code>checkout</code> Sub-commands.</h1>
+<h1 id="the-add-rm-reset-commit-checkout-sub-commands:7ffc696f5390a6cbb2edb7b7d7734aec">The <code>add</code> &amp; <code>rm</code> &amp; <code>reset</code> &amp; <code>commit</code> &amp; <code>checkout</code> Sub-commands.</h1>
 
 <ul>
 <li><p>between the <em>committed history</em> &amp; <em>staging area</em></p>
@@ -5109,9 +5482,9 @@ direcotry.</p></li>
 </ul></li>
 </ul>
 
-<h1 id="the-git-rebase-sub-command:1c1ef82aae62aeea8eedcb5f455b129b">The <code>git Rebase</code> Sub-command</h1>
+<h1 id="the-git-rebase-sub-command:7ffc696f5390a6cbb2edb7b7d7734aec">The <code>git Rebase</code> Sub-command</h1>
 
-<h2 id="advantage-of-rebase:1c1ef82aae62aeea8eedcb5f455b129b">Advantage of <code>rebase</code>:</h2>
+<h2 id="advantage-of-rebase:7ffc696f5390a6cbb2edb7b7d7734aec">Advantage of <code>rebase</code>:</h2>
 
 <ul>
 <li><p>no additional merge commit</p></li>
@@ -5119,7 +5492,7 @@ direcotry.</p></li>
 <li><p>linear commit history</p></li>
 </ul>
 
-<h2 id="disadvantage-of-rebase:1c1ef82aae62aeea8eedcb5f455b129b">Disadvantage of <code>rebase</code>:</h2>
+<h2 id="disadvantage-of-rebase:7ffc696f5390a6cbb2edb7b7d7734aec">Disadvantage of <code>rebase</code>:</h2>
 
 <ul>
 <li><p>safety</p></li>
@@ -5127,11 +5500,11 @@ direcotry.</p></li>
 <li><p>tracability: the evidences of merging are wiped away.</p></li>
 </ul>
 
-<h2 id="golden-rule-of-git-rebase:1c1ef82aae62aeea8eedcb5f455b129b">Golden rule of <code>git rebase</code>:</h2>
+<h2 id="golden-rule-of-git-rebase:7ffc696f5390a6cbb2edb7b7d7734aec">Golden rule of <code>git rebase</code>:</h2>
 
 <p><strong>never</strong> use it on <strong>public</strong> branches.</p>
 
-<h2 id="when-to-use-rebase:1c1ef82aae62aeea8eedcb5f455b129b">When to use <code>rebase</code></h2>
+<h2 id="when-to-use-rebase:7ffc696f5390a6cbb2edb7b7d7734aec">When to use <code>rebase</code></h2>
 
 <ul>
 <li><p>Local cleanup</p></li>
@@ -5141,7 +5514,7 @@ direcotry.</p></li>
 <li><p>Integrating a approved feature</p></li>
 </ul>
 
-<h1 id="the-reset-checkout-and-revert-sub-commands:1c1ef82aae62aeea8eedcb5f455b129b">The <code>reset</code>, <code>checkout</code> And <code>revert</code> Sub-commands</h1>
+<h1 id="the-reset-checkout-and-revert-sub-commands:7ffc696f5390a6cbb2edb7b7d7734aec">The <code>reset</code>, <code>checkout</code> And <code>revert</code> Sub-commands</h1>
 
 <blockquote>
 <p>The parameters that you pass to <code>git reset</code> and <code>git checkout</code> determine
@@ -5151,7 +5524,7 @@ operate on whole commits.  Note that git revert has no file-level counterpart</p
 
 <p>from <a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations">atlassian&rsquo;s git tutorials</a></p>
 
-<h2 id="commit-level-operations:1c1ef82aae62aeea8eedcb5f455b129b">Commit level operations</h2>
+<h2 id="commit-level-operations:7ffc696f5390a6cbb2edb7b7d7734aec">Commit level operations</h2>
 
 <p><code>git reset --[soft | mixed | hard] &lt;commit-ish&gt;</code> <strong>move</strong> branch tips backwards
 or even forwards, while affecting <em>staging area</em> &amp; <em>working direcotry</em> according to
@@ -5197,7 +5570,7 @@ options it is given.</p>
 to undo commits, while <code>git reset</code> is dangerous (irreversible) way to undo
 commits.</p>
 
-<h2 id="file-level-operations:1c1ef82aae62aeea8eedcb5f455b129b">File level operations</h2>
+<h2 id="file-level-operations:7ffc696f5390a6cbb2edb7b7d7734aec">File level operations</h2>
 
 <pre><code>git [reset|checkout] &lt;commit-ish&gt; &lt;pathspec&gt;
 </code></pre>
@@ -5229,7 +5602,7 @@ commits.</p>
 </tbody>
 </table>
 
-<h1 id="summary:1c1ef82aae62aeea8eedcb5f455b129b">Summary</h1>
+<h1 id="summary:7ffc696f5390a6cbb2edb7b7d7734aec">Summary</h1>
 
 <table>
 <thead>
@@ -5392,7 +5765,7 @@ make
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/note/git_flow/">
+          <a href="http://mudox.github.io/note/git_notes_git_flow/">
             GIT FLOW
           </a>
         </h1>
@@ -5401,7 +5774,7 @@ make
 
         
 
-<h1 id="1-main-branches:719fcccbc90f26c415458f02f4c9dfa0">1. Main Branches</h1>
+<h1 id="1-main-branches:7efb3c75b2813cce5e37bdd6999c9c48">1. Main Branches</h1>
 
 <ul>
 <li><p>the <code>main</code> branch</p>
@@ -5419,9 +5792,9 @@ into master must have a new incremental version number.</p></li>
 <p>nitghly build built from it.</p></li>
 </ul>
 
-<h1 id="2-supporting-branches:719fcccbc90f26c415458f02f4c9dfa0">2. Supporting Branches</h1>
+<h1 id="2-supporting-branches:7efb3c75b2813cce5e37bdd6999c9c48">2. Supporting Branches</h1>
 
-<h2 id="2-1-feature-or-topic-branches:719fcccbc90f26c415458f02f4c9dfa0">2.1 feature (or topic) branches</h2>
+<h2 id="2-1-feature-or-topic-branches:7efb3c75b2813cce5e37bdd6999c9c48">2.1 feature (or topic) branches</h2>
 
 <p>branch off from: <code>develop</code> branch</p>
 
@@ -5439,7 +5812,7 @@ git merge --no-ff some-feature
 git push origin develop
 </code></pre>
 
-<h2 id="2-2-release-branches:719fcccbc90f26c415458f02f4c9dfa0">2.2 release branches</h2>
+<h2 id="2-2-release-branches:7efb3c75b2813cce5e37bdd6999c9c48">2.2 release branches</h2>
 
 <p>branch off from: <code>develop</code> branch</p>
 
@@ -5461,7 +5834,7 @@ git checkout develop
 git merge --no-ff release-&lt;version number&gt;
 </code></pre>
 
-<h2 id="2-3-hotfix-or-maintenance-branches:719fcccbc90f26c415458f02f4c9dfa0">2.3 hotfix (or maintenance) branches</h2>
+<h2 id="2-3-hotfix-or-maintenance-branches:7efb3c75b2813cce5e37bdd6999c9c48">2.3 hotfix (or maintenance) branches</h2>
 
 <p>branch off from: <code>master</code> branch
 merge into: <code>develop</code> &amp; <code>master</code> branch if no active release branch existed
