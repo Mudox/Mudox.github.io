@@ -147,6 +147,244 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_guard/">
+            SWIFT NOTES - GUARD
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Sep 30, 2015</span>
+
+        <p><code>guard</code> from Swift is a branching statement similar to <code>if</code>, but have its own
+distinct use cases.</p>
+
+<ol>
+<li><p>Optional bound variables/constants in contition are visible after its&rsquo; <code>guard</code> statment.</p></li>
+
+<li><p>Always needs a <code>else</code> branch.</p></li>
+
+<li><p><code>else</code> branch must jump out of the enclosing block of its&rsquo; <code>guard</code> statement. You can do it:</p>
+
+<ul>
+<li><p>through keywords: <code>break</code>, <code>continue</code>, <code>return</code>, <code>throw</code></p></li>
+
+<li><p>by calling a function or method that doesn&rsquo;t return, e.g. <code>fatalError()</code>.</p></li>
+</ul></li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_switch/">
+            SWIFT NOTES - SWITCH STATEMETNS
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, Sep 30, 2015</span>
+
+        
+
+<p>The Swift programming language provides us a really powerfull <code>switch</code>
+statement.</p>
+
+<h1 id="switch-statement-feature-list:886259fb3fb4618d6ac5120cb8831f52"><code>switch</code> Statement Feature List</h1>
+
+<ol>
+<li><p>no implicitly fall-through</p>
+
+<p>use <code>fallthrough</code> keyword to fallthrough next case explicitly</p></li>
+
+<li><p>pattern listing</p>
+
+<p>enumerate multiple patterns in one <code>case</code> statement</p></li>
+
+<li><p>interval matching</p></li>
+
+<li><p>tuple matching &amp; the wildcard pattern <code>_</code></p></li>
+
+<li><p>value binding</p></li>
+
+<li><p><code>where</code> clauses can specifiy more conditions</p></li>
+</ol>
+
+<h1 id="an-example-demonstrating-all-the-features-above:886259fb3fb4618d6ac5120cb8831f52">An Example Demonstrating All the Features Above</h1>
+
+<pre><code class="language-swift">var aPoint = (x: 2, y: -1)
+// labeled `swtich`
+// NOTE: only loop statements and 'switch' statement can labeled.
+theSwitch: switch aPoint {
+// against tuple
+case (0, 0):
+  println(&quot;origin point&quot;)
+
+// against multiple conditions separated by comma
+case (1, 1), (2, 2):
+  println(&quot;(1, 1) or (2, 2)&quot;)
+
+// '_' means 'any value is ok'
+case (_, 0):
+  // the `break` here is just like the `pass` in python, acting as a
+  // 'placeholder statement', nullifing this case branch.
+  break
+
+case (0, _):
+  println(&quot;on the Y-axis&quot;)
+
+// against range
+case (-2...2, -2...2):
+  println(&quot;on or in the 2x2 box&quot;)
+
+// value binding
+case (let x, -10):
+  println(&quot;on the horizontal line y = -10, with a x value: \(x)&quot;)
+
+// where clause
+// NOTE: `let` can be replaced with `var` if you need to change the bound
+// value afterwards.
+case (0, var y) where y &gt;= 0:
+  y++    // mutable
+  println(&quot;on the 1st or 2nd quadrant&quot;)
+
+// value binding as a whole, which is an required exhaustive match
+case let (x, y):
+  theLoop: for i in 1..&lt;100 {
+    switch i {
+      case let x where (x &amp; 1) == 1: // a odd number
+        break theSwitch     // jump further
+      default:
+        continue theLoop    // jump
+    }
+  }
+}
+</code></pre>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_collection_types/">
+            SWIFT NOTES - COLLECION TYPES
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, Sep 29, 2015</span>
+
+        
+
+<p>Notes about Swift collection types.</p>
+
+<h1 id="array:44c0ce01208e3b3fad3c9dc1017fc36f">Array</h1>
+
+<p>Type notation:</p>
+
+<ul>
+<li><p>Full type name <code>Array&lt;Element&gt;</code></p></li>
+
+<li><p>Shorthand &amp; preferred type name <code>[Element]</code></p></li>
+</ul>
+
+<p>Initializes an array:</p>
+
+<ul>
+<li>with no element</li>
+</ul>
+
+<pre><code class="language-swift">// full syntax
+let a = Array&lt;Element&gt;()
+
+// short &amp; preferred syntax
+let a = [Element]()
+
+// shortest syntax when the type inference is present
+let a: [Element] = []
+
+func dealWith(array: [Int]) {
+// ...
+}
+
+dealWith(array: [])
+</code></pre>
+
+<ul>
+<li>with repeated default value</li>
+</ul>
+
+<pre><code class="language-swift">// full syntax
+let a = Array&lt;Double&gt;(count: 5, repeatedValue: 0.0)
+
+// short &amp; preferred syntax
+let a = [String](count: 10, repeatedValue: &quot;default text&quot;)
+</code></pre>
+
+<ul>
+<li>by concatenating two arrays</li>
+</ul>
+
+<pre><code class="language-swift">let a1 = [Int](count:3, repeatedValue: 0)
+let a2 = [Int]()
+let a = a1 + a2
+</code></pre>
+
+<ul>
+<li>with an array literal</li>
+</ul>
+
+<pre><code class="language-swift">let a = [&quot;Eggs&quot;, &quot;Oil&quot;]
+</code></pre>
+
+<h1 id="set:44c0ce01208e3b3fad3c9dc1017fc36f">Set</h1>
+
+<p>Type notation:</p>
+
+<ul>
+<li><p>Full type name <code>Set&lt;Element&gt;</code></p></li>
+
+<li><p>No shorthand type name for <code>Set</code> type</p></li>
+</ul>
+
+<p>Initializes an set:</p>
+
+<ul>
+<li>with no element</li>
+</ul>
+
+<pre><code class="language-swift">// full syntax
+let a = Set&lt;Element&gt;()
+
+// shortest syntax when the type inference is present
+let a: Set&lt;Int&gt; = [] // same as array
+
+func dealWith(set: Set&lt;Int&gt;) {
+// ...
+}
+
+dealWith(set: [])
+</code></pre>
+
+<ul>
+<li>with an array literal</li>
+</ul>
+
+<pre><code class="language-swift">// similar with array, but must be annotated as a Set type explicitly.
+let a: Set&lt;String&gt; = [&quot;Apple&quot;, &quot;iOS&quot;, &quot;Mac OS X&quot;]
+// annotation can be shortened by type inference
+let a: Set = [1, 2, 3]
+</code></pre>
+
+<h1 id="dictionary:44c0ce01208e3b3fad3c9dc1017fc36f">Dictionary</h1>
+
+<p>Type annotaion:</p>
+
+<ul>
+<li><p>Full type name <code>Dictionary&lt;Key, Value&gt;</code></p></li>
+
+<li><p>Shorthand &amp; preferred name <code>[Key: Value]</code></p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/note/wwdc_notes_what_s_new_in_swift_2015/">
             WWDC NOTES - WHAT&#39;S NEW IN SWIFT (2015)
           </a>
@@ -4478,6 +4716,41 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+
+<ul>
+<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
+</ul>
+
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
+</code></pre>
+
+<ul>
+<li>appending <code>()</code> to a property name.</li>
+</ul>
+
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+</code></pre>
+
+<ul>
+<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_bash/">
             ERROR COLLECTION - BASH
           </a>
@@ -4513,41 +4786,6 @@ a real number.</p></li>
 
 <pre><code class="language-bash">index=$(( RANDOM % &quot;${#array[@]}&quot; )) # no need to double quote '${array[@]}' here
 </code></pre>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_javascript/">
-            ERROR COLLECTION - JAVASCRIPT
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day when writing the JavaScript language.</p>
-
-<ul>
-<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
-</ul>
-
-<pre><code class="language-javascript">window.onload = init/*()*/
-
-function init() {
-  // ...
-}
-</code></pre>
-
-<ul>
-<li>appending <code>()</code> to a property name.</li>
-</ul>
-
-<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
-</code></pre>
-
-<ul>
-<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
-</ul>
 
       </div>
       
@@ -4958,8 +5196,8 @@ normal mode. so I have substituted it with the <code>&lt;Enter&gt;</code> key as
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/note/swift_oo/">
-            SWIFT OJECT-ORIENTED FEATURE
+          <a href="http://mudox.github.io/note/swift_notes_oo/">
+            SWIFT OJECT - ORIENTED FEATURE
           </a>
         </h1>
 
@@ -4970,7 +5208,7 @@ normal mode. so I have substituted it with the <code>&lt;Enter&gt;</code> key as
 <p>Learning notes about object oriented features of the Swift programming
 language.</p>
 
-<h1 id="class-like-constructs-in-swift:979ff8b73f8c4f38dbd0977e0ed18f60">Class Like Constructs In Swift</h1>
+<h1 id="class-like-constructs-in-swift:11eb0486e693578813aebeeaea32b243">Class Like Constructs In Swift</h1>
 
 <p>In Swift, <code>enum</code>, <code>struct</code>, <code>class</code> all can:</p>
 
@@ -5000,19 +5238,19 @@ subscript syntax.</p></li>
 are both value types.</p></li>
 </ol>
 
-<h1 id="properties:979ff8b73f8c4f38dbd0977e0ed18f60">Properties</h1>
+<h1 id="properties:11eb0486e693578813aebeeaea32b243">Properties</h1>
 
-<h2 id="stored-properties:979ff8b73f8c4f38dbd0977e0ed18f60">stored properties</h2>
+<h2 id="stored-properties:11eb0486e693578813aebeeaea32b243">stored properties</h2>
 
-<h3 id="lazy-properties:979ff8b73f8c4f38dbd0977e0ed18f60">lazy properties</h3>
+<h3 id="lazy-properties:11eb0486e693578813aebeeaea32b243">lazy properties</h3>
 
-<h2 id="computed-properties:979ff8b73f8c4f38dbd0977e0ed18f60">computed properties</h2>
+<h2 id="computed-properties:11eb0486e693578813aebeeaea32b243">computed properties</h2>
 
-<h3 id="shorthand-setter-syntax:979ff8b73f8c4f38dbd0977e0ed18f60">shorthand setter syntax</h3>
+<h3 id="shorthand-setter-syntax:11eb0486e693578813aebeeaea32b243">shorthand setter syntax</h3>
 
-<h3 id="shorthand-read-only-getter-syntax:979ff8b73f8c4f38dbd0977e0ed18f60">shorthand read-only getter syntax</h3>
+<h3 id="shorthand-read-only-getter-syntax:11eb0486e693578813aebeeaea32b243">shorthand read-only getter syntax</h3>
 
-<h1 id="initializers:979ff8b73f8c4f38dbd0977e0ed18f60">Initializers</h1>
+<h1 id="initializers:11eb0486e693578813aebeeaea32b243">Initializers</h1>
 
       </div>
       
@@ -5216,221 +5454,6 @@ the viewport (<code>position: fixed</code>).</p>
 elements into an invisible table.</p>
 
 <p>Most of the time, <code>vertical-align: top</code> will help you to get what you want to see.</p>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/note/swift_features/">
-            SWIFT FEATURES
-          </a>
-        </h1>
-
-        <span class="post-date">Tue, Oct 14, 2014</span>
-
-        
-
-<p>During the learning of the Swift programming language, many of it&rsquo;s features
-impressed me.</p>
-
-<h1 id="powerful-switch-statement:6f99ebcff8075df5d44ac5528331bee0">Powerful <code>switch</code> Statement</h1>
-
-<ol>
-<li><p>no implicitly fall-through</p></li>
-
-<li><p>match multiple conditions in one case statement.</p></li>
-
-<li><p>match against range.</p></li>
-
-<li><p>match against tuple.</p></li>
-
-<li><p>value binding.</p></li>
-
-<li><p><code>where</code> clause can provide more conditions.</p></li>
-
-<li><p><code>break</code> &amp; <code>continue</code> can <em>jump</em> further (to some label)</p></li>
-</ol>
-
-<pre><code class="language-swift">var aPoint = (x: 2, y: -1)
-// labeled `swtich`
-// NOTE: only loop statements and 'switch' statement can labeled.
-theSwitch: switch aPoint {
-// against tuple
-case (0, 0):
-  println(&quot;origin point&quot;)
-
-// against multiple conditions separated by comma
-case (1, 1), (2, 2):
-  println(&quot;(1, 1) or (2, 2)&quot;)
-
-// '_' means 'any value is ok'
-case (_, 0):
-  // the `break` here is just like the `pass` in python, acting as a
-  // 'placeholder statement', nullifing this case branch.
-  break
-
-case (0, _):
-  println(&quot;on the Y-axis&quot;)
-
-// against range
-case (-2...2, -2...2):
-  println(&quot;on or in the 2x2 box&quot;)
-
-// value binding
-case (let x, -10):
-  println(&quot;on the horizontal line y = -10, with a x value: \(x)&quot;)
-
-// where clause
-// NOTE: `let` can be replaced with `var` if you need to change the bound
-// value afterwards.
-case (0, var y) where y &gt;= 0:
-  y++    // mutable
-  println(&quot;on the 1st or 2nd quadrant&quot;)
-
-// value binding as a whole, which is an required exhaustive match
-case let (x, y):
-  theLoop: for i in 1..&lt;100 {
-    switch i {
-      case let x where (x &amp; 1) == 1: // a odd number
-        break theSwitch     // jump further
-      default:
-        continue theLoop    // jump
-    }
-  }
-}
-</code></pre>
-
-<h1 id="closure-too-much-sugar:6f99ebcff8075df5d44ac5528331bee0">Closure &ndash; Too Much Sugar!</h1>
-
-<p>The closure in Swift language adopts many syntactic sugar.</p>
-
-<p>The basic full syntax of a closure is as follows:</p>
-
-<pre><code class="language-swift">{
-  (parameters) -&gt; retrunType in
-  ... statements ...
-}
-</code></pre>
-
-<p>Here is an example that uses the array&rsquo;s method <code>sorted</code> to sort an array of word.</p>
-
-<pre><code class="language-swift">var words = [ &quot;Dolor&quot;, &quot;eum&quot;, &quot;id&quot;, &quot;suscipit&quot;, &quot;necessitatibus&quot;, &quot;quod&quot;, &quot;hic&quot;, &quot;dignissimos&quot; ]
-
-let sortedWords = words.sorted({
-  (lhs: String, rhs: String) -&gt; Bool in
-  return lhs &lt; rhs
-})
-</code></pre>
-
-<h2 id="sugar-0-trailing-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #0 &ndash; trailing closure</h2>
-
-<p>Often, closure parameter is placed last in parameter list. Swift thus provides
-<strong>trailing closure</strong>, which means your can write the inline closure just
-outside the parameter list, following the closing <code>)</code>.</p>
-
-<p>Furthermore, if the closure is the only parameter, then the parenthesis can be
-omitted.</p>
-
-<pre><code class="language-swift">// trailing closure
-let sortedWords = words.sorted/*()*/ {
-  (lhs: String, rhs: String) -&gt; Bool in
-  return lhs &lt; rhs
-}
-</code></pre>
-
-<h2 id="sugar-1-return-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #1 &ndash; return type inference</h2>
-
-<p><strong>return type</strong> can be inferred by swift compiler.</p>
-
-<pre><code class="language-swift">// omit return type
-let sortedWords = words.sorted {
-  (lhs: String, rhs: String) /*-&gt; Bool*/ in
-  return lhs &lt; rhs
-}
-</code></pre>
-
-<h2 id="sugar-2-parameter-type-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #2 &ndash; parameter type inference</h2>
-
-<p><strong>parameter types</strong> can be inferred by swift compiler as well.</p>
-
-<pre><code class="language-swift">// omit parameter types
-let sortedWords = words.sorted {
-  (lhs/*: String*/, rhs/*: String*/) /*-&gt; Bool*/ in
-  return lhs &lt; rhs
-}
-</code></pre>
-
-<h2 id="sugar-3-parenthesis-less:6f99ebcff8075df5d44ac5528331bee0">Sugar #3 &ndash; parenthesis-less</h2>
-
-<p>Since no type annotation is needed, the <strong>parenthesis</strong> can be omitted.</p>
-
-<pre><code class="language-swift">// omit parenthesis
-let sortedWords = words.sorted {
-  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
-  return lhs &lt; rhs
-}
-</code></pre>
-
-<h2 id="sugar-4-return-statement-inference:6f99ebcff8075df5d44ac5528331bee0">Sugar #4 &ndash; return statement inference</h2>
-
-<p>If the closure has one statement, then the <strong>return</strong> statement can also be
-inferred.</p>
-
-<pre><code class="language-swift">// omit 'return'
-let sortedWords = words.sorted {
-  /*(*/lhs/*: String*/, rhs/*: String)*/ /*-&gt; Bool*/ in
-  /*return*/ lhs &lt; rhs
-}
-
-//then we got:
-let sortedWords = words.sorted { lhs, rhs in lhs &lt; rhs }
-</code></pre>
-
-<h2 id="sugar-5-shorthand-parameter-name:6f99ebcff8075df5d44ac5528331bee0">Sugar #5 &ndash; shorthand parameter name</h2>
-
-<p>Swift provides <strong>shorthand parameter names</strong>: $0 for the 1st parameter, $1 for
-the 2nd parameter, and so on. And as an side effect, the whole <code>(parameters) -&gt;
-returType in</code> statement can be completely omitted</p>
-
-<pre><code class="language-swift">// use shorthand parameters, omit the whole 'in' statement
-let sortedWords = words.sorted {
-  /*(lhs: String, rhs: String) -&gt; Bool in*/
-  /*return*/ $0 &lt; $1
-}
-
-// then we got:
-let sortedWords = words.sorted { $0 &lt; $1 }
-</code></pre>
-
-<h2 id="sugar-6-operator-as-a-closure:6f99ebcff8075df5d44ac5528331bee0">Sugar #6 &ndash; operator as a closure</h2>
-
-<p>In swift, <strong>operator</strong> is a function, which in turn is a special closure, so&hellip;</p>
-
-<pre><code class="language-swift">// comes operator!
-let sortedWords = words.sorted(&lt;)
-</code></pre>
-
-<h1 id="fully-fledged-enumeration:6f99ebcff8075df5d44ac5528331bee0">Fully-fledged Enumeration</h1>
-
-<p>In Swift, enumeration is fully-fledged type. You can associate different data
-with each enumeration member, or define a raw type for enumeration.</p>
-
-<h2 id="flexible-definition-syntax:6f99ebcff8075df5d44ac5528331bee0">Flexible definition syntax</h2>
-
-<p>you can define more than one member a line.</p>
-
-<h2 id="type-inference:6f99ebcff8075df5d44ac5528331bee0">Type inference</h2>
-
-<h2 id="associated-value:6f99ebcff8075df5d44ac5528331bee0">Associated Value</h2>
-
-<h2 id="raw-type:6f99ebcff8075df5d44ac5528331bee0">Raw type</h2>
-
-<h2 id="struct-like-enumeration:6f99ebcff8075df5d44ac5528331bee0">Struct like enumeration</h2>
-
-<p>enumeration in Swift can have properties &amp; methods.</p>
-
-<p>enumeration, like struct in Swift, is value type (while class is reference
-accounted type).</p>
 
       </div>
       

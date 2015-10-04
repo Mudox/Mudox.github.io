@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Languages &middot; Mudox </title>
+    <title> SWIFT NOTES - COLLECION TYPES &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/languages/index.xml" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-0b">
+<body class="theme-base-blue">
 
-<div class="sidebar">
+    <div class="sidebar">
 
   
   <div id="particles-js"> </div>
@@ -141,41 +141,140 @@
 </div>
 
 
-  <div class="main content container">
-    <h1 id="title">Languages</h1>
-    <ul>
-      
-      
-      <li><a href="/languages/swift"> swift </a> 33 </li>
-      
-      <li><a href="/languages/objc"> objc </a> 25 </li>
-      
-      <li><a href="/languages/english"> english </a> 17 </li>
-      
-      <li><a href="/languages/chinese"> chinese </a> 14 </li>
-      
-      <li><a href="/languages/bash"> bash </a> 12 </li>
-      
-      <li><a href="/languages/c"> c </a> 2 </li>
-      
-      <li><a href="/languages/lua"> lua </a> 2 </li>
-      
-      <li><a href="/languages/javascript"> javascript </a> 2 </li>
-      
-      <li><a href="/languages/viml"> viml </a> 1 </li>
-      
-      <li><a href="/languages/css"> css </a> 1 </li>
-      
-      <li><a href="/languages/go"> go </a> 1 </li>
-      
-      <li><a href="/languages/oc"> oc </a> 1 </li>
-      
-      <li><a href="/languages/html"> html </a> 1 </li>
-      
-    </ul>
-  </div>
-  
-      
+    <div class="content container">
+        <div class="post">
+            
+            <h1>SWIFT NOTES - COLLECION TYPES</h1>
+            <span class="post-date">Tue, Sep 29, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#array:44c0ce01208e3b3fad3c9dc1017fc36f">Array</a></li>
+<li><a href="#set:44c0ce01208e3b3fad3c9dc1017fc36f">Set</a></li>
+<li><a href="#dictionary:44c0ce01208e3b3fad3c9dc1017fc36f">Dictionary</a></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<p>Notes about Swift collection types.</p>
+
+<h1 id="array:44c0ce01208e3b3fad3c9dc1017fc36f">Array</h1>
+
+<p>Type notation:</p>
+
+<ul>
+<li><p>Full type name <code>Array&lt;Element&gt;</code></p></li>
+
+<li><p>Shorthand &amp; preferred type name <code>[Element]</code></p></li>
+</ul>
+
+<p>Initializes an array:</p>
+
+<ul>
+<li>with no element</li>
+</ul>
+
+<pre><code class="language-swift">// full syntax
+let a = Array&lt;Element&gt;()
+
+// short &amp; preferred syntax
+let a = [Element]()
+
+// shortest syntax when the type inference is present
+let a: [Element] = []
+
+func dealWith(array: [Int]) {
+// ...
+}
+
+dealWith(array: [])
+</code></pre>
+
+<ul>
+<li>with repeated default value</li>
+</ul>
+
+<pre><code class="language-swift">// full syntax
+let a = Array&lt;Double&gt;(count: 5, repeatedValue: 0.0)
+
+// short &amp; preferred syntax
+let a = [String](count: 10, repeatedValue: &quot;default text&quot;)
+</code></pre>
+
+<ul>
+<li>by concatenating two arrays</li>
+</ul>
+
+<pre><code class="language-swift">let a1 = [Int](count:3, repeatedValue: 0)
+let a2 = [Int]()
+let a = a1 + a2
+</code></pre>
+
+<ul>
+<li>with an array literal</li>
+</ul>
+
+<pre><code class="language-swift">let a = [&quot;Eggs&quot;, &quot;Oil&quot;]
+</code></pre>
+
+<h1 id="set:44c0ce01208e3b3fad3c9dc1017fc36f">Set</h1>
+
+<p>Type notation:</p>
+
+<ul>
+<li><p>Full type name <code>Set&lt;Element&gt;</code></p></li>
+
+<li><p>No shorthand type name for <code>Set</code> type</p></li>
+</ul>
+
+<p>Initializes an set:</p>
+
+<ul>
+<li>with no element</li>
+</ul>
+
+<pre><code class="language-swift">// full syntax
+let a = Set&lt;Element&gt;()
+
+// shortest syntax when the type inference is present
+let a: Set&lt;Int&gt; = [] // same as array
+
+func dealWith(set: Set&lt;Int&gt;) {
+// ...
+}
+
+dealWith(set: [])
+</code></pre>
+
+<ul>
+<li>with an array literal</li>
+</ul>
+
+<pre><code class="language-swift">// similar with array, but must be annotated as a Set type explicitly.
+let a: Set&lt;String&gt; = [&quot;Apple&quot;, &quot;iOS&quot;, &quot;Mac OS X&quot;]
+// annotation can be shortened by type inference
+let a: Set = [1, 2, 3]
+</code></pre>
+
+<h1 id="dictionary:44c0ce01208e3b3fad3c9dc1017fc36f">Dictionary</h1>
+
+<p>Type annotaion:</p>
+
+<ul>
+<li><p>Full type name <code>Dictionary&lt;Key, Value&gt;</code></p></li>
+
+<li><p>Shorthand &amp; preferred name <code>[Key: Value]</code></p></li>
+</ul>
+
+        </div>
+    </div>
+
+        
     <script src="/lib/mudox.js"></script>
 </body>
 </html>

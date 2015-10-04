@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Languages &middot; Mudox </title>
+    <title> SWIFT NOTES - SWITCH STATEMETNS &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/languages/index.xml" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-0b">
+<body class="theme-base-blue">
 
-<div class="sidebar">
+    <div class="sidebar">
 
   
   <div id="particles-js"> </div>
@@ -141,41 +141,103 @@
 </div>
 
 
-  <div class="main content container">
-    <h1 id="title">Languages</h1>
-    <ul>
-      
-      
-      <li><a href="/languages/swift"> swift </a> 33 </li>
-      
-      <li><a href="/languages/objc"> objc </a> 25 </li>
-      
-      <li><a href="/languages/english"> english </a> 17 </li>
-      
-      <li><a href="/languages/chinese"> chinese </a> 14 </li>
-      
-      <li><a href="/languages/bash"> bash </a> 12 </li>
-      
-      <li><a href="/languages/c"> c </a> 2 </li>
-      
-      <li><a href="/languages/lua"> lua </a> 2 </li>
-      
-      <li><a href="/languages/javascript"> javascript </a> 2 </li>
-      
-      <li><a href="/languages/viml"> viml </a> 1 </li>
-      
-      <li><a href="/languages/css"> css </a> 1 </li>
-      
-      <li><a href="/languages/go"> go </a> 1 </li>
-      
-      <li><a href="/languages/oc"> oc </a> 1 </li>
-      
-      <li><a href="/languages/html"> html </a> 1 </li>
-      
-    </ul>
-  </div>
-  
-      
+    <div class="content container">
+        <div class="post">
+            
+            <h1>SWIFT NOTES - SWITCH STATEMETNS</h1>
+            <span class="post-date">Wed, Sep 30, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#switch-statement-feature-list:886259fb3fb4618d6ac5120cb8831f52"><code>switch</code> Statement Feature List</a></li>
+<li><a href="#an-example-demonstrating-all-the-features-above:886259fb3fb4618d6ac5120cb8831f52">An Example Demonstrating All the Features Above</a></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<p>The Swift programming language provides us a really powerfull <code>switch</code>
+statement.</p>
+
+<h1 id="switch-statement-feature-list:886259fb3fb4618d6ac5120cb8831f52"><code>switch</code> Statement Feature List</h1>
+
+<ol>
+<li><p>no implicitly fall-through</p>
+
+<p>use <code>fallthrough</code> keyword to fallthrough next case explicitly</p></li>
+
+<li><p>pattern listing</p>
+
+<p>enumerate multiple patterns in one <code>case</code> statement</p></li>
+
+<li><p>interval matching</p></li>
+
+<li><p>tuple matching &amp; the wildcard pattern <code>_</code></p></li>
+
+<li><p>value binding</p></li>
+
+<li><p><code>where</code> clauses can specifiy more conditions</p></li>
+</ol>
+
+<h1 id="an-example-demonstrating-all-the-features-above:886259fb3fb4618d6ac5120cb8831f52">An Example Demonstrating All the Features Above</h1>
+
+<pre><code class="language-swift">var aPoint = (x: 2, y: -1)
+// labeled `swtich`
+// NOTE: only loop statements and 'switch' statement can labeled.
+theSwitch: switch aPoint {
+// against tuple
+case (0, 0):
+  println(&quot;origin point&quot;)
+
+// against multiple conditions separated by comma
+case (1, 1), (2, 2):
+  println(&quot;(1, 1) or (2, 2)&quot;)
+
+// '_' means 'any value is ok'
+case (_, 0):
+  // the `break` here is just like the `pass` in python, acting as a
+  // 'placeholder statement', nullifing this case branch.
+  break
+
+case (0, _):
+  println(&quot;on the Y-axis&quot;)
+
+// against range
+case (-2...2, -2...2):
+  println(&quot;on or in the 2x2 box&quot;)
+
+// value binding
+case (let x, -10):
+  println(&quot;on the horizontal line y = -10, with a x value: \(x)&quot;)
+
+// where clause
+// NOTE: `let` can be replaced with `var` if you need to change the bound
+// value afterwards.
+case (0, var y) where y &gt;= 0:
+  y++    // mutable
+  println(&quot;on the 1st or 2nd quadrant&quot;)
+
+// value binding as a whole, which is an required exhaustive match
+case let (x, y):
+  theLoop: for i in 1..&lt;100 {
+    switch i {
+      case let x where (x &amp; 1) == 1: // a odd number
+        break theSwitch     // jump further
+      default:
+        continue theLoop    // jump
+    }
+  }
+}
+</code></pre>
+
+        </div>
+    </div>
+
+        
     <script src="/lib/mudox.js"></script>
 </body>
 </html>

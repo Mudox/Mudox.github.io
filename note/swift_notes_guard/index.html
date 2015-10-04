@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Languages &middot; Mudox </title>
+    <title> SWIFT NOTES - GUARD &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="/lib/favicon.ico">
 
     
-    <link href="http://mudox.github.io/languages/index.xml" rel="alternate" type="application/rss+xml" title="Mudox" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
 
     
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -50,9 +50,9 @@
 
   </head>
 
-<body class="theme-base-0b">
+<body class="theme-base-blue">
 
-<div class="sidebar">
+    <div class="sidebar">
 
   
   <div id="particles-js"> </div>
@@ -141,41 +141,39 @@
 </div>
 
 
-  <div class="main content container">
-    <h1 id="title">Languages</h1>
-    <ul>
-      
-      
-      <li><a href="/languages/swift"> swift </a> 33 </li>
-      
-      <li><a href="/languages/objc"> objc </a> 25 </li>
-      
-      <li><a href="/languages/english"> english </a> 17 </li>
-      
-      <li><a href="/languages/chinese"> chinese </a> 14 </li>
-      
-      <li><a href="/languages/bash"> bash </a> 12 </li>
-      
-      <li><a href="/languages/c"> c </a> 2 </li>
-      
-      <li><a href="/languages/lua"> lua </a> 2 </li>
-      
-      <li><a href="/languages/javascript"> javascript </a> 2 </li>
-      
-      <li><a href="/languages/viml"> viml </a> 1 </li>
-      
-      <li><a href="/languages/css"> css </a> 1 </li>
-      
-      <li><a href="/languages/go"> go </a> 1 </li>
-      
-      <li><a href="/languages/oc"> oc </a> 1 </li>
-      
-      <li><a href="/languages/html"> html </a> 1 </li>
-      
-    </ul>
-  </div>
-  
-      
+    <div class="content container">
+        <div class="post">
+            
+            <h1>SWIFT NOTES - GUARD</h1>
+            <span class="post-date">Wed, Sep 30, 2015</span>
+
+            
+            <div id="toc">
+                
+            </div>
+
+            
+            <p><code>guard</code> from Swift is a branching statement similar to <code>if</code>, but have its own
+distinct use cases.</p>
+
+<ol>
+<li><p>Optional bound variables/constants in contition are visible after its&rsquo; <code>guard</code> statment.</p></li>
+
+<li><p>Always needs a <code>else</code> branch.</p></li>
+
+<li><p><code>else</code> branch must jump out of the enclosing block of its&rsquo; <code>guard</code> statement. You can do it:</p>
+
+<ul>
+<li><p>through keywords: <code>break</code>, <code>continue</code>, <code>return</code>, <code>throw</code></p></li>
+
+<li><p>by calling a function or method that doesn&rsquo;t return, e.g. <code>fatalError()</code>.</p></li>
+</ul></li>
+</ol>
+
+        </div>
+    </div>
+
+        
     <script src="/lib/mudox.js"></script>
 </body>
 </html>
