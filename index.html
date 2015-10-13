@@ -147,6 +147,270 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_misc/">
+            SWIFT NOTES - MISC
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, Oct 13, 2015</span>
+
+        <p>Miscellaneous knowledges I collected when learning Swift language.</p>
+
+<ul>
+<li><p>lazily stored clousre property capturing <code>self</code></p></li>
+
+<li><p>Using implicitly unwrapped optional property to satisfying 2-phase initialization</p></li>
+
+<li><p>Inheritance oriented</p>
+
+<ul>
+<li>override read-only property -&gt; read-write property</li>
+<li>override failable initialiser -&gt; unfailable initializer</li>
+<li>override designated initializer -&gt; convenience initializer</li>
+<li>failable initializer can delegate -&gt; failable/unfailable initializer</li>
+</ul></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_class_vs_struct_and_enumeration/">
+            SWIFT NOTES - CLASS VS STRUCT &amp; ENUM
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, Oct 13, 2015</span>
+
+        <p>Differences between Swift <code>class</code>s and <code>struct</code>s, <code>enum</code>s.</p>
+
+<p>The most distinct difference:</p>
+
+<ul>
+<li><code>class</code> is <strong>reference</strong> type</li>
+<li><code>struct</code> &amp; <code>enum</code> are <strong>value</strong> types</li>
+</ul>
+
+<p>In general, the common things they have:</p>
+
+<ol>
+<li>can define <strong>properties</strong>, <strong>methods</strong>, <strong>subscipts</strong></li>
+<li>can define <strong>initializers</strong></li>
+<li>can be extended by <strong>extensions</strong></li>
+<li>can confirm to <strong>protocols</strong></li>
+</ol>
+
+<p>Features exclusively owned by <code>class</code></p>
+
+<ol>
+<li><strong>inheritance</strong></li>
+<li><strong>deinitialization</strong></li>
+<li><strong>reference counting</strong></li>
+<li><strong>type casting</strong></li>
+</ol>
+
+<p>Features exclusively owned by <code>structure</code></p>
+
+<ol>
+<li><strong>memeber-wise initializer</strong></li>
+</ol>
+
+<p>Features exclusively owned by <code>enum</code></p>
+
+<ol>
+<li><strong>self assigning</strong></li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_initializaiton/">
+            SWIFT NOTES - INITIALIZATION
+          </a>
+        </h1>
+
+        <span class="post-date">Tue, Oct 13, 2015</span>
+
+        
+
+<p>Notes about Swift initialization</p>
+
+<p>Syntax:</p>
+
+<pre><code class="language-swift">// non-failable initializer
+init() {
+    ...
+}
+
+// failable initializers
+init?() {
+    ...
+}
+
+init!() {
+    ...
+}
+</code></pre>
+
+<p>Notes:</p>
+
+<ul>
+<li>Unlike normal function &amp; methods, the 1st parameter gets a external name
+automatically as well as the following parameters. Use <code>_</code> to suppress the
+external name if you want.</li>
+<li>Unlike Objective-C initializers, Swift initializers do not return a value.</li>
+</ul>
+
+<h1 id="setting-initial-values-for-stored-properties:0b95b25ccfd336225d990e53cc417a23">Setting Initial Values for Stored Properties</h1>
+
+<p>There are 3 ways a stored property can get an initial value:</p>
+
+<ol>
+<li>set value in initializer</li>
+<li>set default value in property declaration</li>
+<li>optional stored properties get <code>nil</code> as default value, if given no default value</li>
+</ol>
+
+<p>Notes:</p>
+
+<ul>
+<li>Specifying a default value is preferred than set initial value in initializer.</li>
+<li>Property observers will <strong>NOT</strong> be triggered by initial value setting.</li>
+<li>Through closure or global function invocation syntax, you can make the
+default value setting more flexible.</li>
+</ul>
+
+<pre><code class="language-swift">class Foo {
+    // DO NOT forget the trailling `()`, otherwise the closure/function itself
+    // would be assigned to as the default value.
+
+    let name: String = {
+    ...
+    }()
+
+    var id: Int = GenerateRandomID(...)
+}
+</code></pre>
+
+<h2 id="constant-stored-property-iniitialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property iniitialization</h2>
+
+<p>for constant stored property, if you given a default value in definition,
+then it&rsquo;s initialization is complete, you CAN NOT modify it&rsquo;s value later
+in initializers.</p>
+
+<p>you can define a constant stored property with no default value, and set an
+initial value latter in the initializers</p>
+
+<p>for class instances, a constant stored property can only be modified during
+initialization by the class that introduces it. It cannot be modified by a
+subclass.</p>
+
+<h1 id="compiler-synthesized-initializers:0b95b25ccfd336225d990e53cc417a23">Compiler Synthesized Initializers</h1>
+
+<ol>
+<li><p><strong>default initializer</strong> for <code>struct</code> &amp; <code>class</code></p>
+
+<p>2 prerequisite:</p>
+
+<ol>
+<li>all stored property are given default values</li>
+<li>defines no custom initializer</li>
+</ol></li>
+
+<li><p><strong>memberwise initializer</strong> for <code>struct</code></p>
+
+<p>2 prerequisite</p>
+
+<ol>
+<li>defines no custom initializer</li>
+<li>defines at least one variable stored property or constant stored property
+that is not given a default value (so there is a necessity for the initializer)</li>
+</ol></li>
+
+<li><p><strong>rawValue initializer</strong> for <code>enum</code> with associated value</p>
+
+<p>it is a failable initializer <code>init?(rawValue: T) {...}</code></p></li>
+</ol>
+
+<h1 id="initializer-delegation:0b95b25ccfd336225d990e53cc417a23">Initializer Delegation</h1>
+
+<p>Use <code>self.init(...)</code> to delegate initialization task to other initializers.</p>
+
+<p>Since defining custom initializer suppresses default &amp; memberwise initializer
+synthesization, you can define custom initializers in extension, then delegate
+to default or memberwise initializer in the body.</p>
+
+<p><code>class</code> can define 2 kinds of initializers:</p>
+
+<ol>
+<li>designated initializers &ndash; <code>init(...)</code></li>
+<li>convenience initializers &ndash; <code>convenience init(...)</code></li>
+</ol>
+
+<h2 id="3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation:</h2>
+
+<ol>
+<li>A designated initializer must call a designated initializer from its
+immediate superclass.</li>
+<li>A convenience initializer must call another initializer from the same class.</li>
+<li>A convenience initializer must ultimately call a designated initializer.</li>
+</ol>
+
+<p>put simply:</p>
+
+<ol>
+<li>convenience initializer delegation across &ndash; <code>init(...)</code></li>
+<li>designated initializer delegation upwards &ndash; <code>super.init(...)</code></li>
+</ol>
+
+<h2 id="two-phase-initialization:0b95b25ccfd336225d990e53cc417a23">Two-Phase Initialization</h2>
+
+<p>4 safty checks that Swift compiler perform to ensure 2-phase initialization:</p>
+
+<ol>
+<li>In designated initializer, initialize all local stored property before
+delegate up</li>
+<li>In designated initializer, delegate up before modifying any inherited stored
+properties</li>
+<li>In convenience initializer, delegate across before modifying any property</li>
+
+<li><p>In any initializers, only after the 1st-phase initialization is complete
+then it can</p>
+
+<ul>
+<li>call any instance methods or subscripts</li>
+<li>read any instance properties</li>
+<li>reference <code>self</code> as an value</li>
+</ul></li>
+</ol>
+
+<h2 id="initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</h2>
+
+<p>Unlike subclasses in Objective-C, Swift subclasses do <strong>NOT</strong> inherit their
+superclass initializers by default. Only when certain rules are satisfied can
+certain initializers be inherited to subclasses.</p>
+
+<p>Do <strong>NOT</strong> write the <code>override</code> modifier when providing a matching implementation
+of a superclass <strong>convenience initializer</strong> (<em>because it can not delegate up to it
+counterpart in superclass, the implementation is not considered as a
+overriding</em>)</p>
+
+<h3 id="2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance:</h3>
+
+<ol>
+<li>if your subclass doesn’t define any designated initializers, it
+automatically inherits all of its superclass designated initializers.</li>
+<li>If your subclass provides an implementation of all of its superclass
+designated initializers—either by inheriting them as per rule 1, or by
+providing a custom implementation as part of its definition—then it
+automatically inherits all of the superclass convenience initializers.</li>
+</ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/note/swift_notes_guard/">
             SWIFT NOTES - GUARD
           </a>
@@ -158,7 +422,7 @@
 distinct use cases.</p>
 
 <ol>
-<li><p>Optional bound variables/constants in contition are visible after its&rsquo; <code>guard</code> statment.</p></li>
+<li><p>Optional bound variables/constants in condition are visible after its&rsquo; <code>guard</code> statement.</p></li>
 
 <li><p>Always needs a <code>else</code> branch.</p></li>
 
@@ -789,7 +1053,7 @@ return Sale(buyer, price)
       <div class="post">
         <h1 class="post-title">
           <a href="http://mudox.github.io/post/translation_swift_building_assert_in_swift_part2/">
-            Swift 官博文章翻译 - 在 Swift 中实现 assert(), 第一部分：__FILE__ 和 __LINE__
+            Swift 官博文章翻译 - 在 Swift 中实现 assert(), 第二部分：__FILE__ 和 __LINE__
           </a>
         </h1>
 
@@ -821,7 +1085,7 @@ return Sale(buyer, price)
 
 <h1 id="获取调用者的位置:1203c4203865e1578ec8699277eb6578">获取调用者的位置</h1>
 
-<p>Swift 从 D 语言那里借鉴来一个非常聪明的做法：讲这些特殊的位置标识符作为参数的默认值。于是我们将 <code>asssert()</code> 函数定义为：</p>
+<p>Swift 从 D 语言那里借鉴来一个非常聪明的做法：将这些特殊的位置标识符作为参数的默认值。于是我们将 <code>asssert()</code> 函数定义为：</p>
 
 <pre><code class="language-swift">func assert(
   condition: @autoclosure () -&gt; Bool,
@@ -950,7 +1214,7 @@ return Sale(buyer, price)
 
 <h1 id="实参的延迟计算:1ff54446be0f7d5c899f5dfff8f1c495">实参的延迟计算</h1>
 
-<p>我们在实现 <code>assert()</code> 时，首先碰到的挑战就是，在 Swift 中没有明显的方法让一个函数接受一个表达式，而不立马求它的值。比方说，我们尝试用了：</p>
+<p>我们在实现 <code>assert()</code> 时，首先碰到的挑战就是在 Swift 中没有明显的方法让一个函数接受一个表达式，而不立马求它的值。比方说，我们尝试用了：</p>
 
 <pre><code class="language-swift">func assert(x : Bool) {
   #if !NDEBUG
@@ -2362,14 +2626,14 @@ animal as! Dog  // triggers a runtime error
 
 <p>在此前的 Xcode 版本中，Apple 公司对一些框架做了特殊处理，以让它们在 Swift 被转换为适当的可为空类型。Xcode 6.3 引入了一个新的 Objective-C 特性：可为空性注释（nullability annotation），是的程序也能对自己的代码做出同样的处理。</p>
 
-<h1 id="核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
+<h1 id="核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>_Nullable</code>，<code>_Nonnull</code></h1>
 
-<p>这项新特性的核心就是两个关键字：<code>__nullable</code>，<code>__nonnull</code>。正如你所想的那样，所有 <code>__nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>__nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
+<p>这项新特性的核心就是两个关键字：<code>_Nullable</code>，<code>_Nonnull</code>。正如你所想的那样，所有 <code>_Nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>_Nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
 
 <pre><code class="language-objc">@interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
 // ...
-- (AAPLListItem * __nullable)itemWithName:(NSString * __nonnull)name;
-@property (copy, readonly) NSArray * __nonnull allItems;
+- (AAPLListItem * _Nullable)itemWithName:(NSString * _Nonnull)name;
+@property (copy, readonly) NSArray * _Nonnull allItems;
 // ...
 @end
 
@@ -2378,7 +2642,7 @@ animal as! Dog  // triggers a runtime error
 [self.list itemWithName:nil]; // warning!
 </code></pre>
 
-<p>在您的 Objective-C 代码中，您几乎可以在任何可以用到 <code>const</code> 关键字的地方使用 <code>__nullable</code>，<code>__nonnull</code>，当然必须是修饰指针类型。Swift 还未常用的场景提供了更加漂亮的注释方式：对于那些简单的对象类型或者块类型的类成员声明，您可以使用 <code>__nullable</code>，<code>__nonnull</code> 非下划线版本来就注释他们。</p>
+<p>在您的 Objective-C 代码中，您几乎可以在任何可以用到 <code>const</code> 关键字的地方使用 <code>_Nullable</code>，<code>_Nonnull</code>，当然必须是修饰指针类型。Swift 还未常用的场景提供了更加漂亮的注释方式：对于那些简单的对象类型或者块类型的类成员声明，您可以使用 <code>_Nullable</code>，<code>_Nonnull</code> 非下划线版本来就注释他们。</p>
 
 <pre><code class="language-objc">- (nullable AAPLListItem *)itemWithName:(nonnull NSString *)name;
 - (NSInteger)indexOfItem:(nonnull AAPLListItem *)item;
@@ -2394,7 +2658,7 @@ animal as! Dog  // triggers a runtime error
 
 <h1 id="监控区域-andited-region:cebb39200789161d04153b9fa938a694">监控区域（andited region)</h1>
 
-<p>为了简化新注释关键字的使用，您可以把您的 Objective-C 头文件中的某段代码标记为 <strong>对可为空性进行监控</strong>。在此代码段中，所有的简单指针类型都被编译器默认认为是不可能为空的，也就是 <code>__nonnull</code>。这就大大减少了我们早前的示例中需要做的变动。</p>
+<p>为了简化新注释关键字的使用，您可以把您的 Objective-C 头文件中的某段代码标记为 <strong>对可为空性进行监控</strong>。在此代码段中，所有的简单指针类型都被编译器默认认为是不可能为空的，也就是 <code>_Nonnull</code>。这就大大减少了我们早前的示例中需要做的变动。</p>
 
 <pre><code class="language-objc">NS_ASSUME_NONNULL_BEGIN
 @interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
@@ -2420,9 +2684,9 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
 <ul>
 <li><p><code>typedef</code> 类型别名语句，根据上下文，本身就是有确定的可为空性。它不受监控区域假设的影响。也就是说在监控区域内，<code>typedef</code> 语句定义的指针类型并不是默认为 <code>nonnull</code> 的，而是取决于定义它的原始类型。</p></li>
 
-<li><p>复杂的指针类型必须明确的注释可为空性，不能省略。比如声明一个不可为空的指针只想一个可为空的对象的引用，必须用 <code>__nullable id * __nonnull</code> 来声明。</p></li>
+<li><p>复杂的指针类型必须明确的注释可为空性，不能省略。比如声明一个不可为空的指针只想一个可为空的对象的引用，必须用 <code>_Nullable id * _Nonnull</code> 来声明。</p></li>
 
-<li><p><code>NSError</code> 是一个特殊的类型，它被用来通过参数返回错误。它总是一个指向一个可为空 <code>NSError</code> 对象指针的可为空指针，即 <code>__nullable NSError * __nullable</code>。</p></li>
+<li><p><code>NSError</code> 是一个特殊的类型，它被用来通过参数返回错误。它总是一个指向一个可为空 <code>NSError</code> 对象指针的可为空指针，即 <code>_Nullable NSError * _Nullable</code>。</p></li>
 </ul>
 
 <h1 id="兼容性:cebb39200789161d04153b9fa938a694">兼容性</h1>
@@ -2959,9 +3223,8 @@ storing data for overlays, such as location, etc.</p></li>
 
         
 
-<p>Thanks to the host of technologies provided by the Swift
-compiler, the closure comes with a bunch of syntactic
-sugars that could sweet you to diabetes.</p>
+<p>Thanks to the host of technologies provided by the Swift compiler, the closure
+comes with a bunch of syntactic sugars that could sweet you to diabetes.</p>
 
 <p>The full syntax of a closure:</p>
 
@@ -2982,8 +3245,8 @@ let sortedWords = words.sorted({
 })
 </code></pre>
 
-<p>As the sugars introduced in, we will cut the lines above into an incredibly one
-line of code.</p>
+<p>As the sugars introduced in one by one, we will cut the lines above into an
+incredibly one-liner.</p>
 
 <h1 id="sugar-0-trailing-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #0 &ndash; trailing closure</h1>
 
@@ -3034,7 +3297,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="sugar-4-return-statement-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; return statement inference</h1>
+<h1 id="sugar-4-auto-return-for-single-expression-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; auto return for single expression closure</h1>
 
 <p>If the closure has one statement, then the <strong>return</strong> statement can also be
 inferred.</p>
@@ -3214,25 +3477,22 @@ Programming Language》</a></p>
 <p>A parameter name can have a <strong>internal name</strong> and an <strong>external name</strong> declared
 in the form of: <code>external_name internal_name: type</code>.</p>
 
-<pre><code class="language-swift">func join(String string: leftString, toString rightString) -&gt; String {
-  return leftString + rightString
-}
+<p>Explicitly specify an external name for the first parameter to enable it when
+calling.</p>
 
-println(join(String: &quot;Hello&quot;, toString: &quot; World!&quot;))
-</code></pre>
-
-<p>Use <code>#</code> to use the same name for both names: <code>#name: type</code></p>
-
-<pre><code class="language-swift">func join(#aString: leftString, #toString) -&gt; String {
-  return aString + toString
+<pre><code class="language-swift">func join(aString lhs: String, toString rhs: String) -&gt; String {
+  return lhs + rhs
 }
 
 println(join(aString: &quot;Hello&quot;, toString: &quot; World!&quot;))
 </code></pre>
 
-<p>Use <code>_</code> to suppress external name: <code>_ internal_name: type</code></p>
+<p>Swift compiler automatically generates external name from corresponding
+internal names of all parameters except the 1st parameter.</p>
 
-<pre><code class="language-swift">func join(_ aString: leftString, _ toString) -&gt; String {
+<p>Use <code>_</code> to suppress auto-generating external name: <code>_ internal_name: type</code></p>
+
+<pre><code class="language-swift">func join(_ aString: String, _ toString: String) -&gt; String {
   return aString + toString
 }
 
@@ -3241,19 +3501,14 @@ println(join(&quot;Hello&quot;, &quot; World!&quot;))
 
 <h2 id="parameters-with-default-value:9001fbf6bb512c5ae93dad9f83646181">Parameters with default value</h2>
 
-<p>Default parameter values of the <code>[external_name /_/#]internal_name: type =
-default_value</code> should be placed at end of the parameter list.</p>
+<p>Parameters with default value of the form <code>[external_name/_] internal_name:
+type = default_value</code> are <strong>better</strong> be placed at end of the parameter list.</p>
 
-<p>The compiler will synthesize a external name by reusing the internal name for
-parameters with default value, if their external name is not explicitly
-specified in the parameter list. (You can use <code>_</code> to suppress this behavior,
-which is not recommended.)</p>
-
-<pre><code class="language-swift">func Foo(arg1: String, arg2: Int = 30, _ arg3: Bool, #arg4: Double) {
+<pre><code class="language-swift">func Foo(arg1: String, arg2: Int = 30, _ arg3: Bool) {
   ...
 }
 
-Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
+Foo(&quot;text&quot;, arg2: 1, true)
 </code></pre>
 
 <h2 id="variadic-parameters:9001fbf6bb512c5ae93dad9f83646181">Variadic parameters</h2>
@@ -3261,8 +3516,7 @@ Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
 <p>Declare variadic parameter in form <code>name: type...</code>, which, in the function
 body, is of type <code>[type]</code>.</p>
 
-<p>Only one variadic parameter is allowed in a parameter list, and it should be
-placed after all other normal parameters or parameters with default value.</p>
+<p><strong>Only one</strong> variadic parameter is allowed in a parameter list.</p>
 
 <h2 id="variable-parameters:9001fbf6bb512c5ae93dad9f83646181">Variable parameters</h2>
 
@@ -3274,15 +3528,19 @@ the function body will not propagate outside the function body.</p>
 
 <h2 id="in-out-parameters:9001fbf6bb512c5ae93dad9f83646181">In-Out parameters</h2>
 
-<p>Prefix parameters names with keyword <code>inout</code> (which implies <code>var</code>) to make the
-change to the parameter inside function body propagate outside.</p>
+<p>Prefix parameters names with keyword <code>inout</code> to propagate the change to the
+parameter inside function body outside.</p>
 
 <p>When specifying argument for <code>inout</code> parameters, prepend <code>&amp;</code> to the argument
 name to indicate that it could be modified during the function call.</p>
 
-<p>In-out parameters cannot have default values, and variadic parameters cannot be
-marked as <code>inout</code>. If you mark a parameter as <code>inout</code>, it cannot also be marked
-as var or let.</p>
+<p>In-out parameters</p>
+
+<ul>
+<li>cannot have default values</li>
+<li>cannot be variadic parameter</li>
+<li>implies <code>var</code>, so cannot be marked as <code>var</code> or <code>let</code></li>
+</ul>
 
 <pre><code class="language-swift">func swapTwoInts(inout a: Int, inout b: Int) {
     let temporaryA = a
@@ -3306,7 +3564,9 @@ which can be written as <code>()</code>.</p>
 function to return multiple values as part of one compound return value.</p>
 
 <pre><code class="language-swift">// wrap multiple return values in an optional tuple.
-func minMax(array: [Int]) -&gt; (min: Int, max: Int)? { ... }
+func minMax(array: [Int]) -&gt; (min: Int, max: Int)? {
+  return (1, 3) // no need to specify tuple element names again
+}
 
 if let minMax = minMax([1,2,3]) {
   // use name to fetch tuple element.
@@ -3319,24 +3579,28 @@ if let minMax = minMax([1,2,3]) {
 
 <h1 id="function-types:9001fbf6bb512c5ae93dad9f83646181">Function Types</h1>
 
+<p>A function type is made up of its&rsquo; parameter types and return type.</p>
+
 <p>In Swift, function is first class object, so feel free to use them as other
 normal objects:</p>
 
 <ul>
-<li><p>passing them as argument into functions.</p></li>
+<li><p>declare constants or variables to hold them, and call them latter.</p></li>
+
+<li><p>passing them as arguments into functions.</p></li>
 
 <li><p>return them from functions.</p></li>
 
 <li><p>declare theme as type alias for convenience.</p></li>
 
-<li><p>even nest their in another function.</p></li>
-
-<li><p>&hellip;</p></li>
+<li><p>even nest them in another function.</p></li>
 </ul>
 
-<pre><code class="language-swift">typealias cmp = (Int, Int) -&gt; Bool
+<pre><code class="language-swift">// declare a type alias for long function types
+typealias cmp = (Int, Int) -&gt; Bool
 
 func whichCmp(functionPassedIn: ()-&gt; Bool) -&gt; cmp {
+  // nested fucntion definition
   func Foo(lhs: Int, rhs: Int) -&gt; Bool {
     return false
   }
@@ -3345,6 +3609,7 @@ func whichCmp(functionPassedIn: ()-&gt; Bool) -&gt; cmp {
     return true
   }
 
+  // function being returned
   return functionPassedIn() ? Foo : Hoo
 }
 
@@ -3352,6 +3617,7 @@ func aFunc() -&gt; Bool {
   return false
 }
 
+// function being passed in as an argument
 whichCmp(aFunc)(1334, 234)
 </code></pre>
 
@@ -3992,6 +4258,39 @@ varnish -&gt; wood<br />
 glaze -&gt; porcelain</p>
 
 <hr />
+
+<p>plum, prune<br />
+plume, plumage<br />
+plummet<br />
+plumb, plumber, plumbing</p>
+
+<hr />
+
+<p>clay<br />
+glaze<br />
+porcelain</p>
+
+<hr />
+
+<p>pottery<br />
+crockery<br />
+ceramic<br />
+china<br />
+porcelain<br />
+stoneware<br />
+earthenware</p>
+
+<hr />
+
+<p>kelvin<br />
+celsius<br />
+fahrenheit</p>
+
+<hr />
+
+<p>spices, spicy<br />
+specious<br />
+species, subspecies</p>
 
       </div>
       

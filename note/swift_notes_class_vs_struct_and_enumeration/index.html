@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> Swift 官博文章翻译 - 在 Swift 中实现 assert(), 第二部分：__FILE__ 和 __LINE__ &middot; Mudox </title>
+    <title> SWIFT NOTES - CLASS VS STRUCT &amp; ENUM &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -144,80 +144,53 @@
     <div class="content container">
         <div class="post">
             
-            <h1>Swift 官博文章翻译 - 在 Swift 中实现 assert(), 第二部分：__FILE__ 和 __LINE__</h1>
-            <span class="post-date">Sat, May 9, 2015</span>
+            <h1>SWIFT NOTES - CLASS VS STRUCT &amp; ENUM</h1>
+            <span class="post-date">Tue, Oct 13, 2015</span>
 
             
             <div id="toc">
-                <nav id="TableOfContents">
-<ul>
-<li><a href="#内建的标识符:1203c4203865e1578ec8699277eb6578">内建的标识符</a></li>
-<li><a href="#获取调用者的位置:1203c4203865e1578ec8699277eb6578">获取调用者的位置</a></li>
-</ul>
-</nav>
+                
             </div>
 
             
-            
+            <p>Differences between Swift <code>class</code>s and <code>struct</code>s, <code>enum</code>s.</p>
 
-<p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=15">Building <code>assert()</code> in Swift, Part 2: __FILE__ and __LINE__ </a></p>
+<p>The most distinct difference:</p>
 
-<p>译者：Mudox</p>
+<ul>
+<li><code>class</code> is <strong>reference</strong> type</li>
+<li><code>struct</code> &amp; <code>enum</code> are <strong>value</strong> types</li>
+</ul>
 
-<p>大家都知道 C 语言里有两个宏 <code>__LINE__</code>，<code>__FILE__</code> 在某些场合下很有用。在编译器开始编译之前，预编译器都会将他们展开为当前的文件名和行号。尽管 Swift 没有预编译器，但是它也提供了这两个名字，并具有相同的作用，只是其运行机制截然不同。</p>
+<p>In general, the common things they have:</p>
 
-<h1 id="内建的标识符:1203c4203865e1578ec8699277eb6578">内建的标识符</h1>
+<ol>
+<li>can define <strong>properties</strong>, <strong>methods</strong>, <strong>subscipts</strong></li>
+<li>can define <strong>initializers</strong></li>
+<li>can be extended by <strong>extensions</strong></li>
+<li>can confirm to <strong>protocols</strong></li>
+</ol>
 
-<p>正如<a href="http://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/LexicalStructure.html">《Swift 语言编程指南》</a>说所，Swift 有一些内建的标识符，其中就包括 <code>__FLIE__</code>，<code>__LINE__</code>，<code>__COLUMN__</code> 和 <code>__FUNCTION__</code>。您可以在代码中的任何地方使用他们，Swift 编译器会将他们转变成表示当前代码位置的字符串或者和整形常量。当您想要手动记录事件时，比如在退出前打印出当前代码的位置，他们会非常有用。</p>
+<p>Features exclusively owned by <code>class</code></p>
 
-<pre><code class="language-swift">func assert(predicate : @autoclosure () -&gt; Bool) {
-  #if DEBUG
-    if !predicate() {
-      println(&quot;assertion failed at \(__FILE__):\(__LINE__)&quot;)
-      abort()
-    }
-  #endif
-}
-</code></pre>
+<ol>
+<li><strong>inheritance</strong></li>
+<li><strong>deinitialization</strong></li>
+<li><strong>reference counting</strong></li>
+<li><strong>type casting</strong></li>
+</ol>
 
-<p>上面的代码只会打印出 <code>assert()</code> 函数体内部的位置，而不是我们想要的调用它的代码的位置。</p>
+<p>Features exclusively owned by <code>structure</code></p>
 
-<h1 id="获取调用者的位置:1203c4203865e1578ec8699277eb6578">获取调用者的位置</h1>
+<ol>
+<li><strong>memeber-wise initializer</strong></li>
+</ol>
 
-<p>Swift 从 D 语言那里借鉴来一个非常聪明的做法：将这些特殊的位置标识符作为参数的默认值。于是我们将 <code>asssert()</code> 函数定义为：</p>
+<p>Features exclusively owned by <code>enum</code></p>
 
-<pre><code class="language-swift">func assert(
-  condition: @autoclosure () -&gt; Bool,
-  _ message: String = &quot;&quot;,
-       file: String = __FILE__,
-       line: Int = __LINE__)
-{
-    #if DEBUG
-      if !condition() {
-        println(&quot;assertion failed at \(file):\(line): \(message)&quot;)
-        abort()
-      }
-    #endif
-}
-</code></pre>
-
-<p>函数 <code>assert()</code> 的第二个参数是一个可选的字符串，第三和第四个参数默认为调用代码行的位置。这样 <code>assert()</code> 将默认得到调用它的代码行的位置。当然您也可以在 <code>assert()</code> 基础上再包裹一层抽象，并将您认为合适的位置信息传主动递进 <code>assert()</code> 里面。比如如下的简单示例：</p>
-
-<pre><code class="language-swift">func logAndAssert(
-  condition: @autoclosure () -&gt; Bool,
-  _ message: StaticString = &quot;&quot;,
-       file: StaticString = __FILE__,
-       line: UWord = __LINE__)
-{
-
-  logMessage(message)
-  assert(condition, message, file: file, line: line)
-}
-</code></pre>
-
-<p>上面的代码中，函数 <code>logAndAssert()</code> 的调用位置被正确传递给 <code>assert()</code>。值得一提的是，我们给第二个参数使用了 <code>StaticString</code> 类型，他是一个和 <code>String</code> 类似的字符串类型，用来存储像 <code>__FILE__</code> 这样展开得到的字符串，使用它没有内存管理方面的开销。</p>
-
-<p>除了被用于 <code>assert()</code> 函数的实现外，这些功能还被用于 Swift 版的 XCTest 框架的实现中。当然，他们也可以被用于您的代码库的实现里。</p>
+<ol>
+<li><strong>self assigning</strong></li>
+</ol>
 
         </div>
     </div>

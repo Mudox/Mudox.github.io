@@ -182,7 +182,7 @@
 
 <h1 id="实参的延迟计算:1ff54446be0f7d5c899f5dfff8f1c495">实参的延迟计算</h1>
 
-<p>我们在实现 <code>assert()</code> 时，首先碰到的挑战就是，在 Swift 中没有明显的方法让一个函数接受一个表达式，而不立马求它的值。比方说，我们尝试用了：</p>
+<p>我们在实现 <code>assert()</code> 时，首先碰到的挑战就是在 Swift 中没有明显的方法让一个函数接受一个表达式，而不立马求它的值。比方说，我们尝试用了：</p>
 
 <pre><code class="language-swift">func assert(x : Bool) {
   #if !NDEBUG

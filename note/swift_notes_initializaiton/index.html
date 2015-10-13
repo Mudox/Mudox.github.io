@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> SWIFT NOTES - INITIALIZATION &middot; Mudox </title>
+
+    
+    <link rel="stylesheet" href="/lib/normalize/normalize.css">
+    <link rel="stylesheet" href="/lib/mudox_hyde.css">
+
+    
+    
+    <link rel="stylesheet" href="/lib/fonts/fonts.css">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/lib/favicon.ico">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Mudox" />
+
+    
+    <script src="/lib/jquery/jquery.min.js"></script>
+
+    
+    
+    
+    <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css">
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script src="/lib/tagcanvas/jquery.tagcanvas.min.js"></script>
+
+    
+    <script src="/lib/particles/particles.js"></script>
+
+    
+    
+    
+
+    
+    <link rel="stylesheet" href="/lib/animate/animate.min.css">
+
+  </head>
+
+<body class="theme-base-blue">
+
+    <div class="sidebar">
+
+  
+  <div id="particles-js"> </div>
+
+  
+  <div id="sidebar-front-content" class="container">
+
+    <nav id=sidebar-menu>
+      
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/note/">NOTES</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/memo/">MEMOS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/project/">PROJECTS</a>
+      </li>
+      <li class="top-menu-item">
+        <a href="http://mudox.github.io/post/">POSTS</a>
+      </li>
+    </nav>
+
+    <nav id="cloud-container">
+      <canvas id="cloud-canvas" width="300" height="300" style="width: 100%;">
+        
+        <a href="/languages">languages</a> 
+        <a href="/languages/bash">bash</a> 
+        <a href="/languages/c">c</a> 
+        <a href="/languages/chinese">chinese</a> 
+        <a href="/languages/css">css</a> 
+        <a href="/languages/english">english</a> 
+        <a href="/languages/go">go</a> 
+        <a href="/languages/html">html</a> 
+        <a href="/languages/javascript">javascript</a> 
+        <a href="/languages/lua">lua</a> 
+        <a href="/languages/objc">objc</a> 
+        <a href="/languages/oc">oc</a> 
+        <a href="/languages/swift">swift</a> 
+        <a href="/languages/viml">viml</a>  
+        <a href="/platforms">platforms</a> 
+        <a href="/platforms/arch">arch</a> 
+        <a href="/platforms/ios">ios</a> 
+        <a href="/platforms/linux">linux</a> 
+        <a href="/platforms/macos">macos</a> 
+        <a href="/platforms/web">web</a> 
+        <a href="/platforms/win">win</a>  
+        <a href="/series">series</a> 
+        <a href="/series/error">error</a> 
+        <a href="/series/setup">setup</a>  
+        <a href="/tags">tags</a> 
+        <a href="/tags/appdev">appdev</a> 
+        <a href="/tags/awesome">awesome</a> 
+        <a href="/tags/bash">bash</a> 
+        <a href="/tags/cocoa">cocoa</a> 
+        <a href="/tags/concurrency">concurrency</a> 
+        <a href="/tags/dev">dev</a> 
+        <a href="/tags/git">git</a> 
+        <a href="/tags/libraries">libraries</a> 
+        <a href="/tags/me">me</a> 
+        <a href="/tags/networking">networking</a> 
+        <a href="/tags/setup">setup</a> 
+        <a href="/tags/shell">shell</a> 
+        <a href="/tags/system">system</a> 
+        <a href="/tags/tool">tool</a> 
+        <a href="/tags/translation">translation</a> 
+        <a href="/tags/unicode">unicode</a> 
+        <a href="/tags/vim">vim</a> 
+        <a href="/tags/vocabulary">vocabulary</a> 
+        <a href="/tags/xcode">xcode</a> 
+        <a href="/tags/zsh">zsh</a>  
+      </canvas>
+    </nav>
+
+    <div class="sidebar-about sidebar-sticky">
+      <div id="logo"><a href="/" id="Mudox" class="animated bounceInLeft">Mudox</a>
+      </div>
+      <p class="lead">
+        My site powered by <a href="http://gohugo.io">Hugo</a> with a theme customized from <a href="https://github.com/spf13/hyde.git">hyde</a>.
+      </p>
+      <p>&copy; 2015. All rights reserved. </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+    <div class="content container">
+        <div class="post">
+            
+            <h1>SWIFT NOTES - INITIALIZATION</h1>
+            <span class="post-date">Tue, Oct 13, 2015</span>
+
+            
+            <div id="toc">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#setting-initial-values-for-stored-properties:0b95b25ccfd336225d990e53cc417a23">Setting Initial Values for Stored Properties</a>
+<ul>
+<li><a href="#constant-stored-property-iniitialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property iniitialization</a></li>
+</ul></li>
+<li><a href="#compiler-synthesized-initializers:0b95b25ccfd336225d990e53cc417a23">Compiler Synthesized Initializers</a></li>
+<li><a href="#initializer-delegation:0b95b25ccfd336225d990e53cc417a23">Initializer Delegation</a>
+<ul>
+<li><a href="#3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation:</a></li>
+<li><a href="#two-phase-initialization:0b95b25ccfd336225d990e53cc417a23">Two-Phase Initialization</a></li>
+<li><a href="#initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</a>
+<ul>
+<li><a href="#2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+            </div>
+
+            
+            
+
+<p>Notes about Swift initialization</p>
+
+<p>Syntax:</p>
+
+<pre><code class="language-swift">// non-failable initializer
+init() {
+    ...
+}
+
+// failable initializers
+init?() {
+    ...
+}
+
+init!() {
+    ...
+}
+</code></pre>
+
+<p>Notes:</p>
+
+<ul>
+<li>Unlike normal function &amp; methods, the 1st parameter gets a external name
+automatically as well as the following parameters. Use <code>_</code> to suppress the
+external name if you want.</li>
+<li>Unlike Objective-C initializers, Swift initializers do not return a value.</li>
+</ul>
+
+<h1 id="setting-initial-values-for-stored-properties:0b95b25ccfd336225d990e53cc417a23">Setting Initial Values for Stored Properties</h1>
+
+<p>There are 3 ways a stored property can get an initial value:</p>
+
+<ol>
+<li>set value in initializer</li>
+<li>set default value in property declaration</li>
+<li>optional stored properties get <code>nil</code> as default value, if given no default value</li>
+</ol>
+
+<p>Notes:</p>
+
+<ul>
+<li>Specifying a default value is preferred than set initial value in initializer.</li>
+<li>Property observers will <strong>NOT</strong> be triggered by initial value setting.</li>
+<li>Through closure or global function invocation syntax, you can make the
+default value setting more flexible.</li>
+</ul>
+
+<pre><code class="language-swift">class Foo {
+    // DO NOT forget the trailling `()`, otherwise the closure/function itself
+    // would be assigned to as the default value.
+
+    let name: String = {
+    ...
+    }()
+
+    var id: Int = GenerateRandomID(...)
+}
+</code></pre>
+
+<h2 id="constant-stored-property-iniitialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property iniitialization</h2>
+
+<p>for constant stored property, if you given a default value in definition,
+then it&rsquo;s initialization is complete, you CAN NOT modify it&rsquo;s value later
+in initializers.</p>
+
+<p>you can define a constant stored property with no default value, and set an
+initial value latter in the initializers</p>
+
+<p>for class instances, a constant stored property can only be modified during
+initialization by the class that introduces it. It cannot be modified by a
+subclass.</p>
+
+<h1 id="compiler-synthesized-initializers:0b95b25ccfd336225d990e53cc417a23">Compiler Synthesized Initializers</h1>
+
+<ol>
+<li><p><strong>default initializer</strong> for <code>struct</code> &amp; <code>class</code></p>
+
+<p>2 prerequisite:</p>
+
+<ol>
+<li>all stored property are given default values</li>
+<li>defines no custom initializer</li>
+</ol></li>
+
+<li><p><strong>memberwise initializer</strong> for <code>struct</code></p>
+
+<p>2 prerequisite</p>
+
+<ol>
+<li>defines no custom initializer</li>
+<li>defines at least one variable stored property or constant stored property
+that is not given a default value (so there is a necessity for the initializer)</li>
+</ol></li>
+
+<li><p><strong>rawValue initializer</strong> for <code>enum</code> with associated value</p>
+
+<p>it is a failable initializer <code>init?(rawValue: T) {...}</code></p></li>
+</ol>
+
+<h1 id="initializer-delegation:0b95b25ccfd336225d990e53cc417a23">Initializer Delegation</h1>
+
+<p>Use <code>self.init(...)</code> to delegate initialization task to other initializers.</p>
+
+<p>Since defining custom initializer suppresses default &amp; memberwise initializer
+synthesization, you can define custom initializers in extension, then delegate
+to default or memberwise initializer in the body.</p>
+
+<p><code>class</code> can define 2 kinds of initializers:</p>
+
+<ol>
+<li>designated initializers &ndash; <code>init(...)</code></li>
+<li>convenience initializers &ndash; <code>convenience init(...)</code></li>
+</ol>
+
+<h2 id="3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation:</h2>
+
+<ol>
+<li>A designated initializer must call a designated initializer from its
+immediate superclass.</li>
+<li>A convenience initializer must call another initializer from the same class.</li>
+<li>A convenience initializer must ultimately call a designated initializer.</li>
+</ol>
+
+<p>put simply:</p>
+
+<ol>
+<li>convenience initializer delegation across &ndash; <code>init(...)</code></li>
+<li>designated initializer delegation upwards &ndash; <code>super.init(...)</code></li>
+</ol>
+
+<h2 id="two-phase-initialization:0b95b25ccfd336225d990e53cc417a23">Two-Phase Initialization</h2>
+
+<p>4 safty checks that Swift compiler perform to ensure 2-phase initialization:</p>
+
+<ol>
+<li>In designated initializer, initialize all local stored property before
+delegate up</li>
+<li>In designated initializer, delegate up before modifying any inherited stored
+properties</li>
+<li>In convenience initializer, delegate across before modifying any property</li>
+
+<li><p>In any initializers, only after the 1st-phase initialization is complete
+then it can</p>
+
+<ul>
+<li>call any instance methods or subscripts</li>
+<li>read any instance properties</li>
+<li>reference <code>self</code> as an value</li>
+</ul></li>
+</ol>
+
+<h2 id="initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</h2>
+
+<p>Unlike subclasses in Objective-C, Swift subclasses do <strong>NOT</strong> inherit their
+superclass initializers by default. Only when certain rules are satisfied can
+certain initializers be inherited to subclasses.</p>
+
+<p>Do <strong>NOT</strong> write the <code>override</code> modifier when providing a matching implementation
+of a superclass <strong>convenience initializer</strong> (<em>because it can not delegate up to it
+counterpart in superclass, the implementation is not considered as a
+overriding</em>)</p>
+
+<h3 id="2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance:</h3>
+
+<ol>
+<li>if your subclass doesn’t define any designated initializers, it
+automatically inherits all of its superclass designated initializers.</li>
+<li>If your subclass provides an implementation of all of its superclass
+designated initializers—either by inheriting them as per rule 1, or by
+providing a custom implementation as part of its definition—then it
+automatically inherits all of the superclass convenience initializers.</li>
+</ol>
+
+        </div>
+    </div>
+
+        
+    <script src="/lib/mudox.js"></script>
+</body>
+</html>
+

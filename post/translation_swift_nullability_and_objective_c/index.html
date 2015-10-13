@@ -151,7 +151,7 @@
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>__nullable</code>，<code>__nonnull</code></a></li>
+<li><a href="#核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>_Nullable</code>，<code>_Nonnull</code></a></li>
 <li><a href="#监控区域-andited-region:cebb39200789161d04153b9fa938a694">监控区域（andited region)</a></li>
 <li><a href="#兼容性:cebb39200789161d04153b9fa938a694">兼容性</a></li>
 <li><a href="#回到-swift:cebb39200789161d04153b9fa938a694">回到 Swift</a></li>
@@ -170,14 +170,14 @@
 
 <p>在此前的 Xcode 版本中，Apple 公司对一些框架做了特殊处理，以让它们在 Swift 被转换为适当的可为空类型。Xcode 6.3 引入了一个新的 Objective-C 特性：可为空性注释（nullability annotation），是的程序也能对自己的代码做出同样的处理。</p>
 
-<h1 id="核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>__nullable</code>，<code>__nonnull</code></h1>
+<h1 id="核心关键字-nullable-nonnull:cebb39200789161d04153b9fa938a694">核心关键字: <code>_Nullable</code>，<code>_Nonnull</code></h1>
 
-<p>这项新特性的核心就是两个关键字：<code>__nullable</code>，<code>__nonnull</code>。正如你所想的那样，所有 <code>__nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>__nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
+<p>这项新特性的核心就是两个关键字：<code>_Nullable</code>，<code>_Nonnull</code>。正如你所想的那样，所有 <code>_Nullable</code> 指针可以为 <code>NULL</code> 或者 <code>nil</code>，而所有 <code>_Nonnull</code> 指针不行。如果你违反了此规则，编译器将会发出警告。</p>
 
 <pre><code class="language-objc">@interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
 // ...
-- (AAPLListItem * __nullable)itemWithName:(NSString * __nonnull)name;
-@property (copy, readonly) NSArray * __nonnull allItems;
+- (AAPLListItem * _Nullable)itemWithName:(NSString * _Nonnull)name;
+@property (copy, readonly) NSArray * _Nonnull allItems;
 // ...
 @end
 
@@ -186,7 +186,7 @@
 [self.list itemWithName:nil]; // warning!
 </code></pre>
 
-<p>在您的 Objective-C 代码中，您几乎可以在任何可以用到 <code>const</code> 关键字的地方使用 <code>__nullable</code>，<code>__nonnull</code>，当然必须是修饰指针类型。Swift 还未常用的场景提供了更加漂亮的注释方式：对于那些简单的对象类型或者块类型的类成员声明，您可以使用 <code>__nullable</code>，<code>__nonnull</code> 非下划线版本来就注释他们。</p>
+<p>在您的 Objective-C 代码中，您几乎可以在任何可以用到 <code>const</code> 关键字的地方使用 <code>_Nullable</code>，<code>_Nonnull</code>，当然必须是修饰指针类型。Swift 还未常用的场景提供了更加漂亮的注释方式：对于那些简单的对象类型或者块类型的类成员声明，您可以使用 <code>_Nullable</code>，<code>_Nonnull</code> 非下划线版本来就注释他们。</p>
 
 <pre><code class="language-objc">- (nullable AAPLListItem *)itemWithName:(nonnull NSString *)name;
 - (NSInteger)indexOfItem:(nonnull AAPLListItem *)item;
@@ -202,7 +202,7 @@
 
 <h1 id="监控区域-andited-region:cebb39200789161d04153b9fa938a694">监控区域（andited region)</h1>
 
-<p>为了简化新注释关键字的使用，您可以把您的 Objective-C 头文件中的某段代码标记为 <strong>对可为空性进行监控</strong>。在此代码段中，所有的简单指针类型都被编译器默认认为是不可能为空的，也就是 <code>__nonnull</code>。这就大大减少了我们早前的示例中需要做的变动。</p>
+<p>为了简化新注释关键字的使用，您可以把您的 Objective-C 头文件中的某段代码标记为 <strong>对可为空性进行监控</strong>。在此代码段中，所有的简单指针类型都被编译器默认认为是不可能为空的，也就是 <code>_Nonnull</code>。这就大大减少了我们早前的示例中需要做的变动。</p>
 
 <pre><code class="language-objc">NS_ASSUME_NONNULL_BEGIN
 @interface AAPLList : NSObject &lt;NSCoding, NSCopying&gt;
@@ -228,9 +228,9 @@ AAPLListItem *matchingItem = [self.list itemWithName:nil];  // warning
 <ul>
 <li><p><code>typedef</code> 类型别名语句，根据上下文，本身就是有确定的可为空性。它不受监控区域假设的影响。也就是说在监控区域内，<code>typedef</code> 语句定义的指针类型并不是默认为 <code>nonnull</code> 的，而是取决于定义它的原始类型。</p></li>
 
-<li><p>复杂的指针类型必须明确的注释可为空性，不能省略。比如声明一个不可为空的指针只想一个可为空的对象的引用，必须用 <code>__nullable id * __nonnull</code> 来声明。</p></li>
+<li><p>复杂的指针类型必须明确的注释可为空性，不能省略。比如声明一个不可为空的指针只想一个可为空的对象的引用，必须用 <code>_Nullable id * _Nonnull</code> 来声明。</p></li>
 
-<li><p><code>NSError</code> 是一个特殊的类型，它被用来通过参数返回错误。它总是一个指向一个可为空 <code>NSError</code> 对象指针的可为空指针，即 <code>__nullable NSError * __nullable</code>。</p></li>
+<li><p><code>NSError</code> 是一个特殊的类型，它被用来通过参数返回错误。它总是一个指向一个可为空 <code>NSError</code> 对象指针的可为空指针，即 <code>_Nullable NSError * _Nullable</code>。</p></li>
 </ul>
 
 <h1 id="兼容性:cebb39200789161d04153b9fa938a694">兼容性</h1>

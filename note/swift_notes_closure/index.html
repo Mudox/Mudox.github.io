@@ -155,7 +155,7 @@
 <li><a href="#sugar-1-return-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #1 &ndash; return type inference</a></li>
 <li><a href="#sugar-2-parameter-type-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #2 &ndash; parameter type inference</a></li>
 <li><a href="#sugar-3-parenthesis-less:a40f4ebf5561eeafcff0342811dbdf21">Sugar #3 &ndash; parenthesis-less</a></li>
-<li><a href="#sugar-4-return-statement-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; return statement inference</a></li>
+<li><a href="#sugar-4-auto-return-for-single-expression-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; auto return for single expression closure</a></li>
 <li><a href="#sugar-5-shorthand-parameter-name:a40f4ebf5561eeafcff0342811dbdf21">Sugar #5 &ndash; shorthand parameter name</a></li>
 <li><a href="#sugar-6-operator-as-a-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #6 &ndash; operator as a closure</a></li>
 </ul>
@@ -165,9 +165,8 @@
             
             
 
-<p>Thanks to the host of technologies provided by the Swift
-compiler, the closure comes with a bunch of syntactic
-sugars that could sweet you to diabetes.</p>
+<p>Thanks to the host of technologies provided by the Swift compiler, the closure
+comes with a bunch of syntactic sugars that could sweet you to diabetes.</p>
 
 <p>The full syntax of a closure:</p>
 
@@ -188,8 +187,8 @@ let sortedWords = words.sorted({
 })
 </code></pre>
 
-<p>As the sugars introduced in, we will cut the lines above into an incredibly one
-line of code.</p>
+<p>As the sugars introduced in one by one, we will cut the lines above into an
+incredibly one-liner.</p>
 
 <h1 id="sugar-0-trailing-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #0 &ndash; trailing closure</h1>
 
@@ -240,7 +239,7 @@ let sortedWords = words.sorted {
 }
 </code></pre>
 
-<h1 id="sugar-4-return-statement-inference:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; return statement inference</h1>
+<h1 id="sugar-4-auto-return-for-single-expression-closure:a40f4ebf5561eeafcff0342811dbdf21">Sugar #4 &ndash; auto return for single expression closure</h1>
 
 <p>If the closure has one statement, then the <strong>return</strong> statement can also be
 inferred.</p>

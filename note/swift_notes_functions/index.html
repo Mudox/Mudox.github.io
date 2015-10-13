@@ -178,25 +178,22 @@ Programming Language》</a></p>
 <p>A parameter name can have a <strong>internal name</strong> and an <strong>external name</strong> declared
 in the form of: <code>external_name internal_name: type</code>.</p>
 
-<pre><code class="language-swift">func join(String string: leftString, toString rightString) -&gt; String {
-  return leftString + rightString
-}
+<p>Explicitly specify an external name for the first parameter to enable it when
+calling.</p>
 
-println(join(String: &quot;Hello&quot;, toString: &quot; World!&quot;))
-</code></pre>
-
-<p>Use <code>#</code> to use the same name for both names: <code>#name: type</code></p>
-
-<pre><code class="language-swift">func join(#aString: leftString, #toString) -&gt; String {
-  return aString + toString
+<pre><code class="language-swift">func join(aString lhs: String, toString rhs: String) -&gt; String {
+  return lhs + rhs
 }
 
 println(join(aString: &quot;Hello&quot;, toString: &quot; World!&quot;))
 </code></pre>
 
-<p>Use <code>_</code> to suppress external name: <code>_ internal_name: type</code></p>
+<p>Swift compiler automatically generates external name from corresponding
+internal names of all parameters except the 1st parameter.</p>
 
-<pre><code class="language-swift">func join(_ aString: leftString, _ toString) -&gt; String {
+<p>Use <code>_</code> to suppress auto-generating external name: <code>_ internal_name: type</code></p>
+
+<pre><code class="language-swift">func join(_ aString: String, _ toString: String) -&gt; String {
   return aString + toString
 }
 
@@ -205,19 +202,14 @@ println(join(&quot;Hello&quot;, &quot; World!&quot;))
 
 <h2 id="parameters-with-default-value:9001fbf6bb512c5ae93dad9f83646181">Parameters with default value</h2>
 
-<p>Default parameter values of the <code>[external_name /_/#]internal_name: type =
-default_value</code> should be placed at end of the parameter list.</p>
+<p>Parameters with default value of the form <code>[external_name/_] internal_name:
+type = default_value</code> are <strong>better</strong> be placed at end of the parameter list.</p>
 
-<p>The compiler will synthesize a external name by reusing the internal name for
-parameters with default value, if their external name is not explicitly
-specified in the parameter list. (You can use <code>_</code> to suppress this behavior,
-which is not recommended.)</p>
-
-<pre><code class="language-swift">func Foo(arg1: String, arg2: Int = 30, _ arg3: Bool, #arg4: Double) {
+<pre><code class="language-swift">func Foo(arg1: String, arg2: Int = 30, _ arg3: Bool) {
   ...
 }
 
-Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
+Foo(&quot;text&quot;, arg2: 1, true)
 </code></pre>
 
 <h2 id="variadic-parameters:9001fbf6bb512c5ae93dad9f83646181">Variadic parameters</h2>
@@ -225,8 +217,7 @@ Foo(&quot;text&quot;, arg2: 1, true, arg4: 4.0)
 <p>Declare variadic parameter in form <code>name: type...</code>, which, in the function
 body, is of type <code>[type]</code>.</p>
 
-<p>Only one variadic parameter is allowed in a parameter list, and it should be
-placed after all other normal parameters or parameters with default value.</p>
+<p><strong>Only one</strong> variadic parameter is allowed in a parameter list.</p>
 
 <h2 id="variable-parameters:9001fbf6bb512c5ae93dad9f83646181">Variable parameters</h2>
 
@@ -238,15 +229,19 @@ the function body will not propagate outside the function body.</p>
 
 <h2 id="in-out-parameters:9001fbf6bb512c5ae93dad9f83646181">In-Out parameters</h2>
 
-<p>Prefix parameters names with keyword <code>inout</code> (which implies <code>var</code>) to make the
-change to the parameter inside function body propagate outside.</p>
+<p>Prefix parameters names with keyword <code>inout</code> to propagate the change to the
+parameter inside function body outside.</p>
 
 <p>When specifying argument for <code>inout</code> parameters, prepend <code>&amp;</code> to the argument
 name to indicate that it could be modified during the function call.</p>
 
-<p>In-out parameters cannot have default values, and variadic parameters cannot be
-marked as <code>inout</code>. If you mark a parameter as <code>inout</code>, it cannot also be marked
-as var or let.</p>
+<p>In-out parameters</p>
+
+<ul>
+<li>cannot have default values</li>
+<li>cannot be variadic parameter</li>
+<li>implies <code>var</code>, so cannot be marked as <code>var</code> or <code>let</code></li>
+</ul>
 
 <pre><code class="language-swift">func swapTwoInts(inout a: Int, inout b: Int) {
     let temporaryA = a
@@ -270,7 +265,9 @@ which can be written as <code>()</code>.</p>
 function to return multiple values as part of one compound return value.</p>
 
 <pre><code class="language-swift">// wrap multiple return values in an optional tuple.
-func minMax(array: [Int]) -&gt; (min: Int, max: Int)? { ... }
+func minMax(array: [Int]) -&gt; (min: Int, max: Int)? {
+  return (1, 3) // no need to specify tuple element names again
+}
 
 if let minMax = minMax([1,2,3]) {
   // use name to fetch tuple element.
@@ -283,24 +280,28 @@ if let minMax = minMax([1,2,3]) {
 
 <h1 id="function-types:9001fbf6bb512c5ae93dad9f83646181">Function Types</h1>
 
+<p>A function type is made up of its&rsquo; parameter types and return type.</p>
+
 <p>In Swift, function is first class object, so feel free to use them as other
 normal objects:</p>
 
 <ul>
-<li><p>passing them as argument into functions.</p></li>
+<li><p>declare constants or variables to hold them, and call them latter.</p></li>
+
+<li><p>passing them as arguments into functions.</p></li>
 
 <li><p>return them from functions.</p></li>
 
 <li><p>declare theme as type alias for convenience.</p></li>
 
-<li><p>even nest their in another function.</p></li>
-
-<li><p>&hellip;</p></li>
+<li><p>even nest them in another function.</p></li>
 </ul>
 
-<pre><code class="language-swift">typealias cmp = (Int, Int) -&gt; Bool
+<pre><code class="language-swift">// declare a type alias for long function types
+typealias cmp = (Int, Int) -&gt; Bool
 
 func whichCmp(functionPassedIn: ()-&gt; Bool) -&gt; cmp {
+  // nested fucntion definition
   func Foo(lhs: Int, rhs: Int) -&gt; Bool {
     return false
   }
@@ -309,6 +310,7 @@ func whichCmp(functionPassedIn: ()-&gt; Bool) -&gt; cmp {
     return true
   }
 
+  // function being returned
   return functionPassedIn() ? Foo : Hoo
 }
 
@@ -316,6 +318,7 @@ func aFunc() -&gt; Bool {
   return false
 }
 
+// function being passed in as an argument
 whichCmp(aFunc)(1334, 234)
 </code></pre>
 
