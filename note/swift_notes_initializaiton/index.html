@@ -165,6 +165,7 @@
 <li><a href="#2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#failable-initiializer:0b95b25ccfd336225d990e53cc417a23">Failable Initiializer</a></li>
 </ul>
 </nav>
             </div>
@@ -205,9 +206,9 @@ external name if you want.</li>
 <p>There are 3 ways a stored property can get an initial value:</p>
 
 <ol>
-<li>set value in initializer</li>
-<li>set default value in property declaration</li>
-<li>optional stored properties get <code>nil</code> as default value, if given no default value</li>
+<li>Set value in initializer</li>
+<li>Set default value in property declaration</li>
+<li>Optional stored properties get <code>nil</code> as default value, if given no default value</li>
 </ol>
 
 <p>Notes:</p>
@@ -233,14 +234,14 @@ default value setting more flexible.</li>
 
 <h2 id="constant-stored-property-iniitialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property iniitialization</h2>
 
-<p>for constant stored property, if you given a default value in definition,
+<p>For constant stored property, if you given a default value in definition,
 then it&rsquo;s initialization is complete, you CAN NOT modify it&rsquo;s value later
 in initializers.</p>
 
-<p>you can define a constant stored property with no default value, and set an
+<p>You can define a constant stored property with no default value, and set an
 initial value latter in the initializers</p>
 
-<p>for class instances, a constant stored property can only be modified during
+<p>For class instances, a constant stored property can only be modified during
 initialization by the class that introduces it. It cannot be modified by a
 subclass.</p>
 
@@ -343,6 +344,24 @@ designated initializers—either by inheriting them as per rule 1, or by
 providing a custom implementation as part of its definition—then it
 automatically inherits all of the superclass convenience initializers.</li>
 </ol>
+
+<h1 id="failable-initiializer:0b95b25ccfd336225d990e53cc417a23">Failable Initiializer</h1>
+
+<p>Use <code>init?() {...}</code> or <code>init!() {...}</code> to define a failable initializer</p>
+
+<p>Use <code>return nil</code> to fail the initialization process though the Swift
+initializer dose not return any value</p>
+
+<p>When defining failable initializer:</p>
+
+<ul>
+<li>for <code>struct</code> &amp; <code>enum</code>, it can fail before all stored properties are given a
+valid initial value.</li>
+<li>for <code>class</code>, only after the 1st initialization is completed can it fail.</li>
+</ul>
+
+<p>you can use constant implicitly unwrapped optional property to satisfy rule #2
+without first assign an valid initial value to it.</p>
 
         </div>
     </div>

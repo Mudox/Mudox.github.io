@@ -192,6 +192,17 @@
 <li><strong>self assigning</strong></li>
 </ol>
 
+<p>When defining failable initializer:</p>
+
+<ul>
+<li>for <code>struct</code> &amp; <code>enum</code>, it can fail before all stored properties are given a
+valid initial value.</li>
+<li>for <code>class</code>, only after the 1st initialization is completed can it fail.</li>
+</ul>
+
+<p>you can use constant implicitly unwrapped optional property to satisfy rule #2
+without first assign an valid initial value to it.</p>
+
         </div>
     </div>
 
