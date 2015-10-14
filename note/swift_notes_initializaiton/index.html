@@ -158,11 +158,11 @@
 <li><a href="#compiler-synthesized-initializers:0b95b25ccfd336225d990e53cc417a23">Compiler Synthesized Initializers</a></li>
 <li><a href="#initializer-delegation:0b95b25ccfd336225d990e53cc417a23">Initializer Delegation</a>
 <ul>
-<li><a href="#3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation:</a></li>
+<li><a href="#3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation</a></li>
 <li><a href="#two-phase-initialization:0b95b25ccfd336225d990e53cc417a23">Two-Phase Initialization</a></li>
 <li><a href="#initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</a>
 <ul>
-<li><a href="#2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance:</a></li>
+<li><a href="#2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -286,7 +286,7 @@ to default or memberwise initializer in the body.</p>
 <li>convenience initializers &ndash; <code>convenience init(...)</code></li>
 </ol>
 
-<h2 id="3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation:</h2>
+<h2 id="3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation</h2>
 
 <ol>
 <li>A designated initializer must call a designated initializer from its
@@ -307,14 +307,13 @@ immediate superclass.</li>
 <p>4 safty checks that Swift compiler perform to ensure 2-phase initialization:</p>
 
 <ol>
-<li>In designated initializer, initialize all local stored property before
+<li>In designated initializer, initialize all local stored properties before
 delegate up</li>
 <li>In designated initializer, delegate up before modifying any inherited stored
 properties</li>
 <li>In convenience initializer, delegate across before modifying any property</li>
-
-<li><p>In any initializers, only after the 1st-phase initialization is complete
-then it can</p>
+<li>In any initializers, only after the 1st-phase initialization is complete
+then it can
 
 <ul>
 <li>call any instance methods or subscripts</li>
@@ -329,12 +328,12 @@ then it can</p>
 superclass initializers by default. Only when certain rules are satisfied can
 certain initializers be inherited to subclasses.</p>
 
-<p>Do <strong>NOT</strong> write the <code>override</code> modifier when providing a matching implementation
-of a superclass <strong>convenience initializer</strong> (<em>because it can not delegate up to it
-counterpart in superclass, the implementation is not considered as a
-overriding</em>)</p>
+<p>Do <strong>NOT</strong> write the <code>override</code> modifier when providing a matching
+implementation of a superclass <strong>convenience initializer</strong> (<em>because it can not
+delegate up to it counterpart in superclass, the implementation is not
+considered as a overriding</em>)</p>
 
-<h3 id="2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance:</h3>
+<h3 id="2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance</h3>
 
 <ol>
 <li>if your subclass doesn’t define any designated initializers, it

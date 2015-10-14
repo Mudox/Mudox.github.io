@@ -90,13 +90,17 @@ h2
 {
   font-size: 1.5rem;
 
-  margin-top: 1rem;
+  margin-top: .8rem;
+
+  color: #606060;
 }
 h3
 {
   font-size: 1.25rem;
 
-  margin-top: 1.5rem;
+  margin-top: .3rem;
+
+  color: #808080;
 }
 h4,
 h5,
@@ -811,12 +815,15 @@ nav ul li
   font-size: 1.7rem;
   font-weight: bold;
 }
+#TableOfContents ul
+{
+  padding-left: 1rem;
+  margin-bottom: .5rem;
+}
 #TableOfContents ul li
 {
-  font-size: 1rem;
+  font-size: .8rem;
   font-weight: normal;
-
-  list-style: disc outside;
 }
 /* siderbar menu                                                                           {{{2 */
 

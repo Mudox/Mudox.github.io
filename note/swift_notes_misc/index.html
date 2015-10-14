@@ -155,19 +155,24 @@
             
             <p>Miscellaneous knowledges I collected when learning Swift language.</p>
 
+<p>Lazily stored closure property capturing <code>self</code></p>
+
+<p>Using implicitly unwrapped optional property to satisfying 2-phase
+initialization</p>
+
 <ul>
-<li><p>lazily stored clousre property capturing <code>self</code></p></li>
+<li>it is given a default value <code>nil</code> automatically, it can be assigned a real
+initial value after delegation in initializer</li>
+<li>after initialization, it can be used as a non-optional property</li>
+</ul>
 
-<li><p>Using implicitly unwrapped optional property to satisfying 2-phase initialization</p></li>
-
-<li><p>Inheritance oriented</p>
+<p>Only allowed in one direction</p>
 
 <ul>
 <li>override read-only property -&gt; read-write property</li>
 <li>override failable initialiser -&gt; unfailable initializer</li>
 <li>override designated initializer -&gt; convenience initializer</li>
 <li>failable initializer can delegate -&gt; failable/unfailable initializer</li>
-</ul></li>
 </ul>
 
         </div>
