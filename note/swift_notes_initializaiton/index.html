@@ -91,6 +91,7 @@
         <a href="/languages/lua">lua</a> 
         <a href="/languages/objc">objc</a> 
         <a href="/languages/oc">oc</a> 
+        <a href="/languages/python">python</a> 
         <a href="/languages/swift">swift</a> 
         <a href="/languages/viml">viml</a>  
         <a href="/platforms">platforms</a> 
@@ -153,7 +154,7 @@
 <ul>
 <li><a href="#setting-initial-values-for-stored-properties:0b95b25ccfd336225d990e53cc417a23">Setting Initial Values for Stored Properties</a>
 <ul>
-<li><a href="#constant-stored-property-iniitialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property iniitialization</a></li>
+<li><a href="#constant-stored-property-initialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property initialization</a></li>
 </ul></li>
 <li><a href="#compiler-synthesized-initializers:0b95b25ccfd336225d990e53cc417a23">Compiler Synthesized Initializers</a></li>
 <li><a href="#initializer-delegation:0b95b25ccfd336225d990e53cc417a23">Initializer Delegation</a>
@@ -165,8 +166,8 @@
 <li><a href="#2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#failable-initiializer:0b95b25ccfd336225d990e53cc417a23">Failable Initiializer</a></li>
-<li><a href="#required-initiializer:0b95b25ccfd336225d990e53cc417a23">Required Initiializer</a></li>
+<li><a href="#failable-initializer:0b95b25ccfd336225d990e53cc417a23">Failable Initializer</a></li>
+<li><a href="#required-initializer:0b95b25ccfd336225d990e53cc417a23">Required Initializer</a></li>
 </ul>
 </nav>
             </div>
@@ -233,7 +234,7 @@ default value setting more flexible.</li>
 }
 </code></pre>
 
-<h2 id="constant-stored-property-iniitialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property iniitialization</h2>
+<h2 id="constant-stored-property-initialization:0b95b25ccfd336225d990e53cc417a23">Constant stored property initialization</h2>
 
 <p>For constant stored property, if you given a default value in definition,
 then it&rsquo;s initialization is complete, you CAN NOT modify it&rsquo;s value later
@@ -284,8 +285,8 @@ to default or memberwise initializer in the body.</p>
 <p><code>class</code> can define 2 kinds of initializers:</p>
 
 <ol>
-<li>designated initializers &ndash; <code>init(...)</code></li>
-<li>convenience initializers &ndash; <code>convenience init(...)</code></li>
+<li>Designated initializers &ndash; <code>init(...)</code></li>
+<li>Convenience initializers &ndash; <code>convenience init(...)</code></li>
 </ol>
 
 <h2 id="3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation</h2>
@@ -300,13 +301,13 @@ immediate superclass.</li>
 <p>put simply:</p>
 
 <ol>
-<li>convenience initializer delegation across &ndash; <code>init(...)</code></li>
-<li>designated initializer delegation upwards &ndash; <code>super.init(...)</code></li>
+<li>Convenience initializer delegation across &ndash; <code>init(...)</code></li>
+<li>Designated initializer delegation upwards &ndash; <code>super.init(...)</code></li>
 </ol>
 
 <h2 id="two-phase-initialization:0b95b25ccfd336225d990e53cc417a23">Two-Phase Initialization</h2>
 
-<p>4 safty checks that Swift compiler perform to ensure 2-phase initialization:</p>
+<p>4 safety checks that Swift compiler perform to ensure 2-phase initialization:</p>
 
 <ol>
 <li>In designated initializer, initialize all local stored properties before
@@ -338,7 +339,7 @@ considered as a overriding</em>)</p>
 <h3 id="2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance</h3>
 
 <ol>
-<li>if your subclass doesn’t define any designated initializers, it
+<li>If your subclass doesn&rsquo;t define any designated initializers, it
 automatically inherits all of its superclass designated initializers.</li>
 <li>If your subclass provides an implementation of all of its superclass
 designated initializers—either by inheriting them as per rule 1, or by
@@ -346,7 +347,7 @@ providing a custom implementation as part of its definition—then it
 automatically inherits all of the superclass convenience initializers.</li>
 </ol>
 
-<h1 id="failable-initiializer:0b95b25ccfd336225d990e53cc417a23">Failable Initiializer</h1>
+<h1 id="failable-initializer:0b95b25ccfd336225d990e53cc417a23">Failable Initializer</h1>
 
 <p>Use <code>init?() {...}</code> or <code>init!() {...}</code> to define a failable initializer</p>
 
@@ -364,14 +365,14 @@ valid initial value.</li>
 <p>You can use constant implicitly unwrapped optional property to satisfy rule #2
 without first assign an valid initial value to it.</p>
 
-<h1 id="required-initiializer:0b95b25ccfd336225d990e53cc417a23">Required Initiializer</h1>
+<h1 id="required-initializer:0b95b25ccfd336225d990e53cc417a23">Required Initializer</h1>
 
-<p>Write <code>required</code> before the definition of Initiializer to indicate that every
-subclass of this class must implement that Initiializer</p>
+<p>Write <code>required</code> before the definition of initiializer to indicate that every
+subclass of this class must implement that initiializer</p>
 
 <p>The <code>required</code> keyword implies <code>override</code> in subclasses</p>
 
-<p>You don&rsquo;t have to provide an explicit implementation if the Initiializer can be
+<p>You don&rsquo;t have to provide an explicit implementation if the initiializer can be
 inherited</p>
 
         </div>
