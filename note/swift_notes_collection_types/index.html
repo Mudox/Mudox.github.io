@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> SWIFT NOTES - COLLECION TYPES &middot; Mudox </title>
+    <title> SWIFT NOTES - COLLECTION TYPES &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -144,7 +144,7 @@
     <div class="content container">
         <div class="post">
             
-            <h1>SWIFT NOTES - COLLECION TYPES</h1>
+            <h1>SWIFT NOTES - COLLECTION TYPES</h1>
             <span class="post-date">Tue, Sep 29, 2015</span>
 
             
@@ -176,7 +176,7 @@
 <p>Initializes an array:</p>
 
 <ul>
-<li>with no element</li>
+<li>with zero elements</li>
 </ul>
 
 <pre><code class="language-swift">// full syntax
@@ -186,9 +186,10 @@ let a = Array&lt;Element&gt;()
 let a = [Element]()
 
 // shortest syntax when the type inference is present
+// `[]` here is the empty array literal with the assistence of type inference
 let a: [Element] = []
 
-func dealWith(array: [Int]) {
+func dealWith(array: [Element]) {
 // ...
 }
 
@@ -220,6 +221,7 @@ let a = a1 + a2
 </ul>
 
 <pre><code class="language-swift">let a = [&quot;Eggs&quot;, &quot;Oil&quot;]
+let b: [Int] = [] // is equivalent to `let b = [Int]()`
 </code></pre>
 
 <h1 id="set:44c0ce01208e3b3fad3c9dc1017fc36f">Set</h1>
@@ -252,23 +254,52 @@ dealWith(set: [])
 </code></pre>
 
 <ul>
-<li>with an array literal</li>
+<li>with an <strong>array</strong> literal</li>
 </ul>
 
-<pre><code class="language-swift">// similar with array, but must be annotated as a Set type explicitly.
+<pre><code class="language-swift">// similar with array, but must be annotated as a Set type explicitly, thus
+// force converting the array literal into a set
 let a: Set&lt;String&gt; = [&quot;Apple&quot;, &quot;iOS&quot;, &quot;Mac OS X&quot;]
+
 // annotation can be shortened by type inference
 let a: Set = [1, 2, 3]
 </code></pre>
 
 <h1 id="dictionary:44c0ce01208e3b3fad3c9dc1017fc36f">Dictionary</h1>
 
-<p>Type annotaion:</p>
+<p>Type annotation:</p>
 
 <ul>
 <li><p>Full type name <code>Dictionary&lt;Key, Value&gt;</code></p></li>
 
-<li><p>Shorthand &amp; preferred name <code>[Key: Value]</code></p></li>
+<li><p>Shorthand &amp; preferred type name <code>[Key: Value]</code></p></li>
+</ul>
+
+<p>Initializes an array:</p>
+
+<ul>
+<li>with zero elements</li>
+</ul>
+
+<pre><code class="language-swift">// full syntax
+let a = Dictrionary&lt;Key: Value&gt;()
+
+// short &amp; preferred syntax
+let a = [Key: Value]()
+
+// shortest syntax when the type inference is present
+// `[:]` here is the empty dictionary literal with the assistence of type inference
+let a: [Key: Value] = [:]
+
+func dealWith(array: [Key: Value]) {
+// ...
+}
+
+dealWith(array: [:])
+</code></pre>
+
+<ul>
+<li></li>
 </ul>
 
         </div>
