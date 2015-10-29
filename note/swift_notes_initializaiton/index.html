@@ -158,12 +158,12 @@
 <li><a href="#compiler-synthesized-initializers:0b95b25ccfd336225d990e53cc417a23">Compiler Synthesized Initializers</a></li>
 <li><a href="#initializer-delegation:0b95b25ccfd336225d990e53cc417a23">Initializer Delegation</a>
 <ul>
-<li><a href="#3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation</a></li>
-<li><a href="#two-phase-initialization:0b95b25ccfd336225d990e53cc417a23">Two-Phase Initialization</a></li>
+<li><a href="#span-style-color-red-font-size-1-5em-3-span-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">3</span> rules for class initializer delegation</a></li>
+<li><a href="#span-style-color-red-font-size-1-5em-2-span-phase-initialization-ensured-by-span-style-color-red-font-size-1-5em-4-span-safty-checks:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">2</span>-Phase Initialization Ensured by <span style="color:red; font-size:1.5em">4</span> Safty Checks</a></li>
+</ul></li>
 <li><a href="#initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</a>
 <ul>
-<li><a href="#2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance</a></li>
-</ul></li>
+<li><a href="#span-style-color-red-font-size-1-5em-2-span-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23"><span style="color: red; font-size: 1.5em">2</span> prerequisites for automatic initializer inheritance</a></li>
 </ul></li>
 <li><a href="#failable-initializer:0b95b25ccfd336225d990e53cc417a23">Failable Initializer</a></li>
 <li><a href="#required-initializer:0b95b25ccfd336225d990e53cc417a23">Required Initializer</a></li>
@@ -288,7 +288,7 @@ to default or memberwise initializer in the body.</p>
 <li>Convenience initializers &ndash; <code>convenience init(...)</code></li>
 </ol>
 
-<h2 id="3-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23">3 rules for class initializer delegation</h2>
+<h2 id="span-style-color-red-font-size-1-5em-3-span-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">3</span> rules for class initializer delegation</h2>
 
 <ol>
 <li>A designated initializer must call a designated initializer from its
@@ -300,13 +300,11 @@ immediate superclass.</li>
 <p>put simply:</p>
 
 <ol>
-<li>Convenience initializer delegation across &ndash; <code>init(...)</code></li>
+<li>Convenience initializer delegation across &ndash; <code>self.init(...)</code></li>
 <li>Designated initializer delegation upwards &ndash; <code>super.init(...)</code></li>
 </ol>
 
-<h2 id="two-phase-initialization:0b95b25ccfd336225d990e53cc417a23">Two-Phase Initialization</h2>
-
-<p>4 safety checks that Swift compiler perform to ensure 2-phase initialization:</p>
+<h2 id="span-style-color-red-font-size-1-5em-2-span-phase-initialization-ensured-by-span-style-color-red-font-size-1-5em-4-span-safty-checks:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">2</span>-Phase Initialization Ensured by <span style="color:red; font-size:1.5em">4</span> Safty Checks</h2>
 
 <ol>
 <li>In designated initializer, initialize all local stored properties before
@@ -319,12 +317,12 @@ then it can
 
 <ul>
 <li>call any instance methods or subscripts</li>
-<li>read any instance properties</li>
+<li>read any instance properties (stored or computed)</li>
 <li>reference <code>self</code> as an value</li>
 </ul></li>
 </ol>
 
-<h2 id="initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</h2>
+<h1 id="initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</h1>
 
 <p>Unlike subclasses in Objective-C, Swift subclasses do <strong>NOT</strong> inherit their
 superclass initializers by default. Only when certain rules are satisfied can
@@ -335,7 +333,7 @@ implementation of a superclass <strong>convenience initializer</strong> (<em>bec
 delegate up to it counterpart in superclass, the implementation is not
 considered as a overriding</em>)</p>
 
-<h3 id="2-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23">2 prerequisites for automatic initializer inheritance</h3>
+<h2 id="span-style-color-red-font-size-1-5em-2-span-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23"><span style="color: red; font-size: 1.5em">2</span> prerequisites for automatic initializer inheritance</h2>
 
 <ol>
 <li>If your subclass doesn&rsquo;t define any designated initializers, it
