@@ -4224,7 +4224,7 @@ animated along with the revealing of keyboard perfectly.</p>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/engligh_vocabulary_confusion/">
+          <a href="http://mudox.github.io/memo/english_vocabulary_confusion/">
             ENGLISH VOCABULARY - CONFUSION GROUPS
           </a>
         </h1>
@@ -4649,7 +4649,7 @@ knapsack, hiking bag</p>
 
 <hr />
 
-<p>surge
+<p>surge<br />
 resurrect, resurrection == resurgent, resurgence<br />
 insurrection, insurrectionist, insurrectionary == insurgent, insurgence, insurgency<br />
 rebel, rebellion, rebellious, rebelliousness</p>
@@ -4660,6 +4660,58 @@ rebel, rebellion, rebellious, rebelliousness</p>
 burgeon<br />
 curmudgeon<br />
 pigeon</p>
+
+<hr />
+
+<p>agile, agility<br />
+fragile, fragility, crisp, brittle, delicate</p>
+
+<hr />
+
+<p>anaerobe, anaerobic<br />
+anhydrous, dehydrate<br />
+anorexia, anorexic</p>
+
+<hr />
+
+<p>affable<br />
+amiable, amiability<br />
+amity &lt;-&gt; enmity<br />
+amicable</p>
+
+<hr />
+
+<p>acuity<br />
+acumen</p>
+
+<hr />
+
+<p>unmeasurable, immeasurable<br />
+mensurate, immensurable<br />
+commensurate</p>
+
+<hr />
+
+<p>limber<br />
+lumber<br />
+grumpy<br />
+grumble</p>
+
+<hr />
+
+<p>squeeze<br />
+squal<br />
+squelch, squash, quell<br />
+mash, smash<br />
+mars<br />
+pulp<br />
+rush, crush<br />
+rash, crash<br />
+clash<br />
+crumb, crumble<br />
+rumple, crumple<br />
+rumble, grumble<br />
+grump, grumpy</p>
 
       </div>
       
@@ -5384,31 +5436,35 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_sh/">
-            ERROR COLLECTION - BASH
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
           </a>
         </h1>
 
         <span class="post-date">Fri, Nov 7, 2014</span>
 
-        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
 
 <ul>
-<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
+<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
 </ul>
 
-<pre><code class="language-bash">select answer in #choices#; do
-  #body#
-  break; # &lt;- go out of selection loop.
-done
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
 </code></pre>
 
 <ul>
-<li><p>Always <code>source</code> before testing a updated command.</p></li>
+<li>appending <code>()</code> to a property name.</li>
+</ul>
 
-<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
-<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
-expanded string as a <strong>single word</strong>.</p></li>
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+</code></pre>
+
+<ul>
+<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
 </ul>
 
       </div>
@@ -5455,35 +5511,31 @@ a real number.</p></li>
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_javascript/">
-            ERROR COLLECTION - JAVASCRIPT
+          <a href="http://mudox.github.io/memo/error_collection_sh/">
+            ERROR COLLECTION - BASH
           </a>
         </h1>
 
         <span class="post-date">Fri, Nov 7, 2014</span>
 
-        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+        <p>Errors that I collected day by day, when writing the Bash scripting language.</p>
 
 <ul>
-<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
+<li>Body of <code>select</code> constructs need a <code>break;</code> to quit the selection loop.</li>
 </ul>
 
-<pre><code class="language-javascript">window.onload = init/*()*/
-
-function init() {
-  // ...
-}
+<pre><code class="language-bash">select answer in #choices#; do
+  #body#
+  break; # &lt;- go out of selection loop.
+done
 </code></pre>
 
 <ul>
-<li>appending <code>()</code> to a property name.</li>
-</ul>
+<li><p>Always <code>source</code> before testing a updated command.</p></li>
 
-<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
-</code></pre>
-
-<ul>
-<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
+<li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
+<code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
+expanded string as a <strong>single word</strong>.</p></li>
 </ul>
 
       </div>
