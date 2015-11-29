@@ -147,73 +147,6 @@
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/my_awesome_list_vim_editor/">
-            MY AWESOME LIST - (Neo)Vim Editor
-          </a>
-        </h1>
-
-        <span class="post-date">Sun, Oct 25, 2015</span>
-
-        
-
-<p>My awesome list about the (Neo)Vim Editor.</p>
-
-<h1 id="sites:76cf9a055be8e5bb93a1a66dd77b4d27">Sites</h1>
-
-<ul>
-<li><p><a href="http://vimawesome.com/">VimAwesome</a></p>
-
-<p>A awesome list for (Neo)Vim&rsquo;s great plugins</p></li>
-</ul>
-
-<h1 id="sripting:76cf9a055be8e5bb93a1a66dd77b4d27">Sripting</h1>
-
-<ul>
-<li><p><a href="https://google.github.io/styleguide/vimscriptguide.xml">Google Vimscript Style Guide</a></p></li>
-
-<li><p><a href="http://rbtnn.hateblo.jp/entry/2014/12/28/010913">Anti-Pattern of vimrc</a></p>
-
-<p>some good patterns vs bad patterns</p></li>
-</ul>
-
-<h1 id="test-ci:76cf9a055be8e5bb93a1a66dd77b4d27">Test &amp; CI</h1>
-
-<ul>
-<li><p><a href="https://github.com/kana/vim-vspec">vim-vspec</a></p>
-
-<p>The first test framework I learned</p></li>
-
-<li><p><a href="https://github.com/junegunn/vader.vim">vader.vim</a></p>
-
-<p>A simple Vimscript test framework written by
-<a href="https://github.com/junegunn/vim-plug">vim-plug</a>&rsquo;s author
-<a href="https://github.com/junegunn">junegunn</a></p></li>
-
-<li><p><a href="https://github.com/benekastah/neomake">neomake</a></p>
-
-<p>A plugin for asynchronous :make using Neovim&rsquo;s job-control functionality</p></li>
-
-<li><p><a href="https://github.com/tpope/vim-dispatch">vim-dispatch</a></p>
-
-<p>dispatch.vim: asynchronous build and test dispatcher, used mainly for Vim</p></li>
-
-<li><p><a href="https://github.com/janko-m/vim-test">vim-test</a></p>
-
-<p>Run your tests at the speed of thought</p></li>
-
-<li><p><a href="https://github.com/kassio/neoterm">neoterm</a></p>
-
-<p>Wrapper of some neovim&rsquo;s :terminal functions</p></li>
-
-<li><p><a href="https://github.com/Kuniwak/vint">vint</a></p>
-
-<p>Fast and Highly Extensible Vim script Language Lint implemented by Python</p></li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/my_awesome_list_bash_lang/">
             MY AWESOME LIST - BASH
           </a>
@@ -1764,6 +1697,100 @@ dict.valuesForKeys([]).last
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/post/translation_swift_what_happened_to_nsmethodsiganiture/">
+            Swift 官博文章翻译 - NSMethodSiganiture 发生了什么？
+          </a>
+        </h1>
+
+        <span class="post-date">Wed, May 6, 2015</span>
+
+        <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=19">What Happened to NSMethodSiganiture?</a></p>
+
+<p>译者：Mudox</p>
+
+<p>将 Cocoa 框架引入 Swift 语言带给我们一个独一无二的机会，让我们能从一个全新的角度重新审视之前的 APIs 的合理性。我们发现，多数是由于 Swift 对安全性的要求，Cocoa 框架中的一些 API 不能很好的适应 Swift。那些与动态方法调用有关的的类无法导入到 Swift 中，比如 <code>NSInvocation</code>，<code>NSMethodSiganiture</code>。</p>
+
+<p>我们最近收到了一个开发人员的 bug 报告，他试图把他的的代码移植到 Swift，打算使用 <code>NSMethodSiganiture</code> 来检视方法实参的类型，结果发现 <code>NSMethodSiganiture</code> 并没有导入到 Swift 中。他要移植的代码需要接受不同签名的 HTTP 处理函数，比如：</p>
+
+<pre><code class="language-swift">func handleRequest(request: HTTPRequest, queryStringArguments: [String: String]) { }
+func handleRequest(request: HTTPRequest, jsonBody: JSON) { }
+</code></pre>
+
+<p>在 Objective-C 中，可以用 <code>NSMethodSiganiture</code> 判断出第一个方法需要 <code>[String: String]</code> 作为实参，而第二个方法则需要 <code>JSON</code> 值。而 Swift 的功能十分强大，无需 <code>NSMethodSiganiture</code>，也不会违反编译器提供类型和内存安全性规则就能轻松处理好此类情况。下面的代码用 Swift 的方式来解决上面的问题：</p>
+
+<pre><code class="language-swift">struct HTTPRequest {
+  // ...
+}
+
+protocol HTTPHandlerType {
+  typealias Data
+
+  /// :returns: true if the request was handled; false otherwise
+  func handle(request: HTTPRequest, data: Data) -&gt; Bool
+}
+</code></pre>
+
+<p>我们首先声明一个协议定义处理 HTTP 请求需要满足的接口。这个协议非常简单，只有一个方法。</p>
+
+<p>为什么不子类型化 <code>HTTPHandler</code> 呢，因为使用协议能提供更大灵活性，由用户来决定用什么来实现。如果我们定义的时一个 <code>HTTPHandler</code> 类，那么就会要求用户只能使用类类型，强迫他们使用引用类型。反之使用协议的换，用户可以自用的决定用什么来实现协议，用类，结构体甚至是枚举类型都可以。</p>
+
+<pre><code class="language-swift">class HTTPServer {
+  func addHandler&lt;T: HTTPHandlerType&gt;(handler: T) {
+    handlers.append { (request: HTTPRequest, args: Any) -&gt; Bool in
+      if let typedArgs = args as? T.Data {
+        return handler.handle(request, data: typedArgs)
+      }
+      return false
+    }
+  }
+
+  // ...
+}
+</code></pre>
+
+<p>然后我们定义一个 <code>HTTPServer</code> 类，给它添加一个泛型方法，接受一个遵守 <code>HTTPHandlerType</code> 协议的类型参数。有了这个关联的类型参数，我们就可以通过对传入的请求数据执行条件化的向下转化来判断某个处理函数是否能处理此类数据。这就是定义协议的好处，<code>HTTPServer</code> 不需要知道处理器如何处理数据，甚至不需要知道它的具体类型。它只需确认这个对象有处理请求的能力（接口）就好了。</p>
+
+<pre><code class="language-swift">class HTTPServer {
+  // ...
+
+  private var handlers: [(HTTPRequest, Any) -&gt; Bool] = []
+
+  func dispatch(req: HTTPRequest, args: Any) -&gt; Bool {
+    for handler in handlers {
+      if handler(req, args) {
+        return true
+      }
+    }
+    return false
+  }
+}
+</code></pre>
+
+<p>当我们的 <code>HTTPServer</code> 需要处理请求是，它只需便利我们的请求处理对象，看哪个能处理传入的请求和数据。</p>
+
+<p>现在我们就可以轻松的创建处理各式各样类型数据的请求处理对象，并把他们注册到 <code>HTTPServer</code> 上。</p>
+
+<pre><code class="language-swift">class MyHandler : HTTPHandlerType {
+  func handle(request: HTTPRequest, data: Int) -&gt; Bool {
+    return data &gt; 5
+  }
+}
+
+let server = HTTPServer()
+server.addHandler(MyHandler())
+server.dispatch(HTTPRequest(...), args: &quot;x&quot;) // returns false
+server.dispatch(HTTPRequest(...), args: 5)   // returns false
+server.dispatch(HTTPRequest(...), args: 10)  // returns true
+</code></pre>
+
+<p>通过配合使用协议和泛型，我们可以用 Swift 优雅的定义处理各式各样数据类型的 HTTP 请求对象。同时也不会破坏编译器已有的安全性规则，并获得出色的运行时表现。</p>
+
+<p>您可以下载本文完整的示例代码，我们把它放在了一个 <a href="https://developer.apple.com/swift/blog/downloads/Request.zip">Swift Playground</a> 中。</p>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/post/translation_swift_redefining_everything_with_the_swift/">
             Swift 官博文章翻译 - Swift REPL 的重定义特性
           </a>
@@ -1878,100 +1905,6 @@ New Message
 <p>接着我们在第 35 行对之前在第 30 行定义的 <code>message</code>  变量赋予新值。在第 36 行我们再次调用 <code>printMessage()</code> ，和我们预期的一样，打印出来的是新赋予的字符串。然后我们在第 37 行重新定义了变量 <code>message</code>，这样就遮住了之前的定义，让后面的代码只能看到 <code>message</code> 的新的定义。但是我们在 38 调用的是 <code>printMessage()</code> 函数, 它恰恰是在重定义 <code>message</code> 之前定义的，因此它保留的是 <code>message</code> 之前的定义，打印还是之前的字符串。 而在第 39 行，我们敲入的是新代码，它引用的自然就是重定义之后的 <code>message</code>。</p>
 
 <p>无论是函数，变量还是类型，他们在 REPL 中的重定义机制都是如此。尽管 REPL 能让您轻松的重定义标识符，但是重定义之前的被编译了的引用不会再改变。如果上面的 <code>message</code> 被重定义为一个类型而非变量会发生什么情况呢？<code>printMessage</code> 将不会再编译（这和我的实验不符，message 函数依然能被调用，打印的是之前的值）。与其每每碰到边界情况时没完没了的询问用户该怎么做，Swift REPL 努力坚持一个自我一致的世界观。</p>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/post/translation_swift_what_happened_to_nsmethodsiganiture/">
-            Swift 官博文章翻译 - NSMethodSiganiture 发生了什么？
-          </a>
-        </h1>
-
-        <span class="post-date">Wed, May 6, 2015</span>
-
-        <p>原文链接：<a href="https://developer.apple.com/swift/blog/?id=19">What Happened to NSMethodSiganiture?</a></p>
-
-<p>译者：Mudox</p>
-
-<p>将 Cocoa 框架引入 Swift 语言带给我们一个独一无二的机会，让我们能从一个全新的角度重新审视之前的 APIs 的合理性。我们发现，多数是由于 Swift 对安全性的要求，Cocoa 框架中的一些 API 不能很好的适应 Swift。那些与动态方法调用有关的的类无法导入到 Swift 中，比如 <code>NSInvocation</code>，<code>NSMethodSiganiture</code>。</p>
-
-<p>我们最近收到了一个开发人员的 bug 报告，他试图把他的的代码移植到 Swift，打算使用 <code>NSMethodSiganiture</code> 来检视方法实参的类型，结果发现 <code>NSMethodSiganiture</code> 并没有导入到 Swift 中。他要移植的代码需要接受不同签名的 HTTP 处理函数，比如：</p>
-
-<pre><code class="language-swift">func handleRequest(request: HTTPRequest, queryStringArguments: [String: String]) { }
-func handleRequest(request: HTTPRequest, jsonBody: JSON) { }
-</code></pre>
-
-<p>在 Objective-C 中，可以用 <code>NSMethodSiganiture</code> 判断出第一个方法需要 <code>[String: String]</code> 作为实参，而第二个方法则需要 <code>JSON</code> 值。而 Swift 的功能十分强大，无需 <code>NSMethodSiganiture</code>，也不会违反编译器提供类型和内存安全性规则就能轻松处理好此类情况。下面的代码用 Swift 的方式来解决上面的问题：</p>
-
-<pre><code class="language-swift">struct HTTPRequest {
-  // ...
-}
-
-protocol HTTPHandlerType {
-  typealias Data
-
-  /// :returns: true if the request was handled; false otherwise
-  func handle(request: HTTPRequest, data: Data) -&gt; Bool
-}
-</code></pre>
-
-<p>我们首先声明一个协议定义处理 HTTP 请求需要满足的接口。这个协议非常简单，只有一个方法。</p>
-
-<p>为什么不子类型化 <code>HTTPHandler</code> 呢，因为使用协议能提供更大灵活性，由用户来决定用什么来实现。如果我们定义的时一个 <code>HTTPHandler</code> 类，那么就会要求用户只能使用类类型，强迫他们使用引用类型。反之使用协议的换，用户可以自用的决定用什么来实现协议，用类，结构体甚至是枚举类型都可以。</p>
-
-<pre><code class="language-swift">class HTTPServer {
-  func addHandler&lt;T: HTTPHandlerType&gt;(handler: T) {
-    handlers.append { (request: HTTPRequest, args: Any) -&gt; Bool in
-      if let typedArgs = args as? T.Data {
-        return handler.handle(request, data: typedArgs)
-      }
-      return false
-    }
-  }
-
-  // ...
-}
-</code></pre>
-
-<p>然后我们定义一个 <code>HTTPServer</code> 类，给它添加一个泛型方法，接受一个遵守 <code>HTTPHandlerType</code> 协议的类型参数。有了这个关联的类型参数，我们就可以通过对传入的请求数据执行条件化的向下转化来判断某个处理函数是否能处理此类数据。这就是定义协议的好处，<code>HTTPServer</code> 不需要知道处理器如何处理数据，甚至不需要知道它的具体类型。它只需确认这个对象有处理请求的能力（接口）就好了。</p>
-
-<pre><code class="language-swift">class HTTPServer {
-  // ...
-
-  private var handlers: [(HTTPRequest, Any) -&gt; Bool] = []
-
-  func dispatch(req: HTTPRequest, args: Any) -&gt; Bool {
-    for handler in handlers {
-      if handler(req, args) {
-        return true
-      }
-    }
-    return false
-  }
-}
-</code></pre>
-
-<p>当我们的 <code>HTTPServer</code> 需要处理请求是，它只需便利我们的请求处理对象，看哪个能处理传入的请求和数据。</p>
-
-<p>现在我们就可以轻松的创建处理各式各样类型数据的请求处理对象，并把他们注册到 <code>HTTPServer</code> 上。</p>
-
-<pre><code class="language-swift">class MyHandler : HTTPHandlerType {
-  func handle(request: HTTPRequest, data: Int) -&gt; Bool {
-    return data &gt; 5
-  }
-}
-
-let server = HTTPServer()
-server.addHandler(MyHandler())
-server.dispatch(HTTPRequest(...), args: &quot;x&quot;) // returns false
-server.dispatch(HTTPRequest(...), args: 5)   // returns false
-server.dispatch(HTTPRequest(...), args: 10)  // returns true
-</code></pre>
-
-<p>通过配合使用协议和泛型，我们可以用 Swift 优雅的定义处理各式各样数据类型的 HTTP 请求对象。同时也不会破坏编译器已有的安全性规则，并获得出色的运行时表现。</p>
-
-<p>您可以下载本文完整的示例代码，我们把它放在了一个 <a href="https://developer.apple.com/swift/blog/downloads/Request.zip">Swift Playground</a> 中。</p>
 
       </div>
       
@@ -4737,7 +4670,7 @@ acumen</p>
 
 <p>unmeasurable, immeasurable<br />
 mensurate, immensurable<br />
-commensurate</p>
+commensurat</p>
 
 <hr />
 
@@ -5485,41 +5418,6 @@ npm install csscomb -g
       
       <div class="post">
         <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/error_collection_javascript/">
-            ERROR COLLECTION - JAVASCRIPT
-          </a>
-        </h1>
-
-        <span class="post-date">Fri, Nov 7, 2014</span>
-
-        <p>Errors that I collected day by day when writing the JavaScript language.</p>
-
-<ul>
-<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
-</ul>
-
-<pre><code class="language-javascript">window.onload = init/*()*/
-
-function init() {
-  // ...
-}
-</code></pre>
-
-<ul>
-<li>appending <code>()</code> to a property name.</li>
-</ul>
-
-<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
-</code></pre>
-
-<ul>
-<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
-</ul>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/error_collection_bash/">
             ERROR COLLECTION - BASH
           </a>
@@ -5585,6 +5483,41 @@ done
 <li><p>Whence quoted with <code>&quot;</code>, which is the most case, use the <code>@</code> form (i.e.
 <code>&quot;${ARRAY[@]}&quot;</code>) to expand a array correctly. The <code>*</code> form will make the
 expanded string as a <strong>single word</strong>.</p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/error_collection_javascript/">
+            ERROR COLLECTION - JAVASCRIPT
+          </a>
+        </h1>
+
+        <span class="post-date">Fri, Nov 7, 2014</span>
+
+        <p>Errors that I collected day by day when writing the JavaScript language.</p>
+
+<ul>
+<li>when assign a function to a event property, dot not appending <code>()</code> to the function name.</li>
+</ul>
+
+<pre><code class="language-javascript">window.onload = init/*()*/
+
+function init() {
+  // ...
+}
+</code></pre>
+
+<ul>
+<li>appending <code>()</code> to a property name.</li>
+</ul>
+
+<pre><code class="language-javascript">var x = Math.floor(Math.random() * canvas.width/*()*/
+</code></pre>
+
+<ul>
+<li><code>$(this)</code> not <code>$(&quot;this&quot;)</code>.</li>
 </ul>
 
       </div>
@@ -7062,6 +6995,83 @@ loop object.</p></li>
 
 <li><p>Perform selector routines</p></li>
 </ol>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/my_awesome_list_vim_editor/">
+            
+          </a>
+        </h1>
+
+        <span class="post-date">Mon, Jan 1, 0001</span>
+
+        
+
+<p>+++kk
+date      = &ldquo;2015-10-25T12:01:48+08:00&rdquo;
+draft     = true
+title     = &ldquo;MY AWESOME LIST - (Neo)Vim Editor&rdquo;</p>
+
+<p>tags      = [&ldquo;VIM&rdquo;]
+languages = [&ldquo;VimL&rdquo;]
++++</p>
+
+<p>My awesome list about the (Neo)Vim Editor.</p>
+
+<h1 id="sites:76cf9a055be8e5bb93a1a66dd77b4d27">Sites</h1>
+
+<ul>
+<li><p><a href="http://vimawesome.com/">VimAwesome</a></p>
+
+<p>A awesome list for (Neo)Vim&rsquo;s great plugins</p></li>
+</ul>
+
+<h1 id="sripting:76cf9a055be8e5bb93a1a66dd77b4d27">Sripting</h1>
+
+<ul>
+<li><p><a href="https://google.github.io/styleguide/vimscriptguide.xml">Google Vimscript Style Guide</a></p></li>
+
+<li><p><a href="http://rbtnn.hateblo.jp/entry/2014/12/28/010913">Anti-Pattern of vimrc</a></p>
+
+<p>some good patterns vs bad patterns, the plugin
+<a href="https://github.com/Kuniwak/vint">vint</a> adopts rules described here.</p></li>
+</ul>
+
+<h1 id="test-ci:76cf9a055be8e5bb93a1a66dd77b4d27">Test &amp; CI</h1>
+
+<ul>
+<li><p><a href="https://github.com/kana/vim-vspec">vim-vspec</a></p>
+
+<p>The first test framework I learned</p></li>
+
+<li><p><a href="https://github.com/junegunn/vader.vim">vader.vim</a></p>
+
+<p>A simple Vimscript test framework written by
+<a href="https://github.com/junegunn/vim-plug">vim-plug</a>&rsquo;s author
+<a href="https://github.com/junegunn">junegunn</a></p></li>
+
+<li><p><a href="https://github.com/benekastah/neomake">neomake</a></p>
+
+<p>A plugin for asynchronous :make using Neovim&rsquo;s job-control functionality</p></li>
+
+<li><p><a href="https://github.com/tpope/vim-dispatch">vim-dispatch</a></p>
+
+<p>dispatch.vim: asynchronous build and test dispatcher, used mainly for Vim</p></li>
+
+<li><p><a href="https://github.com/janko-m/vim-test">vim-test</a></p>
+
+<p>Run your tests at the speed of thought</p></li>
+
+<li><p><a href="https://github.com/kassio/neoterm">neoterm</a></p>
+
+<p>Wrapper of some neovim&rsquo;s :terminal functions</p></li>
+
+<li><p><a href="https://github.com/Kuniwak/vint">vint</a></p>
+
+<p>Fast and Highly Extensible Vim script Language Lint implemented by Python</p></li>
+</ul>
 
       </div>
       
