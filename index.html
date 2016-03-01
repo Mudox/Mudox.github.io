@@ -150,6 +150,170 @@
       
       <div class="post">
         <h1 class="post-title">
+          <a href="http://mudox.github.io/note/swift_notes_pattern_match/">
+            SWIFT NOTES - PATTERN MATCHING
+          </a>
+        </h1>
+
+        <span class="post-date">Sun, Jan 17, 2016</span>
+
+        
+
+<p>The original title was &ldquo;SWIFT NOTES - SWITCH&rdquo;, after doing some further reading
+and learning, I realized that it should be all about <strong>pattern matching</strong>.</p>
+
+<p>But the whole story begins with the Swift switch statement for sure &hellip;</p>
+
+<h1 id="switch-statement-features:ee842661c20faea6c9b6b6b907da0a08">Switch Statement Features</h1>
+
+<ul>
+<li><p>No implicitly fall-through</p>
+
+<p>Unlike C, we must use the reserved word <code>fallthrough</code> to fallthrough into
+next case explicitly</p></li>
+
+<li><p>Pattern listing</p>
+
+<p>Enumerate multiple patterns in one <code>case</code> statement, separated by commas
+<code>,</code> implies <strong>OR</strong> logical</p></li>
+
+<li><p>Use <code>where</code> clauses to narrow down the selection further, if a binding
+happens in the case.</p></li>
+
+<li><p>Matching must be exaustive</p></li>
+
+<li><p>The most significant feature is the way to match with target data, it is so
+versatile and powerful that it deserves a entire section to introduce it.</p></li>
+</ul>
+
+<h1 id="pattern-matching:ee842661c20faea6c9b6b6b907da0a08">Pattern Matching</h1>
+
+<p>Simply put, pattern matching is a mechanism (a group of syntaxes) provided by the
+Swift language for you to matching with a target data (record) structually, and
+if you want, extracts the data (field(s)) in interest at the same time.</p>
+
+<p>Currently Swift defines 7 types of pattern matching, by proper use of
+which you can write more clear, succinct code, getting rid of spaghetti of
+<code>if</code> branches.</p>
+
+<ol>
+<li><p>Match traditionally &ndash; identifier matching</p>
+
+<p>value == value matching, the most common one.</p></li>
+
+<li><p>Wild match with a value &ndash; the wildcard pattern <code>_</code></p>
+
+<p>The <code>_</code> matches any thing even <code>nil</code>.</p>
+
+<p>Suffixing <code>_</code> with a <code>?</code> (<code>_?</code>) narrows the match range down to only
+those non-nil optionals. (i.e when matching with optional values, <code>nil</code> &amp;
+<code>_?</code> are mutually complementary).</p></li>
+
+<li><p>Match with optional &ndash; value binding matching</p>
+
+<p>matching a non-nil optional and at the same time unwrap and bind a
+identifier to the inner value</p></li>
+
+<li><p>Match with tuple &ndash; tuple matching</p>
+
+<p><code>let</code> or <code>var</code> key can appear member-wise or appear outside once</p></li>
+
+<li><p>Match with <code>enum</code> case &ndash; <code>enum</code> case matching</p></li>
+
+<li><p>Math with casted type &ndash; type-casting matching</p>
+
+<p><code>case is AType</code> performs a type casting behind to see if succeed and
+discard the result.</p>
+
+<p><code>case let n as AType</code> performs the type casting and bind the result to
+<code>n</code> for use in the case body.</p></li>
+
+<li><p>Match with expression &ndash; expression matching</p>
+
+<p>The most flexible one that enable you to define you own pattern.</p>
+
+<p>Match with types which implement the <code>~=</code> operator, just like <code>===</code>
+operator in Ruby, where <code>case</code> things appear as the left hand side
+operand, <code>which</code> things as right hand side operand.</p>
+
+<p>There has been default implementations of <code>~=</code> for some types such as:
+Range&lt;&gt;</p>
+
+<p><strong>EXCEPTION</strong>: overloading <code>~=</code> with a tumple as the left hand side incur
+panic in <code>switch</code> statement.</p></li>
+</ol>
+
+<p>Given the aboves you could known that Swift encourages you to use optionals,
+tuples and <code>enum</code>s which are smoothly fitted with pattern matching mechanism to
+produce a terse and clear codebase.</p>
+
+<h1 id="an-example-demonstrating-all-the-features-above:ee842661c20faea6c9b6b6b907da0a08">An Example Demonstrating All the Features Above</h1>
+
+<pre><code class="language-swift">var aPoint = (x: 2, y: -1)
+// labeled `swtich`
+// NOTE: only loop statements and 'switch' statement can labeled.
+theSwitch: switch aPoint {
+// against tuple
+case (0, 0):
+  println(&quot;origin point&quot;)
+
+// against multiple conditions separated by comma
+case (1, 1), (2, 2):
+  println(&quot;(1, 1) or (2, 2)&quot;)
+
+// '_' means 'any value is ok'
+case (_, 0):
+  // the `break` here is just like the `pass` in python, acting as a
+  // 'placeholder statement', nullifing this case branch.
+  break
+
+case (0, _):
+  println(&quot;on the Y-axis&quot;)
+
+// a expression matching nested in tuple matching
+case (-2...2, -2...2):
+  println(&quot;on or in the 2x2 box&quot;)
+
+// value binding nested in tuple matching
+case (let x, -10):
+  println(&quot;on the horizontal line y = -10, with a x value: \(x)&quot;)
+
+// where clause
+// NOTE: `let` can be replaced with `var` if you need to change the bound
+// value afterwards.
+case (0, var y) where y &gt;= 0:
+  y++    // mutable
+  println(&quot;on the 1st or 2nd quadrant&quot;)
+
+// value binding all members
+case let (x, y):
+  theLoop: for i in 1..&lt;100 {
+    switch i {
+      case let x where (x &amp; 1) == 1: // a odd number
+        break theSwitch     // jump further
+      default:
+        continue theLoop    // jump
+    }
+  }
+}
+</code></pre>
+
+<h1 id="references:ee842661c20faea6c9b6b6b907da0a08">References</h1>
+
+<ul>
+<li><p><a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Patterns.html#//apple_ref/doc/uid/TP40014097-CH36-ID419">Patterns, what the official say</a></p></li>
+
+<li><p><a href="http://appventure.me/2015/08/20/swift-pattern-matching-in-detail/">Match me if you can</a></p></li>
+
+<li><p><a href="http://austinzheng.com/2014/12/16/swift-pattern-matching-switch/">Swift&rsquo;s pattern matching switch statement</a></p></li>
+
+<li><p><a href="http://austinzheng.com/2014/12/17/custom-pattern-matching/">Custom pattern matching in Swift</a></p></li>
+</ul>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
           <a href="http://mudox.github.io/memo/my_awesome_list_ruby_lang/">
             MY AWESOME LIST - RUBY
           </a>
@@ -325,8 +489,96 @@
 <td>?</td>
 <td>?</td>
 </tr>
+
+<tr>
+<td>str concat</td>
+<td>str + str</td>
+<td>str str</td>
+<td>str str</td>
+<td>str + str</td>
+<td>str + str</td>
+<td>str . str</td>
+<td>str .. str</td>
+<td>?</td>
+</tr>
 </tbody>
 </table>
+
+      </div>
+      
+      <div class="post">
+        <h1 class="post-title">
+          <a href="http://mudox.github.io/memo/my_awesome_list_vim_editor/">
+            MY AWESOME LIST - (Neo)Vim Editor
+          </a>
+        </h1>
+
+        <span class="post-date">Sun, Oct 25, 2015</span>
+
+        
+
+<p>My awesome list about the Vim(Neovim) Editor.</p>
+
+<h1 id="sites:76cf9a055be8e5bb93a1a66dd77b4d27">Sites</h1>
+
+<ul>
+<li><p><a href="http://vimawesome.com/">VimAwesome</a></p>
+
+<p>A awesome list for (Neo)Vim&rsquo;s great plugins</p></li>
+</ul>
+
+<h1 id="sripting:76cf9a055be8e5bb93a1a66dd77b4d27">Sripting</h1>
+
+<ul>
+<li><p><a href="https://google.github.io/styleguide/vimscriptguide.xml">Google Vimscript Style Guide</a></p></li>
+
+<li><p><a href="http://rbtnn.hateblo.jp/entry/2014/12/28/010913">Anti-Pattern of vimrc</a></p>
+
+<p>some good patterns vs bad patterns, the plugin
+<a href="https://github.com/Kuniwak/vint">vint</a> adopts rules described here.</p></li>
+</ul>
+
+<h1 id="test-ci:76cf9a055be8e5bb93a1a66dd77b4d27">Test &amp; CI</h1>
+
+<ul>
+<li><p><a href="https://github.com/kana/vim-vspec">vim-vspec</a></p>
+
+<p>The old one, using RSpec syntax, needs some external dependencies</p></li>
+
+<li><p><a href="https://github.com/junegunn/vader.vim">vader.vim</a></p>
+
+<p>A simple Vimscript test framework written by
+<a href="https://github.com/junegunn/vim-plug">vim-plug</a>&rsquo;s author
+<a href="https://github.com/junegunn">junegunn</a>.
+It is the test framework I am using currently, it&rsquo;s neat and of pure VimL</p></li>
+
+<li><p><a href="https://github.com/neovim/neovim">lua testing framework used by Neovim</a></p>
+
+<p>Based on the lua&rsquo;s test framework <a href="http://olivinelabs.com/busted/">busted</a>,
+Neovim community have been using it for testing the Neovim project. When
+the <a href="https://github.com/neovim/lua-client">lua-client</a> comes to mature, it
+will be published to Neovim plugin authors. I am looking forward to it.</p></li>
+
+<li><p><a href="https://github.com/benekastah/neomake">neomake</a></p>
+
+<p>A plugin for asynchronous :make using Neovim&rsquo;s job-control functionality</p></li>
+
+<li><p><a href="https://github.com/tpope/vim-dispatch">vim-dispatch</a></p>
+
+<p>dispatch.vim: asynchronous build and test dispatcher, used mainly for Vim</p></li>
+
+<li><p><a href="https://github.com/janko-m/vim-test">vim-test</a></p>
+
+<p>Run your tests at the speed of thought</p></li>
+
+<li><p><a href="https://github.com/kassio/neoterm">neoterm</a></p>
+
+<p>Wrapper of some neovim&rsquo;s :terminal functions</p></li>
+
+<li><p><a href="https://github.com/Kuniwak/vint">vint</a></p>
+
+<p>Fast and Highly Extensible Vim script Language Lint implemented by Python</p></li>
+</ul>
 
       </div>
       
@@ -513,14 +765,26 @@ Swift 2 (Linux ready)</p></li>
 <p>Swift object serialization</p></li>
 </ul>
 
-<h2 id="dependency-managers:d78b28a7eba8fa20284d0f430af649fe">Dependency Managers</h2>
+<h2 id="package-managers:d78b28a7eba8fa20284d0f430af649fe">Package Managers</h2>
 
 <ul>
 <li><p><a href="https://github.com/Carthage/Carthage">Carthage</a></p>
 
-<p>A simple, decentralized dependency manager for Cocoa</p></li>
+<p>A simple, decentralized dependency manager for Cocoa.</p></li>
 
-<li><p><a href="https://cocoapods.org/">CocoaPods</a></p></li>
+<li><p><a href="https://cocoapods.org/">CocoaPods</a></p>
+
+<p>The currently most popular one in community.</p></li>
+
+<li><p><a href="https://swift.org/package-manager/">Swift Package Manager</a></p>
+
+<blockquote>
+<p>The Swift Package Manager is a tool for managing the distribution of Swift
+code. It’s integrated with the Swift build system to automate the process
+of downloading, compiling, and linking dependencies.</p>
+</blockquote>
+
+<p>The official one released when Swift was open-sourced.</p></li>
 </ul>
 
 <h2 id="ui:d78b28a7eba8fa20284d0f430af649fe">UI</h2>
@@ -531,6 +795,19 @@ Swift 2 (Linux ready)</p></li>
 <p>An iOS port of the beautiful
 <a href="https://github.com/PhilJay/MPAndroidChart">MPAndroidChart</a>. - Beautiful
 charts for iOS apps!</p></li>
+</ul>
+
+<h1 id="awesome-sites:d78b28a7eba8fa20284d0f430af649fe">Awesome Sites</h1>
+
+<ul>
+<li><p><a href="http://nshipster.com">NSHipster</a></p>
+
+<p>NSHipster is a journal of the overlooked bits in Objective-C, Swift, and
+Cocoa. Updated weekly.</p></li>
+
+<li><p><a href="http://appventure.me/">APPVENTURE</a></p>
+
+<p>A personal blog about Swift, Objective-C, iOS, etc.</p></li>
 </ul>
 
 <h1 id="articles:d78b28a7eba8fa20284d0f430af649fe">Articles</h1>
@@ -558,13 +835,17 @@ charts for iOS apps!</p></li>
 <h1 id="programming-languages:4012851b63b654df971d8f528389c248">Programming Languages</h1>
 
 <ul>
-<li><a href="memo/my_awesome_list_swift_lang">Swift</a></li>
-<li><a href="memo/my_awesome_list_bash_lang">Bash</a></li>
-<li><a href="memo/my_awesome_list_python_lang">Python</a></li>
-<li><a href="memo/my_awesome_list_ruby_lang">Ruby</a></li>
+<li><a href="/memo/my_awesome_list_swift_lang">Swift</a></li>
+<li><a href="/memo/my_awesome_list_bash_lang">Bash</a></li>
+<li><a href="/memo/my_awesome_list_python_lang">Python</a></li>
+<li><a href="/memo/my_awesome_list_ruby_lang">Ruby</a></li>
 </ul>
 
 <h1 id="other:4012851b63b654df971d8f528389c248">Other</h1>
+
+<ul>
+<li><a href="/memo/my_awesome_list_vim_editor">Vim/Neovim</a></li>
+</ul>
 
       </div>
       
@@ -901,93 +1182,6 @@ distinct use cases.</p>
 <li><p>by calling a function or method that doesn&rsquo;t return, e.g. <code>fatalError()</code>.</p></li>
 </ul></li>
 </ol>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/note/swift_notes_switch/">
-            SWIFT NOTES - SWITCH STATEMETNS
-          </a>
-        </h1>
-
-        <span class="post-date">Wed, Sep 30, 2015</span>
-
-        
-
-<p>The Swift programming language provides us a really powerfull <code>switch</code>
-statement.</p>
-
-<h1 id="switch-statement-feature-list:886259fb3fb4618d6ac5120cb8831f52"><code>switch</code> Statement Feature List</h1>
-
-<ol>
-<li><p>no implicitly fall-through</p>
-
-<p>use <code>fallthrough</code> keyword to fallthrough next case explicitly</p></li>
-
-<li><p>pattern listing</p>
-
-<p>enumerate multiple patterns in one <code>case</code> statement</p></li>
-
-<li><p>interval matching</p></li>
-
-<li><p>tuple matching &amp; the wildcard pattern <code>_</code></p></li>
-
-<li><p>value binding</p></li>
-
-<li><p><code>where</code> clauses can specifiy more conditions</p></li>
-</ol>
-
-<h1 id="an-example-demonstrating-all-the-features-above:886259fb3fb4618d6ac5120cb8831f52">An Example Demonstrating All the Features Above</h1>
-
-<pre><code class="language-swift">var aPoint = (x: 2, y: -1)
-// labeled `swtich`
-// NOTE: only loop statements and 'switch' statement can labeled.
-theSwitch: switch aPoint {
-// against tuple
-case (0, 0):
-  println(&quot;origin point&quot;)
-
-// against multiple conditions separated by comma
-case (1, 1), (2, 2):
-  println(&quot;(1, 1) or (2, 2)&quot;)
-
-// '_' means 'any value is ok'
-case (_, 0):
-  // the `break` here is just like the `pass` in python, acting as a
-  // 'placeholder statement', nullifing this case branch.
-  break
-
-case (0, _):
-  println(&quot;on the Y-axis&quot;)
-
-// against range
-case (-2...2, -2...2):
-  println(&quot;on or in the 2x2 box&quot;)
-
-// value binding
-case (let x, -10):
-  println(&quot;on the horizontal line y = -10, with a x value: \(x)&quot;)
-
-// where clause
-// NOTE: `let` can be replaced with `var` if you need to change the bound
-// value afterwards.
-case (0, var y) where y &gt;= 0:
-  y++    // mutable
-  println(&quot;on the 1st or 2nd quadrant&quot;)
-
-// value binding as a whole, which is an required exhaustive match
-case let (x, y):
-  theLoop: for i in 1..&lt;100 {
-    switch i {
-      case let x where (x &amp; 1) == 1: // a odd number
-        break theSwitch     // jump further
-      default:
-        continue theLoop    // jump
-    }
-  }
-}
-</code></pre>
 
       </div>
       
@@ -7210,83 +7404,6 @@ loop object.</p></li>
 
 <li><p>Perform selector routines</p></li>
 </ol>
-
-      </div>
-      
-      <div class="post">
-        <h1 class="post-title">
-          <a href="http://mudox.github.io/memo/my_awesome_list_vim_editor/">
-            
-          </a>
-        </h1>
-
-        <span class="post-date">Mon, Jan 1, 0001</span>
-
-        
-
-<p>+++kk
-date      = &ldquo;2015-10-25T12:01:48+08:00&rdquo;
-draft     = true
-title     = &ldquo;MY AWESOME LIST - (Neo)Vim Editor&rdquo;</p>
-
-<p>tags      = [&ldquo;VIM&rdquo;]
-languages = [&ldquo;VimL&rdquo;]
-+++</p>
-
-<p>My awesome list about the (Neo)Vim Editor.</p>
-
-<h1 id="sites:76cf9a055be8e5bb93a1a66dd77b4d27">Sites</h1>
-
-<ul>
-<li><p><a href="http://vimawesome.com/">VimAwesome</a></p>
-
-<p>A awesome list for (Neo)Vim&rsquo;s great plugins</p></li>
-</ul>
-
-<h1 id="sripting:76cf9a055be8e5bb93a1a66dd77b4d27">Sripting</h1>
-
-<ul>
-<li><p><a href="https://google.github.io/styleguide/vimscriptguide.xml">Google Vimscript Style Guide</a></p></li>
-
-<li><p><a href="http://rbtnn.hateblo.jp/entry/2014/12/28/010913">Anti-Pattern of vimrc</a></p>
-
-<p>some good patterns vs bad patterns, the plugin
-<a href="https://github.com/Kuniwak/vint">vint</a> adopts rules described here.</p></li>
-</ul>
-
-<h1 id="test-ci:76cf9a055be8e5bb93a1a66dd77b4d27">Test &amp; CI</h1>
-
-<ul>
-<li><p><a href="https://github.com/kana/vim-vspec">vim-vspec</a></p>
-
-<p>The first test framework I learned</p></li>
-
-<li><p><a href="https://github.com/junegunn/vader.vim">vader.vim</a></p>
-
-<p>A simple Vimscript test framework written by
-<a href="https://github.com/junegunn/vim-plug">vim-plug</a>&rsquo;s author
-<a href="https://github.com/junegunn">junegunn</a></p></li>
-
-<li><p><a href="https://github.com/benekastah/neomake">neomake</a></p>
-
-<p>A plugin for asynchronous :make using Neovim&rsquo;s job-control functionality</p></li>
-
-<li><p><a href="https://github.com/tpope/vim-dispatch">vim-dispatch</a></p>
-
-<p>dispatch.vim: asynchronous build and test dispatcher, used mainly for Vim</p></li>
-
-<li><p><a href="https://github.com/janko-m/vim-test">vim-test</a></p>
-
-<p>Run your tests at the speed of thought</p></li>
-
-<li><p><a href="https://github.com/kassio/neoterm">neoterm</a></p>
-
-<p>Wrapper of some neovim&rsquo;s :terminal functions</p></li>
-
-<li><p><a href="https://github.com/Kuniwak/vint">vint</a></p>
-
-<p>Fast and Highly Extensible Vim script Language Lint implemented by Python</p></li>
-</ul>
 
       </div>
       

@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title> SWIFT NOTES - SWITCH STATEMETNS &middot; Mudox </title>
+    <title> SWIFT NOTES - PATTERN MATCHING &middot; Mudox </title>
 
     
     <link rel="stylesheet" href="/lib/normalize/normalize.css">
@@ -147,15 +147,17 @@
     <div class="content container">
         <div class="post">
             
-            <h1>SWIFT NOTES - SWITCH STATEMETNS</h1>
-            <span class="post-date">Wed, Sep 30, 2015</span>
+            <h1>SWIFT NOTES - PATTERN MATCHING</h1>
+            <span class="post-date">Sun, Jan 17, 2016</span>
 
             
             <div id="toc">
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#switch-statement-feature-list:886259fb3fb4618d6ac5120cb8831f52"><code>switch</code> Statement Feature List</a></li>
-<li><a href="#an-example-demonstrating-all-the-features-above:886259fb3fb4618d6ac5120cb8831f52">An Example Demonstrating All the Features Above</a></li>
+<li><a href="#switch-statement-features:ee842661c20faea6c9b6b6b907da0a08">Switch Statement Features</a></li>
+<li><a href="#pattern-matching:ee842661c20faea6c9b6b6b907da0a08">Pattern Matching</a></li>
+<li><a href="#an-example-demonstrating-all-the-features-above:ee842661c20faea6c9b6b6b907da0a08">An Example Demonstrating All the Features Above</a></li>
+<li><a href="#references:ee842661c20faea6c9b6b6b907da0a08">References</a></li>
 </ul>
 </nav>
             </div>
@@ -163,30 +165,95 @@
             
             
 
-<p>The Swift programming language provides us a really powerfull <code>switch</code>
-statement.</p>
+<p>The original title was &ldquo;SWIFT NOTES - SWITCH&rdquo;, after doing some further reading
+and learning, I realized that it should be all about <strong>pattern matching</strong>.</p>
 
-<h1 id="switch-statement-feature-list:886259fb3fb4618d6ac5120cb8831f52"><code>switch</code> Statement Feature List</h1>
+<p>But the whole story begins with the Swift switch statement for sure &hellip;</p>
+
+<h1 id="switch-statement-features:ee842661c20faea6c9b6b6b907da0a08">Switch Statement Features</h1>
+
+<ul>
+<li><p>No implicitly fall-through</p>
+
+<p>Unlike C, we must use the reserved word <code>fallthrough</code> to fallthrough into
+next case explicitly</p></li>
+
+<li><p>Pattern listing</p>
+
+<p>Enumerate multiple patterns in one <code>case</code> statement, separated by commas
+<code>,</code> implies <strong>OR</strong> logical</p></li>
+
+<li><p>Use <code>where</code> clauses to narrow down the selection further, if a binding
+happens in the case.</p></li>
+
+<li><p>Matching must be exaustive</p></li>
+
+<li><p>The most significant feature is the way to match with target data, it is so
+versatile and powerful that it deserves a entire section to introduce it.</p></li>
+</ul>
+
+<h1 id="pattern-matching:ee842661c20faea6c9b6b6b907da0a08">Pattern Matching</h1>
+
+<p>Simply put, pattern matching is a mechanism (a group of syntaxes) provided by the
+Swift language for you to matching with a target data (record) structually, and
+if you want, extracts the data (field(s)) in interest at the same time.</p>
+
+<p>Currently Swift defines 7 types of pattern matching, by proper use of
+which you can write more clear, succinct code, getting rid of spaghetti of
+<code>if</code> branches.</p>
 
 <ol>
-<li><p>no implicitly fall-through</p>
+<li><p>Match traditionally &ndash; identifier matching</p>
 
-<p>use <code>fallthrough</code> keyword to fallthrough next case explicitly</p></li>
+<p>value == value matching, the most common one.</p></li>
 
-<li><p>pattern listing</p>
+<li><p>Wild match with a value &ndash; the wildcard pattern <code>_</code></p>
 
-<p>enumerate multiple patterns in one <code>case</code> statement</p></li>
+<p>The <code>_</code> matches any thing even <code>nil</code>.</p>
 
-<li><p>interval matching</p></li>
+<p>Suffixing <code>_</code> with a <code>?</code> (<code>_?</code>) narrows the match range down to only
+those non-nil optionals. (i.e when matching with optional values, <code>nil</code> &amp;
+<code>_?</code> are mutually complementary).</p></li>
 
-<li><p>tuple matching &amp; the wildcard pattern <code>_</code></p></li>
+<li><p>Match with optional &ndash; value binding matching</p>
 
-<li><p>value binding</p></li>
+<p>matching a non-nil optional and at the same time unwrap and bind a
+identifier to the inner value</p></li>
 
-<li><p><code>where</code> clauses can specifiy more conditions</p></li>
+<li><p>Match with tuple &ndash; tuple matching</p>
+
+<p><code>let</code> or <code>var</code> key can appear member-wise or appear outside once</p></li>
+
+<li><p>Match with <code>enum</code> case &ndash; <code>enum</code> case matching</p></li>
+
+<li><p>Math with casted type &ndash; type-casting matching</p>
+
+<p><code>case is AType</code> performs a type casting behind to see if succeed and
+discard the result.</p>
+
+<p><code>case let n as AType</code> performs the type casting and bind the result to
+<code>n</code> for use in the case body.</p></li>
+
+<li><p>Match with expression &ndash; expression matching</p>
+
+<p>The most flexible one that enable you to define you own pattern.</p>
+
+<p>Match with types which implement the <code>~=</code> operator, just like <code>===</code>
+operator in Ruby, where <code>case</code> things appear as the left hand side
+operand, <code>which</code> things as right hand side operand.</p>
+
+<p>There has been default implementations of <code>~=</code> for some types such as:
+Range&lt;&gt;</p>
+
+<p><strong>EXCEPTION</strong>: overloading <code>~=</code> with a tumple as the left hand side incur
+panic in <code>switch</code> statement.</p></li>
 </ol>
 
-<h1 id="an-example-demonstrating-all-the-features-above:886259fb3fb4618d6ac5120cb8831f52">An Example Demonstrating All the Features Above</h1>
+<p>Given the aboves you could known that Swift encourages you to use optionals,
+tuples and <code>enum</code>s which are smoothly fitted with pattern matching mechanism to
+produce a terse and clear codebase.</p>
+
+<h1 id="an-example-demonstrating-all-the-features-above:ee842661c20faea6c9b6b6b907da0a08">An Example Demonstrating All the Features Above</h1>
 
 <pre><code class="language-swift">var aPoint = (x: 2, y: -1)
 // labeled `swtich`
@@ -209,11 +276,11 @@ case (_, 0):
 case (0, _):
   println(&quot;on the Y-axis&quot;)
 
-// against range
+// a expression matching nested in tuple matching
 case (-2...2, -2...2):
   println(&quot;on or in the 2x2 box&quot;)
 
-// value binding
+// value binding nested in tuple matching
 case (let x, -10):
   println(&quot;on the horizontal line y = -10, with a x value: \(x)&quot;)
 
@@ -224,7 +291,7 @@ case (0, var y) where y &gt;= 0:
   y++    // mutable
   println(&quot;on the 1st or 2nd quadrant&quot;)
 
-// value binding as a whole, which is an required exhaustive match
+// value binding all members
 case let (x, y):
   theLoop: for i in 1..&lt;100 {
     switch i {
@@ -236,6 +303,18 @@ case let (x, y):
   }
 }
 </code></pre>
+
+<h1 id="references:ee842661c20faea6c9b6b6b907da0a08">References</h1>
+
+<ul>
+<li><p><a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Patterns.html#//apple_ref/doc/uid/TP40014097-CH36-ID419">Patterns, what the official say</a></p></li>
+
+<li><p><a href="http://appventure.me/2015/08/20/swift-pattern-matching-in-detail/">Match me if you can</a></p></li>
+
+<li><p><a href="http://austinzheng.com/2014/12/16/swift-pattern-matching-switch/">Swift&rsquo;s pattern matching switch statement</a></p></li>
+
+<li><p><a href="http://austinzheng.com/2014/12/17/custom-pattern-matching/">Custom pattern matching in Swift</a></p></li>
+</ul>
 
         </div>
     </div>
