@@ -162,9 +162,9 @@
 <li><a href="#initializer-delegation:0b95b25ccfd336225d990e53cc417a23">Initializer Delegation</a>
 <ul>
 <li><a href="#span-style-color-red-font-size-1-5em-3-span-rules-for-class-initializer-delegation:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">3</span> rules for class initializer delegation</a></li>
-<li><a href="#span-style-color-red-font-size-1-5em-2-span-phase-initialization-ensured-by-span-style-color-red-font-size-1-5em-4-span-safty-checks:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">2</span>-Phase Initialization Ensured by <span style="color:red; font-size:1.5em">4</span> Safty Checks</a></li>
+<li><a href="#span-style-color-red-font-size-1-5em-2-span-phase-initialization-ensured-by-span-style-color-red-font-size-1-5em-4-span-safety-checks:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">2</span>-Phase Initialization Ensured by <span style="color:red; font-size:1.5em">4</span> Safety Checks</a></li>
 </ul></li>
-<li><a href="#initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</a>
+<li><a href="#initializers-inheritance:0b95b25ccfd336225d990e53cc417a23">Initializers inheritance</a>
 <ul>
 <li><a href="#span-style-color-red-font-size-1-5em-2-span-prerequisites-for-automatic-initializer-inheritance:0b95b25ccfd336225d990e53cc417a23"><span style="color: red; font-size: 1.5em">2</span> prerequisites for automatic initializer inheritance</a></li>
 </ul></li>
@@ -307,7 +307,7 @@ immediate superclass.</li>
 <li>Designated initializer delegation upwards &ndash; <code>super.init(...)</code></li>
 </ol>
 
-<h2 id="span-style-color-red-font-size-1-5em-2-span-phase-initialization-ensured-by-span-style-color-red-font-size-1-5em-4-span-safty-checks:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">2</span>-Phase Initialization Ensured by <span style="color:red; font-size:1.5em">4</span> Safty Checks</h2>
+<h2 id="span-style-color-red-font-size-1-5em-2-span-phase-initialization-ensured-by-span-style-color-red-font-size-1-5em-4-span-safety-checks:0b95b25ccfd336225d990e53cc417a23"><span style="color:red; font-size:1.5em">2</span>-Phase Initialization Ensured by <span style="color:red; font-size:1.5em">4</span> Safety Checks</h2>
 
 <ol>
 <li>In designated initializer, initialize all local stored properties before
@@ -325,11 +325,11 @@ then it can
 </ul></li>
 </ol>
 
-<h1 id="initialization-inheritance-overriding:0b95b25ccfd336225d990e53cc417a23">Initialization inheritance &amp; overriding</h1>
+<h1 id="initializers-inheritance:0b95b25ccfd336225d990e53cc417a23">Initializers inheritance</h1>
 
 <p>Unlike subclasses in Objective-C, Swift subclasses do <strong>NOT</strong> inherit their
 superclass initializers by default. Only when certain rules are satisfied can
-certain initializers be inherited to subclasses.</p>
+certain initializers be inherited by subclasses.</p>
 
 <p>Do <strong>NOT</strong> write the <code>override</code> modifier when providing a matching
 implementation of a superclass <strong>convenience initializer</strong> (<em>because it can not
@@ -352,7 +352,7 @@ automatically inherits all of the superclass convenience initializers.</li>
 <p>Use <code>init?() {...}</code> or <code>init!() {...}</code> to define a failable initializer</p>
 
 <p>Use <code>return nil</code> to fail the initialization process though the Swift
-initializer dose not return any value</p>
+initializers do not return any value.</p>
 
 <p>When defining failable initializer:</p>
 
