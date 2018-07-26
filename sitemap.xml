@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://mudox.github.io/my-projects/</loc>
+    <lastmod>2018-07-26T04:59:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/resume/</loc>
+    <lastmod>2018-07-26T04:55:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/my-ios-awesome-list/</loc>
+    <lastmod>2018-07-26T01:37:35+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/awesome/</loc>
+    <lastmod>2018-07-26T01:37:35+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/ios/</loc>
+    <lastmod>2018-07-26T01:37:35+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/</loc>
+    <lastmod>2018-07-26T04:59:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/post/</loc>
+    <lastmod>2018-07-26T04:59:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/swift/</loc>
+    <lastmod>2018-07-26T01:37:35+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/</loc>
+    <lastmod>2018-07-26T01:37:35+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Mudox</title>
+    <link>http://mudox.github.io/post/</link>
+    <description>Recent content in Posts on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Jul 2018 04:59:53 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Projects</title>
+      <link>http://mudox.github.io/my-projects/</link>
+      <pubDate>Thu, 26 Jul 2018 04:59:53 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/my-projects/</guid>
+      <description>Here list out all my projects.</description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
+      <link>http://mudox.github.io/resume/</link>
+      <pubDate>Thu, 26 Jul 2018 04:55:06 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/resume/</guid>
+      <description>My name is Mudox.
+I&amp;rsquo;m an iOS developer.</description>
+    </item>
+    
+    <item>
+      <title>My iOS Awesome List</title>
+      <link>http://mudox.github.io/my-ios-awesome-list/</link>
+      <pubDate>Thu, 26 Jul 2018 01:37:35 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/my-ios-awesome-list/</guid>
+      <description>Sites Swift Topics on GitHub
+An offcial index of popular resources about Swift on GitHub.
+iOS - 掘金
+高质量技术文英译中站点。
+Cocoacasts
+High quality, easy to follow iOS tutorials.
+Raywenderlich
+Famous mobile developing tutorials sites.
+Realm Academy
+Realm&amp;rsquo;s tech articles about iOS devs.
+Swift Dollar
+A functional tool-belt for Swift Language.
+Swiftz
+Swiftz is a Swift library for functional programming.
+Tool jazzy
+Soulful docs for Swift &amp;amp; Objective-C.
+SwiftLint
+A tool to enforce Swift style and conventions.</description>
+    </item>
+    
+  </channel>
+</rss>
