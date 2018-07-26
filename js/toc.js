@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
   $(window).scroll(function() {
     $("#TableOfContents a").removeClass("current")
     currentAnchor().addClass("current")
@@ -13,10 +13,14 @@ function heading(anchor) {
   return $("[id=" + anchor.substr(1) + "]")
 }
 
+var _anchors = null
 function anchors() {
-  return $("#TableOfContents a").map(function() {
-    return $(this).attr("href")
-  })
+  if (!_anchors) {
+    _anchors = $("#TableOfContents a").map(function() {
+      return $(this).attr("href")
+    })
+  }
+  return _anchors
 }
 
 function currentAnchor() {
@@ -24,7 +28,7 @@ function currentAnchor() {
   var currAnchor = null
   anchors().each(function() {
     var y = heading(this).position().top
-    if (y < winY) {
+    if (y < winY + window.innerHeight * 0.23) {
       currAnchor = this
       return
     }
