@@ -363,8 +363,6 @@ blockquote {
 
 .footer-links li::before {
   content: '•';
-  position: relative;
-  left: -2px;
   padding: 0 18px;
 }
 
