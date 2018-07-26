@@ -354,7 +354,7 @@ blockquote {
   color: #888;
   text-decoration: none;
   transition: color 300ms;
-  margin: 0 5px;
+  margin: 0 3px;
 }
 
 .footer-links a:hover {
@@ -365,6 +365,7 @@ blockquote {
   content: '•';
   position: relative;
   left: -2px;
+  padding: 0 18px;
 }
 
 .footer-links li:first-child::before {
@@ -564,7 +565,7 @@ nav ul.nav-left h1 {
   }
 
   .footer-links a {
-    margin: 0 15px;
+    margin: 0 3px;
   }
 
   .page-links {
