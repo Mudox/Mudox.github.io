@@ -11,10 +11,10 @@
 
 
 
-  
-  <meta property="description" content="Page to showcase the theme backing this site. Also for testing purpose.
+
+<meta property="description" content="Page to showcase the theme backing this site. Also for testing purpose.
 ">
-  
+
 
 
 
@@ -41,44 +41,49 @@
 <script src='/js/jquery-3.3.1.js'></script>
 <script src='/js/toc.js'></script>
 
+
+
+
   </head>
   <body>
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-    <a href="http://mudox.github.io" class="nav-logo">
-        <ul class="nav-left">
-            <li>
-                <img src="http://mudox.github.io/images/logo.png" 
-                     width="50" 
-                     height="50" 
+    <ul class="nav-left">
+        <li>
+            <a href="http://mudox.github.io" class="nav-logo">
+                <img src="http://mudox.github.io/images/logo.png"
+                     width="50"
+                     height="50"
                      alt="Logo">
-            </li>
-            <li>
+            </a>
+        </li>
+        <li>
+            <a href="http://mudox.github.io" class="nav-logo">
                 <h1>MUDOX</h1>
-            </li>
-        </ul>
-    </a>
+            </a>
+        </li>
+    </ul>
     <ul class="nav-links">
         
         <li>
             <a href="/tags">
                 <i class='fas fa-hashtag'></i>
-                <span>Tags</span>
+                <span>TAGS</span>
             </a>
         </li>
         
         <li>
             <a href="/my-projects">
                 <i class='fas fa-rocket'></i>
-                <span>Projects</span>
+                <span>PROJECTS</span>
             </a>
         </li>
         
         <li>
             <a href="/resume">
                 <i class='fas fa-user-circle'></i>
-                <span>Resume</span>
+                <span>RESUME</span>
             </a>
         </li>
         
@@ -163,6 +168,11 @@
 <li><a href="#table">Table</a></li>
 <li><a href="#link">Link</a></li>
 <li><a href="#blockquotes">Blockquotes</a></li>
+<li><a href="#shortcodes">Shortcodes</a>
+<ul>
+<li><a href="#youtube">Youtube</a></li>
+<li><a href="#cross-reference">Cross reference</a></li>
+</ul></li>
 <li><a href="#other">Other</a></li>
 </ul>
 </nav>
@@ -179,7 +189,9 @@
 
         
         
-        <span class="article-date">2018-07-26</span>
+        <time>
+            <span class="article-date">2018-07-26</span>
+        </time>
         
 
         
@@ -423,20 +435,42 @@ boy let&rsquo;s keep writing to make sure this is long enough to actually wrap f
 everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 </blockquote>
 
+<h1 id="shortcodes">Shortcodes</h1>
+
+<h2 id="youtube">Youtube</h2>
+
+<p>Use the <code>youtube</code> shortcode.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/Z2Uu2rYFlPQ?autoplay=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h2 id="cross-reference">Cross reference</h2>
+
+<p><strong>Click</strong> the URLs to check if the shortcode works.</p>
+
+<ul>
+<li><p><a href="http://mudox.github.io/my-ios-awesome-list/">Absolute permalink to: iOS Awesome List</a></p></li>
+
+<li><p><a href="/my-ios-awesome-list/">Relative permalink to: iOS Awesome List</a></p></li>
+</ul>
+
 <h1 id="other">Other</h1>
 
 <p>Below is a <code>&lt;hr&gt;</code></p>
 
 <hr />
 
-<p>Below is another <code>&lt;hr&gt;</code></p>
-
-<p>A Youtube video?</p>
+<p>A Youtube video using raw HTML syntax.</p>
 
 <iframe width="560" height="315"
   src="https://www.youtube.com/embed/Z2Uu2rYFlPQ?rel=0"
   frameborder="0" allow="autoplay; encrypted-media"
   allowfullscreen></iframe>
+
+<p>Below is another <code>&lt;hr&gt;</code></p>
 
 <hr />
 

@@ -17,12 +17,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   color: #222;
 }
 
 .article-summary {
- padding: 0.8rem;
+  padding: 0.8rem;
 }
 
 .article-content h1:after {
@@ -104,7 +104,7 @@ blockquote {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 15px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   text-align: right;
 }
 
@@ -112,20 +112,29 @@ blockquote {
   transition: transform 150ms ease-out;
 }
 
-.nav-left:hover {
-  transform: scale(1.1);
-}
+/*.nav-left:hover {*/
+/*transform: scale(1.1);*/
+/*}*/
 
 .nav-logo img {
   width: auto;
   max-height: 50px;
+
+  position: relative;
+  bottom: 2px;
 }
 
 .nav-links {
   margin: 0;
   padding: 0;
+
   font-size: 14px;
   list-style: none;
+}
+
+.nav-links li {
+  position: relative;
+  top: 4px;
 }
 
 .nav-links li {
@@ -175,7 +184,7 @@ blockquote {
 
 .article-date {
   font-size: 16px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
 
   display: block;
   width: 100%;
@@ -213,7 +222,7 @@ blockquote {
 .article-taxonomy {
   list-style: none;
   padding-left: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   color: #404040;
   font-size: 14px;
   text-align: left;
@@ -276,7 +285,7 @@ blockquote {
 .list-item-date {
   display: block;
   padding: 4px 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   color: #ccc;
   font-size: 14px;
 }
@@ -292,7 +301,7 @@ blockquote {
   padding: 3px 0;
   text-decoration: none;
   font-size: 17px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   font-weight: bold;
   color: #222;
   border-bottom: 1px solid #ddd;
@@ -315,14 +324,14 @@ blockquote {
   padding: 5px 0;
   text-decoration: none;
   font-size: 19px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   font-weight: bold;
   color: #222;
   transition: color 300ms;
 }
 
 .category-item-count {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   margin-right: 15px;
   color: #ccc;
   font-size: 14px;
@@ -342,7 +351,7 @@ blockquote {
 
 .tag-cloud-item a {
   text-decoration: none;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   font-weight: bold;
   color: #222;
   transition: color 300ms;
@@ -360,7 +369,7 @@ blockquote {
   margin: 0;
   padding: 0;
   text-align: center;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
 }
 
 .footer-links {
@@ -401,7 +410,7 @@ blockquote {
   margin: 25px 0;
   padding: 0;
   text-align: center;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
   font-size: 16px;
 }
 
@@ -453,7 +462,7 @@ nav ul.nav-left {
   align-items: center;
 
   position: relative;
-  top: -0.9rem;
+  bottom: 12px;
 
   margin: 0;
   padding: 0;
@@ -472,6 +481,39 @@ nav ul.nav-left h1 {
 
   margin: 0 10px;
   padding: 0;
+}
+
+.github-buttons span {
+  position: relative;
+  top: 6px;
+}
+
+.github-repo-description {
+  padding-top: 2px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+a.github-repo-title {
+  background-color: black;
+  color: #fff;
+
+  text-decoration: none;
+  text-ailgn: center;
+  vertical-align: top;
+
+  border-bottom: none;
+  border-radius: 3px;
+
+  padding: 2px 6px 2px 8px;
+}
+
+a.github-repo-title:hover {
+  border-bottom: none;
+}
+
+div.github-buttons {
+  margin: 1.4rem 0 0.5rem 0;
 }
 
 /*.fa {*/
