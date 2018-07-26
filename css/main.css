@@ -264,7 +264,7 @@ blockquote {
 .category-title,
 .tag-cloud-title {
   font-size: 32px;
-  margin-top: 60px;
+  text-align: center;
   padding-bottom: 10px;
 }
 
