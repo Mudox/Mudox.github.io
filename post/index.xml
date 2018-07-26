@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Jul 2018 04:59:53 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jul 2018 19:00:55 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rxswift Operators</title>
+      <link>http://mudox.github.io/rxswift-operators/</link>
+      <pubDate>Thu, 26 Jul 2018 19:00:55 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/rxswift-operators/</guid>
+      <description>Introduction of versatile RxSwift operators library. &amp;lt;&amp;ndash;more&amp;ndash;!&amp;gt;
+TBD</description>
+    </item>
     
     <item>
       <title>My Projects</title>
