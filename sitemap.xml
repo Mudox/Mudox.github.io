@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://mudox.github.io/rxswift-operators/</loc>
-    <lastmod>2018-07-26T20:51:21+08:00</lastmod>
+    <loc>http://mudox.github.io/theme-demo/</loc>
+    <lastmod>2018-07-26T22:46:13+08:00</lastmod>
   </url>
   
   <url>
@@ -34,26 +34,32 @@
   </url>
   
   <url>
+    <loc>http://mudox.github.io/tags/demo/</loc>
+    <lastmod>2018-07-26T22:46:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/tags/ios/</loc>
-    <lastmod>2018-07-26T20:51:21+08:00</lastmod>
+    <lastmod>2018-07-26T13:07:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/markdown/</loc>
+    <lastmod>2018-07-26T22:46:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/</loc>
-    <lastmod>2018-07-26T20:51:21+08:00</lastmod>
+    <lastmod>2018-07-26T22:46:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/post/</loc>
-    <lastmod>2018-07-26T20:51:21+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://mudox.github.io/tags/rxswift/</loc>
-    <lastmod>2018-07-26T20:51:21+08:00</lastmod>
+    <lastmod>2018-07-26T22:46:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -66,6 +72,12 @@
   <url>
     <loc>http://mudox.github.io/tags/</loc>
     <lastmod>2018-07-26T13:07:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/web/</loc>
+    <lastmod>2018-07-26T22:46:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   

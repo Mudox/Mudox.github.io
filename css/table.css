@@ -1,0 +1,31 @@
+table {
+  font-size: 0.8rem;
+  vertical-align: top;
+  text-align: center;
+  width: 100%;
+}
+
+table code {
+  background-color: inherit;
+  border-radius: 0;
+}
+
+table th,
+table td {
+  margin: 0;
+  padding: 0.3rem 1rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding: 0.7rem 0;
+  background-color: #666;
+  color: white;
+}

@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>Rxswift Operators</title>
-      <link>http://mudox.github.io/rxswift-operators/</link>
+      <title>Theme Demo</title>
+      <link>http://mudox.github.io/theme-demo/</link>
       <pubDate>Thu, 26 Jul 2018 19:00:55 +0800</pubDate>
       
-      <guid>http://mudox.github.io/rxswift-operators/</guid>
-      <description>&lt;p&gt;Introduction of versatile RxSwift operators library.
+      <guid>http://mudox.github.io/theme-demo/</guid>
+      <description>&lt;p&gt;Page to showcase the theme backing this site.
+Also for testing purpose.
 &lt;/p&gt;</description>
     </item>
     
