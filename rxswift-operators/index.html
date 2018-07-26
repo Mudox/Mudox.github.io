@@ -150,10 +150,22 @@
         
         <div class="article-content">
             <p>Introduction of versatile RxSwift operators library.
-&lt;&ndash;more&ndash;!&gt;</p>
+</p>
 
-<p>TBD</p>
+<p>Use <code>Driver</code> triats and <code>flatMap</code> operator.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">RxSwift</span>
+<span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">RxCocoa</span>
 
+<span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">observable</span> = Driver.just(<span style="color:#bd93f9">1</span>)
+  .flatMap { num -&gt; Driver&lt;<span style="color:#8be9fd;font-style:italic">Bool</span><span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">in</span>
+    <span style="color:#ff79c6">return</span> validate(num)
+  }
+  .flatMap { num -&gt; Driver&lt;<span style="color:#8be9fd;font-style:italic">String</span><span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">in</span>
+    <span style="color:#ff79c6">return</span> request(num)
+  }
+  .flatMap { num -&gt; Driver<span style="color:#ff79c6">&lt;</span>()<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">in</span>
+    <span style="color:#ff79c6">return</span> postValidate(num)
+  }</code></pre></div>
         </div>
 
     </article>
