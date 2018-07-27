@@ -495,7 +495,9 @@ nav ul.nav-left h1 {
 }
 
 a.github-repo-title {
-  background-color: black;
+  font-size: 0.8rem;
+
+  background-color: #666;
   color: #fff;
 
   text-decoration: none;
