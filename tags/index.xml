@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Mudox</title>
+    <link>http://mudox.github.io/tags/</link>
+    <description>Recent content in Tags on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Jul 2018 01:37:35 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Awesome</title>
+      <link>http://mudox.github.io/tags/awesome/</link>
+      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/awesome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Css</title>
+      <link>http://mudox.github.io/tags/css/</link>
+      <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Demo</title>
+      <link>http://mudox.github.io/tags/demo/</link>
+      <pubDate>Thu, 07 Dec 2017 19:00:55 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/demo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios</title>
+      <link>http://mudox.github.io/tags/ios/</link>
+      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>http://mudox.github.io/tags/javascript/</link>
+      <pubDate>Thu, 28 Dec 2017 08:45:42 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>http://mudox.github.io/tags/markdown/</link>
+      <pubDate>Thu, 07 Dec 2017 19:00:55 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Snippets</title>
+      <link>http://mudox.github.io/tags/snippets/</link>
+      <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/snippets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>http://mudox.github.io/tags/swift/</link>
+      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>http://mudox.github.io/tags/web/</link>
+      <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

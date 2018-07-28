@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on Mudox</title>
+    <link>http://mudox.github.io/tags/markdown/</link>
+    <description>Recent content in Markdown on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Dec 2017 19:00:55 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Theme Demo</title>
+      <link>http://mudox.github.io/theme-demo/</link>
+      <pubDate>Thu, 07 Dec 2017 19:00:55 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/theme-demo/</guid>
+      <description>Heading #1 The world’s fastest framework for building websites
+Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+Heading #2 Nam pretium faucibus ipsum, sit amet tincidunt augue vulputate nec. Donec consectetur sit amet justo vel vehicula. Fusce quis tempor felis. Maecenas viverra pulvinar sodales. Cras a hendrerit libero. Sed imperdiet non mauris luctus facilisis. Duis at tortor id est lacinia egestas eu eget elit.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Awesome on Mudox</title>
+    <link>http://mudox.github.io/tags/awesome/</link>
+    <description>Recent content in Awesome on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Jul 2018 01:37:35 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/awesome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My iOS Awesome List</title>
+      <link>http://mudox.github.io/my-ios-awesome-list/</link>
+      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/my-ios-awesome-list/</guid>
+      <description>Swift Dollar  A functional tool-belt for Swift Language.   Swiftz  Swiftz is a Swift library for functional programming.   Tool Jazzy  Soulful docs for Swift &amp; Objective-C.   SwiftLint  A tool to enforce Swift style and conventions.   Swimat  Swift source code formatter. Provide Xcode integration, very handy.   Injection for Xcode  Runtime Code Injection for Objective-C &amp; Swift.</description>
+    </item>
+    
+  </channel>
+</rss>

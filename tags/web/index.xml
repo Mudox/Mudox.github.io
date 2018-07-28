@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Mudox</title>
+    <link>http://mudox.github.io/tags/web/</link>
+    <description>Recent content in Web on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 May 2018 08:45:12 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fixed Aside Pane</title>
+      <link>http://mudox.github.io/fixed-aside-pane/</link>
+      <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/fixed-aside-pane/</guid>
+      <description>Title Content.</description>
+    </item>
+    
+    <item>
+      <title>Auto Highlighting Toc</title>
+      <link>http://mudox.github.io/auto-highlighting-toc/</link>
+      <pubDate>Thu, 28 Dec 2017 08:45:42 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
+      <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
+It basically scans the article body part for headings (h1 h2 h3 h4 ...), each of which was rendered with an id attribute. For each heading Hugo adds a li item in TOC at appropriate level.
+&amp;lt;aside class=&amp;#34;aside-pane right-pane&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>Theme Demo</title>
+      <link>http://mudox.github.io/theme-demo/</link>
+      <pubDate>Thu, 07 Dec 2017 19:00:55 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/theme-demo/</guid>
+      <description>Heading #1 The world’s fastest framework for building websites
+Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+Heading #2 Nam pretium faucibus ipsum, sit amet tincidunt augue vulputate nec. Donec consectetur sit amet justo vel vehicula. Fusce quis tempor felis. Maecenas viverra pulvinar sodales. Cras a hendrerit libero. Sed imperdiet non mauris luctus facilisis. Duis at tortor id est lacinia egestas eu eget elit.</description>
+    </item>
+    
+  </channel>
+</rss>
