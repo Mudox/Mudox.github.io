@@ -201,22 +201,6 @@ blockquote {
   opacity: 0.5;
 }
 
-.list,
-.category,
-.tag-cloud {
-  margin: 0;
-  padding: 0;
-  line-height: 1.3em;
-}
-
-.list-title,
-.category-title,
-.tag-cloud-title {
-  font-size: 32px;
-  text-align: center;
-  padding-bottom: 10px;
-}
-
 .list-item {
   margin: 0 0 20px;
   padding: 0;
@@ -250,58 +234,6 @@ blockquote {
 
 .list-item a:hover {
   border-color: #222;
-}
-
-.category-item {
-  display: block;
-  list-style: none;
-  margin: 5px 0 15px;
-  padding: 0;
-}
-
-.category-item a {
-  display: inline-block;
-  padding: 5px 0;
-  text-decoration: none;
-  font-size: 19px;
-  font-family: 'Merriweather', serif;
-  font-weight: bold;
-  color: #222;
-  transition: color 300ms;
-}
-
-.category-item-count {
-  font-family: 'Merriweather', serif;
-  margin-right: 15px;
-  color: #ccc;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.tag-cloud-item {
-  margin: 0;
-  padding: 0;
-}
-
-.tag-cloud-item li {
-  display: inline-block;
-  list-style: none;
-  padding: 0 15px 15px 0;
-}
-
-.tag-cloud-item a {
-  text-decoration: none;
-  font-family: 'Merriweather', serif;
-  font-weight: bold;
-  color: #222;
-  transition: color 300ms;
-}
-
-.tag-cloud-item a:hover,
-.tag-cloud-item a:active,
-.category-item a:hover,
-.category-item a:active {
-  color: #ccc;
 }
 
 .footer {
@@ -429,35 +361,6 @@ div.github-buttons {
   margin: 1.4rem 0 0.5rem 0;
 }
 
-/*.fa {*/
-/*font-family: 'FontAwesome';*/
-/*font-style: normal;*/
-/*}*/
-
-/*.fa-rss::before {*/
-/*content: "\f09e";*/
-/*}*/
-
-/*.fa-chevron-up::before {*/
-/*content: "\f077";*/
-/*}*/
-
-/*.fa-github::before {*/
-/*content: "\f09b";*/
-/*}*/
-
-/*.fa-tags::before {*/
-/*content: "\f02c";*/
-/*float: left;*/
-/*padding: 0px 10px 50px 0;*/
-/*}*/
-
-/*.fa-category::before {*/
-/*content: "\f07c";*/
-/*float: left;*/
-/*padding: 0 10px 0px 0;*/
-/*}*/
-
 @media (min-width: 600px) {
   code {
     position: relative;
@@ -499,12 +402,6 @@ div.github-buttons {
     font-size: 17px;
   }
 
-  .list-title,
-  .category-title,
-  .tag-cloud-title {
-    font-size: 38px;
-  }
-
   .list-title {
     text-align: center;
   }
@@ -533,13 +430,6 @@ div.github-buttons {
     float: right;
   }
 
-  .category-item {
-    display: inline-block;
-  }
-
-  .category-item a {
-    font-size: 21px;
-  }
 
   .footer-links {
     font-size: inherit;

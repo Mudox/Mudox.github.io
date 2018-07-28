@@ -1,0 +1,47 @@
+.list,
+.tag-cloud {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3em;
+}
+
+.list-title,
+.tag-cloud-title {
+  font-size: 32px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.tag-cloud-body {
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+}
+
+.tag-cloud-body li {
+  display: inline-block;
+  list-style: none;
+  padding: 0 15px 15px 0;
+}
+
+.tag-cloud-body a {
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  color: #222;
+  transition: color 300ms;
+}
+
+.tag-cloud-body a:hover,
+.tag-cloud-body a:active,
+{
+  color: #ccc;
+}
+
+@media (min-width: 600px) {
+  .list-title,
+  .tag-cloud-title {
+    font-size: 38px;
+  }
+}
