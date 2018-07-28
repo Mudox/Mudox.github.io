@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://mudox.github.io/auto-highlighting-toc/</loc>
+    <lastmod>2018-07-28T08:45:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/fixed-aside-pane/</loc>
+    <lastmod>2018-07-28T08:45:12+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/theme-demo/</loc>
     <lastmod>2018-07-27T09:51:01+08:00</lastmod>
   </url>
@@ -34,6 +44,12 @@
   </url>
   
   <url>
+    <loc>http://mudox.github.io/tags/css/</loc>
+    <lastmod>2018-07-28T08:45:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/tags/demo/</loc>
     <lastmod>2018-07-27T09:51:01+08:00</lastmod>
     <priority>0</priority>
@@ -46,6 +62,12 @@
   </url>
   
   <url>
+    <loc>http://mudox.github.io/tags/javascript/</loc>
+    <lastmod>2018-07-28T08:45:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/tags/markdown/</loc>
     <lastmod>2018-07-27T09:51:01+08:00</lastmod>
     <priority>0</priority>
@@ -53,13 +75,13 @@
   
   <url>
     <loc>http://mudox.github.io/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-28T08:45:42+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/post/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-28T08:45:42+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -77,7 +99,7 @@
   
   <url>
     <loc>http://mudox.github.io/tags/web/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-28T08:45:42+08:00</lastmod>
     <priority>0</priority>
   </url>
   

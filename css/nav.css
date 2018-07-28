@@ -1,0 +1,107 @@
+/* vim: set fdm:marker:*/
+
+/*nav {{{*/
+
+.nav {
+  /*font-family: 'Merriweather', serif;*/
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  list-style: none;
+
+  text-align: right;
+}
+
+.nav li {
+  display: inline-block;
+}
+
+/*}}}*/
+
+/*nav-left {{{*/
+
+.nav-left {
+  position: relative;
+  bottom: 12px;
+
+  display: flex;
+  align-items: center;
+
+  float: left;
+
+  margin: 0;
+  padding: 0;
+
+  text-decoration: none;
+}
+
+.nav-left img {
+  position: relative;
+  bottom: 2px;
+
+  width: auto;
+  max-height: 50px;
+}
+
+.nav-left li {
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+
+.nav-left h1 {
+  margin: 0 10px;
+  padding: 0;
+}
+
+/*}}}*/
+
+/*nav-right {{{*/
+
+.nav-right {
+  font-family: 'Lato', sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+.nav-right li {
+  display: inline-block;
+
+  margin: 0 0 0 10px;
+}
+
+.nav-right li:first-child {
+  margin-left: 0;
+}
+
+.nav-right a {
+  margin-right: 2px;
+
+  text-decoration: none;
+
+  color: #444;
+}
+
+.nav-right a:hover {
+  color: #111;
+}
+
+.nav-right span {
+  font-size: 13px;
+}
+
+.nav-right i {
+  font-size: 15px;
+
+  position: relative;
+  top: 1px;
+}
+
+@media (min-width: 600px) {
+  .nav-right li {
+    margin-left: 12px;
+  }
+}
+
+/*}}}*/

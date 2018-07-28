@@ -100,66 +100,6 @@ blockquote {
   border-bottom: 1px solid #eaeaea;
 }
 
-.nav {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 15px;
-  font-family: 'Merriweather', serif;
-  text-align: right;
-}
-
-.nav-left {
-  transition: transform 150ms ease-out;
-}
-
-/*.nav-left:hover {*/
-/*transform: scale(1.1);*/
-/*}*/
-
-.nav-logo img {
-  width: auto;
-  max-height: 50px;
-
-  position: relative;
-  bottom: 2px;
-}
-
-.nav-links {
-  margin: 0;
-  padding: 0;
-
-  font-size: 14px;
-  list-style: none;
-}
-
-.nav-links li {
-  position: relative;
-  top: 4px;
-}
-
-.nav-links li {
-  display: inline-block;
-  margin: 0 0 0 10px;
-}
-
-.nav-links li:first-child {
-  margin-left: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #444;
-  margin-right: 2px;
-}
-
-.nav-links a:hover {
-  color: #111;
-}
-
-.nav-links i {
-  margin-right: 2px;
-}
-
 .content {
   display: block;
   min-height: calc(100vh - 60px);
@@ -455,34 +395,6 @@ blockquote {
   color: #ccc;
 }
 
-nav ul.nav-left {
-  float: left;
-
-  display: flex;
-  align-items: center;
-
-  position: relative;
-  bottom: 12px;
-
-  margin: 0;
-  padding: 0;
-
-  list-style-type: none;
-}
-
-nav ul.nav-left li {
-  margin: 0 5px 0 0;
-  padding: 0;
-}
-
-nav ul.nav-left h1 {
-  font-size: 2.2rem;
-  font-weight: 1000;
-
-  margin: 0 10px;
-  padding: 0;
-}
-
 .github-buttons span {
   position: relative;
   top: 6px;
@@ -562,19 +474,11 @@ div.github-buttons {
   pre {
     margin: 0 6px;
     line-height: 1.2rem;
-    box-shadow: 2px 3px 3px 1px #000000d9;
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.5);
   }
 
   .header {
     padding: 25px 0;
-  }
-
-  .nav-links {
-    font-size: 18px;
-  }
-
-  .nav-links li {
-    margin: 0 0 0 12px;
   }
 
   .content {
