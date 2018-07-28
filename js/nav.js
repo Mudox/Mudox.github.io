@@ -1,15 +1,15 @@
 $(document).ready(function() {
   $(window).scroll(function() {
-    showAsideNavIfNotTop()
+    showPaneNavIfNotTop()
     scrollPane()
   })
 });
 
-function showAsideNavIfNotTop() {
+function showPaneNavIfNotTop() {
   if (window.pageYOffset > 10) {
-    $('.left-pane-nav').fadeIn()
+    $('.pane-nav').fadeIn()
   } else {
-    $('.left-pane-nav').fadeOut()
+    $('.pane-nav').fadeOut()
   }
 }
 

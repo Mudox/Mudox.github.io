@@ -2,16 +2,16 @@
 
 @media (min-width: 600px) {
   .aside-pane {
+    padding: 0 8px;
     position: fixed;
     top: 0;
-    margin: 128px 0 50px 0;
 
     overflow-y: hidden;
 
     width: calc(50vw - 350px - 70px);
     max-width: calc(50vw - 350px - 70px);
     height: 70%;
-
+    margin: 128px 0 50px 0;
   }
 
   .aside-pane:hover {
@@ -27,7 +27,7 @@
   .aside-pane h2 {
     font-size: .8rem;
 
-    margin-bottom: 8px;
+    margin-bottom: 5px;
   }
 
   .aside-pane header h2 span {
@@ -51,18 +51,11 @@
     border-bottom: thin solid #606060;
   }
 
-  .aside-pane>header hr {
-    display: none;
-    /*display: inline-block;*/
-    /*width: 100px;*/
+  .aside-pane section {
+    margin: 0 0 35px 0;
   }
+
 }
-
-/*.aside-pane {*/
-
-/*display: none;*/
-
-/*}*/
 
 /*}}}*/
 
@@ -79,20 +72,15 @@
     padding-right: 0;
   }
 
-  .left-pane-nav {
-    margin-top: 40px;
-  }
-
-  .left-pane-nav h2 {
-    color: #aaa;
-    transition: color 300ms;
-  }
-
-  .left-pane-nav h2:hover {
+  .pane-nav h2:hover {
     color: #666;
   }
 
-  .tag-list {
+  .pane-tag-list {
+    margin: 0;
+  }
+
+  .left-pane section ul {
     margin: 0;
   }
 }

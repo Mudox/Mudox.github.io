@@ -1,31 +1,17 @@
-.list,
-.tag-cloud {
-  margin: 0;
-  padding: 0;
-  line-height: 1.3em;
-}
-
-.list-title,
-.tag-cloud-title {
-  font-size: 32px;
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.tag-cloud-body {
+.tag-terms-body {
   margin: 0;
   padding: 0;
 
   text-align: center;
 }
 
-.tag-cloud-body li {
+.tag-terms-body li {
   display: inline-block;
   list-style: none;
   padding: 0 15px 15px 0;
 }
 
-.tag-cloud-body a {
+.tag-terms-body a {
   text-decoration: none;
   font-family: 'Merriweather', serif;
   font-weight: bold;
@@ -33,15 +19,8 @@
   transition: color 300ms;
 }
 
-.tag-cloud-body a:hover,
-.tag-cloud-body a:active,
+.tag-terms-body a:hover,
+.tag-terms-body a:active,
 {
   color: #ccc;
-}
-
-@media (min-width: 600px) {
-  .list-title,
-  .tag-cloud-title {
-    font-size: 38px;
-  }
 }

@@ -1,0 +1,64 @@
+.list
+{
+    line-height: 1.3em;
+
+    margin: 0;
+    padding: 0;
+}
+
+.list-title
+{
+    font-size: 32px;
+
+    padding-bottom: 10px;
+
+    text-align: center;
+}
+
+.list-item
+{
+    margin: 0 0 20px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.list-item-date
+{
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+
+    display: block;
+
+    padding: 4px 0;
+
+    color: #ccc;
+}
+
+.list-item a
+{
+    font-family: 'Merriweather', serif;
+    font-size: 17px;
+    font-weight: bold;
+
+    display: inline-block;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    width: auto;
+    max-width: 100%;
+    padding: 3px 0;
+
+    transition: border-color 300ms;
+    white-space: nowrap;
+    text-decoration: none;
+    text-overflow: ellipsis;
+
+    color: #222;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item a:hover
+{
+    border-color: #222;
+}

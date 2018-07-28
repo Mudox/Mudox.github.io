@@ -3,98 +3,104 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://mudox.github.io/auto-highlighting-toc/</loc>
-    <lastmod>2018-07-28T09:03:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mudox.github.io/fixed-aside-pane/</loc>
-    <lastmod>2018-07-28T09:03:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mudox.github.io/theme-demo/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mudox.github.io/my-projects/</loc>
-    <lastmod>2018-07-26T13:07:17+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://mudox.github.io/resume/</loc>
-    <lastmod>2018-07-26T13:07:17+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://mudox.github.io/my-ios-awesome-list/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/fixed-aside-pane/</loc>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/auto-highlighting-toc/</loc>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/my-projects/</loc>
+    <lastmod>2018-07-28T23:48:05+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/theme-demo/</loc>
+    <lastmod>2018-07-28T23:48:05+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/awesome/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/css/</loc>
-    <lastmod>2018-07-28T09:03:02+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/demo/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-28T23:48:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/ios/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/javascript/</loc>
-    <lastmod>2018-07-28T09:03:02+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/markdown/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-28T23:48:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/</loc>
-    <lastmod>2018-07-28T09:03:02+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/post/</loc>
-    <lastmod>2018-07-28T09:03:02+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/snippets/</loc>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/swift/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/</loc>
-    <lastmod>2018-07-27T09:51:01+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/web/</loc>
-    <lastmod>2018-07-28T09:03:02+08:00</lastmod>
+    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   

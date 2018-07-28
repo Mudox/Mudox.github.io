@@ -6,62 +6,16 @@
     <description>Recent content on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 08:45:42 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jul 2018 04:55:06 +0800</lastBuildDate>
     
         <atom:link href="http://mudox.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     
     <item>
-      <title>Auto Highlighting Toc</title>
-      <link>http://mudox.github.io/auto-highlighting-toc/</link>
-      <pubDate>Sat, 28 Jul 2018 08:45:42 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
-      <description>Title Content.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>Fixed Aside Pane</title>
-      <link>http://mudox.github.io/fixed-aside-pane/</link>
-      <pubDate>Sat, 28 Jul 2018 08:45:12 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/fixed-aside-pane/</guid>
-      <description>Title Content.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>Theme Demo</title>
-      <link>http://mudox.github.io/theme-demo/</link>
-      <pubDate>Thu, 26 Jul 2018 19:00:55 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/theme-demo/</guid>
-      <description>Heading #1 The world’s fastest framework for building websites
-Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
-Heading #2 Nam pretium faucibus ipsum, sit amet tincidunt augue vulputate nec. Donec consectetur sit amet justo vel vehicula. Fusce quis tempor felis. Maecenas viverra pulvinar sodales. Cras a hendrerit libero. Sed imperdiet non mauris luctus facilisis. Duis at tortor id est lacinia egestas eu eget elit.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>My Projects</title>
-      <link>http://mudox.github.io/my-projects/</link>
-      <pubDate>Thu, 26 Jul 2018 04:59:53 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/my-projects/</guid>
-      <description>Here list out all my projects.</description>
-    </item>
-    
-    
-    
-    <item>
       <title>Resume</title>
       <link>http://mudox.github.io/resume/</link>
-      <pubDate>Thu, 26 Jul 2018 04:55:06 +0800</pubDate>
+      <pubDate>Sat, 28 Jul 2018 04:55:06 +0800</pubDate>
       
       <guid>http://mudox.github.io/resume/</guid>
       <description>My name is Mudox.
@@ -73,10 +27,58 @@ I&amp;rsquo;m an iOS developer.</description>
     <item>
       <title>My iOS Awesome List</title>
       <link>http://mudox.github.io/my-ios-awesome-list/</link>
-      <pubDate>Thu, 26 Jul 2018 01:37:35 +0800</pubDate>
+      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
       
       <guid>http://mudox.github.io/my-ios-awesome-list/</guid>
       <description>Swift Dollar  A functional tool-belt for Swift Language.   Swiftz  Swiftz is a Swift library for functional programming.   Tool Jazzy  Soulful docs for Swift &amp; Objective-C.   SwiftLint  A tool to enforce Swift style and conventions.   Swimat  Swift source code formatter. Provide Xcode integration, very handy.   Injection for Xcode  Runtime Code Injection for Objective-C &amp; Swift.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Fixed Aside Pane</title>
+      <link>http://mudox.github.io/fixed-aside-pane/</link>
+      <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/fixed-aside-pane/</guid>
+      <description>Title Content.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Auto Highlighting Toc</title>
+      <link>http://mudox.github.io/auto-highlighting-toc/</link>
+      <pubDate>Wed, 28 Mar 2018 08:45:42 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
+      <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
+It basically scans the article body part for headings (h1 h2 h3 h4 ...), each of which was rendered with an id attribute. For each heading Hugo adds a li item in TOC at appropriate level.
+&amp;lt;aside class=&amp;#34;aside-pane right-pane&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>My Projects</title>
+      <link>http://mudox.github.io/my-projects/</link>
+      <pubDate>Tue, 26 Dec 2017 04:59:53 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/my-projects/</guid>
+      <description>Here list out all my projects.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Theme Demo</title>
+      <link>http://mudox.github.io/theme-demo/</link>
+      <pubDate>Sat, 07 Oct 2017 19:00:55 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/theme-demo/</guid>
+      <description>Heading #1 The world’s fastest framework for building websites
+Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+Heading #2 Nam pretium faucibus ipsum, sit amet tincidunt augue vulputate nec. Donec consectetur sit amet justo vel vehicula. Fusce quis tempor felis. Maecenas viverra pulvinar sodales. Cras a hendrerit libero. Sed imperdiet non mauris luctus facilisis. Duis at tortor id est lacinia egestas eu eget elit.</description>
     </item>
     
     

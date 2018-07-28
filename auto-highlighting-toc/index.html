@@ -12,7 +12,7 @@
 
 
 
-<meta property="description" content="HowTo: hightlight current title in TOC (table of contents) as the main article
+<meta property="description" content="HowTo: highlight current title in TOC (Table Of Contents) as the main article
 scrolls.
 ">
 
@@ -34,7 +34,9 @@ scrolls.
 <link rel="stylesheet" href="http://mudox.github.io/css/pane.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/tag.css">
 
+<link rel="stylesheet" href="http://mudox.github.io/css/list.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/table.css">
+
 <link rel="stylesheet" href="http://mudox.github.io/css/fonts.css">
 
 
@@ -104,86 +106,113 @@ scrolls.
 
         
         
+        <aside class="aside-pane left-pane">
+
+    <section>
+        <div class="pane-tag-list">
+    <header class="pane-tag-list-title">
+        <h2>
+            <span>TAGS</span>
+            <i class="fas fa-tags"></i>
+        </h2>
+    </header>
+    <ul class="pane-tag-list-body">
         
-<aside class="aside-pane left-pane">
-
-    
-
-    <div class="tag-list">
-        <header>
-            <h2>
-                <span>TAGS</span>
-                <i class="fas fa-tags"></i>
-            </h2>
-        </header>
-        <ul class="tag-list">
             
-            <li>
-                
-                
-                <a href="/%20tags/%20web">Web</a>
-                <br> 
-                
-                <a href="/%20tags/%20javascript">JavaScript</a>
-                <br> 
-            </li>
+                <li>
+                    <a href="/tags/web">Web</a>
+                </li>
             
-        </ul>
-    </div>
+                <li>
+                    <a href="/tags/javascript">JavaScript</a>
+                </li>
+            
+                <li>
+                    <a href="/tags/snippets">Snippets</a>
+                </li>
+            
+        
+    </ul>
+</div>
 
+    </section>
     
+    <section>
+        <div class="recent-updated">
+    <header class="recent-updated-title">
+        <h2>
+            <span>UPDATED</span>
+            <i class="fas fa-calendar-alt"></i>
+        </h2>
+    </header>
+    <ul class="recent-updated-body">
+        
+        <li>
+            <a href="http://mudox.github.io/resume/">Resume</a>
+        </li>
+        
+        <li>
+            <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
+        </li>
+        
+        <li>
+            <a href="http://mudox.github.io/fixed-aside-pane/">Fixed Aside Pane</a>
+        </li>
+        
+        <li>
+            <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting Toc</a>
+        </li>
+        
+    </ul>
+</div>
 
-    <div class="left-pane-nav">
+    </section>
+
+    <section>
+        <div class="pane-nav">
+    <header>
+        <h2>
+            <span>MENU</span>
+            <i class="fas fa-home"></i>
+        </h2>
+    </header>
+    <ul class="pane-nav-body">
         <li>
             <a href="/">
-                <h2>
-                    <span>Home</span>
-                    <i class="fas fa-home"></i>
-                </h2>
+                Home
             </a>
         </li>
-
         
         <li>
-            
             <a href="/tags">
-                <h2>
-                    <span>Tags</span> <i class='fas fa-hashtag'></i>
-                </h2>
+                Tags
             </a>
         </li>
         
         <li>
-            
             <a href="/my-projects">
-                <h2>
-                    <span>Projects</span> <i class='fas fa-rocket'></i>
-                </h2>
+                Projects
             </a>
         </li>
         
         <li>
-            
             <a href="/resume">
-                <h2>
-                    <span>Resume</span> <i class='fas fa-user-circle'></i>
-                </h2>
+                Resume
             </a>
         </li>
         
         <li>
-            
             <a href="https://github.com/mudox">
-                <h2>
-                    <span>Github</span> <i class='fab fa-github'></i>
-                </h2>
+                Github
             </a>
         </li>
         
-    </div>
+    </ul>
+</div>
+
+    </section>
 
 </aside>
-
 
 
         
@@ -198,7 +227,9 @@ scrolls.
     </header>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#title">Title</a></li>
+<li><a href="#before-everything">Before Everything</a></li>
+<li><a href="#steps">Steps</a></li>
+<li><a href="#full-code">Full code</a></li>
 </ul>
 </nav>
 </aside>
@@ -215,13 +246,15 @@ scrolls.
         
         
         <time>
-            <span class="article-date">2018-07-28</span>
+            <span class="article-date">
+                Updated: 2018-03-28
+            </span>
         </time>
         
 
         
         
-        <blockquote class='article-summary'>HowTo: hightlight current title in TOC (table of contents) as the main article
+        <blockquote class='article-summary'>HowTo: highlight current title in TOC (Table Of Contents) as the main article
 scrolls.
 </blockquote>
         
@@ -229,14 +262,99 @@ scrolls.
         <div class="article-content">
             
 
-<h1 id="title">Title</h1>
+<h1 id="before-everything">Before Everything</h1>
 
-<p>Content.</p>
+<p>The static site generator <a href="http://gohugo.io">Hugo</a> I used in for this site auto-generates <a href="https://en.wikipedia.org/wiki/Table_of_contents">TOC</a>
+for each article. The rendered TOC html DOM structure is like:</p>
 
+<p>It basically scans the article body part for headings (<code>h1 h2 h3 h4 ...</code>), each
+of which was rendered with an <code>id</code> attribute. For each heading Hugo adds a <code>li</code>
+item in TOC at appropriate level.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;aside-pane right-pane&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">header</span>&gt;
+        &lt;<span style="color:#ff79c6">h2</span>&gt;
+            &lt;<span style="color:#ff79c6">i</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;fas fa-list&#34;</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
+            &lt;<span style="color:#ff79c6">span</span>&gt;CONENTS&lt;/<span style="color:#ff79c6">span</span>&gt;
+        &lt;/<span style="color:#ff79c6">h2</span>&gt;
+    &lt;/<span style="color:#ff79c6">header</span>&gt;
+    &lt;<span style="color:#ff79c6">nav</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;TableOfContents&#34;</span>&gt;
+        &lt;<span style="color:#ff79c6">ul</span>&gt;
+            <span style="color:#6272a4">&lt;!--...--&gt;</span>
+            &lt;<span style="color:#ff79c6">li</span>&gt;&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#data&#34;</span>&gt;Heading 1&lt;/<span style="color:#ff79c6">a</span>&gt;
+                &lt;<span style="color:#ff79c6">ul</span>&gt;
+                    &lt;<span style="color:#ff79c6">li</span>&gt;&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#realm&#34;</span>&gt;Heading 1.1&lt;/<span style="color:#ff79c6">a</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
+                    &lt;<span style="color:#ff79c6">li</span>&gt;&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#realm&#34;</span>&gt;Heading 1.2&lt;/<span style="color:#ff79c6">a</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
+                    <span style="color:#6272a4">&lt;!--...--&gt;</span>
+                &lt;/<span style="color:#ff79c6">ul</span>&gt;
+            &lt;/<span style="color:#ff79c6">li</span>&gt;
+            <span style="color:#6272a4">&lt;!--...--&gt;</span>
+        &lt;/<span style="color:#ff79c6">ul</span>&gt;
+    &lt;/<span style="color:#ff79c6">nav</span>&gt;
+&lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+<h1 id="steps">Steps</h1>
+
+<ol>
+<li><p>Scan the TOC collecting all anchors like <code>#realm</code> in <code>&lt;a href=&quot;realm&quot;&gt;</code>.<br />
+For an anchor like <code>#realm</code> there must be only one instance of element with
+<code>&quot;realm&quot;</code> as its <code>id</code> attribute.</p></li>
+
+<li><p>Scan for <code>$('[id=' + anchorName + ']')</code> part for heading elements
+corresponding to items listed in TOC.</p></li>
+
+<li><p>Collect their top x coordinate using <code>$(...).offset.top</code>.<br />
+Make a mapping like <code>{ anchorName: headingOffset }</code>.</p></li>
+
+<li><p>Add an event handler <code>$(window).scroll(function() { ... })</code>.<br />
+When window scrolls, get the <code>window.pageYOffset</code> and traverse the mapping
+collected above to found the closest heading that is beyond the window
+viewport offset.</p></li>
+
+<li><p>Highlight the corresponding <code>&lt;li&gt;</code> element in TOC by
+&lsquo;$(&hellip;).addClass(&lsquo;current&rsquo;)&lsquo;.</p></li>
+</ol>
+
+<h1 id="full-code">Full code</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#8be9fd;font-style:italic">document</span>).ready(<span style="color:#8be9fd;font-style:italic">function</span>() {
+  $(<span style="color:#8be9fd;font-style:italic">window</span>).scroll(<span style="color:#8be9fd;font-style:italic">function</span>() {
+    $(<span style="color:#f1fa8c">&#34;#TableOfContents a&#34;</span>).removeClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
+    currentAnchor().addClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
+  })
+});
+
+<span style="color:#8be9fd;font-style:italic">function</span> tocItem(anchor) {
+  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[href=\&#34;&#34;</span> <span style="color:#ff79c6">+</span> anchor <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;\&#34;]&#34;</span>)
+}
+
+<span style="color:#8be9fd;font-style:italic">function</span> heading(anchor) {
+  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[id=&#34;</span> <span style="color:#ff79c6">+</span> anchor.substr(<span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;]&#34;</span>)
+}
+
+<span style="color:#8be9fd;font-style:italic">var</span> _anchors <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span>
+<span style="color:#8be9fd;font-style:italic">function</span> anchors() {
+  <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>_anchors) {
+    _anchors <span style="color:#ff79c6">=</span> $(<span style="color:#f1fa8c">&#34;#TableOfContents a&#34;</span>).map(<span style="color:#8be9fd;font-style:italic">function</span>() {
+      <span style="color:#ff79c6">return</span> $(<span style="color:#ff79c6">this</span>).attr(<span style="color:#f1fa8c">&#34;href&#34;</span>)
+    })
+  }
+  <span style="color:#ff79c6">return</span> _anchors
+}
+
+<span style="color:#8be9fd;font-style:italic">function</span> currentAnchor() {
+  <span style="color:#8be9fd;font-style:italic">var</span> winY <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.pageYOffset
+  <span style="color:#8be9fd;font-style:italic">var</span> currAnchor <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span>
+  anchors().each(<span style="color:#8be9fd;font-style:italic">function</span>() {
+    <span style="color:#8be9fd;font-style:italic">var</span> y <span style="color:#ff79c6">=</span> heading(<span style="color:#ff79c6">this</span>).position().top
+    <span style="color:#ff79c6">if</span> (y <span style="color:#ff79c6">&lt;</span> winY <span style="color:#ff79c6">+</span> <span style="color:#8be9fd;font-style:italic">window</span>.innerHeight <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">0.23</span>) {
+      currAnchor <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span>
+      <span style="color:#ff79c6">return</span>
+    }
+  })
+  <span style="color:#ff79c6">return</span> tocItem(currAnchor)
+}
+</code></pre></div>
         </div>
 
     </article>
-
 </main>
 
       <footer class="footer">

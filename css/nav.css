@@ -2,111 +2,124 @@
 
 /*nav {{{*/
 
-.nav {
-  /*font-family: 'Merriweather', serif;*/
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 15px;
+.nav
+{
+    /*font-family: 'Merriweather', serif;*/
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
 
-  list-style: none;
+    list-style: none;
 
-  text-align: right;
+    text-align: right;
 }
 
-.nav li {
-  display: inline-block;
+.nav li
+{
+    display: inline-block;
 }
 
 /*}}}*/
 
 /*nav-left {{{*/
 
-.nav-left {
-  position: relative;
-  bottom: 14px;
+.nav-left
+{
+    position: relative;
+    bottom: 14px;
 
-  display: flex;
-  align-items: center;
+    display: flex;
+    float: left;
+    align-items: center;
 
-  float: left;
+    margin: 0;
+    padding: 0;
 
-  margin: 0;
-  padding: 0;
-
-  text-decoration: none;
+    text-decoration: none;
 }
 
-.nav-left img {
-  position: relative;
-  bottom: 1px;
+.nav-left img
+{
+    position: relative;
+    bottom: 1px;
 
-  width: auto;
-  max-height: 45px;
+    width: auto;
+    max-height: 45px;
 
-  border-radius: 100px;
-  border: 1px solid white;
-
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+    border-radius: 100px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .5);
 }
 
-.nav-left li {
-  margin: 0 5px 0 0;
-  padding: 0;
+.nav-left li
+{
+    margin: 0 5px 0 0;
+    padding: 0;
 }
 
-.nav-left h1 {
-  margin: 0 18px;
-  padding: 0;
+.nav-left h1
+{
+    margin: 0 18px;
+    padding: 0;
 }
 
 /*}}}*/
 
 /*nav-right {{{*/
 
-.nav-right {
-  font-family: 'Lato', sans-serif;
+.nav-right
+{
+    font-family: 'Lato', sans-serif;
 
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-right li {
-  display: inline-block;
+.nav-right li
+{
+    display: inline-block;
 
-  margin: 0 0 0 10px;
+    margin: 0 0 0 10px;
 }
 
-.nav-right li:first-child {
-  margin-left: 0;
+.nav-right li:first-child
+{
+    margin-left: 0;
 }
 
-.nav-right a {
-  margin-right: 2px;
+.nav-right a
+{
+    margin-right: 2px;
 
-  text-decoration: none;
+    text-decoration: none;
 
-  color: #444;
+    color: #444;
 }
 
-.nav-right a:hover {
-  color: #111;
+.nav-right a:hover
+{
+    color: #111;
 }
 
-.nav-right span {
-  font-size: 13px;
+.nav-right span
+{
+    font-size: 13px;
 }
 
-.nav-right i {
-  font-size: 15px;
+.nav-right i
+{
+    font-size: 15px;
 
-  position: relative;
-  top: 1px;
+    position: relative;
+    top: 1px;
 }
 
-@media (min-width: 600px) {
-  .nav-right li {
-    margin-left: 12px;
-  }
+@media (min-width: 600px)
+{
+    .nav-right li
+    {
+        margin-left: 12px;
+    }
 }
 
 /*}}}*/
