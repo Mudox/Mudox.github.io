@@ -1,0 +1,22 @@
+.home-article-list .list-title {
+  font-size: 20px;
+}
+
+.home-article-list .list-item {
+  margin: 0 0 6px;
+}
+
+.list-title .count {
+  font-family: 'Lato', serif;
+  font-size: 9px;
+
+  position: relative;
+  bottom: 3px;
+  left: 1px;
+
+  text-align: center;
+
+  color: white;
+  border-radius: 13px;
+  background-color: #777;
+}

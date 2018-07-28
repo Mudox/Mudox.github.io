@@ -42,7 +42,7 @@ I&amp;rsquo;m an iOS developer.</description>
     <item>
       <title>Auto Highlighting Toc</title>
       <link>http://mudox.github.io/auto-highlighting-toc/</link>
-      <pubDate>Wed, 28 Mar 2018 08:45:42 +0800</pubDate>
+      <pubDate>Thu, 28 Dec 2017 08:45:42 +0800</pubDate>
       
       <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
       <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
@@ -62,7 +62,7 @@ It basically scans the article body part for headings (h1 h2 h3 h4 ...), each of
     <item>
       <title>Theme Demo</title>
       <link>http://mudox.github.io/theme-demo/</link>
-      <pubDate>Sat, 07 Oct 2017 19:00:55 +0800</pubDate>
+      <pubDate>Thu, 07 Dec 2017 19:00:55 +0800</pubDate>
       
       <guid>http://mudox.github.io/theme-demo/</guid>
       <description>Heading #1 The world’s fastest framework for building websites
