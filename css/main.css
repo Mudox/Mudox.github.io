@@ -1,18 +1,16 @@
 html,
-body
-{
-    position: relative;
+body {
+  position: relative;
 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-body
-{
-    font-family: 'Merriweather', serif;
+body {
+  font-family: 'Merriweather', serif;
 
-    -webkit-hyphens: auto;
-            hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 h1,
@@ -20,529 +18,449 @@ h2,
 h3,
 h4,
 h5,
-h6
-{
-    font-family: 'Merriweather', serif;
+h6 {
+  font-family: 'Merriweather', serif;
 
-    color: #222;
+  color: #222;
 }
 
-.article-summary
-{
-    padding: .8rem;
+.article-summary {
+  padding: .8rem;
 }
 
-.article-content h1:after
-{
-    background-color: #aaa;
+.article-content h1:after {
+  background-color: #aaa;
 }
 
-.article-content h1
-{
-    margin-top: 4rem;
-    margin-bottom: 1.5rem;
+.article-content h1 {
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
 
-    border-bottom: thin solid #ccc;
+  border-bottom: thin solid #ccc;
 }
 
-.article-content h2
-{
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+.article-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 pre,
-code
-{
-    font-family: 'Roboto Mono', monospace;
-    font-size: 15px;
+code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
 }
 
-code
-{
-    padding: 1px 3px;
+code {
+  padding: 1px 3px;
 
-    -webkit-hyphens: none;
-            hyphens: none;
+  -webkit-hyphens: none;
+  hyphens: none;
 
-    border-radius: 3px;
-    background: #f0f0f0;
+  border-radius: 3px;
+  background: #f0f0f0;
 }
 
-pre
-{
-    overflow-x: auto;
+pre {
+  overflow-x: auto;
 
-    padding: 8px 12px;
+  padding: 8px 12px;
 
-    color: #d0d0d0;
-    border-radius: 3px;
-    background: #202020;
+  color: #d0d0d0;
+  border-radius: 3px;
+  background: #202020;
 }
 
-pre code
-{
-    padding: initial;
+pre code {
+  padding: initial;
 
-    background: transparent;
+  background: transparent;
 }
 
 a:hover,
-a:active
-{
-    outline: none;
-    background-color: rgba(0, 0, 0, 0);
+a:active {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
 
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-img
-{
-    display: block;
+img {
+  display: block;
 
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
-blockquote
-{
-    margin: 20px;
-    padding-left: 10px;
+blockquote {
+  margin: 20px;
+  padding-left: 10px;
 
-    border-left: 5px solid #ccc;
-    background: #f5f5f5;
+  border-left: 5px solid #ccc;
+  background: #f5f5f5;
 }
 
-.wrapper
-{
-    position: relative;
+.wrapper {
+  position: relative;
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
-.header
-{
-    position: relative;
+.header {
+  position: relative;
 
-    padding: 20px 0;
+  padding: 20px 0;
 
-    border-bottom: 1px solid #eaeaea;
-    background: #f5f5f5;
+  border-bottom: 1px solid #eaeaea;
+  background: #f5f5f5;
 }
 
-.content
-{
-    font-size: 16px;
-    line-height: 1.7;
+.content {
+  font-size: 16px;
+  line-height: 1.7;
 
-    display: block;
+  display: block;
 
-    max-width: 700px;
-    min-height: calc(100vh - 60px);
-    margin: 60px auto 80px;
-    padding: 0 15px;
+  max-width: 700px;
+  min-height: calc(100vh - 60px);
+  margin: 60px auto 80px;
+  padding: 0 15px;
 
-    color: #555;
+  color: #555;
 }
 
-.article-title
-{
-    font-size: 34px;
-    line-height: 1.3;
+.article-title {
+  font-size: 34px;
+  line-height: 1.3;
 
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 
-    text-align: center;
+  text-align: center;
 
-    color: #222;
+  color: #222;
 }
 
-.article-date
-{
-    font-family: 'Merriweather', serif;
-    font-size: 16px;
+.article-date {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
 
-    display: block;
+  display: block;
 
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 
-    text-align: center;
+  text-align: center;
 
-    color: #ccc;
+  color: #ccc;
 }
 
-.article-content p
-{
-    margin: 1rem 0;
+.article-content p {
+  margin: 1rem 0;
 }
 
-.article-content a
-{
-    padding-bottom: 2px;
+.article-content a {
+  padding-bottom: 2px;
 
-    text-decoration: none;
+  text-decoration: none;
 
-    color: inherit;
-    border-bottom: thin dashed #ad810cb5;
+  color: inherit;
+  border-bottom: thin dashed #ad810cb5;
 }
 
 .article-content a:hover,
-.article-content a:active
-{
-    border-bottom: medium solid #ad810cb5;
+.article-content a:active {
+  border-bottom: medium solid #ad810cb5;
 }
 
-.article-content hr
-{
-    overflow: hidden;
+.article-content hr {
+  overflow: hidden;
 
-    width: 150px;
-    height: 1px;
-    margin: 50px auto;
+  width: 150px;
+  height: 1px;
+  margin: 50px auto;
 
-    border: none;
-    background: #e8e8e8;
+  border: none;
+  background: #e8e8e8;
 }
 
-.article-taxonomy
-{
-    font-family: 'Merriweather', serif;
-    font-size: 14px;
+.article-taxonomy {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
 
-    padding-left: 0;
+  padding-left: 0;
 
-    list-style: none;
+  list-style: none;
 
-    text-align: left;
+  text-align: left;
 
-    color: #404040;
+  color: #404040;
 }
 
-.article-taxonomy hr
-{
-    width: 200px;
-    height: 1px;
-    margin: 5px 0 10px;
+.article-taxonomy hr {
+  width: 200px;
+  height: 1px;
+  margin: 5px 0 10px;
 
-    border: none;
-    background: #e8e8e8;
+  border: none;
+  background: #e8e8e8;
 }
 
-.article-taxonomy a
-{
-    display: inline-block;
+.article-taxonomy a {
+  display: inline-block;
 
-    margin: 0 10px 0 0;
+  margin: 0 10px 0 0;
 
-    transition: color 300ms;
-    text-decoration: none;
+  transition: color 300ms;
+  text-decoration: none;
 
-    color: inherit;
+  color: inherit;
 }
 
 .article-taxonomy a:hover,
-.article-taxonomy a:active
-{
-    color: #ccc;
+.article-taxonomy a:active {
+  color: #ccc;
 }
 
-.article-image-large
-{
-    padding: 2px;
+.article-image-large {
+  padding: 2px;
 
-    transition: opacity 1s;
+  transition: opacity 1s;
 
-    opacity: 1;
-    border: solid 1px #e6e6e6;
+  opacity: 1;
+  border: solid 1px #e6e6e6;
 }
 
 .article-image-large:hover,
-.article-image-large:active
-{
-    opacity: .5;
+.article-image-large:active {
+  opacity: .5;
 }
 
-.footer
-{
-    font-family: 'Merriweather', serif;
+.footer {
+  font-family: 'Merriweather', serif;
 
-    height: 40px;
-    margin: 30px 0 0 0;
-    padding: 0;
+  height: 40px;
+  margin: 30px 0 0 0;
+  padding: 0;
 
-    text-align: center;
+  text-align: center;
 }
 
-.footer-links
-{
-    font-size: 10px;
+.footer-links {
+  font-size: 10px;
 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    list-style: none;
+  list-style: none;
 
-    color: #ccc;
+  color: #ccc;
 }
 
-.footer-links li
-{
-    display: inline-block;
+.footer-links li {
+  display: inline-block;
 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.footer-links a
-{
-    margin: 0 3px;
+.footer-links a {
+  margin: 0 3px;
 
-    transition: color 300ms;
-    text-decoration: none;
+  transition: color 300ms;
+  text-decoration: none;
 
-    color: #888;
+  color: #888;
 }
 
-.footer-links a:hover
-{
-    color: #222;
+.footer-links a:hover {
+  color: #222;
 }
 
-.footer-links li::before
-{
-    padding: 0 18px;
+.footer-links li::before {
+  padding: 0 18px;
 
-    content: '•';
+  content: '•';
 }
 
-.footer-links li:first-child::before
-{
-    display: none;
+.footer-links li:first-child::before {
+  display: none;
 }
 
-.page-links
-{
-    font-family: 'Merriweather', serif;
-    font-size: 16px;
+.page-links {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
 
-    margin: 25px 0;
-    padding: 0;
+  margin: 25px 0;
+  padding: 0;
 
-    text-align: center;
+  text-align: center;
 }
 
-.page-links li
-{
-    display: inline-block;
+.page-links li {
+  display: inline-block;
 }
 
-.page-links a
-{
-    padding: 0 5px;
+.page-links a {
+  padding: 0 5px;
 
-    transition: color 300ms;
-    text-decoration: none;
+  transition: color 300ms;
+  text-decoration: none;
 
-    color: #555;
+  color: #555;
 }
 
-.page-links a:hover
-{
-    color: #ccc;
+.page-links a:hover {
+  color: #ccc;
 }
 
 .page-links-active a,
-.page-links-disabled a
-{
-    text-decoration: none;
+.page-links-disabled a {
+  text-decoration: none;
 
-    color: #ccc;
+  color: #ccc;
 }
 
-.error-page-title
-{
-    font-size: 76px;
+.error-page-title {
+  font-size: 76px;
 
-    text-align: center;
+  text-align: center;
 }
 
-.error-page-content
-{
-    text-align: center;
+.error-page-content {
+  text-align: center;
 }
 
-.error-page-content a
-{
-    transition: color 600ms;
-    text-decoration: none;
+.error-page-content a {
+  transition: color 600ms;
+  text-decoration: none;
 
-    color: inherit;
+  color: inherit;
 }
 
 .error-page-content a:hover,
-.error-page-content a:active
-{
-    color: #ccc;
+.error-page-content a:active {
+  color: #ccc;
 }
 
-.github-buttons span
-{
+.github-buttons span {
+  position: relative;
+  top: 6px;
+}
+
+.github-repo-description {
+  font-size: .8rem;
+
+  padding-top: 2px;
+}
+
+a.github-repo-title {
+  font-size: .8rem;
+
+  padding: 2px 6px 2px 8px;
+
+  vertical-align: top;
+  text-decoration: none;
+
+  color: #fff;
+  border-bottom: none;
+  border-radius: 3px;
+  background-color: #666;
+
+  text-ailgn: center;
+}
+
+a.github-repo-title:hover {
+  border-bottom: none;
+}
+
+div.github-buttons {
+  margin: 1.4rem 0 .5rem 0;
+}
+
+@media (min-width: 600px) {
+  code {
+    font-size: .8rem;
+
     position: relative;
-    top: 6px;
-}
+    bottom: 1px;
 
-.github-repo-description
-{
+    padding: 2px 4px;
+  }
+
+  pre code {
+    font-size: .7rem;
+
+    padding: 0;
+  }
+
+  pre {
+    line-height: 1.2rem;
+
+    margin: 0 6px;
+
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, .5);
+  }
+
+  .header {
+    padding: 25px 0;
+  }
+
+  .content {
+    font-size: 12px;
+    line-height: 1.8;
+
+    margin: 50px auto;
+  }
+
+  .article-title {
+    font-size: 42px;
+  }
+
+  .article-date {
     font-size: .8rem;
 
-    padding-top: 2px;
-}
+    margin-top: 1rem;
+  }
 
-a.github-repo-title
-{
+  .article-taxonomy {
+    font-size: 17px;
+  }
+
+  .list-title {
+    text-align: center;
+  }
+
+  .list-item a {
+    font-size: 21px;
+
+    padding: 5px 0;
+  }
+
+  .list-item-date {
+    font-size: 17px;
+
+    float: right;
+
+    padding: 5px 0;
+
+    text-align: right;
+  }
+
+
+  .footer-links {
     font-size: .8rem;
+  }
 
-    padding: 2px 6px 2px 8px;
+  .footer-links a {
+    margin: 0 3px;
+  }
 
-    vertical-align: top;
-    text-decoration: none;
+  .page-links {
+    font-size: 19px;
+  }
 
-    color: #fff;
-    border-bottom: none;
-    border-radius: 3px;
-    background-color: #666;
-
-    text-ailgn: center;
-}
-
-a.github-repo-title:hover
-{
-    border-bottom: none;
-}
-
-div.github-buttons
-{
-    margin: 1.4rem 0 .5rem 0;
-}
-
-@media (min-width: 600px)
-{
-    code
-    {
-        font-size: .8rem;
-
-        position: relative;
-        bottom: 1px;
-
-        padding: 2px 4px;
-    }
-
-    pre code
-    {
-        font-size: .7rem;
-
-        padding: 0;
-    }
-
-    pre
-    {
-        line-height: 1.2rem;
-
-        margin: 0 6px;
-
-        box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, .5);
-    }
-
-    .header
-    {
-        padding: 25px 0;
-    }
-
-    .content
-    {
-        font-size: 15px;
-        line-height: 1.8;
-
-        margin: 50px auto;
-    }
-
-    .article-title
-    {
-        font-size: 42px;
-    }
-
-    .article-date
-    {
-        font-size: .8rem;
-
-        margin-top: 1rem;
-    }
-
-    .article-taxonomy
-    {
-        font-size: 17px;
-    }
-
-    .list-title
-    {
-        text-align: center;
-    }
-
-    .list-title .count
-    {
-        font-size: .4em;
-
-        position: relative;
-        bottom: 5px;
-
-        padding: 2px 7px 2px 6px;
-
-        text-align: center;
-
-        color: white;
-        border-radius: 3px;
-        background-color: #ccc;
-    }
-
-    .list-item a
-    {
-        font-size: 21px;
-
-        padding: 5px 0;
-    }
-
-    .list-item-date
-    {
-        font-size: 17px;
-
-        float: right;
-
-        padding: 5px 0;
-
-        text-align: right;
-    }
-
-
-    .footer-links
-    {
-        font-size: .8rem;
-    }
-
-    .footer-links a
-    {
-        margin: 0 3px;
-    }
-
-    .page-links
-    {
-        font-size: 19px;
-    }
-
-    .error-page-title
-    {
-        font-size: 114px;
-    }
+  .error-page-title {
+    font-size: 114px;
+  }
 }

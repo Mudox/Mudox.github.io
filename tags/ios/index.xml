@@ -6,10 +6,21 @@
     <description>Recent content in Ios on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jul 2018 01:37:35 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jul 2018 04:57:59 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Massive View Controller Issue</title>
+      <link>http://mudox.github.io/massive-view-controller-issue/</link>
+      <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/massive-view-controller-issue/</guid>
+      <description>The MVC backed by UIKit TBD.
+View controller&amp;rsquo;s tasks Not view controller&amp;rsquo;s tasks TBD.
+Popular solutions TBD.</description>
+    </item>
     
     <item>
       <title>My iOS Awesome List</title>

@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jul 2018 01:37:35 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jul 2018 04:57:59 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>App Architecture</title>
+      <link>http://mudox.github.io/tags/app-architecture/</link>
+      <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/app-architecture/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Awesome</title>
@@ -41,7 +50,7 @@
     <item>
       <title>Ios</title>
       <link>http://mudox.github.io/tags/ios/</link>
-      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
       
       <guid>http://mudox.github.io/tags/ios/</guid>
       <description></description>
@@ -66,6 +75,15 @@
     </item>
     
     <item>
+      <title>Objective C</title>
+      <link>http://mudox.github.io/tags/objective-c/</link>
+      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/objective-c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Snippets</title>
       <link>http://mudox.github.io/tags/snippets/</link>
       <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
@@ -77,9 +95,18 @@
     <item>
       <title>Swift</title>
       <link>http://mudox.github.io/tags/swift/</link>
-      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
       
       <guid>http://mudox.github.io/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>View Controller</title>
+      <link>http://mudox.github.io/tags/view-controller/</link>
+      <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/view-controller/</guid>
       <description></description>
     </item>
     

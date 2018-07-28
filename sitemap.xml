@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://mudox.github.io/massive-view-controller-issue/</loc>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/resume/</loc>
     <lastmod>2018-07-29T02:25:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://mudox.github.io/my-ios-awesome-list/</loc>
-    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <lastmod>2018-07-29T05:16:08+08:00</lastmod>
   </url>
   
   <url>
@@ -33,8 +38,14 @@
   </url>
   
   <url>
+    <loc>http://mudox.github.io/tags/app-architecture/</loc>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/tags/awesome/</loc>
-    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <lastmod>2018-07-29T05:16:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -52,7 +63,7 @@
   
   <url>
     <loc>http://mudox.github.io/tags/ios/</loc>
-    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -70,13 +81,19 @@
   
   <url>
     <loc>http://mudox.github.io/</loc>
-    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/objective-c/</loc>
+    <lastmod>2018-07-29T05:16:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/post/</loc>
-    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -88,13 +105,19 @@
   
   <url>
     <loc>http://mudox.github.io/tags/swift/</loc>
-    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/</loc>
-    <lastmod>2018-07-29T02:25:29+08:00</lastmod>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/view-controller/</loc>
+    <lastmod>2018-07-29T05:15:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
