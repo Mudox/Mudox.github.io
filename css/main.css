@@ -238,7 +238,7 @@ blockquote {
 
 .footer {
   height: 40px;
-  margin: 0;
+  margin: 30px 0 0 0;
   padding: 0;
   text-align: center;
   font-family: 'Merriweather', serif;
@@ -249,7 +249,7 @@ blockquote {
   margin: 0;
   padding: 0;
   color: #ccc;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .footer-links li {
@@ -432,7 +432,7 @@ div.github-buttons {
 
 
   .footer-links {
-    font-size: inherit;
+    font-size: 0.8rem;
   }
 
   .footer-links a {

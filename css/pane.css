@@ -3,7 +3,8 @@
 @media (min-width: 600px) {
   .aside-pane {
     position: fixed;
-    top: 128px;
+    top: 0;
+    margin: 128px 0 50px 0;
 
     overflow-y: hidden;
 
@@ -11,7 +12,6 @@
     max-width: calc(50vw - 350px - 70px);
     height: 70%;
 
-    background-color: #fff;
   }
 
   .aside-pane:hover {
