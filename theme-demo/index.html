@@ -42,6 +42,7 @@
 
 <script src='/js/jquery-3.3.1.js'></script>
 <script src='/js/toc.js'></script>
+<script src='/js/nav.js'></script>
 
 
 
@@ -87,7 +88,7 @@
         <li>
             <a href="https://github.com/mudox">
                 <i class='fab fa-github'></i>
-                <span></span>
+                <span>GITHUB</span>
             </a>
         </li>
         
@@ -104,29 +105,85 @@
         
         
 <aside class="aside-pane left-pane">
-    <header>
-        <h2>
-            <hr>
-            <span>TAGS</span>
-            <i class="fas fa-tags"></i>
-        </h2>
-    </header>
-    <ul class="tag-list">
+
+    
+
+    <div class="tag-list">
+        <header>
+            <h2>
+                <span>TAGS</span>
+                <i class="fas fa-tags"></i>
+            </h2>
+        </header>
+        <ul class="tag-list">
+            
+            <li>
+                
+                
+                <a href="/%20tags/%20demo">Demo</a>
+                <br> 
+                
+                <a href="/%20tags/%20markdown">Markdown</a>
+                <br> 
+                
+                <a href="/%20tags/%20web">Web</a>
+                <br> 
+            </li>
+            
+        </ul>
+    </div>
+
+    
+
+    <div class="left-pane-nav">
+        <li>
+            <a href="/">
+                <h2>
+                    <span>Home</span>
+                    <i class="fas fa-home"></i>
+                </h2>
+            </a>
+        </li>
+
         
         <li>
             
-            
-            <a href="/%20tags/%20demo">Demo</a>
-            <br> 
-            
-            <a href="/%20tags/%20markdown">Markdown</a>
-            <br> 
-            
-            <a href="/%20tags/%20web">Web</a>
-            <br> 
+            <a href="/tags">
+                <h2>
+                    <span>Tags</span> <i class='fas fa-hashtag'></i>
+                </h2>
+            </a>
         </li>
         
-    </ul>
+        <li>
+            
+            <a href="/my-projects">
+                <h2>
+                    <span>Projects</span> <i class='fas fa-rocket'></i>
+                </h2>
+            </a>
+        </li>
+        
+        <li>
+            
+            <a href="/resume">
+                <h2>
+                    <span>Resume</span> <i class='fas fa-user-circle'></i>
+                </h2>
+            </a>
+        </li>
+        
+        <li>
+            
+            <a href="https://github.com/mudox">
+                <h2>
+                    <span>Github</span> <i class='fab fa-github'></i>
+                </h2>
+            </a>
+        </li>
+        
+    </div>
+
 </aside>
 
 
@@ -139,7 +196,6 @@
         <h2>
             <i class="fas fa-list"></i>
             <span>CONENTS</span>
-            <hr>
         </h2>
     </header>
     <nav id="TableOfContents">
