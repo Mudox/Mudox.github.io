@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.45.1" />
+
+
+<title>Unburden View Controller - Mudox</title>
+<meta property="og:title" content="Unburden View Controller - Mudox">
+
+
+
+
+<meta property="description" content="In iOS app development, view controllers often take too much responsibilities
+which results in big view controller source file compared to other components
+(model layer, view layer). Separating them into clear and controllable components
+is a good start for a qualified app architecture.
+">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="http://mudox.github.io/css/normalize.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/base.css">
+
+<link rel="stylesheet" href="http://mudox.github.io/css/main.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/nav.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/pane.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/tag.css">
+
+<link rel="stylesheet" href="http://mudox.github.io/css/list.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/table.css">
+
+<link rel="stylesheet" href="http://mudox.github.io/css/fonts.css">
+
+<link rel="stylesheet" href="http://mudox.github.io/css/home.css">
+
+
+<link rel="icon" href="http://mudox.github.io/images/favicon.jpg">
+
+
+<script src='/js/jquery-3.3.1.js'></script>
+<script src='/js/toc.js'></script>
+<script src='/js/nav.js'></script>
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+
+    
+
+    <a class="nav-left" href="http://mudox.github.io">
+        <img class="nav-logo" src="http://mudox.github.io/images/logo.png">
+        <h1 class="nav-title">MUDOX</h1>
+    </a>
+
+    
+
+    <ul class="nav-right">
+        
+        <li>
+            <a href="/tags">
+                <i class='fas fa-hashtag'></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="/my-projects">
+                <i class='fas fa-rocket'></i>
+                <span>PROJECTS</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="/resume">
+                <i class='fas fa-user-circle'></i>
+                <span>RESUME</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://github.com/mudox">
+                <i class='fab fa-github'></i>
+                <span>GITHUB</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+    <article class="article">
+
+        
+        
+        <aside class="sidebar left-pane">
+
+    <section>
+        <div class="pane-tag-list">
+    <header class="pane-tag-list-title">
+        <h2>
+            <span>TAGS</span>
+            <i class="fas fa-tags"></i>
+        </h2>
+    </header>
+    <ul class="pane-tag-list-body">
+        
+            
+                <li>
+                    <a href="/tags/view%20controller">View Controller</a>
+                </li>
+            
+                <li>
+                    <a href="/tags/swift">Swift</a>
+                </li>
+            
+                <li>
+                    <a href="/tags/ios">iOS</a>
+                </li>
+            
+                <li>
+                    <a href="/tags/app%20architecture">App Architecture</a>
+                </li>
+            
+        
+    </ul>
+</div>
+
+    </section>
+    
+    <section>
+        <div class="recent-updated">
+    <header class="recent-updated-title">
+        <h2>
+            <span>UPDATED</span>
+            <i class="fas fa-calendar-alt"></i>
+        </h2>
+    </header>
+    <ul class="recent-updated-body">
+        
+        <li>
+            <a href="http://mudox.github.io/unburden-view-controller/">Unburden View Controller</a>
+        </li>
+        
+        <li>
+            <a href="http://mudox.github.io/resume/">Resume</a>
+        </li>
+        
+        <li>
+            <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
+        </li>
+        
+        <li>
+            <a href="http://mudox.github.io/fixed-aside-pane/">Fixed Aside Pane</a>
+        </li>
+        
+    </ul>
+</div>
+
+    </section>
+
+    <section>
+        <div class="pane-nav">
+    <header>
+        <h2>
+            <span>MENU</span>
+            <i class="fas fa-home"></i>
+        </h2>
+    </header>
+    <ul class="pane-nav-body">
+        <li>
+            <a href="/">
+                Home
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags">
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/my-projects">
+                Projects
+            </a>
+        </li>
+        
+        <li>
+            <a href="/resume">
+                Resume
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://github.com/mudox">
+                Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    </section>
+
+</aside>
+
+
+        
+        
+        
+<aside class="sidebar right-pane">
+    <header>
+        <h2>
+            <i class="fas fa-list"></i>
+            <span>CONENTS</span>
+        </h2>
+    </header>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#the-evolution-story">The Evolution Story</a></li>
+<li><a href="#dissect-massive-view-controller">Dissect Massive View Controller</a>
+<ul>
+<li><a href="#1-interact-with-data">1. Interact with data</a>
+<ul>
+<li><a href="#solution">Solution</a></li>
+</ul></li>
+<li><a href="#2-manage-views">2. Manage views</a>
+<ul>
+<li><a href="#solution-1">Solution:</a></li>
+</ul></li>
+<li><a href="#3-manage-scene-navigation">3. Manage scene navigation</a>
+<ul>
+<li><a href="#solution-2">Solution</a></li>
+</ul></li>
+<li><a href="#4-one-view-controller-manages-the-whole-interface">4. One view controller manages the whole interface</a>
+<ul>
+<li><a href="#solution-3">Solution</a></li>
+</ul></li>
+<li><a href="#5-other-stuffs-that-should-not-fall-into-view-controller">5. Other stuffs that should not fall into view controller</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</nav>
+</aside>
+
+
+
+        
+        
+        
+
+        
+        <h1 class="article-title">Unburden View Controller</h1>
+
+        
+        
+        <time>
+            <span class="article-date">
+                Updated: 2018-07-29
+            </span>
+        </time>
+        
+
+        
+        
+        <blockquote class='article-summary'>In iOS app development, view controllers often take too much responsibilities
+which results in big view controller source file compared to other components
+(model layer, view layer). Separating them into clear and controllable components
+is a good start for a qualified app architecture.
+</blockquote>
+        
+
+        <div class="article-content">
+            
+
+<h1 id="the-evolution-story">The Evolution Story</h1>
+
+<p>I guess at the very beginning of GUI app architecture evolution, there might be
+only 2 layers:</p>
+
+<ul>
+<li><p><strong>View layer</strong> for displaying data model states, views just fetching data
+from model layer, perform some simple but necessary formatting and then show
+them out.</p></li>
+
+<li><p><strong>Model layer</strong> for store and manipulating data</p></li>
+</ul>
+
+<p>As the program evolves, a new layer <strong>View Controller</strong> was brought up to relief of
+views before their source files become too huge.</p>
+
+<p>However the desire of human has no rest, as a result the app&rsquo;s work flows grew
+rapidly. The view controller layer soon stepped into the same trap as view
+layer has.</p>
+
+<p>Since birth of the classic MVC app architecture, a bunch of new app
+architectures has emerged in hope of curing the obesity of view controller
+layer. They look stylish or wired &hellip;, behaves modernly or oddly &hellip;. However in
+essence, they may all started from the same pain - fat view controllers,
+with the same purpose - unburden view controllers.</p>
+
+<h1 id="dissect-massive-view-controller">Dissect Massive View Controller</h1>
+
+<p>Here list out responsibilities a massive view controller might have taken and
+some principals or solutions that can resolve them.</p>
+
+<h2 id="1-interact-with-data">1. Interact with data</h2>
+
+<ul>
+<li><p>Observe for data model changes</p>
+
+<p>Observe changes from other components using technologies like KVO,
+NotificationCenter, Core Data observation interface, Realm observation
+interface etc.</p></li>
+
+<li><p>Fetch or pre-fetch data from local sandbox or remote servers</p>
+
+<p>E.g. Use the UIKit URL loading system to send a URL request, and implement
+<code>URLTaskDelegate</code> in the view controller source file. Load data from Core
+Data, Realm, SQLite &hellip;  directly in the view controller source file.</p></li>
+
+<li><p>Transform data for displaying.</p>
+
+<p>E.g. use <code>DateFormatter</code> to format  data objects into string for display on views.</p></li>
+
+<li><p>Update data</p>
+
+<p>This includes the most common inserting, deleting, updating operations as
+well as data persistence, caching etc. That adds up a hell log of code.</p></li>
+</ul>
+
+<h3 id="solution">Solution</h3>
+
+<p>Introduce <strong>MVVM</strong> pattern.</p>
+
+<p>The key point of MVVM is the new role - <strong>view mdoel</strong> added between the view
+controller and the data model. In MVVM, it is view models instead of view
+controllers who directly interact with the data model.</p>
+
+<p>The FRP (Functional Reactive Programming) technology greatly enhances MVVM
+pattern by providing reactive bindings between view model and view, and between
+view model and data model. The Swift FRP implementation I use for nowadays -
+<a href="https://github.com/ReactiveX/RxSwift">RxSwift</a> provides clear and consistent interface for both listening events from
+view and observing changes from data model. FRP is a skill that deserves you to
+investigate your time.</p>
+
+<p>For data transforming, we can define specific type (often named <code>...Formatter</code>)
+for them if the task is non-trivial.</p>
+
+<p>During the app lifetime, app might access various kind data from various sources, like:</p>
+
+<ul>
+<li><p>Data from remote service<br />
+Define one or more <code>...NetworkService</code> for URL requesting.</p></li>
+
+<li><p>Data from local persistence storage (e.g. Core Data, Realm database)<br />
+Define one or more <code>....DataService</code> for local data manipulation.</p></li>
+
+<li><p>User related data<br />
+Define <code>UserSerivce</code> to manage user authentication and user info storage.
+Define <code>UserPreferencesSerivce</code> to manage user preference.</p></li>
+</ul>
+
+<h2 id="2-manage-views">2. Manage views</h2>
+
+<ul>
+<li><p>Manipulate subview hierarchy</p>
+
+<p>When loading, view controler need to make its initial subview tree. (e.g.
+in <code>loadView</code> ot <code>viewDidLoad</code> method).</p>
+
+<p>During its lifetime, view controller might need to manipulate its subview
+hierarchy on demand. Including</p>
+
+<ul>
+<li>Adding / removing / moving subviews in the hierarchy.</li>
+<li>Animating views on demond.</li>
+</ul></li>
+
+<li><p>Manage view&rsquo;s display</p>
+
+<p>When backing data comes / changes, view controller format and show them on
+views. E.g. tranform a <code>Date</code> object into string using <code>DataFormatter</code>,
+and then assign it ot <code>aLabel.text</code> to display the date.</p></li>
+
+<li><p>Communicate with subviews</p>
+
+<p>There are a lot of <code>UITableViewData</code>, <code>UITableViewDelegate</code> code section
+scattered in view controller source files which add up a significant number
+of code lines into the source files.</p></li>
+</ul>
+
+<h3 id="solution-1">Solution:</h3>
+
+<p>The first 2 responsibilities are definitely view controller&rsquo;s duty. For
+communicating with subviews, we can introducing specifically defined type(s) to
+take over it. E.g. view models in MVVM pattern, or a custom delegate or data
+source class.</p>
+
+<p>For example, the <a href="https://github.com/RxSwiftCommunity">RxSwift Community</a> provides project <a href="https://github.com/RxSwiftCommunity/RxDataSources">RxDataSources</a> which
+defines reactive data source types for views such as <code>UITableView</code>,
+<code>UIcollection</code>&hellip; All we need to do is creating and correctly configuring them
+at the beginning (often in <code>viewDidLoad</code> method), and then bind them to the
+views. And everything works.</p>
+
+<h2 id="3-manage-scene-navigation">3. Manage scene navigation</h2>
+
+<ul>
+<li><p>Spawn other view controllers</p>
+
+<p>Before scene transition the source view controller needs to load or create
+other view controllers to transition to. This adds a coupling that the view
+controller need to know the app context (e.g. storyboard, xib files to load
+view controller from, or other view controller class instantiate them
+programmaticall.)</p></li>
+
+<li><p>Manage scene transition.</p>
+
+<p>Beside creating / load view controller, view controller also need to fire
+a transition to the new controller. UIKit only provides 2 ways to put new
+view controller onto stage:</p>
+
+<ol>
+<li><p>Modally present the view controller<br />
+By modal presentation view controllers form a relationship between
+presenting view controller and presented view controller.</p></li>
+
+<li><p>Embed the view controller into containing view controller<br />
+UIKit provides 2 prevalent container view controller:
+<code>UINavigationController</code> and <code>UITabBarController</code>, as well as allowing
+deveoloper to design their own custom container view controller. See
+<a href="https://www.objc.io/issues/1-view-controllers/containment-view-controller/">View Controller Containment</a> for a good introducation.</p></li>
+</ol></li>
+
+<li><p>Communicate with other view controllers</p>
+
+<ol>
+<li><p>Communicate with upstream in the flow<br />
+Sometimes, a view controller would need to change its parent view
+controller. E.g. change naviation controller&rsquo;s navigation bar.</p></li>
+
+<li><p>Communicate with downstream in the flow<br />
+After transition to view controller down the work flow, the source view
+controler often need to be notified of the result from the presented view
+controller.</p></li>
+</ol></li>
+</ul>
+
+<h3 id="solution-2">Solution</h3>
+
+<p>Introduce the <strong>Coordinator</strong> pattern.</p>
+
+<p>Define a <code>AppCooridnator</code> which</p>
+
+<ol>
+<li><p>Decides and present the fist interface after app launch.<br />
+E.g. if it is the first launch of the app or the current version, the app
+coordinator create and show guides interface. If the user is not signed in,
+app coordinator shows up authentication interface instead of home interface.</p></li>
+
+<li><p>Manages app&rsquo;s home work flow which contains the first interface(s) it created.</p></li>
+
+<li><p>Responds to scene transition requests from view controller(s) in its flow to</p>
+
+<ul>
+<li>Transition to next scene in its flow</li>
+<li>Transition to other work flows (managed under other coordinators)<br />
+In this case, the app coordinators creates new coordinators which manages other work
+flow of the app.</li>
+</ul></li>
+</ol>
+
+<p>Each coordinators manges a planned work flow of the app which is a series of
+view controllers (scenes) shown in line to user to complete certain works.</p>
+
+<p>Swift community has provided some coordinators implementations:</p>
+
+<ul>
+<li><a href="https://github.com/devxoul/URLNavigator">URLNavigator</a></li>
+<li><a href="https://github.com/RxSwiftCommunity/RxFlow">RxFlow</a></li>
+<li><a href="https://github.com/quickbirdstudios/RxCoordinator">RxCoordinator</a></li>
+</ul>
+
+<p>Or you can implement them manually, they are simple role in the architecture,
+no need make them complicated in my opinion.</p>
+
+<h2 id="4-one-view-controller-manages-the-whole-interface">4. One view controller manages the whole interface</h2>
+
+<p>A non-trivial app often features a very rich home interface by using
+technologies like sliding tabs.</p>
+
+<p>As a result, the view controller should create a whole lot of subviews, manage
+every aspect of them.</p>
+
+<h3 id="solution-3">Solution</h3>
+
+<p>Use view controller containment technology.</p>
+
+<p>Divide the view controller&rsquo;s whole interface into reasonable regions, and hand
+them over to several child view controllers. Since iOS 5, UIKit provides view
+controller containment API for developers to handle this need.</p>
+
+<p>See <a href="https://www.objc.io/issues/1-view-controllers/containment-view-controller/">View Controller Containment</a> for a good introduction.</p>
+
+<h2 id="5-other-stuffs-that-should-not-fall-into-view-controller">5. Other stuffs that should not fall into view controller</h2>
+
+<ul>
+<li><p>Playing media files</p></li>
+
+<li><p>Perform LBS tasks</p></li>
+
+<li><p>Manage user notification</p></li>
+</ul>
+
+<p>These features should all tuck into specific classes named like <code>...Manager</code> or <code>...Servcie</code>.</p>
+
+<h1 id="references">References</h1>
+
+<ul>
+<li><a href="http://khanlou.com/2015/10/coordinators-redux/">Coordinator Redux</a></li>
+<li><a href="http://khanlou.com/2014/09/8-patterns-to-help-you-destroy-massive-view-controller/">8 Patterns to Help You Destroy Massive View Controller</a></li>
+<li><a href="https://www.objc.io/issues/1-view-controllers/containment-view-controller/">View Controller Containment</a></li>
+</ul>
+
+        </div>
+
+    </article>
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+            
+                
+                
+            
+          
+          <li>
+            This is a static site generated by 
+            <a href="https://gohugo.io">
+                Hugo
+            </a>
+          </li>
+          <li>
+            With the theme evolved from
+            <a href="https://github.com/mobybit/hugo-natrium-theme">
+                Natrium
+            </a>
+          </li>
+          
+            
+                
+            
+          
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+

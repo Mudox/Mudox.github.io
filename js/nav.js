@@ -35,7 +35,7 @@ function scrollPanes() {
     newTop = topEnd;
   }
 
-  Array.from(document.getElementsByClassName('aside-pane')).forEach(function(item) {
+  Array.from(document.getElementsByClassName('sidebar')).forEach(function(item) {
     item.style.marginTop = newTop + 'px';
   })
 }

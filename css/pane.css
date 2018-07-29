@@ -1,7 +1,7 @@
-/*aside-pane {{{*/
+/*sidebar {{{*/
 
 @media (min-width: 600px) {
-  .aside-pane {
+  .sidebar {
     padding: 0 8px;
     position: fixed;
     top: 0;
@@ -14,27 +14,27 @@
     margin: 128px 0 50px 0;
   }
 
-  .aside-pane:hover {
+  .sidebar:hover {
     overflow-y: auto;
   }
 
-  .aside-pane li {
+  .sidebar li {
     font-size: .75rem;
 
     list-style: none;
   }
 
-  .aside-pane h2 {
+  .sidebar h2 {
     font-size: .8rem;
 
     margin-bottom: 5px;
   }
 
-  .aside-pane header h2 span {
+  .sidebar header h2 span {
     padding: 0 4px;
   }
 
-  .aside-pane a {
+  .sidebar a {
     padding-bottom: 1.8px;
 
     transition: border-color, color 300ms;
@@ -44,14 +44,14 @@
     border-bottom: none;
   }
 
-  .aside-pane a:hover,
-  .aside-pane a.current,
-  .aside-pane a:active {
+  .sidebar a:hover,
+  .sidebar a.current,
+  .sidebar a:active {
     color: #666;
     border-bottom: thin solid #606060;
   }
 
-  .aside-pane section {
+  .sidebar section {
     margin: 0 0 35px 0;
   }
 

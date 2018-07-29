@@ -1,3 +1,7 @@
+ol, ul {
+  padding-left: 1.4rem;
+}
+
 html,
 body {
   position: relative;

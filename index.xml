@@ -13,14 +13,15 @@
     
     
     <item>
-      <title>Massive View Controller</title>
-      <link>http://mudox.github.io/massive-view-controller/</link>
+      <title>Unburden View Controller</title>
+      <link>http://mudox.github.io/unburden-view-controller/</link>
       <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
       
-      <guid>http://mudox.github.io/massive-view-controller/</guid>
-      <description>The MVC backed by UIKit TBD.
-View controller&amp;rsquo;s tasks Not view controller&amp;rsquo;s tasks TBD.
-Popular solutions TBD.</description>
+      <guid>http://mudox.github.io/unburden-view-controller/</guid>
+      <description>The Evolution Story I guess at the very beginning of GUI app architecture evolution, there might be only 2 layers:
+ View layer for displaying data model states, views just fetching data from model layer, perform some simple but necessary formatting and then show them out.
+ Model layer for store and manipulating data
+  As the program evolves, a new layer View Controller was brought up to relief of views before their source files become too huge.</description>
     </item>
     
     
@@ -66,7 +67,7 @@ I&amp;rsquo;m an iOS developer.</description>
       
       <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
       <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
-&amp;lt;aside class=&amp;#34;aside-pane right-pane&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#data&amp;#34;&amp;gt;Heading 1&amp;lt;/a&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.1&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.2&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;/aside&amp;gt; It basically scans the article body part for headings (h1 h2 h3 h4 .</description>
+&amp;lt;aside class=&amp;#34;sidebar right-pane&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#data&amp;#34;&amp;gt;Heading 1&amp;lt;/a&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.1&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.2&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;/aside&amp;gt; It basically scans the article body part for headings (h1 h2 h3 h4 .</description>
     </item>
     
     
