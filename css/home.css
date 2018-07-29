@@ -6,17 +6,17 @@
   margin: 0 0 6px;
 }
 
-.list-title .count {
-  font-family: 'Lato', serif;
-  font-size: 9px;
-
-  position: relative;
-  bottom: 3px;
-  left: 1px;
-
-  text-align: center;
-
-  color: white;
-  border-radius: 13px;
-  background-color: #777;
-}
+/*.list-title .count {*/
+  /*font-family: 'Lato', serif;*/
+  /*font-size: 12px;*/
+  /*display: block;*/
+  /*padding: 2px 6px;*/
+  /*margin: 6px 0;*/
+  /*[>position: relative;<]*/
+  /*[>top: 3px;<]*/
+  /*left: 1px;*/
+  /*text-align: center;*/
+  /*color: white;*/
+  /*border-radius: 13px;*/
+  /*background-color: #777;*/
+/*}*/

@@ -133,6 +133,10 @@ scrolls.
                     <a href="/tags/snippets">Snippets</a>
                 </li>
             
+                <li>
+                    <a href="/tags/site%20notes">Site Notes</a>
+                </li>
+            
         
     </ul>
 </div>
@@ -150,7 +154,7 @@ scrolls.
     <ul class="recent-updated-body">
         
         <li>
-            <a href="http://mudox.github.io/massive-view-controller-issue/">Massive View Controller Issue</a>
+            <a href="http://mudox.github.io/massive-view-controller/">Massive View Controller</a>
         </li>
         
         <li>
@@ -268,10 +272,6 @@ scrolls.
 
 <p>The static site generator <a href="http://gohugo.io">Hugo</a> I used in for this site auto-generates <a href="https://en.wikipedia.org/wiki/Table_of_contents">TOC</a>
 for each article. The rendered TOC html DOM structure is like:</p>
-
-<p>It basically scans the article body part for headings (<code>h1 h2 h3 h4 ...</code>), each
-of which was rendered with an <code>id</code> attribute. For each heading Hugo adds a <code>li</code>
-item in TOC at appropriate level.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;aside-pane right-pane&#34;</span>&gt;
     &lt;<span style="color:#ff79c6">header</span>&gt;
         &lt;<span style="color:#ff79c6">h2</span>&gt;
@@ -293,6 +293,10 @@ item in TOC at appropriate level.</p>
         &lt;/<span style="color:#ff79c6">ul</span>&gt;
     &lt;/<span style="color:#ff79c6">nav</span>&gt;
 &lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+<p>It basically scans the article body part for headings (<code>h1 h2 h3 h4 ...</code>), each
+of which was rendered with an <code>id</code> attribute. For each heading Hugo adds a <code>li</code>
+item in TOC at appropriate level.</p>
+
 <h1 id="steps">Steps</h1>
 
 <ol>
