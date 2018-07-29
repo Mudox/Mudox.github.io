@@ -16,7 +16,7 @@ function showPaneNavIfNotTop() {
 
 function scrollPanes() {
   var topStart = 128; // should be the same as in `pane.css`
-  var topEnd = 20;
+  var topEnd = 50;
   var topRange = topStart - topEnd;
 
   var yStart = 100;
