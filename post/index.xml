@@ -17,7 +17,11 @@
       <pubDate>Mon, 30 Jul 2018 04:39:04 +0800</pubDate>
       
       <guid>http://mudox.github.io/site-build-notes/</guid>
-      <description>Title Content.</description>
+      <description>Tools I use the popular static site generator - Hugo which is fast as well as versatile. Its live reloading feature is amazing. Almost all working is done by a text editor.
+All text files are edited in the Neovim + Tmux + iTerm 2 combination.
+Emmet is a powerful web snippets expander to boost my html writing speed.
+Basic Page DOM Vertically divided into 3 rows:
+ Top navigation bar showing site logo and site main menu.</description>
     </item>
     
     <item>
@@ -33,13 +37,13 @@
     </item>
     
     <item>
-      <title>Resume</title>
-      <link>http://mudox.github.io/resume/</link>
-      <pubDate>Sat, 28 Jul 2018 04:55:06 +0800</pubDate>
+      <title>Auto Highlighting Toc</title>
+      <link>http://mudox.github.io/auto-highlighting-toc/</link>
+      <pubDate>Tue, 24 Jul 2018 08:45:42 +0800</pubDate>
       
-      <guid>http://mudox.github.io/resume/</guid>
-      <description>My name is Mudox.
-I&amp;rsquo;m an iOS developer.</description>
+      <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
+      <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
+&amp;lt;aside class=&amp;#34;sidebar right-pane&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#data&amp;#34;&amp;gt;Heading 1&amp;lt;/a&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.1&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.2&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;/aside&amp;gt; It basically scans the article body part for headings (h1 h2 h3 h4 .</description>
     </item>
     
     <item>
@@ -61,13 +65,13 @@ I&amp;rsquo;m an iOS developer.</description>
     </item>
     
     <item>
-      <title>Auto Highlighting Toc</title>
-      <link>http://mudox.github.io/auto-highlighting-toc/</link>
-      <pubDate>Thu, 28 Dec 2017 08:45:42 +0800</pubDate>
+      <title>Resume</title>
+      <link>http://mudox.github.io/resume/</link>
+      <pubDate>Sun, 28 Jan 2018 04:55:06 +0800</pubDate>
       
-      <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
-      <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
-&amp;lt;aside class=&amp;#34;sidebar right-pane&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#data&amp;#34;&amp;gt;Heading 1&amp;lt;/a&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.1&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.2&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;/aside&amp;gt; It basically scans the article body part for headings (h1 h2 h3 h4 .</description>
+      <guid>http://mudox.github.io/resume/</guid>
+      <description>My name is Mudox.
+I&amp;rsquo;m an iOS developer.</description>
     </item>
     
     <item>

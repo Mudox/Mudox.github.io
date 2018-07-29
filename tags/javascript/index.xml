@@ -6,7 +6,7 @@
     <description>Recent content in Javascript on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Dec 2017 08:45:42 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jul 2018 08:45:42 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Auto Highlighting Toc</title>
       <link>http://mudox.github.io/auto-highlighting-toc/</link>
-      <pubDate>Thu, 28 Dec 2017 08:45:42 +0800</pubDate>
+      <pubDate>Tue, 24 Jul 2018 08:45:42 +0800</pubDate>
       
       <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
       <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
