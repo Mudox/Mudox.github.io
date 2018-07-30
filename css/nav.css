@@ -64,7 +64,7 @@
     transition: content 300ms;
 }
 
-.nav-left a:hover h1 {
+.nav-left  h1 {
   content: "HOME";
 }
 
