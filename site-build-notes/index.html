@@ -215,7 +215,15 @@ building the site.
     <nav id="TableOfContents">
 <ul>
 <li><a href="#tools">Tools</a></li>
-<li><a href="#basic-page-dom">Basic Page DOM</a></li>
+<li><a href="#basic-page-dom">Basic Page DOM</a>
+<ul>
+<li><a href="#document-body-frame">Document body frame</a></li>
+<li><a href="#navigation-bar-layout">Navigation bar layout</a></li>
+<li><a href="#left-sidebar-frame">Left sidebar frame</a></li>
+<li><a href="#left-sidebar-navigation-section-frame">Left sidebar navigation section frame</a></li>
+<li><a href="#right-sidebar">Right sidebar</a></li>
+<li><a href="#main-content-area">Main content area</a></li>
+</ul></li>
 <li><a href="#content-arrangement">Content Arrangement</a>
 <ul>
 <li><a href="#sections">Sections</a></li>
@@ -288,7 +296,7 @@ a text editor.</p>
 <li>Right sidebar shows table of contents of current article</li>
 </ol>
 
-<p>Document body layout:</p>
+<h2 id="document-body-frame">Document body frame</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">body</span>&gt;
     &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;wrapper&#34;</span>&gt;
         &lt;<span style="color:#ff79c6">header</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;header&#34;</span>&gt;&lt;/<span style="color:#ff79c6">header</span>&gt;
@@ -307,7 +315,17 @@ a text editor.</p>
         &lt;<span style="color:#ff79c6">footer</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;footer&#34;</span>&gt;&lt;/<span style="color:#ff79c6">footer</span>&gt;
     &lt;/<span style="color:#ff79c6">div</span>&gt;
 &lt;/<span style="color:#ff79c6">body</span>&gt;</code></pre></div>
-<p>Navigation bar layout:</p>
+<h2 id="navigation-bar-layout">Navigation bar layout</h2>
+
+<p>This area has 2 parts:</p>
+
+<ol>
+<li><p>Left <code>&lt;nav&gt;</code> floats left, show site logo and title.<br />
+It use flexbox layout to center the logo image and title vertically
+<code>position: flex; align-item: center;</code></p></li>
+
+<li><p>Right <code>&lt;nav&gt;</code> aligns text to right, shows site main menu.</p></li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">nav</span>&gt;
     &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;nav-right&#34;</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
         <span style="color:#6272a4">&lt;!--my avatar--&gt;</span>
@@ -315,16 +333,20 @@ a text editor.</p>
         &lt;<span style="color:#ff79c6">h1</span>&gt;&lt;/<span style="color:#ff79c6">h1</span>&gt;
     &lt;/<span style="color:#ff79c6">a</span>&gt;
 &lt;/<span style="color:#ff79c6">nav</span>&gt;
-&lt;<span style="color:#ff79c6">ul</span>&gt;
-    <span style="color:#6272a4">&lt;!--4 menu links--&gt;</span>
-    &lt;<span style="color:#ff79c6">li</span>&gt;
-        &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-            &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
-            &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
-        &lt;/<span style="color:#ff79c6">a</span>&gt;
-    &lt;/<span style="color:#ff79c6">li</span>&gt;
-&lt;/<span style="color:#ff79c6">ul</span>&gt;</code></pre></div>
-<p>Left sidebar frame:</p>
+&lt;<span style="color:#ff79c6">nav</span>&gt;
+    &lt;<span style="color:#ff79c6">ul</span>&gt;
+        <span style="color:#6272a4">&lt;!--4 menu links--&gt;</span>
+        &lt;<span style="color:#ff79c6">li</span>&gt;
+            &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+                &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
+                &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
+            &lt;/<span style="color:#ff79c6">a</span>&gt;
+        &lt;/<span style="color:#ff79c6">li</span>&gt;
+    &lt;/<span style="color:#ff79c6">ul</span>&gt;
+&lt;<span style="color:#ff79c6">nav</span>&gt;</code></pre></div>
+<h2 id="left-sidebar-frame">Left sidebar frame</h2>
+
+<p>The area is divided into <code>&lt;section&gt;</code>s which is used to add spacing style.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar left-sidebar&#34;</span>&gt;
     &lt;<span style="color:#ff79c6">section</span>  <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-tag-list&#34;</span>&gt;
         <span style="color:#6272a4">&lt;!--tag list partial--&gt;</span>
@@ -336,7 +358,7 @@ a text editor.</p>
         <span style="color:#6272a4">&lt;!--menu partial--&gt;</span>
     &lt;/<span style="color:#ff79c6">section</span>&gt;
 &lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
-<p>Left sidebar navigation section frame:</p>
+<h2 id="left-sidebar-navigation-section-frame">Left sidebar navigation section frame</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">header</span>&gt;
     &lt;<span style="color:#ff79c6">h2</span>&gt;
         &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
@@ -349,7 +371,7 @@ a text editor.</p>
     &lt;/<span style="color:#ff79c6">li</span>&gt;
     <span style="color:#6272a4">&lt;!--...--&gt;</span>
 &lt;/<span style="color:#ff79c6">ul</span>&gt;</code></pre></div>
-<p>Right sidebar:</p>
+<h2 id="right-sidebar">Right sidebar</h2>
 
 <p>Similar to the left sidebar, but with <code>right-sidebar</code> class assigned to the top
 <code>&lt;aside&gt;</code> element.</p>
@@ -362,7 +384,7 @@ a text editor.</p>
     &lt;/<span style="color:#ff79c6">header</span>&gt;
     {{.TableOfContents}}
 &lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
-<p>Main content area:</p>
+<h2 id="main-content-area">Main content area</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">article</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article&#34;</span>&gt;
 
     <span style="color:#6272a4">&lt;!--Left sidebar--&gt;</span>
