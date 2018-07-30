@@ -8,9 +8,9 @@ $(document).ready(function() {
 function showPaneNavIfNotTop() {
   // 70 here ~= height of header
   if (window.pageYOffset > 70) {
-    $('.pane-nav').fadeIn()
+    $('.left-sidebar-menu').fadeIn()
   } else {
-    $('.pane-nav').fadeOut()
+    $('.left-sidebar-menu').fadeOut()
   }
 }
 

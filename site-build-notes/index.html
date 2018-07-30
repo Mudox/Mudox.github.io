@@ -31,7 +31,7 @@ building the site.
 
 <link rel="stylesheet" href="http://mudox.github.io/css/main.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/nav.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/pane.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/sidebar.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/tag.css">
 
 <link rel="stylesheet" href="http://mudox.github.io/css/list.css">
@@ -103,48 +103,44 @@ building the site.
       </header>
 
 
-<main class="content" role="main">
-    <article class="article">
 
-        
-        
-        <aside class="sidebar left-pane">
 
-    <section>
-        <div class="pane-tag-list">
-    <header class="pane-tag-list-title">
-        <h2>
-            <span>TAGS</span>
-            <i class="fas fa-tag fa-fw">
-            </i>
-        </h2>
-    </header>
-    <ul class="pane-tag-list-body">
+<aside class="sidebar left-sidebar">
+
+    <section  class="left-sidebar-tag-list">
+        <header>
+    <h2>
+        <span>TAGS</span>
+        <i class="fas fa-tag fa-fw">
+        </i>
+    </h2>
+</header>
+<nav>
+    <ul>
         
-            
-                <li>
-                    <a href="/tags/site%20notes">Site Notes</a>
-                </li>
-            
-                <li>
-                    <a href="/tags/web">Web</a>
-                </li>
-            
+        
+            <li>
+                <a href="/tags/site%20notes">Site Notes</a>
+            </li>
+        
+            <li>
+                <a href="/tags/web">Web</a>
+            </li>
         
     </ul>
-</div>
+</nav>
 
     </section>
     
-    <section>
-        <div class="recent-updated">
-    <header class="recent-updated-title">
-        <h2>
-            <span>UPDATED</span>
-            <i class="fas fa-calendar-alt fa-fw"></i>
-        </h2>
-    </header>
-    <ul class="recent-updated-body">
+    <section class="left-sidebar-article-list">
+        <header>
+    <h2>
+        <span>UPDATED</span>
+        <i class="fas fa-calendar-alt fa-fw"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
         
             <li>
                 <a href="http://mudox.github.io/site-build-notes/">Site Build Notes</a>
@@ -163,68 +159,63 @@ building the site.
             </li>
         
     </ul>
-</div>
+</nav>
 
     </section>
 
-    <section>
-        <div class="pane-nav">
-    <header>
-        <h2>
-            <span>MENU</span>
-            <i class="fas fa-home fa-fw"></i>
-        </h2>
-    </header>
-    <ul class="pane-nav-body">
+    <section class="left-sidebar-menu">
+        <header>
+    <h2>
+        <span>MENU</span>
+        <i class="fas fa-home fa-fw"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
         <li>
             <a href="/">
-                Home
-            </a>
+            Home
+        </a>
         </li>
         
-        <li>
-            <a href="/tags">Tags</a>
-        </li>
+            <li>
+                <a href="/tags">Tags</a>
+            </li>
         
-        <li>
-            <a href="/my-projects">Projects</a>
-        </li>
+            <li>
+                <a href="/my-projects">Projects</a>
+            </li>
         
-        <li>
-            <a href="/resume">Resume</a>
-        </li>
+            <li>
+                <a href="/resume">Resume</a>
+            </li>
         
-        <li>
-            <a href="https://github.com/mudox">Github</a>
-        </li>
+            <li>
+                <a href="https://github.com/mudox">Github</a>
+            </li>
         
     </ul>
-</div>
+</nav>
 
     </section>
 
 </aside>
 
 
-        
-        
-        
-<aside class="sidebar right-pane">
+
+
+
+<aside class="sidebar right-sidebar">
     <header>
         <h2>
             <i class="fas fa-list fa-fw"></i>
             <span>CONENTS</span>
         </h2>
     </header>
-        <nav id="TableOfContents">
+    <nav id="TableOfContents">
 <ul>
 <li><a href="#tools">Tools</a></li>
-<li><a href="#basic-page-dom">Basic Page DOM</a>
-<ul>
-<li><a href="#sidebars">Sidebars</a></li>
-<li><a href="#homepage">Homepage</a></li>
-<li><a href="#article-page">Article page</a></li>
-</ul></li>
+<li><a href="#basic-page-dom">Basic Page DOM</a></li>
 <li><a href="#content-arrangement">Content Arrangement</a>
 <ul>
 <li><a href="#sections">Sections</a></li>
@@ -238,9 +229,8 @@ building the site.
 
 
 
-        
-        
-        
+<main class="content" role="main">
+    <article class="article">
 
         
         <h1 class="article-title">Site Build Notes</h1>
@@ -251,8 +241,7 @@ building the site.
             <span class="article-date">
                 Updated: 2018-07-30
             </span>
-        </time>
-        
+        </time> 
 
         
         
@@ -273,6 +262,8 @@ a text editor.</p>
 <p>All text files are edited in the <a href="https://github.com/neovim/neovim">Neovim</a> + <a href="https://github.com/tmux/tmux">Tmux</a> + <a href="https://www.iterm2.com/">iTerm 2</a> combination.</p>
 
 <p><a href="https://emmet.io">Emmet</a> is a powerful web snippets expander to boost my html writing speed.</p>
+
+<p>Code formatter</p>
 
 <h1 id="basic-page-dom">Basic Page DOM</h1>
 
@@ -303,7 +294,16 @@ a text editor.</p>
         &lt;<span style="color:#ff79c6">header</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;header&#34;</span>&gt;&lt;/<span style="color:#ff79c6">header</span>&gt;
         &lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar left-sidebar&#34;</span>&gt;&lt;/<span style="color:#ff79c6">aside</span>&gt;
         &lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar right-sidebar&#34;</span>&gt;&lt;/<span style="color:#ff79c6">aside</span>&gt;
-        &lt;<span style="color:#ff79c6">main</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;content&#34;</span>&gt;&lt;/<span style="color:#ff79c6">main</span>&gt;
+        &lt;<span style="color:#ff79c6">main</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;content&#34;</span>&gt;
+            <span style="color:#6272a4">&lt;!--
+</span><span style="color:#6272a4">                The page&#39;s main content area, for example it shows:
+</span><span style="color:#6272a4">                - The paginated article list grouped by month
+</span><span style="color:#6272a4">                - The article content in single page
+</span><span style="color:#6272a4">                - Tag term list in tag terms page
+</span><span style="color:#6272a4">                - Article list in tag article page
+</span><span style="color:#6272a4">                - ...
+</span><span style="color:#6272a4">            --&gt;</span>
+        &lt;/<span style="color:#ff79c6">main</span>&gt;
         &lt;<span style="color:#ff79c6">footer</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;footer&#34;</span>&gt;&lt;/<span style="color:#ff79c6">footer</span>&gt;
     &lt;/<span style="color:#ff79c6">div</span>&gt;
 &lt;/<span style="color:#ff79c6">body</span>&gt;</code></pre></div>
@@ -324,12 +324,77 @@ a text editor.</p>
         &lt;/<span style="color:#ff79c6">a</span>&gt;
     &lt;/<span style="color:#ff79c6">li</span>&gt;
 &lt;/<span style="color:#ff79c6">ul</span>&gt;</code></pre></div>
-<h2 id="sidebars">Sidebars</h2>
+<p>Left sidebar frame:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar left-sidebar&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">nav</span>  <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-tag-list&#34;</span>&gt;
+        <span style="color:#6272a4">&lt;!--tag list partial--&gt;</span>
+    &lt;/<span style="color:#ff79c6">nav</span>&gt;
+    &lt;<span style="color:#ff79c6">nav</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-article-list&#34;</span>&gt;
+        <span style="color:#6272a4">&lt;!--article list partial--&gt;</span>
+    &lt;/<span style="color:#ff79c6">nav</span>&gt;
+    &lt;<span style="color:#ff79c6">nav</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-menu&#34;</span>&gt;
+        <span style="color:#6272a4">&lt;!--menu partial--&gt;</span>
+    &lt;/<span style="color:#ff79c6">nav</span>&gt;
+&lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+<p>Left sidebar navigation section frame:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">header</span>&gt;
+    &lt;<span style="color:#ff79c6">h2</span>&gt;
+        &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
+        &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
+    &lt;/<span style="color:#ff79c6">h2</span>&gt;
+&lt;/<span style="color:#ff79c6">header</span>&gt;
+&lt;<span style="color:#ff79c6">ul</span>&gt;
+    &lt;<span style="color:#ff79c6">li</span>&gt;
+        &lt;<span style="color:#ff79c6">a</span>&gt;&lt;/<span style="color:#ff79c6">a</span>&gt;
+    &lt;/<span style="color:#ff79c6">li</span>&gt;
+    <span style="color:#6272a4">&lt;!--...--&gt;</span>
+&lt;/<span style="color:#ff79c6">ul</span>&gt;</code></pre></div>
+<p>Right sidebar:</p>
 
-<h2 id="homepage">Homepage</h2>
+<p>Similar to the left sidebar, but with <code>right-sidebar</code> assign to the top
+<code>&lt;aside&gt;</code> element.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar right-sidebar&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">header</span>&gt;
+        &lt;<span style="color:#ff79c6">h2</span>&gt;
+            &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
+            &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
+        &lt;/<span style="color:#ff79c6">h2</span>&gt;
+    &lt;/<span style="color:#ff79c6">header</span>&gt;
+    {{.TableOfContents}}
+&lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+<p>Main content area:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">article</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article&#34;</span>&gt;
 
-<h2 id="article-page">Article page</h2>
+    <span style="color:#6272a4">&lt;!--Left sidebar--&gt;</span>
+    <span style="color:#6272a4">&lt;!--Show tag list if any--&gt;</span>
+    {{ partial &#34;left-sidebar.html&#34; . }}
 
+    <span style="color:#6272a4">&lt;!--Right sidebar--&gt;</span>
+    <span style="color:#6272a4">&lt;!--Show TOC if front matter `toc` not equal to `false`--&gt;</span>
+    {{ partial &#34;right-sidebar.html&#34; . }}
+
+    <span style="color:#6272a4">&lt;!--Title--&gt;</span>
+    &lt;<span style="color:#ff79c6">h1</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-title&#34;</span>&gt;{{ .Title }}&lt;/<span style="color:#ff79c6">h1</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--Date--&gt;</span>
+    {{ if eq .Section &#34;post&#34; }}
+    &lt;<span style="color:#ff79c6">time</span>&gt;
+        &lt;<span style="color:#ff79c6">span</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-date&#34;</span>&gt;
+            {{ .Date.Format &#34;Updated: 2006-01-02&#34;}}
+        &lt;/<span style="color:#ff79c6">span</span>&gt;
+    &lt;/<span style="color:#ff79c6">time</span>&gt;
+    {{ end }}
+
+    <span style="color:#6272a4">&lt;!--Article content--&gt;</span>
+    {{ with .Description }}
+    &lt;<span style="color:#ff79c6">blockquote</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;article-summary&#39;</span>&gt;{{ . }}&lt;/<span style="color:#ff79c6">blockquote</span>&gt;
+    {{ end }}
+
+    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-content&#34;</span>&gt;
+        {{ .Content }}
+    &lt;/<span style="color:#ff79c6">div</span>&gt;
+
+&lt;/<span style="color:#ff79c6">article</span>&gt;</code></pre></div>
 <h1 id="content-arrangement">Content Arrangement</h1>
 
 <h2 id="sections">Sections</h2>

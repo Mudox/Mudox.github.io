@@ -31,7 +31,7 @@ used in iOS development.
 
 <link rel="stylesheet" href="http://mudox.github.io/css/main.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/nav.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/pane.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/sidebar.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/tag.css">
 
 <link rel="stylesheet" href="http://mudox.github.io/css/list.css">
@@ -105,56 +105,52 @@ used in iOS development.
       </header>
 
 
-<main class="content" role="main">
-    <article class="article">
 
-        
-        
-        <aside class="sidebar left-pane">
 
-    <section>
-        <div class="pane-tag-list">
-    <header class="pane-tag-list-title">
-        <h2>
-            <span>TAGS</span>
-            <i class="fas fa-tag fa-fw">
-            </i>
-        </h2>
-    </header>
-    <ul class="pane-tag-list-body">
+<aside class="sidebar left-sidebar">
+
+    <section  class="left-sidebar-tag-list">
+        <header>
+    <h2>
+        <span>TAGS</span>
+        <i class="fas fa-tag fa-fw">
+        </i>
+    </h2>
+</header>
+<nav>
+    <ul>
         
-            
-                <li>
-                    <a href="/tags/ios">iOS</a>
-                </li>
-            
-                <li>
-                    <a href="/tags/swift">Swift</a>
-                </li>
-            
-                <li>
-                    <a href="/tags/awesome">Awesome</a>
-                </li>
-            
-                <li>
-                    <a href="/tags/objective-c">Objective-C</a>
-                </li>
-            
+        
+            <li>
+                <a href="/tags/ios">iOS</a>
+            </li>
+        
+            <li>
+                <a href="/tags/swift">Swift</a>
+            </li>
+        
+            <li>
+                <a href="/tags/awesome">Awesome</a>
+            </li>
+        
+            <li>
+                <a href="/tags/objective-c">Objective-C</a>
+            </li>
         
     </ul>
-</div>
+</nav>
 
     </section>
     
-    <section>
-        <div class="recent-updated">
-    <header class="recent-updated-title">
-        <h2>
-            <span>UPDATED</span>
-            <i class="fas fa-calendar-alt fa-fw"></i>
-        </h2>
-    </header>
-    <ul class="recent-updated-body">
+    <section class="left-sidebar-article-list">
+        <header>
+    <h2>
+        <span>UPDATED</span>
+        <i class="fas fa-calendar-alt fa-fw"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
         
             <li>
                 <a href="http://mudox.github.io/site-build-notes/">Site Build Notes</a>
@@ -173,60 +169,60 @@ used in iOS development.
             </li>
         
     </ul>
-</div>
+</nav>
 
     </section>
 
-    <section>
-        <div class="pane-nav">
-    <header>
-        <h2>
-            <span>MENU</span>
-            <i class="fas fa-home fa-fw"></i>
-        </h2>
-    </header>
-    <ul class="pane-nav-body">
+    <section class="left-sidebar-menu">
+        <header>
+    <h2>
+        <span>MENU</span>
+        <i class="fas fa-home fa-fw"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
         <li>
             <a href="/">
-                Home
-            </a>
+            Home
+        </a>
         </li>
         
-        <li>
-            <a href="/tags">Tags</a>
-        </li>
+            <li>
+                <a href="/tags">Tags</a>
+            </li>
         
-        <li>
-            <a href="/my-projects">Projects</a>
-        </li>
+            <li>
+                <a href="/my-projects">Projects</a>
+            </li>
         
-        <li>
-            <a href="/resume">Resume</a>
-        </li>
+            <li>
+                <a href="/resume">Resume</a>
+            </li>
         
-        <li>
-            <a href="https://github.com/mudox">Github</a>
-        </li>
+            <li>
+                <a href="https://github.com/mudox">Github</a>
+            </li>
         
     </ul>
-</div>
+</nav>
 
     </section>
 
 </aside>
 
 
-        
-        
-        
-<aside class="sidebar right-pane">
+
+
+
+<aside class="sidebar right-sidebar">
     <header>
         <h2>
             <i class="fas fa-list fa-fw"></i>
             <span>CONENTS</span>
         </h2>
     </header>
-        <nav id="TableOfContents">
+    <nav id="TableOfContents">
 <ul>
 <li><a href="#swift">Swift</a></li>
 <li><a href="#tool">Tool</a></li>
@@ -261,9 +257,8 @@ used in iOS development.
 
 
 
-        
-        
-        
+<main class="content" role="main">
+    <article class="article">
 
         
         <h1 class="article-title">My iOS Awesome List</h1>
@@ -274,8 +269,7 @@ used in iOS development.
             <span class="article-date">
                 Updated: 2018-07-24
             </span>
-        </time>
-        
+        </time> 
 
         
         
