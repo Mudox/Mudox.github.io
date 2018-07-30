@@ -32,7 +32,7 @@ is a good start for a qualified app architecture.
 <link rel="stylesheet" href="http://mudox.github.io/css/base.css">
 
 <link rel="stylesheet" href="http://mudox.github.io/css/main.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/nav.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/top-navbar.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/sidebar.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/tag.css">
 
@@ -235,23 +235,23 @@ is a good start for a qualified app architecture.
 <li><a href="#the-evolution-story">The Evolution Story</a></li>
 <li><a href="#diagnosis-and-treatment">Diagnosis And Treatment</a>
 <ul>
-<li><a href="#1-interact-with-data">1. Interact with data</a>
+<li><a href="#interact-with-data">Interact with data</a>
 <ul>
 <li><a href="#solution">Solution</a></li>
 </ul></li>
-<li><a href="#2-manage-views">2. Manage views</a>
+<li><a href="#manage-views">Manage views</a>
 <ul>
 <li><a href="#solution-1">Solution:</a></li>
 </ul></li>
-<li><a href="#3-manage-scene-navigation">3. Manage scene navigation</a>
+<li><a href="#manage-scene-navigation">Manage scene navigation</a>
 <ul>
 <li><a href="#solution-2">Solution</a></li>
 </ul></li>
-<li><a href="#4-one-view-controller-manages-the-whole-interface">4. One view controller manages the whole interface</a>
+<li><a href="#one-view-controller-manages-the-whole-interface">One view controller manages the whole interface</a>
 <ul>
 <li><a href="#solution-3">Solution</a></li>
 </ul></li>
-<li><a href="#5-other-stuffs-that-should-not-fall-into-view-controller">5. Other stuffs that should not fall into view controller</a></li>
+<li><a href="#other-stuffs-that-should-not-fall-into-view-controller">Other stuffs that should not fall into view controller</a></li>
 </ul></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -317,7 +317,7 @@ with the same purpose - unburden view controllers.</p>
 <p>Here list out responsibilities a massive view controller might have taken and
 some principals or solutions that can resolve them.</p>
 
-<h2 id="1-interact-with-data">1. Interact with data</h2>
+<h2 id="interact-with-data">Interact with data</h2>
 
 <ul>
 <li><p>Observe for data model changes</p>
@@ -374,7 +374,7 @@ Define <code>UserSerivce</code> to manage user authentication and user info stor
 Define <code>UserPreferencesSerivce</code> to manage user preference.</p></li>
 </ul>
 
-<h2 id="2-manage-views">2. Manage views</h2>
+<h2 id="manage-views">Manage views</h2>
 
 <ul>
 <li><p>Manipulate subview hierarchy</p>
@@ -416,7 +416,7 @@ defines reactive data source types for views such as <code>UITableView</code>,
 at the beginning (often in <code>viewDidLoad</code> method), and then bind them to the
 views. And everything works.</p>
 
-<h2 id="3-manage-scene-navigation">3. Manage scene navigation</h2>
+<h2 id="manage-scene-navigation">Manage scene navigation</h2>
 
 <ul>
 <li><p>Spawn other view controllers</p>
@@ -497,7 +497,7 @@ view controllers (scenes) shown in line to user to complete certain works.</p>
 <p>Or you can implement them manually, they are simple role in the architecture,
 no need make them complicated in my opinion.</p>
 
-<h2 id="4-one-view-controller-manages-the-whole-interface">4. One view controller manages the whole interface</h2>
+<h2 id="one-view-controller-manages-the-whole-interface">One view controller manages the whole interface</h2>
 
 <p>A non-trivial app often features a very rich home interface.</p>
 
@@ -514,7 +514,7 @@ controller containment API for developers to handle this need.</p>
 
 <p>See <a href="https://www.objc.io/issues/1-view-controllers/containment-view-controller/">View Controller Containment</a> for a good introduction.</p>
 
-<h2 id="5-other-stuffs-that-should-not-fall-into-view-controller">5. Other stuffs that should not fall into view controller</h2>
+<h2 id="other-stuffs-that-should-not-fall-into-view-controller">Other stuffs that should not fall into view controller</h2>
 
 <ul>
 <li><p>Playing media files</p></li>

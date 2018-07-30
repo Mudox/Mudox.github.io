@@ -101,9 +101,9 @@
     padding: 0;
   }
 
-  .right-sidebar>nav>ul ul {
+  .right-sidebar ul {
     margin: 0;
-    padding-left: 0 0 0 .7rem;
+    padding: 0 0 0 .6rem;
   }
 }
 

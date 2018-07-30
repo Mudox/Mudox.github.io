@@ -31,7 +31,7 @@ records my designing decisions and gains during building the site.
 <link rel="stylesheet" href="http://mudox.github.io/css/base.css">
 
 <link rel="stylesheet" href="http://mudox.github.io/css/main.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/nav.css">
+<link rel="stylesheet" href="http://mudox.github.io/css/top-navbar.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/sidebar.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/tag.css">
 
@@ -336,14 +336,17 @@ It use flexbox layout to center the logo image and title vertically
 
 <li><p>Right <code>&lt;nav&gt;</code> aligns text to right, shows site main menu.</p></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">nav</span>&gt;
-    &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-right&#34;</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-        <span style="color:#6272a4">&lt;!--my avatar--&gt;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-left&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+        <span style="color:#6272a4">&lt;!--Site logo--&gt;</span>
         &lt;<span style="color:#ff79c6">img</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#50fa7b">alt</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+    &lt;/<span style="color:#ff79c6">a</span>&gt;
+    &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+        <span style="color:#6272a4">&lt;!--Site title--&gt;</span>
         &lt;<span style="color:#ff79c6">h1</span>&gt;&lt;/<span style="color:#ff79c6">h1</span>&gt;
     &lt;/<span style="color:#ff79c6">a</span>&gt;
-&lt;/<span style="color:#ff79c6">nav</span>&gt;
-&lt;<span style="color:#ff79c6">nav</span>&gt;
+&lt;/<span style="color:#ff79c6">section</span>&gt;
+&lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-right&#34;</span>&gt;&#34;&gt;
     &lt;<span style="color:#ff79c6">ul</span>&gt;
         <span style="color:#6272a4">&lt;!--4 menu links--&gt;</span>
         &lt;<span style="color:#ff79c6">li</span>&gt;
@@ -353,7 +356,7 @@ It use flexbox layout to center the logo image and title vertically
             &lt;/<span style="color:#ff79c6">a</span>&gt;
         &lt;/<span style="color:#ff79c6">li</span>&gt;
     &lt;/<span style="color:#ff79c6">ul</span>&gt;
-&lt;<span style="color:#ff79c6">nav</span>&gt;</code></pre></div>
+&lt;<span style="color:#ff79c6">section</span>&gt;</code></pre></div>
 <h2 id="left-sidebar-frame">Left sidebar frame</h2>
 
 <p>The area is divided into <code>&lt;section&gt;</code>s which is used to add spacing style.</p>
