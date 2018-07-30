@@ -75,16 +75,8 @@
     text-align: right;
   }
 
-  .left-sidebar>ul {
+  .left-sidebar nav>ul {
     padding-right: 0;
-  }
-
-  .left-sidebar-menu h2:hover {
-    color: #666;
-  }
-
-  .left-sidebar-tag-list {
-    margin: 0;
   }
 
   .left-sidebar-menu {
@@ -106,16 +98,12 @@
 
   .right-sidebar>nav>ul {
     margin: 0;
-    padding-left: 0;
-  }
-
-  .right-sidebar>ul {
-    padding-left: 0;
+    padding: 0;
   }
 
   .right-sidebar>nav>ul ul {
     margin: 0;
-    padding-left: .7rem;
+    padding-left: 0 0 0 .7rem;
   }
 }
 
