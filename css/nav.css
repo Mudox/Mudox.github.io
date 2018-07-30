@@ -2,127 +2,102 @@
 
 /*nav {{{*/
 
-.nav
-{
-    /*font-family: 'Merriweather', serif;*/
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
+.top-navbar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
 
-    list-style: none;
+  list-style: none;
 
-    text-align: right;
+  display: flex;
+  align-items: center;
 }
 
-.nav li
-{
-    display: inline-block;
+.top-navbar a {
+  text-decoration: none;
 }
+
 
 /*}}}*/
 
-/*nav-left {{{*/
+/*top-navbar-left {{{*/
 
-.nav-left
-{
-    position: relative;
-    bottom: 14px;
-
-    display: flex;
-    float: left;
-    align-items: center;
-
-    margin: 0;
-    padding: 0;
-
-    text-decoration: none;
+.top-navbar-left {
+  display: flex;
+  align-items: center;
 }
 
-.nav-left img
-{
-    position: relative;
-    bottom: 1px;
+.top-navbar-left img {
+  width: auto;
+  max-height: 45px;
 
-    width: auto;
-    max-height: 45px;
-
-    border: 1px solid white;
-    border-radius: 100px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .5);
+  border: 1px solid white;
+  border-radius: 100px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .5);
 }
 
-.nav-left li
-{
-    margin: 0 5px 0 0;
-    padding: 0;
+.top-navbar-left li {
+  margin: 0 5px 0 0;
+  padding: 0;
 }
 
-.nav-left h1
-{
-    margin: 0 18px 0;
-    padding: 0;
-    transition: content 300ms;
+.top-navbar-left h1 {
+  margin: 0 18px 0;
+  padding: 0;
+  transition: content 300ms;
 }
 
-.nav-left  h1 {
+.top-navbar-left h1 {
   content: "HOME";
 }
 
 /*}}}*/
 
-/*nav-right {{{*/
+/*top-navbar-right {{{*/
 
-.nav-right
-{
-    margin: 0;
-    padding: 0;
+.top-navbar-right {
+  margin-left: auto;
+  /* right align in flexbox */
+  padding: 0;
 }
 
-.nav-right li
-{
-    display: inline-block;
-
-    margin: 0 0 0 10px;
+.top-navbar-right ul {
+  display: flex;
+  align-items: center;
 }
 
-.nav-right li:first-child
-{
-    margin-left: 0;
+.top-navbar-right li {
+  margin: 0 0 0 10px;
+  list-style: none;
 }
 
-.nav-right a
-{
-    margin-right: 2px;
-
-    text-decoration: none;
-
-    color: #444;
+.top-navbar-right li:first-child {
+  margin-left: 0;
 }
 
-.nav-right a:hover
-{
-    color: #111;
+.top-navbar-right a {
+  color: #666;
 }
 
-.nav-right span
-{
-    font-size: 13px;
+.top-navbar-right a:hover {
+  color: #111;
 }
 
-.nav-right i
-{
-    font-size: 15px;
-
-    position: relative;
-    top: 1px;
+.top-navbar-right span {
+  font-size: 13px;
 }
 
-@media (min-width: 600px)
-{
-    .nav-right li
-    {
-        margin-left: 12px;
-    }
+.top-navbar-right i {
+  font-size: 15px;
+
+  position: relative;
+  top: 1px;
+}
+
+@media (min-width: 600px) {
+  .top-navbar-right li {
+    margin-left: 12px;
+  }
 }
 
 /*}}}*/
