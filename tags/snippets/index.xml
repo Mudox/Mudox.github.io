@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Auto Highlighting Toc</title>
+      <title>Auto Highlighting TOC</title>
       <link>http://mudox.github.io/auto-highlighting-toc/</link>
       <pubDate>Tue, 24 Jul 2018 08:45:42 +0800</pubDate>
       
@@ -22,11 +22,11 @@
     </item>
     
     <item>
-      <title>Fixed Aside Pane</title>
-      <link>http://mudox.github.io/fixed-aside-pane/</link>
+      <title>Fixed Sidebar</title>
+      <link>http://mudox.github.io/fixed-sidebar/</link>
       <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
       
-      <guid>http://mudox.github.io/fixed-aside-pane/</guid>
+      <guid>http://mudox.github.io/fixed-sidebar/</guid>
       <description>Title Content.</description>
     </item>
     

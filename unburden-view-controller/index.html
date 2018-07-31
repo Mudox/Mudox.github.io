@@ -117,7 +117,7 @@ is a good start for a qualified app architecture.
 
 <aside class="sidebar left-sidebar">
 
-    <section  class="left-sidebar-tag-list">
+    <section  class="article-tag-list">
         <header>
     <h2>
         <span>TAGS</span>
@@ -134,10 +134,6 @@ is a good start for a qualified app architecture.
             </li>
         
             <li>
-                <a href="/tags/swift">Swift</a>
-            </li>
-        
-            <li>
                 <a href="/tags/ios">iOS</a>
             </li>
         
@@ -150,7 +146,34 @@ is a good start for a qualified app architecture.
 
     </section>
     
-    <section class="left-sidebar-article-list">
+    <section class="pinned-article-list">
+        <header>
+    <h2>
+        <span>PINNED</span>
+        <i class="fas fa-thumbtack fa-fw"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
+        
+            <li>
+                <a href="http://mudox.github.io/site-build-notes/">Site Build Notes</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/unburden-view-controller/">Unburden View Controller</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/theme-demo/">Theme Demo</a>
+            </li>
+        
+    </ul>
+</nav>
+
+    </section>
+
+    <section class="updated-article-list">
         <header>
     <h2>
         <span>UPDATED</span>
@@ -169,11 +192,19 @@ is a good start for a qualified app architecture.
             </li>
         
             <li>
-                <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting Toc</a>
+                <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting TOC</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/fixed-sidebar/">Fixed Sidebar</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/resume/">Resume</a>
             </li>
         
     </ul>
@@ -181,7 +212,7 @@ is a good start for a qualified app architecture.
 
     </section>
 
-    <section class="left-sidebar-menu">
+    <section class="sidebar-menu">
         <header>
     <h2>
         <span>MENU</span>
@@ -233,7 +264,13 @@ is a good start for a qualified app architecture.
     <nav id="TableOfContents">
 <ul>
 <li><a href="#the-evolution-story">The Evolution Story</a></li>
-<li><a href="#diagnosis-and-treatment">Diagnosis And Treatment</a>
+<li><a href="#the-principles">The Principles</a>
+<ul>
+<li><a href="#simple-types">Simple types</a></li>
+<li><a href="#less-code">Less code</a></li>
+<li><a href="#one-way-data-flow">One way data flow</a></li>
+</ul></li>
+<li><a href="#diagnosis-treatment">Diagnosis &amp; Treatment</a>
 <ul>
 <li><a href="#interact-with-data">Interact with data</a>
 <ul>
@@ -241,7 +278,7 @@ is a good start for a qualified app architecture.
 </ul></li>
 <li><a href="#manage-views">Manage views</a>
 <ul>
-<li><a href="#solution-1">Solution:</a></li>
+<li><a href="#solution-1">Solution</a></li>
 </ul></li>
 <li><a href="#manage-scene-navigation">Manage scene navigation</a>
 <ul>
@@ -312,7 +349,81 @@ layer. They look stylish or wired &hellip;, behaves modernly or oddly &hellip;. 
 essence, they may all started from the same pain - fat view controllers,
 with the same purpose - unburden view controllers.</p>
 
-<h1 id="diagnosis-and-treatment">Diagnosis And Treatment</h1>
+<h1 id="the-principles">The Principles</h1>
+
+<p>Although I can end almost all these kind of talks about app architecture by
+putting up the almighty <a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a> principle which, in my opinion, are rather
+abstract and vague for beginners. I would like to provide some more catchy
+principles for newcomers into the app architecture realm.</p>
+
+<h2 id="simple-types">Simple types</h2>
+
+<p>This includes 2 points:</p>
+
+<ol>
+<li><p><strong>Types not inherited from those complicated classes</strong></p>
+
+<p>In object-oritent programming, subclassing is the dominant code reusing
+method. Whenever I wanted to add some code, the fist step come into my head
+is <em>subclassing something</em> &hellip;</p>
+
+<p>In iOS developing, we often subclass UIKIt provided classes like <code>UIView</code>,
+<code>UIViewController</code>. These class are already overstuffed by Apple, both
+<code>UIView</code> and <code>UIViewController</code> has 40+ various kind of memebers, not even
+mention what them inherit from superclasses <code>UIResponder</code>, <code>NSObject</code>.</p>
+
+<p>Your subclasses of those framework provided classes is already too
+complicated to test, maintain &hellip; Every single line changing to the
+subclass just makes you wondering how would the superclass affect my code.</p></li>
+
+<li><p><strong>Types that manage less states</strong></p>
+
+<p>The more states attached to type, the more complex and harder to maintain
+it would become. The reason behind is the <a href="https://en.wikipedia.org/wiki/Combinatorial_explosion">combinatorial explosion</a>
+problem.</p></li>
+</ol>
+
+<h2 id="less-code">Less code</h2>
+
+<p>Evey single line of code logic, especially those crafted manually on you own,
+may introduces bugs, and even worse, the interaction between code lines would
+introduces extra bugs. Sounds scaring? It is the life.</p>
+
+<p>Hence for a given component, implement by reusing as much as possible. Discover
+and invoke a battle-tested library or framework heavily reduce your codebase
+footprint as well as increase your production quality. It is so important
+that I even think that 80% of an professional coder&rsquo;s working time should be
+investigated into it.</p>
+
+<h2 id="one-way-data-flow">One way data flow</h2>
+
+<p>Let take a very common code snippet for example:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">table</span>(<span style="color:#ff79c6">_</span> table: UITableView, didSelectRowAt rowIndex: <span style="color:#8be9fd;font-style:italic">Int</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">object</span> = <span style="color:#ff79c6">self</span>.dataSource[indexPath]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    <span style="color:#6272a4">// model layer  &lt;--  [data]         view layer</span>
+<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    object.selected = <span style="color:#ff79c6">!</span>object.selected
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    <span style="color:#6272a4">// model layer       [data]   --&gt;   view layer</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">cell</span> = tableView.cellForRow(at: indexPath) {
+<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>        cell.accessoryType = (object.selected) ? .checkmark : .<span style="color:#ff79c6">none</span>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>}</code></pre></div>
+
+<p>This kind of codes frequently appears from beginner&rsquo;s tutorials and their
+projects. The method changes the data modal (line #5) as well as updates the
+view display (line #9) which means the data within a single method flow to both
+the data model and view layer.</p>
+
+<p>As the model strcuture and UI interaction logic grows, there would be more and
+more of this sort of two-way data flow codes scattered around your source file.
+You are almost destined to be beaten by your code at some point in future.
+Even a simple reactor of the model or UI comes with great pains like finding
+where is the changed part be used in the code, and you end up wondering where
+am I? how could I write these kind of shit?</p>
+
+<h1 id="diagnosis-treatment">Diagnosis &amp; Treatment</h1>
 
 <p>Here list out responsibilities a massive view controller might have taken and
 some principals or solutions that can resolve them.</p>
@@ -346,7 +457,7 @@ well as data persistence, caching etc. That adds up a hell log of code.</p></li>
 
 <p>Introduce <strong>MVVM</strong> pattern.</p>
 
-<p>The key point of MVVM is the new role - <strong>view mdoel</strong> added between the view
+<p>The key point of MVVM is the new role - <strong>view model</strong> added between the view
 controller and the data model. In MVVM, it is view models instead of view
 controllers who directly interact with the data model.</p>
 
@@ -403,7 +514,7 @@ scattered in view controller source files which add up a significant number
 of code lines into the source files.</p></li>
 </ul>
 
-<h3 id="solution-1">Solution:</h3>
+<h3 id="solution-1">Solution</h3>
 
 <p>The first 2 responsibilities are definitely view controller&rsquo;s duty. For
 communicating with subviews, we can introducing specifically defined type(s) to

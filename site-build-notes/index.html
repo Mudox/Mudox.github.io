@@ -116,7 +116,7 @@ records my designing decisions and gains during building the site.
 
 <aside class="sidebar left-sidebar">
 
-    <section  class="left-sidebar-tag-list">
+    <section  class="article-tag-list">
         <header>
     <h2>
         <span>TAGS</span>
@@ -141,7 +141,34 @@ records my designing decisions and gains during building the site.
 
     </section>
     
-    <section class="left-sidebar-article-list">
+    <section class="pinned-article-list">
+        <header>
+    <h2>
+        <span>PINNED</span>
+        <i class="fas fa-thumbtack fa-fw"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
+        
+            <li>
+                <a href="http://mudox.github.io/site-build-notes/">Site Build Notes</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/unburden-view-controller/">Unburden View Controller</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/theme-demo/">Theme Demo</a>
+            </li>
+        
+    </ul>
+</nav>
+
+    </section>
+
+    <section class="updated-article-list">
         <header>
     <h2>
         <span>UPDATED</span>
@@ -160,11 +187,19 @@ records my designing decisions and gains during building the site.
             </li>
         
             <li>
-                <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting Toc</a>
+                <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting TOC</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/fixed-sidebar/">Fixed Sidebar</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/resume/">Resume</a>
             </li>
         
     </ul>
@@ -172,7 +207,7 @@ records my designing decisions and gains during building the site.
 
     </section>
 
-    <section class="left-sidebar-menu">
+    <section class="sidebar-menu">
         <header>
     <h2>
         <span>MENU</span>
@@ -228,8 +263,10 @@ records my designing decisions and gains during building the site.
 <ul>
 <li><a href="#document-body-frame">Document body frame</a></li>
 <li><a href="#navigation-bar-layout">Navigation bar layout</a></li>
-<li><a href="#left-sidebar-frame">Left sidebar frame</a></li>
-<li><a href="#left-sidebar-navigation-section-frame">Left sidebar navigation section frame</a></li>
+<li><a href="#left-sidebar-frame">Left sidebar frame</a>
+<ul>
+<li><a href="#section-frame">Section frame</a></li>
+</ul></li>
 <li><a href="#right-sidebar">Right sidebar</a></li>
 <li><a href="#main-content-area">Main content area</a></li>
 </ul></li>
@@ -238,8 +275,8 @@ records my designing decisions and gains during building the site.
 <li><a href="#sections">Sections</a></li>
 <li><a href="#taxonomies">Taxonomies</a></li>
 </ul></li>
-<li><a href="#css">CSS</a></li>
-<li><a href="#howto">Howto</a></li>
+<li><a href="#howtos">Howtos</a></li>
+<li><a href="#references">References</a></li>
 </ul>
 </nav>
 </aside>
@@ -273,11 +310,16 @@ records my designing decisions and gains during building the site.
 
 <h1 id="tools">Tools</h1>
 
-<p>I use the popular static site generator - <a href="http://gohugo.io">Hugo</a> which is fast as well as
-versatile. Its live reloading feature is amazing. Almost all working is done by
-a text editor.</p>
+<p>I use the popular static site generator - <a href="http://gohugo.io">Hugo</a> which is known as programmer&rsquo;
+s site generator. It renders site fast as well as provides rich set of
+flexibility for user to tweak every aspect of the site.</p>
 
-<p>All text files are edited in the <a href="https://github.com/neovim/neovim">Neovim</a> + <a href="https://github.com/tmux/tmux">Tmux</a> + <a href="https://www.iterm2.com/">iTerm 2</a> combination.</p>
+<p>Hugo&rsquo;s live reloading feature reload currently opened site page to show how
+your changes in the source files would affect the page. Suppose you have 2
+display monitors, one for editor, the other shows the browser &hellip;</p>
+
+<p>Hugo does not require any special web editor or IDE, I accomplished almost all
+job with the <a href="https://github.com/neovim/neovim">Neovim</a> + <a href="https://github.com/tmux/tmux">Tmux</a> + <a href="https://www.iterm2.com/">iTerm 2</a> combination.</p>
 
 <p><a href="https://emmet.io">Emmet</a> is a powerful web snippets expander to boost my html writing speed.</p>
 
@@ -359,7 +401,7 @@ It use flexbox layout to center the logo image and title vertically
 &lt;<span style="color:#ff79c6">section</span>&gt;</code></pre></div>
 <h2 id="left-sidebar-frame">Left sidebar frame</h2>
 
-<p>The area is divided into <code>&lt;section&gt;</code>s which is used to add spacing style.</p>
+<p>The area is divided into <code>&lt;section&gt;</code>s, I add spacing style on them.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar left-sidebar&#34;</span>&gt;
     &lt;<span style="color:#ff79c6">section</span>  <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-tag-list&#34;</span>&gt;
         <span style="color:#6272a4">&lt;!--tag list partial--&gt;</span>
@@ -371,7 +413,7 @@ It use flexbox layout to center the logo image and title vertically
         <span style="color:#6272a4">&lt;!--menu partial--&gt;</span>
     &lt;/<span style="color:#ff79c6">section</span>&gt;
 &lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
-<h2 id="left-sidebar-navigation-section-frame">Left sidebar navigation section frame</h2>
+<h3 id="section-frame">Section frame</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">header</span>&gt;
     &lt;<span style="color:#ff79c6">h2</span>&gt;
         &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
@@ -405,7 +447,7 @@ It use flexbox layout to center the logo image and title vertically
     {{ partial &#34;left-sidebar.html&#34; . }}
 
     <span style="color:#6272a4">&lt;!--Right sidebar--&gt;</span>
-    <span style="color:#6272a4">&lt;!--Show TOC if front matter `toc` not equal to `false`--&gt;</span>
+    <span style="color:#6272a4">&lt;!--Show TOC if front matter `toc` is not equal to `false`--&gt;</span>
     {{ partial &#34;right-sidebar.html&#34; . }}
 
     <span style="color:#6272a4">&lt;!--Title--&gt;</span>
@@ -434,17 +476,69 @@ It use flexbox layout to center the logo image and title vertically
 
 <h2 id="sections">Sections</h2>
 
-<p>There is only 1 section - <strong>post</strong>.</p>
+<p>There are 3 sections currently.</p>
+
+<ol>
+<li><p><strong>Post section</strong> This is the main seciton of the site, almost all article go under it.</p></li>
+
+<li><p><strong>Project section</strong> All my project introduction and demo articles go under this section.</p></li>
+
+<li><p><strong>Resume section</strong> My resume, it only has a <code>_index.md</code> article.</p></li>
+</ol>
 
 <h2 id="taxonomies">Taxonomies</h2>
 
 <p>For simplicity, I only use tags.</p>
 
-<h1 id="css">CSS</h1>
+<p>All tag name use normal casing like <code>iOS</code>, <code>Swift</code> etc.</p>
 
-<h1 id="howto">Howto</h1>
+<h1 id="howtos">Howtos</h1>
 
-<p><code>margin-left</code> controls indentation of lists.</p>
+<p>This section contains some implementation details of componets of the sites.</p>
+
+<p><i class='fas fa-question-circle'></i>
+How to style a <code>&lt;hr&gt;</code></p>
+
+<p><i class='fas fa-lightbulb'></i>
+The horzontal ruler element is just block element element with no inner content
+(text). By default, their <code>border-bottom</code> is styled in be a 1px solid black
+line.</p>
+
+<hr />
+
+<p><i class='fas fa-question-circle'></i>
+How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?<br />
+<i class='fas fa-lightbulb'></i>
+Change their <code>padding-left</code> CSS property.</p>
+
+<hr />
+
+<p><i class='fas fa-question-circle'></i>
+How to hightlight cooresponding item in the TOC when viewports scrolling.</p>
+
+<p><i class='fas fa-lightbulb'></i>
+See article <a href="/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
+
+<hr />
+
+<p><i class='fas fa-question-circle'></i>
+How to implement fixed sidebar on both sides of the main article showing tag
+list, recently updated article list, TOC &hellip;?</p>
+
+<p><i class='fas fa-lightbulb'></i>
+See article <a href="/fixed-sidebar/">Fixed Sidebar</a>.</p>
+
+<hr />
+
+<p><i class='fas fa-question-circle'></i>
+How to resize medias, like youtube video, JSFiddle and CodePen code box?</p>
+
+<p><i class='fas fa-lightbulb'></i>
+Wrap each of them into <code>&lt;div class=&quot;embded-media-box&quot;&gt;</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embeded-media-box&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+&lt;/<span style="color:#ff79c6">div</span>&gt;</code></pre></div>
+<h1 id="references">References</h1>
 
         </div>
 

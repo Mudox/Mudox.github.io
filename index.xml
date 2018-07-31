@@ -18,11 +18,8 @@
       <pubDate>Mon, 30 Jul 2018 04:39:04 +0800</pubDate>
       
       <guid>http://mudox.github.io/site-build-notes/</guid>
-      <description>Tools I use the popular static site generator - Hugo which is fast as well as versatile. Its live reloading feature is amazing. Almost all working is done by a text editor.
-All text files are edited in the Neovim + Tmux + iTerm 2 combination.
-Emmet is a powerful web snippets expander to boost my html writing speed.
-Code formatter
-Basic Page DOM Vertically divided into 3 rows:</description>
+      <description>Tools I use the popular static site generator - Hugo which is known as programmer&amp;rsquo; s site generator. It renders site fast as well as provides rich set of flexibility for user to tweak every aspect of the site.
+Hugo&amp;rsquo;s live reloading feature reload currently opened site page to show how your changes in the source files would affect the page. Suppose you have 2 display monitors, one for editor, the other shows the browser &amp;hellip;</description>
     </item>
     
     
@@ -42,7 +39,7 @@ Basic Page DOM Vertically divided into 3 rows:</description>
     
     
     <item>
-      <title>Auto Highlighting Toc</title>
+      <title>Auto Highlighting TOC</title>
       <link>http://mudox.github.io/auto-highlighting-toc/</link>
       <pubDate>Tue, 24 Jul 2018 08:45:42 +0800</pubDate>
       
@@ -65,11 +62,11 @@ Basic Page DOM Vertically divided into 3 rows:</description>
     
     
     <item>
-      <title>Fixed Aside Pane</title>
-      <link>http://mudox.github.io/fixed-aside-pane/</link>
+      <title>Fixed Sidebar</title>
+      <link>http://mudox.github.io/fixed-sidebar/</link>
       <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
       
-      <guid>http://mudox.github.io/fixed-aside-pane/</guid>
+      <guid>http://mudox.github.io/fixed-sidebar/</guid>
       <description>Title Content.</description>
     </item>
     

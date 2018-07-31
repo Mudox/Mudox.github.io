@@ -1,3 +1,69 @@
+/*code {{{*/
+
+pre {
+  overflow-x: auto;
+
+  padding: 8px 12px;
+
+  color: #d0d0d0;
+  border-radius: 3px;
+  background: #202020;
+}
+
+pre,
+code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+}
+
+code {
+  color: black;
+
+  padding: 1px 3px;
+
+  -webkit-hyphens: none;
+  hyphens: none;
+
+  border-radius: 3px;
+  background: #f0f0f0;
+}
+
+pre code {
+  color: white;
+
+  padding: initial;
+
+  background: transparent;
+}
+
+@media (min-width: 600px) {
+  code {
+    font-size: .7rem;
+
+    position: relative;
+    bottom: 1px;
+
+    padding: 1px 2px 1px;
+  }
+
+  pre code {
+    font-size: .7rem;
+
+    padding: 0;
+  }
+
+  .embeded-code-box,
+  pre {
+    border-radius: 0;
+    line-height: 1.2rem;
+
+    margin: 0 10px 0 6px;
+  }
+
+}
+
+/*}}}*/
+
 ol,
 ul {
   margin: 0;
@@ -59,38 +125,6 @@ blockquote.article-summary {
 .article-content h2 {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-}
-
-pre,
-code {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-}
-
-code {
-  padding: 1px 3px;
-
-  -webkit-hyphens: none;
-  hyphens: none;
-
-  border-radius: 3px;
-  background: #f0f0f0;
-}
-
-pre {
-  overflow-x: auto;
-
-  padding: 8px 12px;
-
-  color: #d0d0d0;
-  border-radius: 3px;
-  background: #202020;
-}
-
-pre code {
-  padding: initial;
-
-  background: transparent;
 }
 
 a:hover,
@@ -189,14 +223,14 @@ blockquote {
 }
 
 .article-content hr {
-  overflow: hidden;
-
-  width: 150px;
+  width: 350px;
   height: 1px;
-  margin: 50px auto;
+  margin: 20px auto;
 
   border: none;
-  background: #e8e8e8;
+  border-top: 1px dashed #8c8b8b;
+
+  overflow: hidden;
 }
 
 .article-taxonomy {
@@ -394,29 +428,6 @@ div.github-buttons {
 }
 
 @media (min-width: 600px) {
-  code {
-    font-size: .7rem;
-
-    position: relative;
-    bottom: 1px;
-
-    padding: 1px 2px 1px;
-  }
-
-  pre code {
-    font-size: .7rem;
-
-    padding: 0;
-  }
-
-  pre {
-    line-height: 1.2rem;
-
-    margin: 0 6px;
-
-    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, .5);
-  }
-
   .header {
     padding: 8px 0;
   }

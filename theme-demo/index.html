@@ -114,7 +114,7 @@
 
 <aside class="sidebar left-sidebar">
 
-    <section  class="left-sidebar-tag-list">
+    <section  class="article-tag-list">
         <header>
     <h2>
         <span>TAGS</span>
@@ -143,7 +143,34 @@
 
     </section>
     
-    <section class="left-sidebar-article-list">
+    <section class="pinned-article-list">
+        <header>
+    <h2>
+        <span>PINNED</span>
+        <i class="fas fa-thumbtack fa-fw"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
+        
+            <li>
+                <a href="http://mudox.github.io/site-build-notes/">Site Build Notes</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/unburden-view-controller/">Unburden View Controller</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/theme-demo/">Theme Demo</a>
+            </li>
+        
+    </ul>
+</nav>
+
+    </section>
+
+    <section class="updated-article-list">
         <header>
     <h2>
         <span>UPDATED</span>
@@ -162,11 +189,19 @@
             </li>
         
             <li>
-                <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting Toc</a>
+                <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting TOC</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/fixed-sidebar/">Fixed Sidebar</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/resume/">Resume</a>
             </li>
         
     </ul>
@@ -174,7 +209,7 @@
 
     </section>
 
-    <section class="left-sidebar-menu">
+    <section class="sidebar-menu">
         <header>
     <h2>
         <span>MENU</span>
@@ -415,22 +450,21 @@ ipsum quia dolor</p>
 <p>Use shortcode <code>{ { &lt; highlight &gt;  } }</code>, turn on line number with custom start
 number, and line highlighting.</p>
 
-<p>{{&lt; highlight javascript &ldquo;linenos=inline,hl_lines=3 8-12,linenostart=199&rdquo; &gt;}}
-$(document).ready(function() {
-  $(window).scroll(function() {
-    $(&ldquo;#TableOfContents a&rdquo;).removeClass(&ldquo;current&rdquo;)
-    currentAnchor().addClass(&ldquo;current&rdquo;)
-  })
-});</p>
-
-<p>function tocItem(anchor) {
-  return $(&rdquo;[href=\&ldquo;&rdquo; + anchor + &ldquo;\&ldquo;]&rdquo;)
-}</p>
-
-<p>function heading(anchor) {
-  return $(&rdquo;[id=&rdquo; + anchor.substr(1) + &ldquo;]&rdquo;)
-}
-{{&lt; / highlight &gt;}}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">199</span>$(<span style="color:#8be9fd;font-style:italic">document</span>).ready(<span style="color:#8be9fd;font-style:italic">function</span>() {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">200</span>  $(<span style="color:#8be9fd;font-style:italic">window</span>).scroll(<span style="color:#8be9fd;font-style:italic">function</span>() {
+<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">201</span>    $(<span style="color:#f1fa8c">&#34;#TableOfContents a&#34;</span>).removeClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">202</span>    currentAnchor().addClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">203</span>  })
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">204</span>});
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">205</span>
+<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">206</span><span style="color:#8be9fd;font-style:italic">function</span> tocItem(anchor) {
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">207</span>  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[href=\&#34;&#34;</span> <span style="color:#ff79c6">+</span> anchor <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;\&#34;]&#34;</span>)
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">208</span>}
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">209</span>
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">210</span><span style="color:#8be9fd;font-style:italic">function</span> heading(anchor) {
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">211</span>  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[id=&#34;</span> <span style="color:#ff79c6">+</span> anchor.substr(<span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;]&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">212</span>}
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">213</span></code></pre></div>
 
 <h2 id="python">Python</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ff79c6">import</span> os<span style="color:#ff79c6">,</span> sys
@@ -605,12 +639,27 @@ everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.<
 
 <h2 id="codepen-code">CodePen code</h2>
 
-<p><p data-height="275" data-theme-id="0" data-slug-hash="BPJdar" data-default-tab="css,result" data-user="mudox" data-pen-title="BPJdar" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/mudox/pen/BPJdar/">BPJdar</a> by Mudox (<a href="https://codepen.io/mudox">@mudox</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+<div class="embeded-code-box">
+<p data-height="275" data-theme-id="0" data-slug-hash="BPJdar" data-default-tab="css,result" data-user="mudox" data-pen-title="BPJdar" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/mudox/pen/BPJdar/">BPJdar</a> by Mudox (<a href="https://codepen.io/mudox">@mudox</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+</div>
 
+<p>Compare with locally rendered code box using code fence syntax.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ff79c6">import</span> os<span style="color:#ff79c6">,</span> sys
+<span style="color:#ff79c6">from</span> . <span style="color:#ff79c6">import</span> util
+
+func foo():
+    <span style="color:#ff79c6">for</span> x <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">101</span>):
+	start_index_fizz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
+	f <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;fizz&#34;</span>[start_index_fizz::]
+	start_index_buzz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
+	b <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;buzz&#34;</span>[start_index_buzz::]
+	<span style="color:#ff79c6">print</span> ((f <span style="color:#ff79c6">+</span> b) <span style="color:#ff79c6">or</span> x)</code></pre></div>
 <h2 id="jsfiddle-code">JSFiddle code</h2>
 
+<div class="embeded-code-box">
 <script async src="//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/"></script>
+</div>
 
 <h1 id="other">Other</h1>
 
