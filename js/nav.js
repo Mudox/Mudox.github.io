@@ -3,8 +3,10 @@ var seeAlso;
 var shown = '';
 
 $(document).ready(function() {
-  sidebarMenu = $('.sidebar-menu').detach()
-  seeAlso = $('.related-article-list').detach()
+  sidebarMenu = $('.sidebar-menu').detach();
+  sidebarMenu.css('display', 'initial');
+  seeAlso = $('.related-article-list');
+  seeAlso.css('display', 'initial');
 
   $(window).scroll(function() {
     showHideLeftSidebarSections()
@@ -16,26 +18,26 @@ var lastYOffset;
 let yThreshHold = 10;
 
 function showHideLeftSidebarSections() {
-  var stage = $('.left-sidebar .animating-container')
+  var stage = $('.left-sidebar .stage1')
 
-  if (window.pageYOffset > lastYOffset + yThreshHold) {
+  if (window.pageYOffset > lastYOffset) {
     if (shown == 'sidebarMenu') {
       return
     }
-    stage.fadeOut(function() {
+    stage.fadeOut('fast', function() {
       stage.empty();
       stage.append(sidebarMenu);
-      stage.fadeIn();
+      stage.fadeIn('fast');
       shown = 'sidebarMenu';
     })
-  } else if (window.pageYOffset < lastYOffset - yThreshHold) {
+  } else if (window.pageYOffset < lastYOffset) {
     if (shown == 'seeAlso') {
       return
     }
-    stage.fadeOut(function() {
+    stage.fadeOut('fast', function() {
       stage.empty();
       stage.append(seeAlso);
-      stage.fadeIn();
+      stage.fadeIn('fast');
       shown = 'seeAlso';
     })
   } else {
