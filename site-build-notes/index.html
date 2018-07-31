@@ -209,13 +209,15 @@ records my designing decisions and gains during building the site.
             <i class="fas fa-arrow-circle-right fa-fw"></i>
         </h2>
     </header>
-    <ul>
-        
+    <nav>
+        <ul>
+            
             <li><a href="/auto-highlighting-toc/">Auto Highlighting TOC</a></li>
-        
+            
             <li><a href="/fixed-sidebar/">Fixed Sidebar</a></li>
-        
-    </ul>
+            
+        </ul>
+    </nav>
 
 
         </section>
@@ -456,8 +458,12 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
             &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
         &lt;/<span style="color:#ff79c6">h2</span>&gt;
     &lt;/<span style="color:#ff79c6">header</span>&gt;
-    {{.TableOfContents}}
+    &lt;<span style="color:#ff79c6">nav</span>&gt;
+        <span style="color:#6272a4">&lt;!--...--&gt;</span>
+    &lt;/<span style="color:#ff79c6">nav</span>&gt;
 &lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+<p>The <code>nav</code> element are used to add top margin under header.</p>
+
 <h2 id="main-content-area">Main content area</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">article</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article&#34;</span>&gt;
 

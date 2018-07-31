@@ -25,7 +25,6 @@
 
 .list-item-date
 {
-    font-family: 'Merriweather', serif;
     font-size: 14px;
 
     display: block;
@@ -37,7 +36,6 @@
 
 .list-item a
 {
-    font-family: 'Merriweather', serif;
     font-size: 17px;
     font-weight: bold;
 
