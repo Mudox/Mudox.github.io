@@ -1,17 +1,48 @@
+var sidebarMenu;
+var seeAlso;
+var shown = '';
+
 $(document).ready(function() {
+  sidebarMenu = $('.sidebar-menu').detach()
+  seeAlso = $('.related-article-list').detach()
+
   $(window).scroll(function() {
-    showPaneNavIfNotTop()
+    showHideLeftSidebarSections()
     scrollPanes()
   })
 });
 
-function showPaneNavIfNotTop() {
-  // 70 here ~= height of header
-  if (window.pageYOffset > 70) {
-    $('.left-sidebar-menu').fadeIn()
+var lastYOffset;
+let yThreshHold = 10;
+
+function showHideLeftSidebarSections() {
+  var stage = $('.left-sidebar .animating-container')
+
+  if (window.pageYOffset > lastYOffset + yThreshHold) {
+    if (shown == 'sidebarMenu') {
+      return
+    }
+    stage.fadeOut(function() {
+      stage.empty();
+      stage.append(sidebarMenu);
+      stage.fadeIn();
+      shown = 'sidebarMenu';
+    })
+  } else if (window.pageYOffset < lastYOffset - yThreshHold) {
+    if (shown == 'seeAlso') {
+      return
+    }
+    stage.fadeOut(function() {
+      stage.empty();
+      stage.append(seeAlso);
+      stage.fadeIn();
+      shown = 'seeAlso';
+    })
   } else {
-    $('.left-sidebar-menu').fadeOut()
+    // noop
   }
+
+  lastYOffset = window.pageYOffset;
 }
 
 function scrollPanes() {

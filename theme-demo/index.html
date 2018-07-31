@@ -196,21 +196,20 @@
                 <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
             </li>
         
-            <li>
-                <a href="http://mudox.github.io/fixed-sidebar/">Fixed Sidebar</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/resume/">Resume</a>
-            </li>
-        
     </ul>
 </nav>
 
     </section>
 
-    <section class="sidebar-menu">
-        <header>
+    <section class="animating-container">
+        <section class="related-article-list">
+            
+
+
+        </section>
+
+        <section class="sidebar-menu">
+            <header>
     <h2>
         <span>MENU</span>
         <i class="fas fa-home fa-fw"></i>
@@ -243,6 +242,7 @@
     </ul>
 </nav>
 
+        </section>
     </section>
 
 </aside>
@@ -291,7 +291,6 @@
 <li><a href="#codepen-code">CodePen code</a></li>
 <li><a href="#jsfiddle-code">JSFiddle code</a></li>
 </ul></li>
-<li><a href="#other">Other</a></li>
 </ul>
 </nav>
 </aside>
@@ -470,7 +469,7 @@ number, and line highlighting.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ff79c6">import</span> os<span style="color:#ff79c6">,</span> sys
 <span style="color:#ff79c6">from</span> . <span style="color:#ff79c6">import</span> util
 
-func foo():
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">foo</span>():
     <span style="color:#ff79c6">for</span> x <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">101</span>):
 	start_index_fizz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
 	f <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;fizz&#34;</span>[start_index_fizz::]
@@ -623,32 +622,39 @@ everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.<
 
 <p>Use the <code>youtube</code> shortcode.</p>
 
-<p>{{&lt; youtube id=&ldquo;Z2Uu2rYFlPQ&rdquo; autoplay=&ldquo;false&rdquo; &gt;}}</p>
+<div class="embded-media-box">
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/Z2Uu2rYFlPQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</div>
 
 <h2 id="cross-reference">Cross reference</h2>
 
 <p><strong>Click</strong> the URLs to check if the shortcode works.</p>
 
 <ul>
-<li><p>[Absolute permalink to: iOS Awesome List]({{&lt; ref &ldquo;/post/my-ios-awesome-list.md&rdquo; &gt;}})</p></li>
+<li><p><a href="http://mudox.github.io/my-ios-awesome-list/">Absolute permalink to: iOS Awesome List</a></p></li>
 
-<li><p>[Relative permalink to: iOS Awesome List]({{&lt; relref &ldquo;my-ios-awesome-list.md&rdquo; &gt;}})</p></li>
+<li><p><a href="/my-ios-awesome-list/">Relative permalink to: iOS Awesome List</a></p></li>
 </ul>
 
 <h1 id="embeding">Embeding</h1>
 
 <h2 id="codepen-code">CodePen code</h2>
 
-<div class="embeded-code-box">
+<div class="embded-media-box">
 <p data-height="275" data-theme-id="0" data-slug-hash="BPJdar" data-default-tab="css,result" data-user="mudox" data-pen-title="BPJdar" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/mudox/pen/BPJdar/">BPJdar</a> by Mudox (<a href="https://codepen.io/mudox">@mudox</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </div>
 
-<p>Compare with locally rendered code box using code fence syntax.</p>
+<p>Compare with locally rendered code box using code fence syntax. Left and
+rigtht sides are aligned to the local code box.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ff79c6">import</span> os<span style="color:#ff79c6">,</span> sys
 <span style="color:#ff79c6">from</span> . <span style="color:#ff79c6">import</span> util
 
-func foo():
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">foo</span>():
     <span style="color:#ff79c6">for</span> x <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">101</span>):
 	start_index_fizz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
 	f <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;fizz&#34;</span>[start_index_fizz::]
@@ -657,26 +663,11 @@ func foo():
 	<span style="color:#ff79c6">print</span> ((f <span style="color:#ff79c6">+</span> b) <span style="color:#ff79c6">or</span> x)</code></pre></div>
 <h2 id="jsfiddle-code">JSFiddle code</h2>
 
-<div class="embeded-code-box">
+<p>Left and rigtht sides are aligned to the local code box.</p>
+
+<div class="embded-media-box">
 <script async src="//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/"></script>
 </div>
-
-<h1 id="other">Other</h1>
-
-<p>Below is a <code>&lt;hr&gt;</code></p>
-
-<hr />
-
-<p>A Youtube video using raw HTML syntax.</p>
-
-<iframe width="560" height="315"
-  src="https://www.youtube.com/embed/Z2Uu2rYFlPQ?rel=0"
-  frameborder="0" allow="autoplay; encrypted-media"
-  allowfullscreen></iframe>
-
-<p>Below is another <code>&lt;hr&gt;</code></p>
-
-<hr />
 
         </div>
 

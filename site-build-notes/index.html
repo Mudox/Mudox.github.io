@@ -194,21 +194,36 @@ records my designing decisions and gains during building the site.
                 <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
             </li>
         
-            <li>
-                <a href="http://mudox.github.io/fixed-sidebar/">Fixed Sidebar</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/resume/">Resume</a>
-            </li>
-        
     </ul>
 </nav>
 
     </section>
 
-    <section class="sidebar-menu">
-        <header>
+    <section class="animating-container">
+        <section class="related-article-list">
+            
+
+    <header>
+        <h2>
+            <span>See Also</span>
+            <i class="fas fa-arrow-circle-right fa-fw"></i>
+        </h2>
+    </header>
+    <ul>
+        
+            <li><a href="/auto-highlighting-toc/">Auto Highlighting TOC</a></li>
+        
+            <li><a href="/fixed-sidebar/">Fixed Sidebar</a></li>
+        
+            <li><a href="/theme-demo/">Theme Demo</a></li>
+        
+    </ul>
+
+
+        </section>
+
+        <section class="sidebar-menu">
+            <header>
     <h2>
         <span>MENU</span>
         <i class="fas fa-home fa-fw"></i>
@@ -241,6 +256,7 @@ records my designing decisions and gains during building the site.
     </ul>
 </nav>
 
+        </section>
     </section>
 
 </aside>
@@ -409,7 +425,7 @@ It use flexbox layout to center the logo image and title vertically
     &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-article-list&#34;</span>&gt;
         <span style="color:#6272a4">&lt;!--article list partial--&gt;</span>
     &lt;/<span style="color:#ff79c6">section</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-menu&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar-menu&#34;</span>&gt;
         <span style="color:#6272a4">&lt;!--menu partial--&gt;</span>
     &lt;/<span style="color:#ff79c6">section</span>&gt;
 &lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
@@ -496,49 +512,38 @@ It use flexbox layout to center the logo image and title vertically
 
 <p>This section contains some implementation details of componets of the sites.</p>
 
-<p><i class='fas fa-question-circle'></i>
-How to style a <code>&lt;hr&gt;</code></p>
-
-<p><i class='fas fa-lightbulb'></i>
-The horzontal ruler element is just block element element with no inner content
+<p><i class='fas fa-question fa-fw'></i>
+How to style a <code>&lt;hr&gt;</code><br />
+<i class='fas fa-lightbulb fa-fw'></i>
+The horzontal ruler element is just a block element element with no inner content
 (text). By default, their <code>border-bottom</code> is styled in be a 1px solid black
 line.</p>
 
-<hr />
-
-<p><i class='fas fa-question-circle'></i>
+<p><i class='fas fa-question fa-fw'></i>
 How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?<br />
-<i class='fas fa-lightbulb'></i>
+<i class='fas fa-lightbulb fa-fw'></i>
 Change their <code>padding-left</code> CSS property.</p>
 
-<hr />
-
-<p><i class='fas fa-question-circle'></i>
-How to hightlight cooresponding item in the TOC when viewports scrolling.</p>
-
-<p><i class='fas fa-lightbulb'></i>
+<p><i class='fas fa-question fa-fw'></i>
+How to hightlight cooresponding item in the TOC when viewports scrolling.<br />
+<i class='fas fa-lightbulb fa-fw'></i>
 See article <a href="/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
 
-<hr />
-
-<p><i class='fas fa-question-circle'></i>
-How to implement fixed sidebar on both sides of the main article showing tag
-list, recently updated article list, TOC &hellip;?</p>
-
-<p><i class='fas fa-lightbulb'></i>
+<p><i class='fas fa-question fa-fw'></i>
+How to implement fixed sidebar that stay within the viewport while the main area is scrolls?<br />
+<i class='fas fa-lightbulb fa-fw'></i>
 See article <a href="/fixed-sidebar/">Fixed Sidebar</a>.</p>
 
-<hr />
-
-<p><i class='fas fa-question-circle'></i>
-How to resize medias, like youtube video, JSFiddle and CodePen code box?</p>
-
-<p><i class='fas fa-lightbulb'></i>
-Wrap each of them into <code>&lt;div class=&quot;embded-media-box&quot;&gt;</code>.</p>
+<p><i class='fas fa-question fa-fw'></i>
+How to resize embeded medias, like YouTube video, JSFiddle and CodePen code box?<br />
+<i class='fas fa-lightbulb fa-fw'></i>
+Wrap each of them into <code>&lt;div class=&quot;embded-media-box&quot;&gt;</code>. For example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embeded-media-box&#34;</span>&gt;
     &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
 &lt;/<span style="color:#ff79c6">div</span>&gt;</code></pre></div>
 <h1 id="references">References</h1>
+
+<p><a href="https://developer.mozilla.org">MDN Web Docs</a></p>
 
         </div>
 
