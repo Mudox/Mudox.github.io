@@ -291,7 +291,7 @@ records my designing decisions and gains during building the site.
 <li><a href="#sections">Sections</a></li>
 <li><a href="#taxonomies">Taxonomies</a></li>
 </ul></li>
-<li><a href="#howto">Howto</a></li>
+<li><a href="#howtos">Howtos</a></li>
 <li><a href="#issues-and-solutions">Issues And Solutions</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -519,7 +519,7 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
 
 <p>All tag name use normal casing like <code>iOS</code>, <code>Swift</code> etc.</p>
 
-<h1 id="howto">Howto</h1>
+<h1 id="howtos">Howtos</h1>
 
 <p>This section contains the knowledge I&rsquo;ve learned during the site building process.</p>
 
@@ -563,9 +563,22 @@ Google Chrome -&gt; open <strong>Devtools</strong> window -&gt; click <strong>Ne
 <strong>Disable cache</strong> box. Keep the window open during the testing.</p>
 
 <p><i class='fas fa-exclamation fa-fw'></i>
-Sometime only the currently opened page got latest change to (e.g. css, js files &hellip;), if I jump to other pages, reloading page or clear the browser cache does not work.<br />
+Sometime only the currently opened page got latest change to (e.g. css, js
+files &hellip;), if I jump to other pages, reloading page or clear the browser cache
+does not work.<br />
 <i class='fas fa-lightbulb fa-fw'></i>
 Rerun the <code>hugo server</code> command with <code>--gc --cleanDestinationDir=true</code> switch.</p>
+
+<p><i class='fas fa-exclamation fa-fw'></i>
+The <code>tags</code> folder got ignored by git somehow?<br />
+<i class='fas fa-lightbulb fa-fw'></i>
+Check following files for anywhere mentions <code>tags</code>:</p>
+
+<ol>
+<li><code>.gitignore</code> at the project root directory (the path where project&rsquo;s <code>.git</code> folder lies).</li>
+<li><code>.git/info/exclude</code> just like <code>.gitignore</code> but is not tracked by git.</li>
+<li>Global ignore file, type <code>git config --get core.excludesfile</code> to see it.</li>
+</ol>
 
 <h1 id="references">References</h1>
 
