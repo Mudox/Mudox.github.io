@@ -6,18 +6,29 @@
     <description>Recent content on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Jul 2018 04:39:04 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Aug 2018 01:15:03 +0800</lastBuildDate>
     
         <atom:link href="http://mudox.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     
     <item>
+      <title>Alternating Sidebar Menu</title>
+      <link>http://mudox.github.io/post/alternating-sidebar-menu/</link>
+      <pubDate>Thu, 02 Aug 2018 01:15:03 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/alternating-sidebar-menu/</guid>
+      <description>Title Content.</description>
+    </item>
+    
+    
+    
+    <item>
       <title>Site Build Notes</title>
-      <link>http://mudox.github.io/site-build-notes/</link>
+      <link>http://mudox.github.io/post/site-build-notes/</link>
       <pubDate>Mon, 30 Jul 2018 04:39:04 +0800</pubDate>
       
-      <guid>http://mudox.github.io/site-build-notes/</guid>
+      <guid>http://mudox.github.io/post/site-build-notes/</guid>
       <description>Tools Hugo is the static site generator I use which is known as programmer&amp;rsquo; s site generator. It renders site fast as well as provides rich set of flexibility for user to tweak every aspect of the site.
 Its live reloading feature reload currently opened site page to show how your changes in the source files would affect the page. Suppose you have 2 display monitors, one for editor, the other shows the browser &amp;hellip;</description>
     </item>
@@ -26,10 +37,10 @@ Its live reloading feature reload currently opened site page to show how your ch
     
     <item>
       <title>Unburden View Controller</title>
-      <link>http://mudox.github.io/unburden-view-controller/</link>
+      <link>http://mudox.github.io/post/unburden-view-controller/</link>
       <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
       
-      <guid>http://mudox.github.io/unburden-view-controller/</guid>
+      <guid>http://mudox.github.io/post/unburden-view-controller/</guid>
       <description>The Evolution Story I guess at the very beginning of GUI app architecture evolution, there might be only 2 layers:
  View layer for displaying data model states, views just fetching data from model layer, perform some simple but necessary formatting and then show them out.
  Model layer for store and manipulating data
@@ -40,10 +51,10 @@ Its live reloading feature reload currently opened site page to show how your ch
     
     <item>
       <title>Auto Highlighting TOC</title>
-      <link>http://mudox.github.io/auto-highlighting-toc/</link>
+      <link>http://mudox.github.io/post/auto-highlighting-toc/</link>
       <pubDate>Tue, 24 Jul 2018 08:45:42 +0800</pubDate>
       
-      <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
+      <guid>http://mudox.github.io/post/auto-highlighting-toc/</guid>
       <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
 &amp;lt;aside class=&amp;#34;sidebar right-sidebar&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#data&amp;#34;&amp;gt;Heading 1&amp;lt;/a&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.1&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.2&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;/aside&amp;gt; It basically scans the article body part for headings (h1 h2 h3 h4 .</description>
     </item>
@@ -52,10 +63,10 @@ Its live reloading feature reload currently opened site page to show how your ch
     
     <item>
       <title>My iOS Awesome List</title>
-      <link>http://mudox.github.io/my-ios-awesome-list/</link>
+      <link>http://mudox.github.io/post/my-ios-awesome-list/</link>
       <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
       
-      <guid>http://mudox.github.io/my-ios-awesome-list/</guid>
+      <guid>http://mudox.github.io/post/my-ios-awesome-list/</guid>
       <description>Swift Dollar  A functional tool-belt for Swift Language.   Swiftz  Swiftz is a Swift library for functional programming.   Tool Jazzy  Soulful docs for Swift &amp; Objective-C.   SwiftLint  A tool to enforce Swift style and conventions.   Swimat  Swift source code formatter. Provide Xcode integration, very handy.   Injection for Xcode  Runtime Code Injection for Objective-C &amp; Swift.</description>
     </item>
     
@@ -63,10 +74,10 @@ Its live reloading feature reload currently opened site page to show how your ch
     
     <item>
       <title>Fixed Sidebar</title>
-      <link>http://mudox.github.io/fixed-sidebar/</link>
+      <link>http://mudox.github.io/post/fixed-sidebar/</link>
       <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
       
-      <guid>http://mudox.github.io/fixed-sidebar/</guid>
+      <guid>http://mudox.github.io/post/fixed-sidebar/</guid>
       <description>Title Content.</description>
     </item>
     
@@ -74,10 +85,10 @@ Its live reloading feature reload currently opened site page to show how your ch
     
     <item>
       <title>Resume</title>
-      <link>http://mudox.github.io/resume/</link>
+      <link>http://mudox.github.io/post/resume/</link>
       <pubDate>Sun, 28 Jan 2018 04:55:06 +0800</pubDate>
       
-      <guid>http://mudox.github.io/resume/</guid>
+      <guid>http://mudox.github.io/post/resume/</guid>
       <description>My name is Mudox.
 I&amp;rsquo;m an iOS developer.</description>
     </item>
@@ -86,10 +97,10 @@ I&amp;rsquo;m an iOS developer.</description>
     
     <item>
       <title>My Projects</title>
-      <link>http://mudox.github.io/my-projects/</link>
+      <link>http://mudox.github.io/post/my-projects/</link>
       <pubDate>Tue, 26 Dec 2017 04:59:53 +0800</pubDate>
       
-      <guid>http://mudox.github.io/my-projects/</guid>
+      <guid>http://mudox.github.io/post/my-projects/</guid>
       <description>Here list out all my projects.</description>
     </item>
     
@@ -97,10 +108,10 @@ I&amp;rsquo;m an iOS developer.</description>
     
     <item>
       <title>Theme Demo</title>
-      <link>http://mudox.github.io/theme-demo/</link>
+      <link>http://mudox.github.io/post/theme-demo/</link>
       <pubDate>Thu, 07 Dec 2017 19:00:55 +0800</pubDate>
       
-      <guid>http://mudox.github.io/theme-demo/</guid>
+      <guid>http://mudox.github.io/post/theme-demo/</guid>
       <description>Heading #1 The world’s fastest framework for building websites
 Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
 Heading #2 Nam pretium faucibus ipsum, sit amet tincidunt augue vulputate nec. Donec consectetur sit amet justo vel vehicula. Fusce quis tempor felis. Maecenas viverra pulvinar sodales. Cras a hendrerit libero. Sed imperdiet non mauris luctus facilisis. Duis at tortor id est lacinia egestas eu eget elit.</description>

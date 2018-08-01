@@ -1,6 +1,6 @@
-var sidebarMenu;
-var seeAlso;
-var shown = '';
+let sidebarMenu;
+let seeAlso;
+let shown = '';
 
 $(document).ready(function() {
   sidebarMenu = $('.sidebar-menu').detach();
@@ -14,55 +14,51 @@ $(document).ready(function() {
   })
 });
 
-var lastYOffset;
-let yThreshHold = 10;
+let lastWindowScrollY = 0;
 
 function showHideLeftSidebarSections() {
-  var stage = $('.left-sidebar .stage1')
+  let stage = $('.left-sidebar .stage1')
+  let lastY = lastWindowScrollY;
+  let y = window.scrollY
+  lastWindowScrollY = y;
 
-  if (window.pageYOffset > lastYOffset) {
-    if (shown == 'sidebarMenu') {
-      return
-    }
-    stage.fadeOut('fast', function() {
-      stage.empty();
-      stage.append(sidebarMenu);
-      stage.fadeIn('fast');
+  if (y > lastY) {
+    if (shown != 'sidebarMenu') {
       shown = 'sidebarMenu';
-    })
-  } else if (window.pageYOffset < lastYOffset) {
-    if (shown == 'seeAlso') {
-      return
+      stage.fadeOut('fast', function() {
+        stage.empty();
+        stage.append(sidebarMenu);
+        stage.fadeIn('fast');
+      })
     }
-    stage.fadeOut('fast', function() {
-      stage.empty();
-      stage.append(seeAlso);
-      stage.fadeIn('fast');
-      shown = 'seeAlso';
-    })
   } else {
-    // noop
+    if (shown != 'seeAlso') {
+      shown = 'seeAlso';
+      stage.fadeOut('fast', function() {
+        stage.empty();
+        stage.append(seeAlso);
+        stage.fadeIn('fast');
+      })
+    }
   }
-
-  lastYOffset = window.pageYOffset;
 }
 
 function scrollPanes() {
-  var topStart = 128; // should be the same as in `pane.css`
-  var topEnd = 50;
-  var topRange = topStart - topEnd;
+  let topStart = 128; // should be the same as in `pane.css`
+  let topEnd = 50;
+  let topRange = topStart - topEnd;
 
-  var yStart = 100;
-  var yEnd = window.innerHeight;
-  var yRange = (yEnd - yStart);
+  let yStart = 100;
+  let yEnd = window.innerHeight;
+  let yRange = (yEnd - yStart);
 
-  var y = window.pageYOffset;
+  let y = window.scrollY;
 
-  var newTop;
+  let newTop;
   if (y < yStart) {
     newTop = topStart;
   } else if (yStart < y && y < yEnd) {
-    var delta = topRange * (y - yStart) / (yEnd - yStart);
+    let delta = topRange * (y - yStart) / (yEnd - yStart);
     newTop = topStart - delta;
   } else {
     newTop = topEnd;

@@ -3,29 +3,34 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.45.1" />
+
+<meta name="generator" content="Hugo 0.46" />
 
 
-<title>Site Build Notes - Mudox</title>
-<meta property="og:title" content="Site Build Notes - Mudox">
+    <title>Site Build Notes - Mudox</title>
+    <meta property="og:title" content="Site Build Notes - Mudox">
 
 
 
-
-<meta property="description" content="I am not a professional web developer. I will keep building this site in my
-casual time as well as learning some basic web skills as much as I could. Here
-records my designing decisions and gains during building the site.
+    
+        <meta property="description" content="I am not a professional web developer. I&#39;ve been building this site in my
+casual time as well as learning some basic web skills. Here records my
+designing decisions and gains during building the site.
 ">
+    
+
+    
 
 
 
 
+
+<link rel="icon" href="http://mudox.github.io/images/favicon.jpg">
 
 
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
 
 <link rel="stylesheet" href="http://mudox.github.io/css/normalize.css">
 <link rel="stylesheet" href="http://mudox.github.io/css/base.css">
@@ -43,12 +48,16 @@ records my designing decisions and gains during building the site.
 <link rel="stylesheet" href="http://mudox.github.io/css/home.css">
 
 
-<link rel="icon" href="http://mudox.github.io/images/favicon.jpg">
+
+
 
 
 <script src='/js/jquery-3.3.1.js'></script>
+
 <script src='/js/toc.js'></script>
 <script src='/js/nav.js'></script>
+
+
 
 
 
@@ -152,15 +161,15 @@ records my designing decisions and gains during building the site.
     <ul>
         
             <li>
-                <a href="http://mudox.github.io/site-build-notes/">Site Build Notes</a>
+                <a href="http://mudox.github.io/post/site-build-notes/">Site Build Notes</a>
             </li>
         
             <li>
-                <a href="http://mudox.github.io/unburden-view-controller/">Unburden View Controller</a>
+                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
             </li>
         
             <li>
-                <a href="http://mudox.github.io/theme-demo/">Theme Demo</a>
+                <a href="http://mudox.github.io/post/theme-demo/">Theme Demo</a>
             </li>
         
     </ul>
@@ -179,19 +188,19 @@ records my designing decisions and gains during building the site.
     <ul>
         
             <li>
-                <a href="http://mudox.github.io/site-build-notes/">Site Build Notes</a>
+                <a href="http://mudox.github.io/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a>
             </li>
         
             <li>
-                <a href="http://mudox.github.io/unburden-view-controller/">Unburden View Controller</a>
+                <a href="http://mudox.github.io/post/site-build-notes/">Site Build Notes</a>
             </li>
         
             <li>
-                <a href="http://mudox.github.io/auto-highlighting-toc/">Auto Highlighting TOC</a>
+                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
             </li>
         
             <li>
-                <a href="http://mudox.github.io/my-ios-awesome-list/">My iOS Awesome List</a>
+                <a href="http://mudox.github.io/post/auto-highlighting-toc/">Auto Highlighting TOC</a>
             </li>
         
     </ul>
@@ -212,9 +221,13 @@ records my designing decisions and gains during building the site.
     <nav>
         <ul>
             
-            <li><a href="/auto-highlighting-toc/">Auto Highlighting TOC</a></li>
+            <li><a href="/post/auto-highlighting-toc/">Auto Highlighting TOC</a></li>
             
-            <li><a href="/fixed-sidebar/">Fixed Sidebar</a></li>
+            <li><a href="/post/fixed-sidebar/">Fixed Sidebar</a></li>
+            
+            <li><a href="/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a></li>
+            
+            <li><a href="/post/theme-demo/">Theme Demo</a></li>
             
         </ul>
     </nav>
@@ -278,7 +291,7 @@ records my designing decisions and gains during building the site.
 <li><a href="#basic-page-dom">Basic Page DOM</a>
 <ul>
 <li><a href="#document-body-frame">Document body frame</a></li>
-<li><a href="#navigation-bar-layout">Navigation bar layout</a></li>
+<li><a href="#navigation-bar">Navigation bar</a></li>
 <li><a href="#left-sidebar-frame">Left sidebar frame</a>
 <ul>
 <li><a href="#section-frame">Section frame</a></li>
@@ -316,9 +329,9 @@ records my designing decisions and gains during building the site.
 
         
         
-        <blockquote class='article-summary'>I am not a professional web developer. I will keep building this site in my
-casual time as well as learning some basic web skills as much as I could. Here
-records my designing decisions and gains during building the site.
+        <blockquote class='article-summary'>I am not a professional web developer. I&#39;ve been building this site in my
+casual time as well as learning some basic web skills. Here records my
+designing decisions and gains during building the site.
 </blockquote>
         
 
@@ -386,7 +399,7 @@ tool combination.</p>
         &lt;<span style="color:#ff79c6">footer</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;footer&#34;</span>&gt;&lt;/<span style="color:#ff79c6">footer</span>&gt;
     &lt;/<span style="color:#ff79c6">div</span>&gt;
 &lt;/<span style="color:#ff79c6">body</span>&gt;</code></pre></div>
-<h2 id="navigation-bar-layout">Navigation bar layout</h2>
+<h2 id="navigation-bar">Navigation bar</h2>
 
 <p>This area has 2 parts:</p>
 
@@ -397,27 +410,32 @@ It use flexbox layout to center the logo image and title vertically
 
 <li><p>Right <code>&lt;nav&gt;</code> aligns text to right, shows site main menu.</p></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-left&#34;</span>&gt;
-    &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-        <span style="color:#6272a4">&lt;!--Site logo--&gt;</span>
-        &lt;<span style="color:#ff79c6">img</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#50fa7b">alt</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-    &lt;/<span style="color:#ff79c6">a</span>&gt;
-    &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-        <span style="color:#6272a4">&lt;!--Site title--&gt;</span>
-        &lt;<span style="color:#ff79c6">h1</span>&gt;&lt;/<span style="color:#ff79c6">h1</span>&gt;
-    &lt;/<span style="color:#ff79c6">a</span>&gt;
-&lt;/<span style="color:#ff79c6">section</span>&gt;
-&lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-right&#34;</span>&gt;&#34;&gt;
-    &lt;<span style="color:#ff79c6">ul</span>&gt;
-        <span style="color:#6272a4">&lt;!--4 menu links--&gt;</span>
-        &lt;<span style="color:#ff79c6">li</span>&gt;
-            &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-                &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
-                &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
-            &lt;/<span style="color:#ff79c6">a</span>&gt;
-        &lt;/<span style="color:#ff79c6">li</span>&gt;
-    &lt;/<span style="color:#ff79c6">ul</span>&gt;
-&lt;<span style="color:#ff79c6">section</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">nav</span>&gt;
+    <span style="color:#6272a4">&lt;!--Align left--&gt;</span>
+    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-left&#34;</span>&gt;
+        &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+            <span style="color:#6272a4">&lt;!--Site logo--&gt;</span>
+            &lt;<span style="color:#ff79c6">img</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#50fa7b">alt</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+        &lt;/<span style="color:#ff79c6">a</span>&gt;
+        &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+            <span style="color:#6272a4">&lt;!--Site title--&gt;</span>
+            &lt;<span style="color:#ff79c6">h1</span>&gt;&lt;/<span style="color:#ff79c6">h1</span>&gt;
+        &lt;/<span style="color:#ff79c6">a</span>&gt;
+    &lt;/<span style="color:#ff79c6">section</span>&gt;
+
+    <span style="color:#6272a4">&lt;!--Align right--&gt;</span>
+    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-right&#34;</span>&gt;&#34;&gt;
+        &lt;<span style="color:#ff79c6">ul</span>&gt;
+            <span style="color:#6272a4">&lt;!--4 menu links--&gt;</span>
+            &lt;<span style="color:#ff79c6">li</span>&gt;
+                &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+                    &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
+                    &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
+                &lt;/<span style="color:#ff79c6">a</span>&gt;
+            &lt;/<span style="color:#ff79c6">li</span>&gt;
+        &lt;/<span style="color:#ff79c6">ul</span>&gt;
+    &lt;<span style="color:#ff79c6">section</span>&gt;
+&lt;/<span style="color:#ff79c6">nav</span>&gt;</code></pre></div>
 <h2 id="left-sidebar-frame">Left sidebar frame</h2>
 
 <p>The area is divided into <code>&lt;section&gt;</code>s, I add spacing style on them.</p>
@@ -523,55 +541,62 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
 
 <p>This section contains the knowledge I&rsquo;ve learned during the site building process.</p>
 
-<p><i class='fas fa-question fa-fw'></i>
-How to style a <code>&lt;hr&gt;</code><br />
-<i class='fas fa-lightbulb fa-fw'></i>
+<hr />
+
+<p>How to style a <code>&lt;hr&gt;</code><br />
 The horizontal ruler element is just a block element element with no inner content
 (text). By default, their <code>border-bottom</code> is styled in be a 1px solid black
 line.</p>
 
-<p><i class='fas fa-question fa-fw'></i>
-How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?<br />
-<i class='fas fa-lightbulb fa-fw'></i>
+<hr />
+
+<p>How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?<br />
 Change their <code>padding-left</code> CSS property.</p>
 
-<p><i class='fas fa-question fa-fw'></i>
-How to highlight corresponding item in the TOC when viewport scrolling.<br />
-<i class='fas fa-lightbulb fa-fw'></i>
-See article <a href="/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
+<hr />
 
-<p><i class='fas fa-question fa-fw'></i>
-How to implement fixed sidebar that stay within the viewport while the main area is scrolls?<br />
-<i class='fas fa-lightbulb fa-fw'></i>
-See article <a href="/fixed-sidebar/">Fixed Sidebar</a>.</p>
+<p>How to highlight corresponding item in the TOC when viewport scrolling.<br />
+See article <a href="/post/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
 
-<p><i class='fas fa-question fa-fw'></i>
-How to resize embedded medias, like YouTube video, JSFiddle and CodePen code box?<br />
-<i class='fas fa-lightbulb fa-fw'></i>
+<hr />
+
+<p>How to implement fixed sidebar that stay within the viewport while the main area is scrolls?<br />
+See article <a href="/post/fixed-sidebar/">Fixed Sidebar</a>.</p>
+
+<hr />
+
+<p>How to align the sides of embedded medias, like YouTube video, JSFiddle and
+CodePen code box to navtive code box?<br />
 Wrap each of them into <code>&lt;div class=&quot;embded-media-box&quot;&gt;</code>. For example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embeded-media-box&#34;</span>&gt;
     &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
 &lt;/<span style="color:#ff79c6">div</span>&gt;</code></pre></div>
+<hr />
+
+<p>How to speed up page loading?<br />
+Use <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> to minify and bundle assets which can reduces the size of data
+tansfered as well as the number of requests.</p>
+
 <h1 id="issues-and-solutions">Issues And Solutions</h1>
 
 <p>Here are the issues I encountered and the solution I came out.</p>
 
-<p><i class='fas fa-exclamation fa-fw'></i>
-Live reload does not bring the latest change to browser?<br />
-<i class='fas fa-lightbulb fa-fw'></i>
+<hr />
+
+<p>Live reload does not bring the latest change to browser?<br />
 Google Chrome -&gt; open <strong>Devtools</strong> window -&gt; click <strong>Network</strong> tab -&gt; check
 <strong>Disable cache</strong> box. Keep the window open during the testing.</p>
 
-<p><i class='fas fa-exclamation fa-fw'></i>
-Sometime only the currently opened page got latest change to (e.g. css, js
+<hr />
+
+<p>Sometime only the currently opened page got latest change to (e.g. css, js
 files &hellip;), if I jump to other pages, reloading page or clear the browser cache
 does not work.<br />
-<i class='fas fa-lightbulb fa-fw'></i>
 Rerun the <code>hugo server</code> command with <code>--gc --cleanDestinationDir=true</code> switch.</p>
 
-<p><i class='fas fa-exclamation fa-fw'></i>
-The <code>tags</code> folder got ignored by git somehow?<br />
-<i class='fas fa-lightbulb fa-fw'></i>
+<hr />
+
+<p>The <code>tags</code> folder got ignored by git somehow?<br />
 Check following files for anywhere mentions <code>tags</code>:</p>
 
 <ol>

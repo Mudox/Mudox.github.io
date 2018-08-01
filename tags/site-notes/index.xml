@@ -13,30 +13,30 @@
     
     <item>
       <title>Site Build Notes</title>
-      <link>http://mudox.github.io/site-build-notes/</link>
+      <link>http://mudox.github.io/post/site-build-notes/</link>
       <pubDate>Mon, 30 Jul 2018 04:39:04 +0800</pubDate>
       
-      <guid>http://mudox.github.io/site-build-notes/</guid>
+      <guid>http://mudox.github.io/post/site-build-notes/</guid>
       <description>Tools Hugo is the static site generator I use which is known as programmer&amp;rsquo; s site generator. It renders site fast as well as provides rich set of flexibility for user to tweak every aspect of the site.
 Its live reloading feature reload currently opened site page to show how your changes in the source files would affect the page. Suppose you have 2 display monitors, one for editor, the other shows the browser &amp;hellip;</description>
     </item>
     
     <item>
       <title>Auto Highlighting TOC</title>
-      <link>http://mudox.github.io/auto-highlighting-toc/</link>
+      <link>http://mudox.github.io/post/auto-highlighting-toc/</link>
       <pubDate>Tue, 24 Jul 2018 08:45:42 +0800</pubDate>
       
-      <guid>http://mudox.github.io/auto-highlighting-toc/</guid>
+      <guid>http://mudox.github.io/post/auto-highlighting-toc/</guid>
       <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
 &amp;lt;aside class=&amp;#34;sidebar right-sidebar&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#data&amp;#34;&amp;gt;Heading 1&amp;lt;/a&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.1&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.2&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;/aside&amp;gt; It basically scans the article body part for headings (h1 h2 h3 h4 .</description>
     </item>
     
     <item>
       <title>Fixed Sidebar</title>
-      <link>http://mudox.github.io/fixed-sidebar/</link>
+      <link>http://mudox.github.io/post/fixed-sidebar/</link>
       <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
       
-      <guid>http://mudox.github.io/fixed-sidebar/</guid>
+      <guid>http://mudox.github.io/post/fixed-sidebar/</guid>
       <description>Title Content.</description>
     </item>
     
