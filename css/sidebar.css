@@ -78,6 +78,11 @@
   .left-sidebar nav>ul {
     padding-right: 0;
   }
+
+  .left-sidebar .sidebar-menu {
+    display: none;
+  }
+
 }
 
 /*}}}*/
