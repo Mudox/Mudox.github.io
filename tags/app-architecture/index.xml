@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>App Architecture on Mudox</title>
+    <link>http://mudox.github.io/tags/app-architecture/</link>
+    <description>Recent content in App Architecture on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Jul 2018 04:57:59 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/app-architecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unburden View Controller</title>
+      <link>http://mudox.github.io/unburden-view-controller/</link>
+      <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/unburden-view-controller/</guid>
+      <description>The Evolution Story I guess at the very beginning of GUI app architecture evolution, there might be only 2 layers:
+ View layer for displaying data model states, views just fetching data from model layer, perform some simple but necessary formatting and then show them out.
+ Model layer for store and manipulating data
+  As the program evolves, a new layer View Controller was brought up to relief of views before their source files become too huge.</description>
+    </item>
+    
+  </channel>
+</rss>
