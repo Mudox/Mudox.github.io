@@ -50,6 +50,9 @@ designing decisions and gains during building the site.
 
 
 
+<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.42228fd25effab40210287d18c95c6b0837c73d7ac6a43c4c7431ec806ec0426.css">
+
+
 
 
 <script src='/js/jquery-3.3.1.js'></script>
@@ -87,28 +90,28 @@ designing decisions and gains during building the site.
             
             <li>
                 <a href="/tags">
-                    <i class='fas fa-tag'></i>
+                    
                     <span>TAGS</span>
                 </a>
             </li>
             
             <li>
                 <a href="/my-projects">
-                    <i class='fas fa-rocket'></i>
+                    
                     <span>PROJECTS</span>
                 </a>
             </li>
             
             <li>
                 <a href="/resume">
-                    <i class='fas fa-user-circle'></i>
+                    
                     <span>RESUME</span>
                 </a>
             </li>
             
             <li>
                 <a href="https://github.com/mudox">
-                    <i class='fab fa-github'></i>
+                    
                     <span>GITHUB</span>
                 </a>
             </li>
@@ -304,7 +307,11 @@ designing decisions and gains during building the site.
 <li><a href="#sections">Sections</a></li>
 <li><a href="#taxonomies">Taxonomies</a></li>
 </ul></li>
-<li><a href="#howtos">Howtos</a></li>
+<li><a href="#style-sheet">Style Sheet</a>
+<ul>
+<li><a href="#code">Code</a></li>
+</ul></li>
+<li><a href="#how-to">How-To</a></li>
 <li><a href="#issues-and-solutions">Issues And Solutions</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -340,26 +347,28 @@ designing decisions and gains during building the site.
 
 <h1 id="tools">Tools</h1>
 
-<p><strong><a href="https://gohugo.io">Hugo</a></strong> is the static site generator I use which is known as programmer&rsquo; s
-site generator. It renders site fast as well as provides rich set of
-flexibility for user to tweak every aspect of the site.<br />
-Its live reloading feature reload currently opened site page to show how
-your changes in the source files would affect the page. Suppose you have 2
+<p><strong><a href="https://gohugo.io">Hugo</a></strong> is the static site generator I use. It is known as programmer&rsquo; s
+site generator. It renders fast while providing sufficient flexibility for users
+to tweak every aspect of the site.</p>
+
+<p>Its live reloading feature reloads currently opened page to immediately reflect
+your changes made in the source files. Suppose you have 2
 display monitors, one for editor, the other shows the browser &hellip;</p>
 
-<p><strong>Neovim + Tmux + iTerm2</strong> provides the &ldquo;IDE&rdquo; environment. Hugo does not
-require any special web editor or IDE, I accomplished almost all job with this
+<p><strong><a href="https://github.com/neovim/neovim">Neovim</a> + <a href="https://github.com/tmux/tmux">Tmux</a> + <a href="https://www.iterm2.com/">iTerm2</a></strong> provides the &ldquo;IDE&rdquo; environment. Hugo does not
+require any special web editor or IDE, I accomplished almost all jobs with this
 tool combination.</p>
 
 <p><strong><a href="https://fontawesome.com">FontAwesome</a></strong> provides all the fancy yet free icons in the site.</p>
 
 <p><strong><a href="https://emmet.io">Emmet</a></strong> is a powerful web snippets expander to boost my html writing speed.</p>
 
-<p><strong><a href="https://sass-lang.com">SCSS</a></strong> is my choose of CSS preprocessor.</p>
+<p><strong><a href="https://sass-lang.com">SCSS</a></strong> is my choose of CSS preprocessor, with <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> feature automate the
+preprocessing.</p>
 
 <h1 id="basic-page-dom">Basic Page DOM</h1>
 
-<p>Vertically divided into 3 rows:</p>
+<p>I use 3 row layout for article page&rsquo;s base horizontal layout.</p>
 
 <ol>
 <li>Top navigation bar showing site logo and site main menu.</li>
@@ -367,7 +376,8 @@ tool combination.</p>
 <li>Bottom is a footer showing site information.</li>
 </ol>
 
-<p>The main content area are divide horizontally into 3 columns:</p>
+<p>The middle main content area employ 3 column layout, with both sidebar column
+fixed in the viewport.</p>
 
 <ol>
 <li>Left sidebar shows
@@ -524,7 +534,7 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
 <p>There are 3 sections currently.</p>
 
 <ol>
-<li><p><strong>Post section</strong> This is the main seciton of the site, almost all article go under it.</p></li>
+<li><p><strong>Post section</strong> This is the main section of the site, almost all article go under it.</p></li>
 
 <li><p><strong>Project section</strong> All my project introduction and demo articles go under this section.</p></li>
 
@@ -537,45 +547,64 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
 
 <p>All tag name use normal casing like <code>iOS</code>, <code>Swift</code> etc.</p>
 
-<h1 id="howtos">Howtos</h1>
+<h1 id="style-sheet">Style Sheet</h1>
+
+<h2 id="code">Code</h2>
+
+<p>The site use 3 kinds of code related element:</p>
+
+<ol>
+<li><strong>Inline code</strong> bare <code>&lt;code&gt;</code> embedded with other element like <code>&lt;p&gt;</code></li>
+<li><strong>Code box</strong>  block <code>div.highlighting &gt; pre &gt; code</code> which can be introduced
+using markdown code fence syntax, or Hugo shortcode <code>highlight</code>.</li>
+<li><strong>Embedded code media</strong> like those from <a href="jsfiddle.net">JSFiddle</a>, <a href="https://codepen.io">CodePen</a> etc.</li>
+</ol>
+
+<h1 id="how-to">How-To</h1>
 
 <p>This section contains the knowledge I&rsquo;ve learned during the site building process.</p>
 
 <hr />
 
-<p>How to style a <code>&lt;hr&gt;</code><br />
-The horizontal ruler element is just a block element element with no inner content
-(text). By default, their <code>border-bottom</code> is styled in be a 1px solid black
+<p>How to style a <code>&lt;hr&gt;</code></p>
+
+<p>The horizontal ruler element is just a ordinary block element with no inner content
+(text). By default, their <code>border-bottom</code> is styled in be a <code>1px solid black</code>
 line.</p>
 
 <hr />
 
-<p>How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?<br />
-Change their <code>padding-left</code> CSS property.</p>
+<p>How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?</p>
+
+<p>Change their <code>padding-left</code> CSS property.</p>
 
 <hr />
 
-<p>How to highlight corresponding item in the TOC when viewport scrolling.<br />
-See article <a href="/post/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
+<p>How to highlight corresponding item in the TOC when viewport scrolling.</p>
+
+<p>See article <a href="/post/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
 
 <hr />
 
-<p>How to implement fixed sidebar that stay within the viewport while the main area is scrolls?<br />
-See article <a href="/post/fixed-sidebar/">Fixed Sidebar</a>.</p>
+<p>How to implement fixed sidebar that stay within the viewport while the main area is scrolls?</p>
+
+<p>See article <a href="/post/fixed-sidebar/">Fixed Sidebar</a>.</p>
 
 <hr />
 
 <p>How to align the sides of embedded medias, like YouTube video, JSFiddle and
-CodePen code box to navtive code box?<br />
-Wrap each of them into <code>&lt;div class=&quot;embded-media-box&quot;&gt;</code>. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embeded-media-box&#34;</span>&gt;
+CodePen code box to native code box?</p>
+
+<p>Wrap each of them into <code>&lt;div class=&quot;embedded-media-box&quot;&gt;</code>. For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embedded-media-box&#34;</span>&gt;
     &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
 &lt;/<span style="color:#ff79c6">div</span>&gt;</code></pre></div>
 <hr />
 
-<p>How to speed up page loading?<br />
-Use <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> to minify and bundle assets which can reduces the size of data
-tansfered as well as the number of requests.</p>
+<p>How to speed up page loading?</p>
+
+<p>Use <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> to minify and bundle assets which can reduces the size of data
+transferred as well as the number of requests.</p>
 
 <h1 id="issues-and-solutions">Issues And Solutions</h1>
 
@@ -583,27 +612,39 @@ tansfered as well as the number of requests.</p>
 
 <hr />
 
-<p>Live reload does not bring the latest change to browser?<br />
-Google Chrome -&gt; open <strong>Devtools</strong> window -&gt; click <strong>Network</strong> tab -&gt; check
+<p>Live reload does not bring the latest change to browser?</p>
+
+<p>Google Chrome -&gt; open <strong>Devtools</strong> window -&gt; click <strong>Network</strong> tab -&gt; check
 <strong>Disable cache</strong> box. Keep the window open during the testing.</p>
 
 <hr />
 
 <p>Sometime only the currently opened page got latest change to (e.g. css, js
 files &hellip;), if I jump to other pages, reloading page or clear the browser cache
-does not work.<br />
-Rerun the <code>hugo server</code> command with <code>--gc --cleanDestinationDir=true</code> switch.</p>
+does not work.</p>
+
+<p>Rerun the <code>hugo server</code> command with <code>--gc --cleanDestinationDir=true</code> switch.</p>
 
 <hr />
 
-<p>The <code>tags</code> folder got ignored by git somehow?<br />
-Check following files for anywhere mentions <code>tags</code>:</p>
+<p>The <code>tags</code> folder got ignored by git somehow?</p>
+
+<p>Check following files for anywhere mentions <code>tags</code>:</p>
 
 <ol>
 <li><code>.gitignore</code> at the project root directory (the path where project&rsquo;s <code>.git</code> folder lies).</li>
 <li><code>.git/info/exclude</code> just like <code>.gitignore</code> but is not tracked by git.</li>
 <li>Global ignore file, type <code>git config --get core.excludesfile</code> to see it.</li>
 </ol>
+
+<hr />
+
+<p>Why the <code>line-height</code> of <code>pre code</code> can not be further decreased under certain
+limit?</p>
+
+<p>The <code>line-height</code> value of containing block element specifies the lower bound
+of included inline elements. Set the <code>line-height</code> on the wrapping <code>&lt;pre&gt;</code>
+element instead.</p>
 
 <h1 id="references">References</h1>
 

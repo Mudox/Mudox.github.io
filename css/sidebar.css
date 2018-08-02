@@ -1,6 +1,6 @@
 /*sidebar {{{*/
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .sidebar {
     padding: 0 8px;
     position: fixed;
@@ -68,7 +68,7 @@
 
 /*left-sidebar {{{*/
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .left-sidebar {
     left: 20px;
 
@@ -89,7 +89,7 @@
 
 /*right-sidebar {{{*/
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .right-sidebar {
     right: 20px;
 

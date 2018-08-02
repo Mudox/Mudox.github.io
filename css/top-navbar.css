@@ -94,7 +94,7 @@
   top: 1px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .top-navbar-right li {
     margin-left: 12px;
   }

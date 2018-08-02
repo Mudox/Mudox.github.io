@@ -17,8 +17,9 @@
       <pubDate>Mon, 30 Jul 2018 04:39:04 +0800</pubDate>
       
       <guid>http://mudox.github.io/post/site-build-notes/</guid>
-      <description>Tools Hugo is the static site generator I use which is known as programmer&amp;rsquo; s site generator. It renders site fast as well as provides rich set of flexibility for user to tweak every aspect of the site.
-Its live reloading feature reload currently opened site page to show how your changes in the source files would affect the page. Suppose you have 2 display monitors, one for editor, the other shows the browser &amp;hellip;</description>
+      <description>Tools Hugo is the static site generator I use. It is known as programmer&amp;rsquo; s site generator. It renders fast while providing sufficient flexibility for users to tweak every aspect of the site.
+Its live reloading feature reloads currently opened page to immediately reflect your changes made in the source files. Suppose you have 2 display monitors, one for editor, the other shows the browser &amp;hellip;
+Neovim + Tmux + iTerm2 provides the &amp;ldquo;IDE&amp;rdquo; environment.</description>
     </item>
     
     <item>

@@ -1,69 +1,3 @@
-/*code {{{*/
-
-pre {
-  overflow-x: auto;
-
-  padding: 8px 12px;
-
-  color: #d0d0d0;
-  border-radius: 3px;
-  background: #202020;
-}
-
-pre,
-code {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-}
-
-code {
-  color: black;
-
-  padding: 1px 3px;
-
-  -webkit-hyphens: none;
-  hyphens: none;
-
-  border-radius: 3px;
-  background: #f0f0f0;
-}
-
-pre code {
-  color: white;
-
-  padding: initial;
-
-  background: transparent;
-}
-
-@media (min-width: 600px) {
-  code {
-    font-size: .7rem;
-
-    position: relative;
-    bottom: 1px;
-
-    padding: 1px 2px 1px;
-  }
-
-  pre code {
-    font-size: .7rem;
-
-    padding: 0;
-  }
-
-  .embded-media-box,
-  pre {
-    border-radius: 0;
-    line-height: 1.2rem;
-
-    margin: 0 10px 0 6px;
-  }
-
-}
-
-/*}}}*/
-
 ol,
 ul {
   margin: 0;
@@ -225,7 +159,7 @@ blockquote {
 .article-content hr {
   width: 350px;
   height: 1px;
-  margin: 20px auto;
+  margin: 25px auto;
 
   border: none;
   border-top: 1px dashed #8c8b8b;
@@ -428,7 +362,7 @@ div.github-buttons {
   margin: 1.4rem 0 .5rem 0;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .header {
     padding: 8px 0;
   }
