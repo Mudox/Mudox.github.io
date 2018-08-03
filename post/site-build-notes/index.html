@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
+
+<head>
+    
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="generator" content="Hugo 0.46" />
-
-
-    <title>Site Build Notes - Mudox</title>
-    <meta property="og:title" content="Site Build Notes - Mudox">
-
 
 
     
@@ -22,6 +17,18 @@ designing decisions and gains during building the site.
     
 
 
+<meta name="generator" content="Hugo 0.46" />
+
+
+
+
+
+    
+        <title>Site Build Notes - Mudox</title>
+    
+    <meta property="og:title" content="Site Build Notes - Mudox">
+
+
 
 
 
@@ -30,18 +37,19 @@ designing decisions and gains during building the site.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/css/normalize.css">
+
+
+<link rel="stylesheet" href="http://mudox.github.iocss/normalize.css">
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="http://mudox.github.io/css/fonts.css">
+<link rel="stylesheet" href="http://mudox.github.iocss/fonts.css">
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.e274adf0e2050819eb1684d740c50d23ef3cf6460f1e3e4445e3818edb0610a5.css">
-
+<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.b85b0bcb27455bef9a8342f6cbc61991f5e6031e57aff83a79e2cb9411012280.css">
 
 
 
@@ -58,11 +66,12 @@ designing decisions and gains during building the site.
 
 
 
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="wrapper">
-      <header class="header">
-        <nav class="top-navbar">
+        <header class="header">
+            <nav class="top-navbar">
 
     
 
@@ -114,12 +123,13 @@ designing decisions and gains during building the site.
 
 </nav>
 
-      </header>
+        </header>
 
+        
 
-
-
-<aside class="sidebar left-sidebar">
+    
+    
+    <aside class="sidebar left-sidebar">
 
     <section  class="article-tag-list">
         <header>
@@ -271,9 +281,9 @@ designing decisions and gains during building the site.
 </aside>
 
 
-
-
-
+    
+    
+    
 <aside class="sidebar right-sidebar">
     <header>
         <h2>
@@ -310,30 +320,31 @@ designing decisions and gains during building the site.
 
 
 
-<main class="content" role="main">
-    <article class="article">
+    <main class="content" role="main">
+        <article class="article">
 
-        
-        <h1 class="article-title">Site Build Notes</h1>
+            
+            <h1 class="article-title">Site Build Notes</h1>
 
-        
-        
-        <time>
-            <span class="article-date">
-                Updated: 2018-07-30
-            </span>
-        </time> 
+            
+            
+                <time>
+                    <span class="article-date">
+                        Updated: 2018-07-30
+                    </span>
+                </time> 
+            
 
-        
-        
-        <blockquote class='article-summary'>I am not a professional web developer. I&#39;ve been building this site in my
+            
+            
+                <blockquote class='article-summary'>I am not a professional web developer. I&#39;ve been building this site in my
 casual time as well as learning some basic web skills. Here records my
 designing decisions and gains during building the site.
 </blockquote>
-        
-
-        <div class="article-content">
             
+
+            <div class="article-content">
+                
 
 <h1 id="tools">Tools</h1>
 
@@ -605,7 +616,7 @@ transferred as well as the number of requests.</p>
 
 <hr />
 
-<p>How test site on Microsoft Edge browser on macOS?</p>
+<p>How to test site on Microsoft Edge browser on macOS?</p>
 
 <p>Suppose your hosting macOS was assigned IP address &lsquo;192.168.0.100&rsquo;, and <code>hugo
 server</code> use port number &lsquo;1313&rsquo;.</p>
@@ -613,14 +624,14 @@ server</code> use port number &lsquo;1313&rsquo;.</p>
 <ol>
 <li><p>Install <a href="https://www.parallels.com/products/desktop">Parallel Desktop.app</a>.</p></li>
 
-<li><p>In &lsquo;Install Assistant&rsquo; insterfce, choose &lsquo;Free Systems -&gt; Modern.IE Test
+<li><p>In &lsquo;Install Assistant&rsquo; interface, choose &lsquo;Free Systems -&gt; Modern.IE Test
 Environment -&gt; Microsoft Edge on Windows 10&rsquo;  option, which would install a
-trival version of Windows 10 operating system with Edge browser intalled.</p></li>
+trivial version of Windows 10 operating system with Edge browser installed.</p></li>
 
 <li><p>Re-run <code>hugo server</code> command with option <code>--bind='192.168.0.100'
 --baseURL='192.168.0.100'</code>.</p></li>
 
-<li><p>Open <code>http://192.168.0.100:1313</code> in the Edge browsser.</p></li>
+<li><p>Open <code>http://192.168.0.100:1313</code> in the Edge browser.</p></li>
 </ol>
 
 <h1 id="issues-and-solutions">Issues And Solutions</h1>
@@ -674,45 +685,55 @@ suppresses this bug, but the system scrolling experience is totally changed.</p>
 <p>Currently, I added a <code>isSafari</code> check <a href="https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769">from StackOverflow</a> in <code>scrollPanes</code> function which
 immediately return on Safari.</p>
 
+<hr />
+
+<p>Hugo server failed generating the site with error log <strong>unexpected EOF</strong>.</p>
+
+<p>It is usually due to the hugo template parser did not finish parsing the target
+template file, on such case I often check the source template file to see if
+there is unbalanced <code>{{ end }}</code>. For example missing <code>{{ end }}</code> for <code>{{ block
+&quot;main&quot; . }}</code> &hellip;</p>
+
 <h1 id="references">References</h1>
 
 <p><a href="https://gohugo.io">MDN Web Docs</a></p>
 
-        </div>
+            </div>
 
-    </article>
-</main>
+        </article>
+    </main>
 
-      <footer class="footer">
-        <ul class="footer-links">
-          
-            
-                
-                
-            
-          
-          <li>
-            This is a static site generated by 
-            <a href="https://gohugo.io">
-                Hugo
-            </a>
-          </li>
-          <li>
+
+
+        <footer class="footer">
+            <nav class="bottom-navbar">
+    <ul class="footer-links">
+        
+        
+        
+        
+        
+        
+
+        <li>
+            This is a static site generated by
+            <a href="https://gohugo.io">Hugo</a>
+        </li>
+        <li>
             With the theme evolved from
-            <a href="https://github.com/mobybit/hugo-natrium-theme">
-                Natrium
-            </a>
-          </li>
-          
-            
-                
-            
-          
-        </ul>
-      </footer>
+            <a href="https://github.com/mobybit/hugo-natrium-theme">Natrium</a>
+        </li>
 
+        
+        
+        
+        
+        
+    </ul>
+</nav>
+
+        </footer>
     </div>
+</body>
 
-  </body>
 </html>
-
