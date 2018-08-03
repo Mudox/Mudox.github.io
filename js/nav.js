@@ -1,3 +1,7 @@
+isSafari = /constructor/i.test(window.HTMLElement) || (function(p) {
+  return p.toString() === "[object SafariRemoteNotification]";
+})(!window['safari'] || safari.pushNotification);
+
 let sidebarMenu;
 let seeAlso;
 let shown = 'seeAlso';
@@ -9,9 +13,11 @@ $(document).ready(function() {
   seeAlso.css('display', 'initial');
 
   alternateMenuAndSeeAlso()
+  scrollPanes()
 
   $(window).scroll(function() {
     alternateMenuAndSeeAlso()
+    scrollPanes()
   })
 });
 
@@ -63,13 +69,15 @@ function fadeInSeeAlso() {
 const topStart = 128; // should be the same as in the scss file.
 const topEnd = 50;
 const topRange = topStart - topEnd;
-let lastTop = topStart;
+
+const yStart = 100;
+const yEnd = window.innerHeight;
+const yRange = yEnd - yStart;
 
 function scrollPanes() {
-
-  const yStart = 100;
-  const yEnd = window.innerHeight;
-  const yRange = yEnd - yStart;
+  if (isSafari) {
+    return
+  }
 
   let y = window.scrollY;
 
@@ -81,11 +89,6 @@ function scrollPanes() {
     newTop = topStart - delta;
   } else {
     newTop = topEnd;
-  }
-
-  if (newTop != lastTop) {
-    console.log(newTop.toFixed(2) + '   delta: ' + (newTop - lastTop).toFixed(2));
-    lastTop = newTop;
   }
 
   Array.from(document.getElementsByClassName('sidebar')).forEach(function(item) {

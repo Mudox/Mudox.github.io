@@ -30,27 +30,20 @@ designing decisions and gains during building the site.
 
 
 
+<link rel="stylesheet" href="http://mudox.github.io/css/normalize.css">
+
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-<link rel="stylesheet" href="http://mudox.github.io/css/normalize.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/base.css">
-
-<link rel="stylesheet" href="http://mudox.github.io/css/main.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/top-navbar.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/sidebar.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/tag.css">
-
-<link rel="stylesheet" href="http://mudox.github.io/css/list.css">
-<link rel="stylesheet" href="http://mudox.github.io/css/table.css">
 
 <link rel="stylesheet" href="http://mudox.github.io/css/fonts.css">
 
-<link rel="stylesheet" href="http://mudox.github.io/css/home.css">
+
+
+<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.e5d8de112906f786661c79f7dd163bf2a410431bd60df4e43db04e83871ecb3c.css">
 
 
 
-
-<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.42228fd25effab40210287d18c95c6b0837c73d7ac6a43c4c7431ec806ec0426.css">
 
 
 
@@ -293,12 +286,9 @@ designing decisions and gains during building the site.
 <li><a href="#tools">Tools</a></li>
 <li><a href="#basic-page-dom">Basic Page DOM</a>
 <ul>
-<li><a href="#document-body-frame">Document body frame</a></li>
+<li><a href="#document-body">Document body</a></li>
 <li><a href="#navigation-bar">Navigation bar</a></li>
-<li><a href="#left-sidebar-frame">Left sidebar frame</a>
-<ul>
-<li><a href="#section-frame">Section frame</a></li>
-</ul></li>
+<li><a href="#left-sidebar">Left sidebar</a></li>
 <li><a href="#right-sidebar">Right sidebar</a></li>
 <li><a href="#main-content-area">Main content area</a></li>
 </ul></li>
@@ -390,7 +380,7 @@ fixed in the viewport.</p>
 <li>Right sidebar shows table of contents of current article</li>
 </ol>
 
-<h2 id="document-body-frame">Document body frame</h2>
+<h2 id="document-body">Document body</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">body</span>&gt;
     &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;wrapper&#34;</span>&gt;
         &lt;<span style="color:#ff79c6">header</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;header&#34;</span>&gt;&lt;/<span style="color:#ff79c6">header</span>&gt;
@@ -446,25 +436,32 @@ It use flexbox layout to center the logo image and title vertically
         &lt;/<span style="color:#ff79c6">ul</span>&gt;
     &lt;<span style="color:#ff79c6">section</span>&gt;
 &lt;/<span style="color:#ff79c6">nav</span>&gt;</code></pre></div>
-<h2 id="left-sidebar-frame">Left sidebar frame</h2>
+<h2 id="left-sidebar">Left sidebar</h2>
 
 <p>The area is divided into <code>&lt;section&gt;</code>s, I add spacing style on them.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar left-sidebar&#34;</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span>  <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-tag-list&#34;</span>&gt;
-        <span style="color:#6272a4">&lt;!--tag list partial--&gt;</span>
+    &lt;<span style="color:#ff79c6">section</span>  <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-tag-list&#34;</span>&gt;
+        ...
     &lt;/<span style="color:#ff79c6">section</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;left-sidebar-article-list&#34;</span>&gt;
-        <span style="color:#6272a4">&lt;!--article list partial--&gt;</span>
+    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;pinned-article-list&#34;</span>&gt;
+        ...
+    &lt;/<span style="color:#ff79c6">section</span>&gt;
+    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;updated-article-list&#34;</span>&gt;
+        ...
     &lt;/<span style="color:#ff79c6">section</span>&gt;
     &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stage1&#34;</span>&gt;
-        &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;related-article-list&#34;</span>&gt;&lt;/<span style="color:#ff79c6">section</span>&gt;
-        &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar-menu&#34;</span>&gt;&lt;/<span style="color:#ff79c6">section</span>&gt;
+        &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;related-article-list&#34;</span>&gt;
+            ...
+        &lt;/<span style="color:#ff79c6">section</span>&gt;
+        &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar-menu&#34;</span>&gt;
+            ...
+        &lt;/<span style="color:#ff79c6">section</span>&gt;
     &lt;/<span style="color:#ff79c6">section</span>&gt;
 &lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
 <p>The <code>.stage</code> is use for script <code>nav.js</code> to alternate the <code>.related-article-list</code>
 section and <code>.sidebar-menu</code> section when user scrolls the page up and down.</p>
 
-<h3 id="section-frame">Section frame</h3>
+<p>Frame of the section:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">header</span>&gt;
     &lt;<span style="color:#ff79c6">h2</span>&gt;
         &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
@@ -606,6 +603,26 @@ CodePen code box to native code box?</p>
 <p>Use <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> to minify and bundle assets which can reduces the size of data
 transferred as well as the number of requests.</p>
 
+<hr />
+
+<p>How test site on Microsoft Edge browser on macOS?</p>
+
+<p>Suppose your hosting macOS was assigned IP address &lsquo;192.168.0.100&rsquo;, and <code>hugo
+server</code> use port number &lsquo;1313&rsquo;.</p>
+
+<ol>
+<li><p>Install <a href="https://www.parallels.com/products/desktop">Parallel Desktop.app</a>.</p></li>
+
+<li><p>In &lsquo;Install Assistant&rsquo; insterfce, choose &lsquo;Free Systems -&gt; Modern.IE Test
+Environment -&gt; Microsoft Edge on Windows 10&rsquo;  option, which would install a
+trival version of Windows 10 operating system with Edge browser intalled.</p></li>
+
+<li><p>Re-run <code>hugo server</code> command with option <code>--bind='192.168.0.100'
+--baseURL='192.168.0.100'</code>.</p></li>
+
+<li><p>Open <code>http://192.168.0.100:1313</code> in the Edge browsser.</p></li>
+</ol>
+
 <h1 id="issues-and-solutions">Issues And Solutions</h1>
 
 <p>Here are the issues I encountered and the solution I came out.</p>
@@ -645,6 +662,17 @@ limit?</p>
 <p>The <code>line-height</code> value of containing block element specifies the lower bound
 of included inline elements. Set the <code>line-height</code> on the wrapping <code>&lt;pre&gt;</code>
 element instead.</p>
+
+<hr />
+
+<p>The sidebar position adjustment script run weirdly in Safari.</p>
+
+<p>It is a bug of Safari. Disabling scrolling inertia in <em>Preferences -&gt;
+Accessibility -&gt; Mouse &amp; Trackpad -&gt; Trackpad options &hellip; -&gt; Scrolling</em>
+suppresses this bug, but the system scrolling experience is totally changed.</p>
+
+<p>Currently, I added a <code>isSafari</code> check <a href="https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769">from StackOverflow</a> in <code>scrollPanes</code> function which
+immediately return on Safari.</p>
 
 <h1 id="references">References</h1>
 
