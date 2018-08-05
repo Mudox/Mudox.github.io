@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.b85b0bcb27455bef9a8342f6cbc61991f5e6031e57aff83a79e2cb9411012280.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.5e5c54f3901a796b81e62a659ba83363816b2186a98280837ca30ced13140b8e.css">
 
 
 
@@ -64,8 +64,9 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="header">
+    <div class="frame">
+
+        <header class="frame-header">
             <nav class="top-navbar">
 
     
@@ -120,14 +121,12 @@
 
         </header>
 
-        
+        <div class="main-frame">
+            
 
-    
-    
-    <aside class="sidebar left-sidebar">
-
-    <section  class="article-tag-list">
-        <header>
+    <aside class="left-sidebar">
+        <section class="article-tag-list">
+    <header>
     <h2>
         <span>TAGS</span>
         <i class="fas fa-tag fa-fw">
@@ -141,10 +140,10 @@
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="pinned-article-list">
-        <header>
+<section class="pinned-article-list">
+    <header>
     <h2>
         <span>PINNED</span>
         <i class="fas fa-thumbtack fa-fw"></i>
@@ -168,10 +167,10 @@
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="updated-article-list">
-        <header>
+<section class="updated-article-list">
+    <header>
     <h2>
         <span>UPDATED</span>
         <i class="fas fa-calendar-alt fa-fw"></i>
@@ -199,17 +198,17 @@
     </ul>
 </nav>
 
+</section>
+
+<section class="stage1">
+    <section class="related-article-list">
+        
+
+
     </section>
 
-    <section class="stage1">
-        <section class="related-article-list">
-            
-
-
-        </section>
-
-        <section class="sidebar-menu">
-            <header>
+    <section class="sidebar-menu">
+        <header>
     <h2>
         <span>MENU</span>
         <i class="fas fa-home fa-fw"></i>
@@ -242,16 +241,15 @@
     </ul>
 </nav>
 
-        </section>
     </section>
+</section>
 
-</aside>
+    </aside>
 
+    <aside class="right-sidebar">
+         
 
-    
-    
-    
-
+    </aside>
 
     <main class="content" role="main">
         <article class="article">
@@ -265,13 +263,14 @@
                     <span class="article-date">
                         Updated: 2017-12-26
                     </span>
-                </time> 
+                </time>
             
 
             
             
 
-            <div class="article-content">
+            
+            <div class="article-body">
                 <p>Here list out all my projects.</p>
 
             </div>
@@ -280,8 +279,9 @@
     </main>
 
 
+        </div>
 
-        <footer class="footer">
+        <footer class="frame-footer">
             <nav class="bottom-navbar">
     <ul class="footer-links">
         
@@ -309,6 +309,7 @@
 </nav>
 
         </footer>
+
     </div>
 </body>
 

@@ -13,11 +13,11 @@ $(document).ready(function() {
   seeAlso.css('display', 'initial');
 
   alternateMenuAndSeeAlso()
-  scrollPanes()
+  //scrollPanes()
 
   $(window).scroll(function() {
     alternateMenuAndSeeAlso()
-    scrollPanes()
+    //scrollPanes()
   })
 });
 

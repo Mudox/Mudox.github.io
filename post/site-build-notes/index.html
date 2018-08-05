@@ -49,7 +49,7 @@ designing decisions and gains during building the site.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.b85b0bcb27455bef9a8342f6cbc61991f5e6031e57aff83a79e2cb9411012280.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.5e5c54f3901a796b81e62a659ba83363816b2186a98280837ca30ced13140b8e.css">
 
 
 
@@ -69,8 +69,9 @@ designing decisions and gains during building the site.
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="header">
+    <div class="frame">
+
+        <header class="frame-header">
             <nav class="top-navbar">
 
     
@@ -125,14 +126,12 @@ designing decisions and gains during building the site.
 
         </header>
 
-        
+        <div class="main-frame">
+            
 
-    
-    
-    <aside class="sidebar left-sidebar">
-
-    <section  class="article-tag-list">
-        <header>
+    <aside class="left-sidebar">
+        <section class="article-tag-list">
+    <header>
     <h2>
         <span>TAGS</span>
         <i class="fas fa-tag fa-fw">
@@ -154,10 +153,10 @@ designing decisions and gains during building the site.
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="pinned-article-list">
-        <header>
+<section class="pinned-article-list">
+    <header>
     <h2>
         <span>PINNED</span>
         <i class="fas fa-thumbtack fa-fw"></i>
@@ -181,10 +180,10 @@ designing decisions and gains during building the site.
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="updated-article-list">
-        <header>
+<section class="updated-article-list">
+    <header>
     <h2>
         <span>UPDATED</span>
         <i class="fas fa-calendar-alt fa-fw"></i>
@@ -212,11 +211,11 @@ designing decisions and gains during building the site.
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="stage1">
-        <section class="related-article-list">
-            
+<section class="stage1">
+    <section class="related-article-list">
+        
 
     <header>
         <h2>
@@ -239,10 +238,10 @@ designing decisions and gains during building the site.
     </nav>
 
 
-        </section>
+    </section>
 
-        <section class="sidebar-menu">
-            <header>
+    <section class="sidebar-menu">
+        <header>
     <h2>
         <span>MENU</span>
         <i class="fas fa-home fa-fw"></i>
@@ -275,26 +274,26 @@ designing decisions and gains during building the site.
     </ul>
 </nav>
 
-        </section>
     </section>
+</section>
 
-</aside>
+    </aside>
 
+    <aside class="right-sidebar">
+         
+    <section>
 
-    
-    
-    
-<aside class="sidebar right-sidebar">
-    <header>
-        <h2>
-            <i class="fas fa-list fa-fw"></i>
-            <span>CONENTS</span>
-        </h2>
-    </header>
-    <nav id="TableOfContents">
+        <header>
+            <h2>
+                <i class="fas fa-list fa-fw"></i>
+                <span>CONENTS</span>
+            </h2>
+        </header>
+
+        <nav id="TableOfContents">
 <ul>
 <li><a href="#tools">Tools</a></li>
-<li><a href="#basic-page-dom">Basic Page DOM</a>
+<li><a href="#dom">DOM</a>
 <ul>
 <li><a href="#document-body">Document body</a></li>
 <li><a href="#navigation-bar">Navigation bar</a></li>
@@ -302,13 +301,14 @@ designing decisions and gains during building the site.
 <li><a href="#right-sidebar">Right sidebar</a></li>
 <li><a href="#main-content-area">Main content area</a></li>
 </ul></li>
-<li><a href="#content-arrangement">Content Arrangement</a>
+<li><a href="#content">Content</a>
 <ul>
 <li><a href="#sections">Sections</a></li>
 <li><a href="#taxonomies">Taxonomies</a></li>
 </ul></li>
 <li><a href="#style-sheet">Style Sheet</a>
 <ul>
+<li><a href="#fonts">Fonts</a></li>
 <li><a href="#code">Code</a></li>
 </ul></li>
 <li><a href="#how-to">How-To</a></li>
@@ -316,9 +316,11 @@ designing decisions and gains during building the site.
 <li><a href="#references">References</a></li>
 </ul>
 </nav>
-</aside>
+
+    </section>
 
 
+    </aside>
 
     <main class="content" role="main">
         <article class="article">
@@ -332,7 +334,7 @@ designing decisions and gains during building the site.
                     <span class="article-date">
                         Updated: 2018-07-30
                     </span>
-                </time> 
+                </time>
             
 
             
@@ -343,7 +345,8 @@ designing decisions and gains during building the site.
 </blockquote>
             
 
-            <div class="article-content">
+            
+            <div class="article-body">
                 
 
 <h1 id="tools">Tools</h1>
@@ -367,7 +370,7 @@ tool combination.</p>
 <p><strong><a href="https://sass-lang.com">SCSS</a></strong> is my choose of CSS preprocessor, with <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> feature automate the
 preprocessing.</p>
 
-<h1 id="basic-page-dom">Basic Page DOM</h1>
+<h1 id="dom">DOM</h1>
 
 <p>I use 3 row layout for article page&rsquo;s base horizontal layout.</p>
 
@@ -530,12 +533,12 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
     &lt;<span style="color:#ff79c6">blockquote</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;article-summary&#39;</span>&gt;{{ . }}&lt;/<span style="color:#ff79c6">blockquote</span>&gt;
     {{ end }}
 
-    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-content&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-body&#34;</span>&gt;
         {{ .Content }}
     &lt;/<span style="color:#ff79c6">div</span>&gt;
 
 &lt;/<span style="color:#ff79c6">article</span>&gt;</code></pre></div>
-<h1 id="content-arrangement">Content Arrangement</h1>
+<h1 id="content">Content</h1>
 
 <h2 id="sections">Sections</h2>
 
@@ -551,11 +554,23 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
 
 <h2 id="taxonomies">Taxonomies</h2>
 
-<p>For simplicity, I only use tags.</p>
+<p>Currently I only use tags.</p>
 
 <p>All tag name use normal casing like <code>iOS</code>, <code>Swift</code> etc.</p>
 
 <h1 id="style-sheet">Style Sheet</h1>
+
+<h2 id="fonts">Fonts</h2>
+
+<p>I only use 2 fonts for this site</p>
+
+<ol>
+<li><p><strong>Merriweather</strong> for all cases except code.</p></li>
+
+<li><p><strong>Roboto Mono</strong> for code text.</p></li>
+</ol>
+
+<p>All font related styles are specified collectively in <code>_fonts.scss</code>.</p>
 
 <h2 id="code">Code</h2>
 
@@ -694,6 +709,21 @@ template file, on such case I often check the source template file to see if
 there is unbalanced <code>{{ end }}</code>. For example missing <code>{{ end }}</code> for <code>{{ block
 &quot;main&quot; . }}</code> &hellip;</p>
 
+<hr />
+
+<p>Reducing <code>line-hegiht</code> of some elements deep in the document DOM has no effect
+under certain limit.</p>
+
+<p>As stated on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#Values">line-height | MDN</a>, ancestor block element&rsquo;s <code>line-height</code> set a
+lower bound for descendant elements. And the suggested value form is <code>&lt;number&gt;</code>
+(without any following units).</p>
+
+<p>Use browser element inspector to <code>line-height</code> inheritance relationship that
+prevents your to reduce it.</p>
+
+<p>My strategy is to set a lowest value (e.g. 1) at <code>&lt;html&gt;</code> element, then set
+effective value in elements as deep in the DOM as possible.</p>
+
 <h1 id="references">References</h1>
 
 <p><a href="https://gohugo.io">MDN Web Docs</a></p>
@@ -704,8 +734,9 @@ there is unbalanced <code>{{ end }}</code>. For example missing <code>{{ end }}<
     </main>
 
 
+        </div>
 
-        <footer class="footer">
+        <footer class="frame-footer">
             <nav class="bottom-navbar">
     <ul class="footer-links">
         
@@ -733,6 +764,7 @@ there is unbalanced <code>{{ end }}</code>. For example missing <code>{{ end }}<
 </nav>
 
         </footer>
+
     </div>
 </body>
 

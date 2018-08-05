@@ -50,7 +50,7 @@ is a good start for a qualified app architecture.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/all.min.b85b0bcb27455bef9a8342f6cbc61991f5e6031e57aff83a79e2cb9411012280.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.5e5c54f3901a796b81e62a659ba83363816b2186a98280837ca30ced13140b8e.css">
 
 
 
@@ -70,8 +70,9 @@ is a good start for a qualified app architecture.
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="header">
+    <div class="frame">
+
+        <header class="frame-header">
             <nav class="top-navbar">
 
     
@@ -126,14 +127,12 @@ is a good start for a qualified app architecture.
 
         </header>
 
-        
+        <div class="main-frame">
+            
 
-    
-    
-    <aside class="sidebar left-sidebar">
-
-    <section  class="article-tag-list">
-        <header>
+    <aside class="left-sidebar">
+        <section class="article-tag-list">
+    <header>
     <h2>
         <span>TAGS</span>
         <i class="fas fa-tag fa-fw">
@@ -159,10 +158,10 @@ is a good start for a qualified app architecture.
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="pinned-article-list">
-        <header>
+<section class="pinned-article-list">
+    <header>
     <h2>
         <span>PINNED</span>
         <i class="fas fa-thumbtack fa-fw"></i>
@@ -186,10 +185,10 @@ is a good start for a qualified app architecture.
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="updated-article-list">
-        <header>
+<section class="updated-article-list">
+    <header>
     <h2>
         <span>UPDATED</span>
         <i class="fas fa-calendar-alt fa-fw"></i>
@@ -217,11 +216,11 @@ is a good start for a qualified app architecture.
     </ul>
 </nav>
 
-    </section>
+</section>
 
-    <section class="stage1">
-        <section class="related-article-list">
-            
+<section class="stage1">
+    <section class="related-article-list">
+        
 
     <header>
         <h2>
@@ -238,10 +237,10 @@ is a good start for a qualified app architecture.
     </nav>
 
 
-        </section>
+    </section>
 
-        <section class="sidebar-menu">
-            <header>
+    <section class="sidebar-menu">
+        <header>
     <h2>
         <span>MENU</span>
         <i class="fas fa-home fa-fw"></i>
@@ -274,23 +273,23 @@ is a good start for a qualified app architecture.
     </ul>
 </nav>
 
-        </section>
     </section>
+</section>
 
-</aside>
+    </aside>
 
+    <aside class="right-sidebar">
+         
+    <section>
 
-    
-    
-    
-<aside class="sidebar right-sidebar">
-    <header>
-        <h2>
-            <i class="fas fa-list fa-fw"></i>
-            <span>CONENTS</span>
-        </h2>
-    </header>
-    <nav id="TableOfContents">
+        <header>
+            <h2>
+                <i class="fas fa-list fa-fw"></i>
+                <span>CONENTS</span>
+            </h2>
+        </header>
+
+        <nav id="TableOfContents">
 <ul>
 <li><a href="#the-evolution-story">The Evolution Story</a></li>
 <li><a href="#the-principles">The Principles</a>
@@ -322,9 +321,11 @@ is a good start for a qualified app architecture.
 <li><a href="#references">References</a></li>
 </ul>
 </nav>
-</aside>
+
+    </section>
 
 
+    </aside>
 
     <main class="content" role="main">
         <article class="article">
@@ -338,7 +339,7 @@ is a good start for a qualified app architecture.
                     <span class="article-date">
                         Updated: 2018-07-29
                     </span>
-                </time> 
+                </time>
             
 
             
@@ -350,7 +351,8 @@ is a good start for a qualified app architecture.
 </blockquote>
             
 
-            <div class="article-content">
+            
+            <div class="article-body">
                 
 
 <h1 id="the-evolution-story">The Evolution Story</h1>
@@ -682,8 +684,9 @@ controller containment API for developers to handle this need.</p>
     </main>
 
 
+        </div>
 
-        <footer class="footer">
+        <footer class="frame-footer">
             <nav class="bottom-navbar">
     <ul class="footer-links">
         
@@ -711,6 +714,7 @@ controller containment API for developers to handle this need.</p>
 </nav>
 
         </footer>
+
     </div>
 </body>
 
