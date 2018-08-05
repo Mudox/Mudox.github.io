@@ -6,10 +6,19 @@
     <description>Recent content in Javascript on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Aug 2018 01:15:03 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Aug 2018 15:48:22 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Web Awesome List</title>
+      <link>http://mudox.github.io/post/my-web-awesome-list/</link>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/my-web-awesome-list/</guid>
+      <description> Fonts Dollar  A functional tool-belt for Swift Language.   </description>
+    </item>
     
     <item>
       <title>Alternating Sidebar Menu</title>
@@ -21,6 +30,17 @@
     </item>
     
     <item>
+      <title>Site Building - Notes</title>
+      <link>http://mudox.github.io/post/site-building---notes/</link>
+      <pubDate>Mon, 30 Jul 2018 04:39:04 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/site-building---notes/</guid>
+      <description>Tooling Hugo is the static site generator I use. It is known as programmer&amp;rsquo; s site generator. It renders fast while providing sufficient flexibility for users to tweak every aspect of the site.
+Its live reloading feature reloads currently opened page to immediately reflect your changes made in the source files. Suppose you have 2 display monitors, one for editor, the other shows the browser &amp;hellip;
+Neovim + Tmux + iTerm2 provides the &amp;ldquo;IDE&amp;rdquo; environment.</description>
+    </item>
+    
+    <item>
       <title>Auto Highlighting TOC</title>
       <link>http://mudox.github.io/post/auto-highlighting-toc/</link>
       <pubDate>Tue, 24 Jul 2018 08:45:42 +0800</pubDate>
@@ -28,6 +48,32 @@
       <guid>http://mudox.github.io/post/auto-highlighting-toc/</guid>
       <description>Before Everything The static site generator Hugo I used in for this site auto-generates TOC for each article. The rendered TOC html DOM structure is like:
 &amp;lt;aside class=&amp;#34;sidebar right-sidebar&amp;#34;&amp;gt; &amp;lt;header&amp;gt; &amp;lt;h2&amp;gt; &amp;lt;i class=&amp;#34;fas fa-list&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span&amp;gt;CONENTS&amp;lt;/span&amp;gt; &amp;lt;/h2&amp;gt; &amp;lt;/header&amp;gt; &amp;lt;nav id=&amp;#34;TableOfContents&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#data&amp;#34;&amp;gt;Heading 1&amp;lt;/a&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.1&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#realm&amp;#34;&amp;gt;Heading 1.2&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;!--...--&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;/aside&amp;gt; It basically scans the article body part for headings (h1 h2 h3 h4 .</description>
+    </item>
+    
+    <item>
+      <title>Site Building - Howtos</title>
+      <link>http://mudox.github.io/post/site-building---howtos/</link>
+      <pubDate>Tue, 17 Apr 2018 22:09:38 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/site-building---howtos/</guid>
+      <description>Uncategorised 2018-08 How control word casing?
+Use text-transform: [capitalize|uppercase|lowercase|...] to control text casing. Better render the text in all lowercase from template.
+The text-transform property should be applied to the immediate containing element the text.
+How to style a &amp;lt;hr&amp;gt;
+The horizontal ruler element is just a ordinary block element with no inner content (text). By default, their border-bottom is styled in be a 1px solid black line.
+How to controls indentation of &amp;lt;ul&amp;gt;, &amp;lt;ol&amp;gt; lists?</description>
+    </item>
+    
+    <item>
+      <title>Site Building - Issues</title>
+      <link>http://mudox.github.io/post/site-building---issues/</link>
+      <pubDate>Thu, 05 Apr 2018 22:09:44 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/site-building---issues/</guid>
+      <description>Uncategorised 2018-08 Live reloading does not bring the latest change to browser?
+Google Chrome -&amp;gt; open Devtools window -&amp;gt; click Network tab -&amp;gt; check Disable cache box. Keep the window open during the testing.
+Sometime only the currently opened page got latest change to (e.g. css, js files &amp;hellip;), if I jump to other pages, reloading page or clear the browser cache does not work.
+Rerun the hugo server command with --gc --cleanDestinationDir=true switch.</description>
     </item>
     
   </channel>

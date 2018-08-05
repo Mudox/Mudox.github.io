@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://mudox.github.io/post/my-web-awesome-list/</loc>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/post/alternating-sidebar-menu/</loc>
     <lastmod>2018-08-02T01:15:03+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://mudox.github.io/post/site-build-notes/</loc>
+    <loc>http://mudox.github.io/post/site-building---notes/</loc>
     <lastmod>2018-07-30T04:39:04+08:00</lastmod>
   </url>
   
@@ -30,6 +35,16 @@
   <url>
     <loc>http://mudox.github.io/post/fixed-sidebar/</loc>
     <lastmod>2018-05-13T08:45:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/post/site-building---howtos/</loc>
+    <lastmod>2018-04-17T22:09:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/post/site-building---issues/</loc>
+    <lastmod>2018-04-05T22:09:44+08:00</lastmod>
   </url>
   
   <url>
@@ -55,19 +70,25 @@
   
   <url>
     <loc>http://mudox.github.io/tags/awesome/</loc>
-    <lastmod>2018-07-24T01:37:35+08:00</lastmod>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/css/</loc>
-    <lastmod>2018-08-02T01:15:03+08:00</lastmod>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/tags/demo/</loc>
     <lastmod>2017-12-07T19:00:55+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/html/</loc>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -79,7 +100,7 @@
   
   <url>
     <loc>http://mudox.github.io/tags/javascript/</loc>
-    <lastmod>2018-08-02T01:15:03+08:00</lastmod>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -91,7 +112,7 @@
   
   <url>
     <loc>http://mudox.github.io/</loc>
-    <lastmod>2018-08-02T01:15:03+08:00</lastmod>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -103,12 +124,17 @@
   
   <url>
     <loc>http://mudox.github.io/post/</loc>
-    <lastmod>2018-08-02T01:15:03+08:00</lastmod>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://mudox.github.io/tags/site-notes/</loc>
+    <loc>http://mudox.github.io/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/series/site-building/</loc>
     <lastmod>2018-07-30T04:39:04+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -139,7 +165,7 @@
   
   <url>
     <loc>http://mudox.github.io/tags/web/</loc>
-    <lastmod>2018-08-02T01:15:03+08:00</lastmod>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   

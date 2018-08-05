@@ -1,33 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Css on Mudox</title>
-    <link>http://mudox.github.io/tags/css/</link>
-    <description>Recent content in Css on Mudox</description>
+    <title>Site Building on Mudox</title>
+    <link>http://mudox.github.io/series/site-building/</link>
+    <description>Recent content in Site Building on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Aug 2018 15:48:22 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Jul 2018 04:39:04 +0800</lastBuildDate>
     
-	<atom:link href="http://mudox.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://mudox.github.io/series/site-building/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>My Web Awesome List</title>
-      <link>http://mudox.github.io/post/my-web-awesome-list/</link>
-      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/post/my-web-awesome-list/</guid>
-      <description> Fonts Dollar  A functional tool-belt for Swift Language.   </description>
-    </item>
-    
-    <item>
-      <title>Alternating Sidebar Menu</title>
-      <link>http://mudox.github.io/post/alternating-sidebar-menu/</link>
-      <pubDate>Thu, 02 Aug 2018 01:15:03 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/post/alternating-sidebar-menu/</guid>
-      <description>Title Content.</description>
-    </item>
     
     <item>
       <title>Site Building - Notes</title>
@@ -38,15 +20,6 @@
       <description>Tooling Hugo is the static site generator I use. It is known as programmer&amp;rsquo; s site generator. It renders fast while providing sufficient flexibility for users to tweak every aspect of the site.
 Its live reloading feature reloads currently opened page to immediately reflect your changes made in the source files. Suppose you have 2 display monitors, one for editor, the other shows the browser &amp;hellip;
 Neovim + Tmux + iTerm2 provides the &amp;ldquo;IDE&amp;rdquo; environment.</description>
-    </item>
-    
-    <item>
-      <title>Fixed Sidebar</title>
-      <link>http://mudox.github.io/post/fixed-sidebar/</link>
-      <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/post/fixed-sidebar/</guid>
-      <description>Title Content.</description>
     </item>
     
     <item>

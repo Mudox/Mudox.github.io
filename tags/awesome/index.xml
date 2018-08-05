@@ -6,10 +6,19 @@
     <description>Recent content in Awesome on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jul 2018 01:37:35 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Aug 2018 15:48:22 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/tags/awesome/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Web Awesome List</title>
+      <link>http://mudox.github.io/post/my-web-awesome-list/</link>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/my-web-awesome-list/</guid>
+      <description> Fonts Dollar  A functional tool-belt for Swift Language.   </description>
+    </item>
     
     <item>
       <title>My iOS Awesome List</title>

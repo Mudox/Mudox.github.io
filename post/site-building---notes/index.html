@@ -24,9 +24,9 @@ designing decisions and gains during building the site.
 
 
     
-        <title>Site Build Notes - Mudox</title>
+        <title>Site Building - Notes - Mudox</title>
     
-    <meta property="og:title" content="Site Build Notes - Mudox">
+    <meta property="og:title" content="Site Building - Notes - Mudox">
 
 
 
@@ -42,7 +42,8 @@ designing decisions and gains during building the site.
 <link rel="stylesheet" href="/css/normalize.css">
 
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
 
 
 <link rel="stylesheet" href="/css/fonts.css">
@@ -142,11 +143,19 @@ designing decisions and gains during building the site.
         
         
             <li>
-                <a href="/tags/site-notes">Site Notes</a>
+                <a href="/tags/web">Web</a>
             </li>
         
             <li>
-                <a href="/tags/web">Web</a>
+                <a href="/tags/html">HTML</a>
+            </li>
+        
+            <li>
+                <a href="/tags/css">CSS</a>
+            </li>
+        
+            <li>
+                <a href="/tags/javascript">JavaScript</a>
             </li>
         
     </ul>
@@ -165,7 +174,7 @@ designing decisions and gains during building the site.
     <ul>
         
             <li>
-                <a href="http://mudox.github.io/post/site-build-notes/">Site Build Notes</a>
+                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
             </li>
         
             <li>
@@ -192,19 +201,19 @@ designing decisions and gains during building the site.
     <ul>
         
             <li>
+                <a href="http://mudox.github.io/post/my-web-awesome-list/">My Web Awesome List</a>
+            </li>
+        
+            <li>
                 <a href="http://mudox.github.io/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a>
             </li>
         
             <li>
-                <a href="http://mudox.github.io/post/site-build-notes/">Site Build Notes</a>
+                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/auto-highlighting-toc/">Auto Highlighting TOC</a>
             </li>
         
     </ul>
@@ -225,13 +234,13 @@ designing decisions and gains during building the site.
     <nav>
         <ul>
             
-            <li><a href="/post/auto-highlighting-toc/">Auto Highlighting TOC</a></li>
+            <li><a href="/post/site-building---howtos/">Site Building - Howtos</a></li>
             
-            <li><a href="/post/fixed-sidebar/">Fixed Sidebar</a></li>
+            <li><a href="/post/site-building---issues/">Site Building - Issues</a></li>
+            
+            <li><a href="/post/my-web-awesome-list/">My Web Awesome List</a></li>
             
             <li><a href="/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a></li>
-            
-            <li><a href="/post/theme-demo/">Theme Demo</a></li>
             
         </ul>
     </nav>
@@ -291,7 +300,7 @@ designing decisions and gains during building the site.
 
         <nav id="TableOfContents">
 <ul>
-<li><a href="#tools">Tools</a></li>
+<li><a href="#tooling">Tooling</a></li>
 <li><a href="#dom">DOM</a>
 <ul>
 <li><a href="#document-body">Document body</a></li>
@@ -310,8 +319,11 @@ designing decisions and gains during building the site.
 <li><a href="#fonts">Fonts</a></li>
 <li><a href="#code">Code</a></li>
 </ul></li>
-<li><a href="#how-to">How-To</a></li>
-<li><a href="#issues-and-solutions">Issues And Solutions</a></li>
+<li><a href="#configurations">Configurations</a>
+<ul>
+<li><a href="#site-configurations">Site configurations</a></li>
+<li><a href="#front-matters">Front matters</a></li>
+</ul></li>
 <li><a href="#references">References</a></li>
 </ul>
 </nav>
@@ -325,7 +337,7 @@ designing decisions and gains during building the site.
         <article class="article">
 
             
-            <h1 class="article-title">Site Build Notes</h1>
+            <h1 class="article-title">Site Building - Notes</h1>
 
             
             
@@ -348,7 +360,7 @@ designing decisions and gains during building the site.
             <div class="article-body">
                 
 
-<h1 id="tools">Tools</h1>
+<h1 id="tooling">Tooling</h1>
 
 <p><strong><a href="https://gohugo.io">Hugo</a></strong> is the static site generator I use. It is known as programmer&rsquo; s
 site generator. It renders fast while providing sufficient flexibility for users
@@ -553,9 +565,20 @@ section and <code>.sidebar-menu</code> section when user scrolls the page up and
 
 <h2 id="taxonomies">Taxonomies</h2>
 
-<p>Currently I only use tags.</p>
+<p>There are 2 kinds of taxonomies in my site:</p>
 
-<p>All tag name use normal casing like <code>iOS</code>, <code>Swift</code> etc.</p>
+<ol>
+<li><p><strong>Tags</strong> All posts must have at least one tag, the default tags is
+<strong>Untagged</strong> which is assigned by Hugo archetype at creation of the post
+content file.</p></li>
+
+<li><p><strong>Series</strong> Series means a more tight relationship between articles. It is
+optional, often I split a growing article into several related articles, then
+I mark them as in the same series. E.g. <em>Site Buiding</em> series, <em>Awesome
+Lists</em> series.</p></li>
+</ol>
+
+<p>All taxonomy names use normal casing like <code>iOS</code>, <code>Swift</code> etc.</p>
 
 <h1 id="style-sheet">Style Sheet</h1>
 
@@ -582,156 +605,13 @@ using markdown code fence syntax, or Hugo shortcode <code>highlight</code>.</li>
 <li><strong>Embedded code media</strong> like those from <a href="jsfiddle.net">JSFiddle</a>, <a href="https://codepen.io">CodePen</a> etc.</li>
 </ol>
 
-<h1 id="how-to">How-To</h1>
+<h1 id="configurations">Configurations</h1>
 
-<p>This section contains the knowledge I&rsquo;ve learned during the site building process.</p>
+<h2 id="site-configurations">Site configurations</h2>
 
-<hr />
-
-<p>How control word casing?</p>
-
-<p>Use <code>text-transform: [capitalize|uppercase|lowercase|...]</code> to control text
-casing. Better render the text in all lowercase from template.</p>
-
-<p>The <code>text-transform</code> property should be applied to the immediate containing
-element the text.</p>
+<h2 id="front-matters">Front matters</h2>
 
 <hr />
-
-<p>How to style a <code>&lt;hr&gt;</code></p>
-
-<p>The horizontal ruler element is just a ordinary block element with no inner content
-(text). By default, their <code>border-bottom</code> is styled in be a <code>1px solid black</code>
-line.</p>
-
-<hr />
-
-<p>How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?</p>
-
-<p>Change their <code>padding-left</code> CSS property.</p>
-
-<hr />
-
-<p>How to highlight corresponding item in the TOC when viewport scrolling.</p>
-
-<p>See article <a href="/post/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
-
-<hr />
-
-<p>How to implement fixed sidebar that stay within the viewport while the main area is scrolls?</p>
-
-<p>See article <a href="/post/fixed-sidebar/">Fixed Sidebar</a>.</p>
-
-<hr />
-
-<p>How to align the sides of embedded medias, like YouTube video, JSFiddle and
-CodePen code box to native code box?</p>
-
-<p>Wrap each of them into <code>&lt;div class=&quot;embedded-media-box&quot;&gt;</code>. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embedded-media-box&#34;</span>&gt;
-    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-&lt;/<span style="color:#ff79c6">div</span>&gt;</code></pre></div>
-<hr />
-
-<p>How to speed up page loading?</p>
-
-<p>Use <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> to minify and bundle assets which can reduces the size of data
-transferred as well as the number of requests.</p>
-
-<hr />
-
-<p>How to test site on Microsoft Edge browser on macOS?</p>
-
-<p>Suppose your hosting macOS was assigned IP address &lsquo;192.168.0.100&rsquo;, and <code>hugo
-server</code> use port number &lsquo;1313&rsquo;.</p>
-
-<ol>
-<li><p>Install <a href="https://www.parallels.com/products/desktop">Parallel Desktop.app</a>.</p></li>
-
-<li><p>In &lsquo;Install Assistant&rsquo; interface, choose &lsquo;Free Systems -&gt; Modern.IE Test
-Environment -&gt; Microsoft Edge on Windows 10&rsquo;  option, which would install a
-trivial version of Windows 10 operating system with Edge browser installed.</p></li>
-
-<li><p>Re-run <code>hugo server</code> command with option <code>--bind='192.168.0.100'
---baseURL='192.168.0.100'</code>.</p></li>
-
-<li><p>Open <code>http://192.168.0.100:1313</code> in the Edge browser.</p></li>
-</ol>
-
-<h1 id="issues-and-solutions">Issues And Solutions</h1>
-
-<p>Here are the issues I encountered and the solution I came out.</p>
-
-<hr />
-
-<p>Live reloading does not bring the latest change to browser?</p>
-
-<p>Google Chrome -&gt; open <strong>Devtools</strong> window -&gt; click <strong>Network</strong> tab -&gt; check
-<strong>Disable cache</strong> box. Keep the window open during the testing.</p>
-
-<hr />
-
-<p>Sometime only the currently opened page got latest change to (e.g. css, js
-files &hellip;), if I jump to other pages, reloading page or clear the browser cache
-does not work.</p>
-
-<p>Rerun the <code>hugo server</code> command with <code>--gc --cleanDestinationDir=true</code> switch.</p>
-
-<hr />
-
-<p>The <code>tags</code> folder got ignored by git somehow?</p>
-
-<p>Check following files for anywhere mentions <code>tags</code>:</p>
-
-<ol>
-<li><code>.gitignore</code> at the project root directory (the path where project&rsquo;s <code>.git</code> folder lies).</li>
-<li><code>.git/info/exclude</code> just like <code>.gitignore</code> but is not tracked by git.</li>
-<li>Global ignore file, type <code>git config --get core.excludesfile</code> to see it.</li>
-</ol>
-
-<hr />
-
-<p>Why the <code>line-height</code> of <code>pre code</code> can not be further decreased under certain
-limit?</p>
-
-<p>The <code>line-height</code> value of containing block element specifies the lower bound
-of included inline elements. Set the <code>line-height</code> on the wrapping <code>&lt;pre&gt;</code>
-element instead.</p>
-
-<hr />
-
-<p>The sidebar position adjustment script run weirdly in Safari.</p>
-
-<p>It is a bug of Safari. Disabling scrolling inertia in <em>Preferences -&gt;
-Accessibility -&gt; Mouse &amp; Trackpad -&gt; Trackpad options &hellip; -&gt; Scrolling</em>
-suppresses this bug, but the system scrolling experience is totally changed.</p>
-
-<p>Currently, I added a <code>isSafari</code> check <a href="https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769">from StackOverflow</a> in <code>scrollPanes</code> function which
-immediately return on Safari.</p>
-
-<hr />
-
-<p>Hugo server failed generating the site with error log <strong>unexpected EOF</strong>.</p>
-
-<p>It is usually due to the hugo template parser did not finish parsing the target
-template file, on such case I often check the source template file to see if
-there is unbalanced <code>{{ end }}</code>. For example missing <code>{{ end }}</code> for <code>{{ block
-&quot;main&quot; . }}</code> &hellip;</p>
-
-<hr />
-
-<p>Reducing <code>line-hegiht</code> of some elements deep in the document DOM has no effect
-under certain limit.</p>
-
-<p>As stated on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#Values">line-height | MDN</a>, ancestor block element&rsquo;s <code>line-height</code> set a
-lower bound for descendant elements. And the suggested value form is <code>&lt;number&gt;</code>
-(without any following units).</p>
-
-<p>Use browser element inspector to <code>line-height</code> inheritance relationship that
-prevents your to reduce it.</p>
-
-<p>My strategy is to set a lowest value (e.g. 1) at <code>&lt;html&gt;</code> element, then set
-effective value in elements as deep in the DOM as possible.</p>
 
 <h1 id="references">References</h1>
 

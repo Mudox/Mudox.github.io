@@ -23,7 +23,7 @@
     <item>
       <title>Awesome</title>
       <link>http://mudox.github.io/tags/awesome/</link>
-      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
       
       <guid>http://mudox.github.io/tags/awesome/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>Css</title>
       <link>http://mudox.github.io/tags/css/</link>
-      <pubDate>Thu, 02 Aug 2018 01:15:03 +0800</pubDate>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
       
       <guid>http://mudox.github.io/tags/css/</guid>
       <description></description>
@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>Html</title>
+      <link>http://mudox.github.io/tags/html/</link>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Ios</title>
       <link>http://mudox.github.io/tags/ios/</link>
       <pubDate>Sun, 29 Jul 2018 04:57:59 +0800</pubDate>
@@ -59,7 +68,7 @@
     <item>
       <title>Javascript</title>
       <link>http://mudox.github.io/tags/javascript/</link>
-      <pubDate>Thu, 02 Aug 2018 01:15:03 +0800</pubDate>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
       
       <guid>http://mudox.github.io/tags/javascript/</guid>
       <description></description>
@@ -80,15 +89,6 @@
       <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
       
       <guid>http://mudox.github.io/tags/objective-c/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Site Notes</title>
-      <link>http://mudox.github.io/tags/site-notes/</link>
-      <pubDate>Mon, 30 Jul 2018 04:39:04 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/tags/site-notes/</guid>
       <description></description>
     </item>
     
@@ -122,7 +122,7 @@
     <item>
       <title>Web</title>
       <link>http://mudox.github.io/tags/web/</link>
-      <pubDate>Thu, 02 Aug 2018 01:15:03 +0800</pubDate>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
       
       <guid>http://mudox.github.io/tags/web/</guid>
       <description></description>

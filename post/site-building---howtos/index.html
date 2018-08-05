@@ -8,6 +8,9 @@
 
 
     
+        <meta property="description" content="My gains from building this personal site.
+">
+    
 
     
 
@@ -19,9 +22,9 @@
 
 
     
-        <title>Resume - Mudox</title>
+        <title>Site Building - Howtos - Mudox</title>
     
-    <meta property="og:title" content="Resume - Mudox">
+    <meta property="og:title" content="Site Building - Howtos - Mudox">
 
 
 
@@ -137,6 +140,22 @@
     <ul>
         
         
+            <li>
+                <a href="/tags/web">Web</a>
+            </li>
+        
+            <li>
+                <a href="/tags/html">HTML</a>
+            </li>
+        
+            <li>
+                <a href="/tags/css">CSS</a>
+            </li>
+        
+            <li>
+                <a href="/tags/javascript">JavaScript</a>
+            </li>
+        
     </ul>
 </nav>
 
@@ -204,6 +223,26 @@
     <section class="related-article-list">
         
 
+    <header>
+        <h2>
+            <span>see also</span>
+            <i class="fas fa-arrow-circle-right fa-fw"></i>
+        </h2>
+    </header>
+    <nav>
+        <ul>
+            
+            <li><a href="/post/site-building---notes/">Site Building - Notes</a></li>
+            
+            <li><a href="/post/site-building---issues/">Site Building - Issues</a></li>
+            
+            <li><a href="/post/my-web-awesome-list/">My Web Awesome List</a></li>
+            
+            <li><a href="/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a></li>
+            
+        </ul>
+    </nav>
+
 
     </section>
 
@@ -248,6 +287,26 @@
 
     <aside class="right-sidebar">
          
+    <section>
+
+        <header>
+            <h2>
+                <i class="fas fa-list fa-fw"></i>
+                <span>contents</span>
+            </h2>
+        </header>
+
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#uncategorised">Uncategorised</a>
+<ul>
+<li><a href="#2018-08">2018-08</a></li>
+</ul></li>
+</ul>
+</nav>
+
+    </section>
+
 
     </aside>
 
@@ -255,25 +314,100 @@
         <article class="article">
 
             
-            <h1 class="article-title">Resume</h1>
+            <h1 class="article-title">Site Building - Howtos</h1>
 
             
             
                 <time>
                     <span class="article-date">
-                        Updated: 2018-01-28
+                        Updated: 2018-04-17
                     </span>
                 </time>
             
 
             
             
+                <blockquote class='article-summary'>My gains from building this personal site.
+</blockquote>
+            
 
             
             <div class="article-body">
-                <p>My name is Mudox.</p>
+                
 
-<p>I&rsquo;m an iOS developer.</p>
+<h1 id="uncategorised">Uncategorised</h1>
+
+<h2 id="2018-08">2018-08</h2>
+
+<p>How control word casing?</p>
+
+<p>Use <code>text-transform: [capitalize|uppercase|lowercase|...]</code> to control text
+casing. Better render the text in all lowercase from template.</p>
+
+<p>The <code>text-transform</code> property should be applied to the immediate containing
+element the text.</p>
+
+<hr />
+
+<p>How to style a <code>&lt;hr&gt;</code></p>
+
+<p>The horizontal ruler element is just a ordinary block element with no inner content
+(text). By default, their <code>border-bottom</code> is styled in be a <code>1px solid black</code>
+line.</p>
+
+<hr />
+
+<p>How to controls indentation of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> lists?</p>
+
+<p>Change their <code>padding-left</code> CSS property.</p>
+
+<hr />
+
+<p>How to highlight corresponding item in the TOC when viewport scrolling.</p>
+
+<p>See article [Auto-highlighting TOC].</p>
+
+<hr />
+
+<p>How to implement fixed sidebar that stay within the viewport while the main area is scrolls?</p>
+
+<p>See article [Fixed Sidebar].</p>
+
+<hr />
+
+<p>How to align the sides of embedded medias, like YouTube video, JSFiddle and
+CodePen code box to native code box?</p>
+
+<p>Wrap each of them into <code>&lt;div class=&quot;embedded-media-box&quot;&gt;</code>. For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embedded-media-box&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+&lt;/<span style="color:#ff79c6">div</span>&gt;</code></pre></div>
+<hr />
+
+<p>How to speed up page loading?</p>
+
+<p>Use [Hugo Pipes] to minify and bundle assets which can reduces the size of data
+transferred as well as the number of requests.</p>
+
+<hr />
+
+<p>How to test site on Microsoft Edge browser on macOS?</p>
+
+<p>Suppose your hosting macOS was assigned IP address &lsquo;192.168.0.100&rsquo;, and <code>hugo
+server</code> use port number &lsquo;1313&rsquo;.</p>
+
+<ol>
+<li><p>Install [Parallel Desktop.app].</p></li>
+
+<li><p>In &lsquo;Install Assistant&rsquo; interface, choose &lsquo;Free Systems -&gt; Modern.IE Test
+Environment -&gt; Microsoft Edge on Windows 10&rsquo;  option, which would install a
+trivial version of Windows 10 operating system with Edge browser installed.</p></li>
+
+<li><p>Re-run <code>hugo server</code> command with option <code>--bind='192.168.0.100'
+--baseURL='192.168.0.100'</code>.</p></li>
+
+<li><p>Open <code>http://192.168.0.100:1313</code> in the Edge browser.</p></li>
+</ol>
 
             </div>
 
