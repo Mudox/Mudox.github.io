@@ -50,7 +50,7 @@ designing decisions and gains during building the site.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.f384cb6af157aab8334cadaa348f96ca8f6a90beda09dd352c0f12fb422e8af4.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.408af94ef1699930fa69abaca43daad73e0820637cb4d9218b9e27424d5a278f.css">
 
 
 
@@ -93,28 +93,28 @@ designing decisions and gains during building the site.
             
             <li>
                 <a href="/tags">
-                    <i class='fas fa-tag'></i>
+                    <i class='fas fa-tag' data-fa-transform='shrink-2 down-0.5'></i>
                     <span>TAGS</span>
                 </a>
             </li>
             
             <li>
                 <a href="/my-projects">
-                    <i class='fas fa-rocket'></i>
+                    <i class='fas fa-coffee'></i>
                     <span>PROJECTS</span>
                 </a>
             </li>
             
             <li>
                 <a href="/resume">
-                    <i class='fas fa-user-circle'></i>
+                    <i class='fas fa-address-card'></i>
                     <span>RESUME</span>
                 </a>
             </li>
             
             <li>
                 <a href="https://github.com/mudox">
-                    <i class='fab fa-github'></i>
+                    <i class='fab fa-github' data-fa-transform='down-0.5'></i>
                     <span>GITHUB</span>
                 </a>
             </li>
@@ -321,8 +321,13 @@ designing decisions and gains during building the site.
 </ul></li>
 <li><a href="#configurations">Configurations</a>
 <ul>
-<li><a href="#site-configurations">Site configurations</a></li>
-<li><a href="#front-matters">Front matters</a></li>
+<li><a href="#site-level-configuration">Site level configuration</a>
+<ul>
+<li><a href="#code-highlighting">Code highlighting</a></li>
+<li><a href="#related-article-list">Related article list</a></li>
+<li><a href="#menu">Menu</a></li>
+</ul></li>
+<li><a href="#content-level-configuration">Content level configuration</a></li>
 </ul></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -380,6 +385,8 @@ tool combination.</p>
 
 <p><strong><a href="https://sass-lang.com">SCSS</a></strong> is my choose of CSS preprocessor, with <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> feature automate the
 preprocessing.</p>
+
+<p><strong><a href="https://github.com/toml-lang/toml">TOML</a></strong> is the format I used in site and page content configuration.</p>
 
 <h1 id="dom">DOM</h1>
 
@@ -607,9 +614,36 @@ using markdown code fence syntax, or Hugo shortcode <code>highlight</code>.</li>
 
 <h1 id="configurations">Configurations</h1>
 
-<h2 id="site-configurations">Site configurations</h2>
+<p>Hugo provides 2 configurable levels for users to flexibly tweak aspects of
+their sites. Hugo also let user to choose his preferred configuration data
+format among <a href="http://www.json.org">JSON</a>, <a href="http://yaml.org">YAML</a>, <a href="https://github.com/toml-lang/toml">TOML</a>. I use TOML.</p>
 
-<h2 id="front-matters">Front matters</h2>
+<h2 id="site-level-configuration">Site level configuration</h2>
+
+<p>Hugo requires my site level configuration stays in <code>config.toml</code> under the root
+path of site.</p>
+
+<h3 id="code-highlighting">Code highlighting</h3>
+
+<p>I use the server side solution - <a href="https://github.com/alecthomas/chroma">Chroma</a> which is recommanded by Hugo. See
+<a href="https://gohugo.io/content-management/syntax-highlighting/#highlight-in-code-fences">Syntax Highlighting</a> for details.</p>
+
+<p>I use predefined theme <code>pygmentsStyle = &quot;dracula&quot;</code>. For completely customzation
+of the highlighted appearance, set <code>pygmentsUseClasses</code> instead of
+<code>pygmentsStyle</code> then follow <a href="https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css">Generate Syntax Highlighter CSS</a> to get the
+initial CSS file to begin with the customization.</p>
+
+<h3 id="related-article-list">Related article list</h3>
+
+<p>This section of configuration controls the algorithm that hugo uses to
+generates related file list for each content page.</p>
+
+<p>Currently the taxonomy series take the highest priority to in computing related
+file weight then the tags, then the article title &hellip;</p>
+
+<h3 id="menu">Menu</h3>
+
+<h2 id="content-level-configuration">Content level configuration</h2>
 
 <hr />
 
