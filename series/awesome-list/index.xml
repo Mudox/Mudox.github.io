@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Swift on Mudox</title>
-    <link>http://mudox.github.io/tags/swift/</link>
-    <description>Recent content in Swift on Mudox</description>
+    <title>Awesome List on Mudox</title>
+    <link>http://mudox.github.io/series/awesome-list/</link>
+    <description>Recent content in Awesome List on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jul 2018 01:37:35 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Aug 2018 15:48:22 +0800</lastBuildDate>
     
-	<atom:link href="http://mudox.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://mudox.github.io/series/awesome-list/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Web Awesome List</title>
+      <link>http://mudox.github.io/post/my-web-awesome-list/</link>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/my-web-awesome-list/</guid>
+      <description> Fonts Dollar  A functional tool-belt for Swift Language.   </description>
+    </item>
     
     <item>
       <title>My iOS Awesome List</title>

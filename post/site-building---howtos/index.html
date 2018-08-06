@@ -48,7 +48,7 @@
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.408af94ef1699930fa69abaca43daad73e0820637cb4d9218b9e27424d5a278f.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.228c2735d0bd9cbb19c4a4e5942b4e6a7b865aa6e6f0123b1e3423f83b2f1d74.css">
 
 
 
@@ -365,13 +365,13 @@ line.</p>
 
 <p>How to highlight corresponding item in the TOC when viewport scrolling.</p>
 
-<p>See article [Auto-highlighting TOC].</p>
+<p>See article <a href="/post/auto-highlighting-toc/">Auto-highlighting TOC</a>.</p>
 
 <hr />
 
 <p>How to implement fixed sidebar that stay within the viewport while the main area is scrolls?</p>
 
-<p>See article [Fixed Sidebar].</p>
+<p>See article <a href="/post/fixed-sidebar/">Fixed Sidebar</a>.</p>
 
 <hr />
 
@@ -386,7 +386,7 @@ CodePen code box to native code box?</p>
 
 <p>How to speed up page loading?</p>
 
-<p>Use [Hugo Pipes] to minify and bundle assets which can reduces the size of data
+<p>Use <a href="https://gohugo.io/hugo-pipes/introduction">Hugo Pipes</a> to minify and bundle assets which can reduces the size of data
 transferred as well as the number of requests.</p>
 
 <hr />
@@ -397,7 +397,7 @@ transferred as well as the number of requests.</p>
 server</code> use port number &lsquo;1313&rsquo;.</p>
 
 <ol>
-<li><p>Install [Parallel Desktop.app].</p></li>
+<li><p>Install <a href="https://www.parallels.com/products/desktop">Parallel Desktop.app</a>.</p></li>
 
 <li><p>In &lsquo;Install Assistant&rsquo; interface, choose &lsquo;Free Systems -&gt; Modern.IE Test
 Environment -&gt; Microsoft Edge on Windows 10&rsquo;  option, which would install a
@@ -409,6 +409,18 @@ trivial version of Windows 10 operating system with Edge browser installed.</p><
 <li><p>Open <code>http://192.168.0.100:1313</code> in the Edge browser.</p></li>
 </ol>
 
+<hr />
+
+<p>How to use SCSS variables in CSS <code>calc</code> expresssions.</p>
+
+<p>Use the <a href="https://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_">SCSS interpolation</a> feature that is wrap the variable name within  a
+<code>#{}</code>, like</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#8be9fd;font-style:italic">$mainWidth</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">350</span><span style="color:#8be9fd">px</span>;
+<span style="color:#8be9fd;font-style:italic">$columnGap</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">15</span><span style="color:#8be9fd">px</span>;
+
+<span style="color:#50fa7b">.left-side</span> {
+  <span style="color:#ff79c6">left</span>: <span style="color:#ff79c6">calc</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">50vw</span> <span style="color:#ff79c6">+</span> #{$<span style="color:#ff79c6">mainWidth</span>} <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">2</span> <span style="color:#ff79c6">+</span> #{$<span style="color:#ff79c6">columnGap</span>}<span style="color:#ff79c6">);</span>
+}</code></pre></div>
             </div>
 
         </article>

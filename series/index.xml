@@ -6,9 +6,19 @@
     <description>Recent content in Series on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 05 Aug 2018 15:48:22 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Awesome List</title>
+      <link>http://mudox.github.io/series/awesome-list/</link>
+      <pubDate>Sun, 05 Aug 2018 15:48:22 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/series/awesome-list/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Site Building</title>

@@ -20,14 +20,5 @@
       <description> Fonts Dollar  A functional tool-belt for Swift Language.   </description>
     </item>
     
-    <item>
-      <title>My iOS Awesome List</title>
-      <link>http://mudox.github.io/post/my-ios-awesome-list/</link>
-      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/post/my-ios-awesome-list/</guid>
-      <description>Swift Dollar  A functional tool-belt for Swift Language.   Swiftz  Swiftz is a Swift library for functional programming.   Tool Jazzy  Soulful docs for Swift &amp; Objective-C.   SwiftLint  A tool to enforce Swift style and conventions.   Swimat  Swift source code formatter. Provide Xcode integration, very handy.   Injection for Xcode  Runtime Code Injection for Objective-C &amp; Swift.</description>
-    </item>
-    
   </channel>
 </rss>

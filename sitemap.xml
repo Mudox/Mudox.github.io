@@ -75,6 +75,12 @@
   </url>
   
   <url>
+    <loc>http://mudox.github.io/series/awesome-list/</loc>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/tags/css/</loc>
     <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
@@ -130,6 +136,7 @@
   
   <url>
     <loc>http://mudox.github.io/series/</loc>
+    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
