@@ -63,15 +63,6 @@ Neovim + Tmux + iTerm2 provides the &amp;ldquo;IDE&amp;rdquo; environment.</desc
     </item>
     
     <item>
-      <title>My iOS Awesome List</title>
-      <link>http://mudox.github.io/post/my-ios-awesome-list/</link>
-      <pubDate>Tue, 24 Jul 2018 01:37:35 +0800</pubDate>
-      
-      <guid>http://mudox.github.io/post/my-ios-awesome-list/</guid>
-      <description>Testing Nimble  Matcher library that replaces XCTest `XCTAssert` family.   RxNimble  Simplify expectation matching for RxBlocking.   RxSwift  RxSwift testing framework, testing `Observable` operators, bundled with [RxSwift].   OHHTTPStub  Network stubbing library.   SwiftCheck  QuickCheck for Swift.   Swinject  Dependency injection framework for Swift with iOS/macOS/Linux.   EarlGrey  iOS UI Automation Test Framework.   iOSSnapshotTestCase  Presentation test based on Image diff.</description>
-    </item>
-    
-    <item>
       <title>Fixed Sidebar</title>
       <link>http://mudox.github.io/post/fixed-sidebar/</link>
       <pubDate>Sun, 13 May 2018 08:45:12 +0800</pubDate>

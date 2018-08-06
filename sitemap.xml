@@ -28,11 +28,6 @@
   </url>
   
   <url>
-    <loc>http://mudox.github.io/post/my-ios-awesome-list/</loc>
-    <lastmod>2018-07-24T01:37:35+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://mudox.github.io/post/fixed-sidebar/</loc>
     <lastmod>2018-05-13T08:45:12+08:00</lastmod>
   </url>
@@ -123,12 +118,6 @@
   </url>
   
   <url>
-    <loc>http://mudox.github.io/tags/objective-c/</loc>
-    <lastmod>2018-07-24T01:37:35+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://mudox.github.io/post/</loc>
     <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
@@ -149,12 +138,6 @@
   <url>
     <loc>http://mudox.github.io/tags/snippets/</loc>
     <lastmod>2018-07-24T08:45:42+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://mudox.github.io/tags/swift/</loc>
-    <lastmod>2018-07-24T01:37:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   
