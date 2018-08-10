@@ -50,7 +50,7 @@ designing decisions and gains during building the site.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.9328693a28728eeb1a8f9107bbec2814a3e49309c302116551dfc89931ac8d98.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.de378d254de92c4900e921f2d792100cec4a4aa3695d97ed8503973d334acfe0.css">
 
 
 
@@ -134,7 +134,7 @@ designing decisions and gains during building the site.
     <header>
     <h2>
         <span>tags</span>
-        <i class="fas fa-tags fa-fw">
+        <i class="fas fa-tag fa-fw" data-fa-transform="shrink-0.5">
         </i>
     </h2>
 </header>
@@ -167,7 +167,7 @@ designing decisions and gains during building the site.
     <header>
     <h2>
         <span>pinned</span>
-        <i class="fas fa-thumbtack fa-fw"></i>
+        <i class="fas fa-thumbtack fa-fw" data-fa-transform="rotate-45 grow-2"></i>
     </h2>
 </header>
 <nav>
@@ -201,19 +201,19 @@ designing decisions and gains during building the site.
     <ul>
         
             <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---creation/">RxSwift Operators - Creation</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---error-handling/">RxSwift Operators - Error Handling</a>
+            </li>
+        
+            <li>
                 <a href="http://mudox.github.io/post/my-web-awesome-list/">My Web Awesome List</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
             </li>
         
     </ul>
@@ -303,7 +303,8 @@ designing decisions and gains during building the site.
 <li><a href="#tooling">Tooling</a></li>
 <li><a href="#dom">DOM</a>
 <ul>
-<li><a href="#document-body">Document body</a></li>
+<li><a href="#homepage">Homepage</a></li>
+<li><a href="#single-article-page">Single article page</a></li>
 <li><a href="#navigation-bar">Navigation bar</a></li>
 <li><a href="#left-sidebar">Left sidebar</a></li>
 <li><a href="#right-sidebar">Right sidebar</a></li>
@@ -390,172 +391,192 @@ preprocessing.</p>
 
 <h1 id="dom">DOM</h1>
 
+<h2 id="homepage">Homepage</h2>
+
+<p>Currently it use the same base layout as single article page below, except
+without the 2 sidebar column in middle area.</p>
+
+<p>The main content area only shows a article list grouped by updated month.</p>
+
+<h2 id="single-article-page">Single article page</h2>
+
 <p>I use 3 row layout for article page&rsquo;s base horizontal layout.</p>
 
 <ol>
-<li>Top navigation bar showing site logo and site main menu.</li>
-<li>Middle is the main content area.</li>
-<li>Bottom is a footer showing site information.</li>
+<li><strong>Top</strong> navigation bar showing site logo and site main menu.<br /></li>
+<li><strong>Middle</strong> the main content area.<br /></li>
+<li><strong>Bottom</strong> footer showing site information.</li>
 </ol>
 
-<p>The middle main content area employ 3 column layout, with both sidebar column
-fixed in the viewport.</p>
+<p>The middle main content area emploies 3 column layout, with both sidebar
+columns fixed in the viewport.</p>
 
 <ol>
-<li>Left sidebar shows
+<li><p><strong>Left sidebar</strong> shows:</p>
 
 <ol>
 <li>Article tag list</li>
 <li>Recently updated article list</li>
-<li>Navigation menu</li>
+<li>Site main menu</li>
+<li>Related article list (See Also)</li>
 </ol></li>
-<li>Right sidebar shows table of contents of current article</li>
+
+<li><p><strong>Right sidebar</strong> shows table of contents of current article</p></li>
 </ol>
 
-<h2 id="document-body">Document body</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">body</span>&gt;
-    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;wrapper&#34;</span>&gt;
-        &lt;<span style="color:#ff79c6">header</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;header&#34;</span>&gt;&lt;/<span style="color:#ff79c6">header</span>&gt;
-        &lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar left-sidebar&#34;</span>&gt;&lt;/<span style="color:#ff79c6">aside</span>&gt;
-        &lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar right-sidebar&#34;</span>&gt;&lt;/<span style="color:#ff79c6">aside</span>&gt;
-        &lt;<span style="color:#ff79c6">main</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;content&#34;</span>&gt;
-            <span style="color:#6272a4">&lt;!--
-</span><span style="color:#6272a4">                The page&#39;s main content area, for example it shows:
-</span><span style="color:#6272a4">                - The paginated article list grouped by month
-</span><span style="color:#6272a4">                - The article content in single page
-</span><span style="color:#6272a4">                - Tag term list in tag terms page
-</span><span style="color:#6272a4">                - Article list in tag article page
-</span><span style="color:#6272a4">                - ...
-</span><span style="color:#6272a4">            --&gt;</span>
-        &lt;/<span style="color:#ff79c6">main</span>&gt;
-        &lt;<span style="color:#ff79c6">footer</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;footer&#34;</span>&gt;&lt;/<span style="color:#ff79c6">footer</span>&gt;
-    &lt;/<span style="color:#ff79c6">div</span>&gt;
-&lt;/<span style="color:#ff79c6">body</span>&gt;</code></pre></div>
+<p>The main menu section is dynamically positioned. If the right sidebar TOC is
+too short than the left sidebar tag list and recently updated article list
+combined, show main menu statically under the TOC. else anternate the site main
+menu with left sidebar 3rd section.</p>
+
+<p>I use <a href="https://gohugo.io/templates/base">Base Templates and Blocks</a> feature from Hugo to construct my single page
+template:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">body</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;frame&#34;</span><span style="color:#111">&gt;</span>
+
+        <span style="color:#75715e">&lt;!--Top navbar--&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">header</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;frame-header&#34;</span><span style="color:#111">&gt;</span>
+            {{ partial &#34;top-navbar.html&#34; . }}
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">header</span><span style="color:#111">&gt;</span>
+
+        <span style="color:#75715e">&lt;!--Middle main content area--&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;main-frame&#34;</span><span style="color:#111">&gt;</span>
+            {{ block &#34;main&#34; . }}
+            {{ end }}
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
+
+        <span style="color:#75715e">&lt;!--Bottom site footer--&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">footer</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;frame-footer&#34;</span><span style="color:#111">&gt;</span>
+            {{ partial &#34;bottom-navbar.html&#34; . }}
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">footer</span><span style="color:#111">&gt;</span>
+
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">body</span><span style="color:#111">&gt;</span></code></pre></div>
 <h2 id="navigation-bar">Navigation bar</h2>
 
 <p>This area has 2 parts:</p>
 
 <ol>
-<li><p>Left <code>&lt;nav&gt;</code> floats left, show site logo and title.<br />
+<li><p>Left <code>&lt;nav&gt;</code> floats left, show site logo and title.
 It use flexbox layout to center the logo image and title vertically
 <code>position: flex; align-item: center;</code></p></li>
 
 <li><p>Right <code>&lt;nav&gt;</code> aligns text to right, shows site main menu.</p></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">nav</span>&gt;
-    <span style="color:#6272a4">&lt;!--Align left--&gt;</span>
-    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-left&#34;</span>&gt;
-        &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-            <span style="color:#6272a4">&lt;!--Site logo--&gt;</span>
-            &lt;<span style="color:#ff79c6">img</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#50fa7b">alt</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-        &lt;/<span style="color:#ff79c6">a</span>&gt;
-        &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-            <span style="color:#6272a4">&lt;!--Site title--&gt;</span>
-            &lt;<span style="color:#ff79c6">h1</span>&gt;&lt;/<span style="color:#ff79c6">h1</span>&gt;
-        &lt;/<span style="color:#ff79c6">a</span>&gt;
-    &lt;/<span style="color:#ff79c6">section</span>&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span>
+    <span style="color:#75715e">&lt;!--Align left--&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">section</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;top-navbar-left&#34;</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#111">&gt;</span>
+            <span style="color:#75715e">&lt;!--Site logo--&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">img</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span> <span style="color:#75af00">alt</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#111">&gt;</span>
+            <span style="color:#75715e">&lt;!--Site title--&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">h1</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">h1</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
 
-    <span style="color:#6272a4">&lt;!--Align right--&gt;</span>
-    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;top-navbar-right&#34;</span>&gt;&#34;&gt;
-        &lt;<span style="color:#ff79c6">ul</span>&gt;
-            <span style="color:#6272a4">&lt;!--4 menu links--&gt;</span>
-            &lt;<span style="color:#ff79c6">li</span>&gt;
-                &lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
-                    &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
-                    &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
-                &lt;/<span style="color:#ff79c6">a</span>&gt;
-            &lt;/<span style="color:#ff79c6">li</span>&gt;
-        &lt;/<span style="color:#ff79c6">ul</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span>&gt;
-&lt;/<span style="color:#ff79c6">nav</span>&gt;</code></pre></div>
+    <span style="color:#75715e">&lt;!--Align right--&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">section</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;top-navbar-right&#34;</span><span style="color:#111">&gt;</span>&#34;&gt;
+        <span style="color:#111">&lt;</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span>
+            <span style="color:#75715e">&lt;!--4 menu links--&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">li</span><span style="color:#111">&gt;</span>
+                <span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#111">&gt;</span>
+                    <span style="color:#111">&lt;</span><span style="color:#f92672">i</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">i</span><span style="color:#111">&gt;</span>
+                    <span style="color:#111">&lt;</span><span style="color:#f92672">span</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>
+                <span style="color:#111">&lt;/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>
+            <span style="color:#111">&lt;/</span><span style="color:#f92672">li</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span></code></pre></div>
 <h2 id="left-sidebar">Left sidebar</h2>
 
 <p>The area is divided into <code>&lt;section&gt;</code>s, I add spacing style on them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar left-sidebar&#34;</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span>  <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-tag-list&#34;</span>&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">aside</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;sidebar left-sidebar&#34;</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">section</span>  <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;article-tag-list&#34;</span><span style="color:#111">&gt;</span>
         ...
-    &lt;/<span style="color:#ff79c6">section</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;pinned-article-list&#34;</span>&gt;
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">section</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pinned-article-list&#34;</span><span style="color:#111">&gt;</span>
         ...
-    &lt;/<span style="color:#ff79c6">section</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;updated-article-list&#34;</span>&gt;
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">section</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;updated-article-list&#34;</span><span style="color:#111">&gt;</span>
         ...
-    &lt;/<span style="color:#ff79c6">section</span>&gt;
-    &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stage1&#34;</span>&gt;
-        &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;related-article-list&#34;</span>&gt;
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">section</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;stage1&#34;</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">section</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;related-article-list&#34;</span><span style="color:#111">&gt;</span>
             ...
-        &lt;/<span style="color:#ff79c6">section</span>&gt;
-        &lt;<span style="color:#ff79c6">section</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar-menu&#34;</span>&gt;
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">section</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;sidebar-menu&#34;</span><span style="color:#111">&gt;</span>
             ...
-        &lt;/<span style="color:#ff79c6">section</span>&gt;
-    &lt;/<span style="color:#ff79c6">section</span>&gt;
-&lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">section</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">aside</span><span style="color:#111">&gt;</span></code></pre></div>
 <p>The <code>.stage</code> is use for script <code>nav.js</code> to alternate the <code>.related-article-list</code>
 section and <code>.sidebar-menu</code> section when user scrolls the page up and down.</p>
 
 <p>Frame of the section:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">header</span>&gt;
-    &lt;<span style="color:#ff79c6">h2</span>&gt;
-        &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
-        &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
-    &lt;/<span style="color:#ff79c6">h2</span>&gt;
-&lt;/<span style="color:#ff79c6">header</span>&gt;
-&lt;<span style="color:#ff79c6">ul</span>&gt;
-    &lt;<span style="color:#ff79c6">li</span>&gt;
-        &lt;<span style="color:#ff79c6">a</span>&gt;&lt;/<span style="color:#ff79c6">a</span>&gt;
-    &lt;/<span style="color:#ff79c6">li</span>&gt;
-    <span style="color:#6272a4">&lt;!--...--&gt;</span>
-&lt;/<span style="color:#ff79c6">ul</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">header</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">h2</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">span</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">i</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">i</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">h2</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">header</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">li</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">a</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">li</span><span style="color:#111">&gt;</span>
+    <span style="color:#75715e">&lt;!--...--&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span></code></pre></div>
 <h2 id="right-sidebar">Right sidebar</h2>
 
 <p>Similar to the left sidebar, but with <code>right-sidebar</code> class assigned to the top
 <code>&lt;aside&gt;</code> element.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar right-sidebar&#34;</span>&gt;
-    &lt;<span style="color:#ff79c6">header</span>&gt;
-        &lt;<span style="color:#ff79c6">h2</span>&gt;
-            &lt;<span style="color:#ff79c6">i</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
-            &lt;<span style="color:#ff79c6">span</span>&gt;&lt;/<span style="color:#ff79c6">span</span>&gt;
-        &lt;/<span style="color:#ff79c6">h2</span>&gt;
-    &lt;/<span style="color:#ff79c6">header</span>&gt;
-    &lt;<span style="color:#ff79c6">nav</span>&gt;
-        <span style="color:#6272a4">&lt;!--...--&gt;</span>
-    &lt;/<span style="color:#ff79c6">nav</span>&gt;
-&lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">aside</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;sidebar right-sidebar&#34;</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">header</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">h2</span><span style="color:#111">&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">i</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">i</span><span style="color:#111">&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">span</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">h2</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">header</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span>
+        <span style="color:#75715e">&lt;!--...--&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">aside</span><span style="color:#111">&gt;</span></code></pre></div>
 <p>The <code>nav</code> element are used to add top margin under header.</p>
 
 <h2 id="main-content-area">Main content area</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">article</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article&#34;</span>&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">article</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;article&#34;</span><span style="color:#111">&gt;</span>
 
-    <span style="color:#6272a4">&lt;!--Left sidebar--&gt;</span>
-    <span style="color:#6272a4">&lt;!--Show tag list if any--&gt;</span>
+    <span style="color:#75715e">&lt;!--Left sidebar--&gt;</span>
+    <span style="color:#75715e">&lt;!--Show tag list if any--&gt;</span>
     {{ partial &#34;left-sidebar.html&#34; . }}
 
-    <span style="color:#6272a4">&lt;!--Right sidebar--&gt;</span>
-    <span style="color:#6272a4">&lt;!--Show TOC if front matter `toc` is not equal to `false`--&gt;</span>
+    <span style="color:#75715e">&lt;!--Right sidebar--&gt;</span>
+    <span style="color:#75715e">&lt;!--Show TOC if front matter `toc` is not equal to `false`--&gt;</span>
     {{ partial &#34;right-sidebar.html&#34; . }}
 
-    <span style="color:#6272a4">&lt;!--Title--&gt;</span>
-    &lt;<span style="color:#ff79c6">h1</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-title&#34;</span>&gt;{{ .Title }}&lt;/<span style="color:#ff79c6">h1</span>&gt;
+    <span style="color:#75715e">&lt;!--Title--&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">h1</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;article-title&#34;</span><span style="color:#111">&gt;</span>{{ .Title }}<span style="color:#111">&lt;/</span><span style="color:#f92672">h1</span><span style="color:#111">&gt;</span>
 
-    <span style="color:#6272a4">&lt;!--Date--&gt;</span>
+    <span style="color:#75715e">&lt;!--Date--&gt;</span>
     {{ if eq .Section &#34;post&#34; }}
-    &lt;<span style="color:#ff79c6">time</span>&gt;
-        &lt;<span style="color:#ff79c6">span</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-date&#34;</span>&gt;
+    <span style="color:#111">&lt;</span><span style="color:#f92672">time</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">span</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;article-date&#34;</span><span style="color:#111">&gt;</span>
             {{ .Date.Format &#34;Updated: 2006-01-02&#34;}}
-        &lt;/<span style="color:#ff79c6">span</span>&gt;
-    &lt;/<span style="color:#ff79c6">time</span>&gt;
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">time</span><span style="color:#111">&gt;</span>
     {{ end }}
 
-    <span style="color:#6272a4">&lt;!--Article content--&gt;</span>
+    <span style="color:#75715e">&lt;!--Article content--&gt;</span>
     {{ with .Description }}
-    &lt;<span style="color:#ff79c6">blockquote</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;article-summary&#39;</span>&gt;{{ . }}&lt;/<span style="color:#ff79c6">blockquote</span>&gt;
+    <span style="color:#111">&lt;</span><span style="color:#f92672">blockquote</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;article-summary&#39;</span><span style="color:#111">&gt;</span>{{ . }}<span style="color:#111">&lt;/</span><span style="color:#f92672">blockquote</span><span style="color:#111">&gt;</span>
     {{ end }}
 
-    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;article-body&#34;</span>&gt;
+    <span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;article-body&#34;</span><span style="color:#111">&gt;</span>
         {{ .Content }}
-    &lt;/<span style="color:#ff79c6">div</span>&gt;
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 
-&lt;/<span style="color:#ff79c6">article</span>&gt;</code></pre></div>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">article</span><span style="color:#111">&gt;</span></code></pre></div>
 <h1 id="content">Content</h1>
 
 <h2 id="sections">Sections</h2>

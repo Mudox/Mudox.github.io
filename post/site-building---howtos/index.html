@@ -48,7 +48,7 @@
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.9328693a28728eeb1a8f9107bbec2814a3e49309c302116551dfc89931ac8d98.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.de378d254de92c4900e921f2d792100cec4a4aa3695d97ed8503973d334acfe0.css">
 
 
 
@@ -132,7 +132,7 @@
     <header>
     <h2>
         <span>tags</span>
-        <i class="fas fa-tags fa-fw">
+        <i class="fas fa-tag fa-fw" data-fa-transform="shrink-0.5">
         </i>
     </h2>
 </header>
@@ -165,7 +165,7 @@
     <header>
     <h2>
         <span>pinned</span>
-        <i class="fas fa-thumbtack fa-fw"></i>
+        <i class="fas fa-thumbtack fa-fw" data-fa-transform="rotate-45 grow-2"></i>
     </h2>
 </header>
 <nav>
@@ -199,19 +199,19 @@
     <ul>
         
             <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---creation/">RxSwift Operators - Creation</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---error-handling/">RxSwift Operators - Error Handling</a>
+            </li>
+        
+            <li>
                 <a href="http://mudox.github.io/post/my-web-awesome-list/">My Web Awesome List</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
             </li>
         
     </ul>
@@ -339,6 +339,12 @@
 
 <h2 id="2018-08">2018-08</h2>
 
+<p>How to express <code>{{&lt; highlight &gt;}}</code>?</p>
+
+<p>Write <code>&lt;code&gt;{{&amp;lt; highlight &amp;gt;}}&lt;/code&gt;</code>.</p>
+
+<hr />
+
 <p>How control word casing?</p>
 
 <p>Use <code>text-transform: [capitalize|uppercase|lowercase|...]</code> to control text
@@ -379,9 +385,9 @@ line.</p>
 CodePen code box to native code box?</p>
 
 <p>Wrap each of them into <code>&lt;div class=&quot;embedded-media-box&quot;&gt;</code>. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embedded-media-box&#34;</span>&gt;
-    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">async</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-&lt;/<span style="color:#ff79c6">div</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;embedded-media-box&#34;</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">async</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;//jsfiddle.net/Mudox/97zp4cry/embed/html,css,result/dark/&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span></code></pre></div>
 <hr />
 
 <p>How to speed up page loading?</p>
@@ -415,12 +421,12 @@ trivial version of Windows 10 operating system with Edge browser installed.</p><
 
 <p>Use the <a href="https://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_">SCSS interpolation</a> feature that is wrap the variable name within  a
 <code>#{}</code>, like</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#8be9fd;font-style:italic">$mainWidth</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">350</span><span style="color:#8be9fd">px</span>;
-<span style="color:#8be9fd;font-style:italic">$columnGap</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">15</span><span style="color:#8be9fd">px</span>;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#111">$mainWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">350</span><span style="color:#00a8c8">px</span><span style="color:#111">;</span>
+<span style="color:#111">$columnGap</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span><span style="color:#00a8c8">px</span><span style="color:#111">;</span>
 
-<span style="color:#50fa7b">.left-side</span> {
-  <span style="color:#ff79c6">left</span>: <span style="color:#ff79c6">calc</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">50vw</span> <span style="color:#ff79c6">+</span> #{$<span style="color:#ff79c6">mainWidth</span>} <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">2</span> <span style="color:#ff79c6">+</span> #{$<span style="color:#ff79c6">columnGap</span>}<span style="color:#ff79c6">);</span>
-}</code></pre></div>
+<span style="color:#75af00">.left-side</span> <span style="color:#111">{</span>
+  <span style="color:#f92672">left</span><span style="color:#75af00">:</span> <span style="color:#f92672">calc</span><span style="color:#f92672">(</span><span style="color:#f92672">50vw</span> <span style="color:#f92672">+</span> <span style="color:#111">#</span><span style="color:#111">{</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">mainWidth</span><span style="color:#111">}</span> <span style="color:#f92672">/</span> <span style="color:#f92672">2</span> <span style="color:#f92672">+</span> <span style="color:#111">#</span><span style="color:#111">{</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">columnGap</span><span style="color:#111">}</span><span style="color:#f92672">);</span>
+<span style="color:#111">}</span></code></pre></div>
             </div>
 
         </article>

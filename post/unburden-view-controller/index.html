@@ -51,7 +51,7 @@ is a good start for a qualified app architecture.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.9328693a28728eeb1a8f9107bbec2814a3e49309c302116551dfc89931ac8d98.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.de378d254de92c4900e921f2d792100cec4a4aa3695d97ed8503973d334acfe0.css">
 
 
 
@@ -135,7 +135,7 @@ is a good start for a qualified app architecture.
     <header>
     <h2>
         <span>tags</span>
-        <i class="fas fa-tags fa-fw">
+        <i class="fas fa-tag fa-fw" data-fa-transform="shrink-0.5">
         </i>
     </h2>
 </header>
@@ -164,7 +164,7 @@ is a good start for a qualified app architecture.
     <header>
     <h2>
         <span>pinned</span>
-        <i class="fas fa-thumbtack fa-fw"></i>
+        <i class="fas fa-thumbtack fa-fw" data-fa-transform="rotate-45 grow-2"></i>
     </h2>
 </header>
 <nav>
@@ -198,19 +198,19 @@ is a good start for a qualified app architecture.
     <ul>
         
             <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---creation/">RxSwift Operators - Creation</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---error-handling/">RxSwift Operators - Error Handling</a>
+            </li>
+        
+            <li>
                 <a href="http://mudox.github.io/post/my-web-awesome-list/">My Web Awesome List</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
             </li>
         
     </ul>
@@ -417,17 +417,17 @@ investigated into it.</p>
 
 <p>Let take a very common code snippet for example:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">table</span>(<span style="color:#ff79c6">_</span> table: UITableView, didSelectRowAt rowIndex: <span style="color:#8be9fd;font-style:italic">Int</span>) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">object</span> = <span style="color:#ff79c6">self</span>.dataSource[indexPath]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    <span style="color:#6272a4">// model layer  &lt;--  [data]         view layer</span>
-<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    object.selected = <span style="color:#ff79c6">!</span>object.selected
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    <span style="color:#6272a4">// model layer       [data]   --&gt;   view layer</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">cell</span> = tableView.cellForRow(at: indexPath) {
-<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>        cell.accessoryType = (object.selected) ? .checkmark : .<span style="color:#ff79c6">none</span>
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>}</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span><span style="color:#00a8c8">func</span> <span style="color:#75af00">table</span><span style="color:#111">(</span><span style="color:#00a8c8">_</span> <span style="color:#111">table</span><span style="color:#111">:</span> <span style="color:#111">UITableView</span><span style="color:#111">,</span> <span style="color:#111">didSelectRowAt</span> <span style="color:#111">rowIndex</span><span style="color:#111">:</span> <span style="color:#111">Int</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span>    <span style="color:#00a8c8">let</span> <span style="color:#111">object</span> <span style="color:#111">=</span> <span style="color:#00a8c8">self</span><span style="color:#111">.</span><span style="color:#111">dataSource</span><span style="color:#111">[</span><span style="color:#111">indexPath</span><span style="color:#111">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span>    <span style="color:#75715e">// model layer  &lt;--  [data]         view layer</span>
+<span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span>    <span style="color:#111">object</span><span style="color:#111">.</span><span style="color:#111">selected</span> <span style="color:#111">=</span> <span style="color:#f92672">!</span><span style="color:#111">object</span><span style="color:#111">.</span><span style="color:#111">selected</span>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span>    <span style="color:#75715e">// model layer       [data]   --&gt;   view layer</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span>    <span style="color:#00a8c8">if</span> <span style="color:#00a8c8">let</span> <span style="color:#111">cell</span> <span style="color:#111">=</span> <span style="color:#111">tableView</span><span style="color:#111">.</span><span style="color:#111">cellForRow</span><span style="color:#111">(</span><span style="color:#111">at</span><span style="color:#111">:</span> <span style="color:#111">indexPath</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+<span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span>        <span style="color:#111">cell</span><span style="color:#111">.</span><span style="color:#111">accessoryType</span> <span style="color:#111">=</span> <span style="color:#111">(</span><span style="color:#111">object</span><span style="color:#111">.</span><span style="color:#111">selected</span><span style="color:#111">)</span> <span style="color:#111">?</span> <span style="color:#111">.</span><span style="color:#111">checkmark</span> <span style="color:#111">:</span> <span style="color:#111">.</span><span style="color:#00a8c8">none</span>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span>    <span style="color:#111">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span><span style="color:#111">}</span></code></pre></div>
 
 <p>This kind of codes frequently appears from beginner&rsquo;s tutorials and their
 projects. The method changes the data modal (line #5) as well as updates the

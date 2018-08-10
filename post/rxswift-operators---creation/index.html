@@ -8,8 +8,8 @@
 
 
     
-        <meta property="description" content="Evey awesomeness I discovered in the process of learning Web tech and building
-my site.
+        <meta property="description" content="RxSwift provides a group of operators to spawn sequence of various shapes. Most
+of operators here have distinct use cases of their own.
 ">
     
 
@@ -23,9 +23,9 @@ my site.
 
 
     
-        <title>My Web Awesome List - Mudox</title>
+        <title>RxSwift Operators - Creation - Mudox</title>
     
-    <meta property="og:title" content="My Web Awesome List - Mudox">
+    <meta property="og:title" content="RxSwift Operators - Creation - Mudox">
 
 
 
@@ -62,8 +62,6 @@ my site.
 <script src='/js/nav.js'></script>
 
 
-
-<script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
 
@@ -144,23 +142,11 @@ my site.
         
         
             <li>
-                <a href="/tags/web">Web</a>
+                <a href="/tags/swift">Swift</a>
             </li>
         
             <li>
-                <a href="/tags/awesome">Awesome</a>
-            </li>
-        
-            <li>
-                <a href="/tags/css">CSS</a>
-            </li>
-        
-            <li>
-                <a href="/tags/html">HTML</a>
-            </li>
-        
-            <li>
-                <a href="/tags/javascript">JavaScript</a>
+                <a href="/tags/rxswift">RxSwift</a>
             </li>
         
     </ul>
@@ -239,13 +225,7 @@ my site.
     <nav>
         <ul>
             
-            <li><a href="/post/site-building---notes/">Site Building - Notes</a></li>
-            
-            <li><a href="/post/site-building---howtos/">Site Building - Howtos</a></li>
-            
-            <li><a href="/post/site-building---issues/">Site Building - Issues</a></li>
-            
-            <li><a href="/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a></li>
+            <li><a href="/post/rxswift-operators---error-handling/">RxSwift Operators - Error Handling</a></li>
             
         </ul>
     </nav>
@@ -305,7 +285,30 @@ my site.
 
         <nav id="TableOfContents">
 <ul>
-<li><a href="#fonts">Fonts</a></li>
+<li><a href="#create-sequences-programmatically">Create Sequences Programmatically</a>
+<ul>
+<li><a href="#observable-create">Observable.create</a></li>
+<li><a href="#observable-deferred">Observable.deferred</a></li>
+</ul></li>
+<li><a href="#the-3-special-convenient-operators">The 3 Special Convenient Operators</a>
+<ul>
+<li><a href="#observable-error">Observable.error</a></li>
+<li><a href="#observable-empty">Observable.empty</a></li>
+<li><a href="#observable-never">Observable.never</a></li>
+</ul></li>
+<li><a href="#create-from-listed-elements">Create From Listed Elements</a>
+<ul>
+<li><a href="#observable-just">Observable.just</a></li>
+<li><a href="#observable-from">Observable.from</a></li>
+<li><a href="#observable-of">Observable.of</a></li>
+</ul></li>
+<li><a href="#turn-swift-sequences-into-observable-sequences">Turn Swift Sequences Into Observable Sequences</a>
+<ul>
+<li><a href="#observable-range">Observable.range</a></li>
+<li><a href="#observable-repeatelement">Observable.repeatElement</a></li>
+<li><a href="#observable-generate">Observable.generate</a></li>
+</ul></li>
+<li><a href="#one-way-more-use-subjects-to-create-observable">One Way More - Use Subjects To Create Observable</a></li>
 </ul>
 </nav>
 
@@ -318,21 +321,21 @@ my site.
         <article class="article">
 
             
-            <h1 class="article-title">My Web Awesome List</h1>
+            <h1 class="article-title">RxSwift Operators - Creation</h1>
 
             
             
                 <time>
                     <span class="article-date">
-                        Updated: 2018-08-05
+                        Updated: 2018-08-10
                     </span>
                 </time>
             
 
             
             
-                <blockquote class='article-summary'>Evey awesomeness I discovered in the process of learning Web tech and building
-my site.
+                <blockquote class='article-summary'>RxSwift provides a group of operators to spawn sequence of various shapes. Most
+of operators here have distinct use cases of their own.
 </blockquote>
             
 
@@ -340,26 +343,45 @@ my site.
             <div class="article-body">
                 
 
-<h1 id="fonts">Fonts</h1>
+<h1 id="create-sequences-programmatically">Create Sequences Programmatically</h1>
 
+<h2 id="observable-create">Observable.create</h2>
 
+<p>This is the most fundamental yet flexible way to create a sequence.</p>
 
+<p>You bury into the parameter block the sequence emitting blueprint as well as
+necessary sequence tear-down details, then on subscription the sequence gets
+spawned as whatever you designed.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"></code></pre></div>
+<h2 id="observable-deferred">Observable.deferred</h2>
 
+<h1 id="the-3-special-convenient-operators">The 3 Special Convenient Operators</h1>
 
-<div class="github-buttons">
+<h2 id="observable-error">Observable.error</h2>
 
-    
-    <a class="github-repo-title" href="https://github.com/ankurp/Dollar">
-        Dollar
-    </a>
+<h2 id="observable-empty">Observable.empty</h2>
 
-    
-    <div class="github-repo-description">
-A functional tool-belt for Swift Language.
-</div>
+<h2 id="observable-never">Observable.never</h2>
 
-</div>
+<h1 id="create-from-listed-elements">Create From Listed Elements</h1>
 
+<h2 id="observable-just">Observable.just</h2>
+
+<h2 id="observable-from">Observable.from</h2>
+
+<h2 id="observable-of">Observable.of</h2>
+
+<h1 id="turn-swift-sequences-into-observable-sequences">Turn Swift Sequences Into Observable Sequences</h1>
+
+<h2 id="observable-range">Observable.range</h2>
+
+<p>It is equivalent to <code>Observable&lt;T&gt;.from([T](start..&lt;(start + count)))</code></p>
+
+<h2 id="observable-repeatelement">Observable.repeatElement</h2>
+
+<h2 id="observable-generate">Observable.generate</h2>
+
+<h1 id="one-way-more-use-subjects-to-create-observable">One Way More - Use Subjects To Create Observable</h1>
 
             </div>
 

@@ -6,10 +6,32 @@
     <description>Recent content in Posts on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Aug 2018 15:48:22 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Aug 2018 16:36:06 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RxSwift Operators - Creation</title>
+      <link>http://mudox.github.io/post/rxswift-operators---creation/</link>
+      <pubDate>Fri, 10 Aug 2018 16:36:06 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/rxswift-operators---creation/</guid>
+      <description>Create Sequences Programmatically Observable.create This is the most fundamental yet flexible way to create a sequence.
+You bury into the parameter block the sequence emitting blueprint as well as necessary sequence tear-down details, then on subscription the sequence gets spawned as whatever you designed.
+ Observable.deferred The 3 Special Convenient Operators Observable.error Observable.empty Observable.never Create From Listed Elements Observable.just Observable.from Observable.of Turn Swift Sequences Into Observable Sequences Observable.range It is equivalent to Observable&amp;lt;T&amp;gt;.</description>
+    </item>
+    
+    <item>
+      <title>RxSwift Operators - Error Handling</title>
+      <link>http://mudox.github.io/post/rxswift-operators---error-handling/</link>
+      <pubDate>Fri, 10 Aug 2018 00:42:04 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/rxswift-operators---error-handling/</guid>
+      <description>How To Error Out in RxSwift Generally there are 3 ways to terminate current sequence with an error.
+ Create a special observable that emits nothing but an error Observable.error(someError).
+class LocationService { enum Error: Swift.Error { ... case serviceDisabled ... } func startLocationUpdating() -&amp;gt; Observable&amp;lt;Location&amp;gt; { guard CLLocationManager.locationServiceEnabled else { return .error(Error.serviceDisabled)  } ... } } Emit an error event to the observer parameter in an Observable&amp;lt;T&amp;gt;.create block parameter observer.</description>
+    </item>
     
     <item>
       <title>My Web Awesome List</title>
@@ -77,12 +99,13 @@ Neovim + Tmux + iTerm2 provides the &amp;ldquo;IDE&amp;rdquo; environment.</desc
       <pubDate>Tue, 17 Apr 2018 22:09:38 +0800</pubDate>
       
       <guid>http://mudox.github.io/post/site-building---howtos/</guid>
-      <description>Uncategorised 2018-08 How control word casing?
+      <description>Uncategorised 2018-08 How to express {{&amp;lt; highlight &amp;gt;}}?
+Write &amp;lt;code&amp;gt;{{&amp;amp;lt; highlight &amp;amp;gt;}}&amp;lt;/code&amp;gt;.
+How control word casing?
 Use text-transform: [capitalize|uppercase|lowercase|...] to control text casing. Better render the text in all lowercase from template.
 The text-transform property should be applied to the immediate containing element the text.
 How to style a &amp;lt;hr&amp;gt;
-The horizontal ruler element is just a ordinary block element with no inner content (text). By default, their border-bottom is styled in be a 1px solid black line.
-How to controls indentation of &amp;lt;ul&amp;gt;, &amp;lt;ol&amp;gt; lists?</description>
+The horizontal ruler element is just a ordinary block element with no inner content (text). By default, their border-bottom is styled in be a 1px solid black line.</description>
     </item>
     
     <item>
@@ -91,10 +114,10 @@ How to controls indentation of &amp;lt;ul&amp;gt;, &amp;lt;ol&amp;gt; lists?</de
       <pubDate>Thu, 05 Apr 2018 22:09:44 +0800</pubDate>
       
       <guid>http://mudox.github.io/post/site-building---issues/</guid>
-      <description>Uncategorised 2018-08 Live reloading does not bring the latest change to browser?
-Google Chrome -&amp;gt; open Devtools window -&amp;gt; click Network tab -&amp;gt; check Disable cache box. Keep the window open during the testing.
-Sometime only the currently opened page got latest change to (e.g. css, js files &amp;hellip;), if I jump to other pages, reloading page or clear the browser cache does not work.
-Rerun the hugo server command with --gc --cleanDestinationDir=true switch.</description>
+      <description>Uncategorised 2018-08 When using Hugo shortcode highlight to generate code blocks, there always a trailing empty line?
+Dedent the ending {{&amp;lt; / highlight &amp;gt;}} to make sure there is no whitespace in the head of the line.
+Live reloading does not bring the latest change to browser?
+Google Chrome -&amp;gt; open Devtools window -&amp;gt; click Network tab -&amp;gt; check Disable cache box. Keep the window open during the testing.</description>
     </item>
     
     <item>

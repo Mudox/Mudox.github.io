@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swift on Mudox</title>
+    <link>http://mudox.github.io/tags/swift/</link>
+    <description>Recent content in Swift on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Aug 2018 16:36:06 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RxSwift Operators - Creation</title>
+      <link>http://mudox.github.io/post/rxswift-operators---creation/</link>
+      <pubDate>Fri, 10 Aug 2018 16:36:06 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/rxswift-operators---creation/</guid>
+      <description>Create Sequences Programmatically Observable.create This is the most fundamental yet flexible way to create a sequence.
+You bury into the parameter block the sequence emitting blueprint as well as necessary sequence tear-down details, then on subscription the sequence gets spawned as whatever you designed.
+ Observable.deferred The 3 Special Convenient Operators Observable.error Observable.empty Observable.never Create From Listed Elements Observable.just Observable.from Observable.of Turn Swift Sequences Into Observable Sequences Observable.range It is equivalent to Observable&amp;lt;T&amp;gt;.</description>
+    </item>
+    
+    <item>
+      <title>RxSwift Operators - Error Handling</title>
+      <link>http://mudox.github.io/post/rxswift-operators---error-handling/</link>
+      <pubDate>Fri, 10 Aug 2018 00:42:04 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/rxswift-operators---error-handling/</guid>
+      <description>How To Error Out in RxSwift Generally there are 3 ways to terminate current sequence with an error.
+ Create a special observable that emits nothing but an error Observable.error(someError).
+class LocationService { enum Error: Swift.Error { ... case serviceDisabled ... } func startLocationUpdating() -&amp;gt; Observable&amp;lt;Location&amp;gt; { guard CLLocationManager.locationServiceEnabled else { return .error(Error.serviceDisabled)  } ... } } Emit an error event to the observer parameter in an Observable&amp;lt;T&amp;gt;.create block parameter observer.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -49,7 +49,7 @@ scrolls.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.9328693a28728eeb1a8f9107bbec2814a3e49309c302116551dfc89931ac8d98.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.de378d254de92c4900e921f2d792100cec4a4aa3695d97ed8503973d334acfe0.css">
 
 
 
@@ -133,7 +133,7 @@ scrolls.
     <header>
     <h2>
         <span>tags</span>
-        <i class="fas fa-tags fa-fw">
+        <i class="fas fa-tag fa-fw" data-fa-transform="shrink-0.5">
         </i>
     </h2>
 </header>
@@ -162,7 +162,7 @@ scrolls.
     <header>
     <h2>
         <span>pinned</span>
-        <i class="fas fa-thumbtack fa-fw"></i>
+        <i class="fas fa-thumbtack fa-fw" data-fa-transform="rotate-45 grow-2"></i>
     </h2>
 </header>
 <nav>
@@ -196,19 +196,19 @@ scrolls.
     <ul>
         
             <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---creation/">RxSwift Operators - Creation</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---error-handling/">RxSwift Operators - Error Handling</a>
+            </li>
+        
+            <li>
                 <a href="http://mudox.github.io/post/my-web-awesome-list/">My Web Awesome List</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
             </li>
         
     </ul>
@@ -336,27 +336,27 @@ scrolls.
 
 <p>The static site generator <a href="http://gohugo.io">Hugo</a> I used in for this site auto-generates <a href="https://en.wikipedia.org/wiki/Table_of_contents">TOC</a>
 for each article. The rendered TOC html DOM structure is like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">aside</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sidebar right-sidebar&#34;</span>&gt;
-    &lt;<span style="color:#ff79c6">header</span>&gt;
-        &lt;<span style="color:#ff79c6">h2</span>&gt;
-            &lt;<span style="color:#ff79c6">i</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;fas fa-list&#34;</span>&gt;&lt;/<span style="color:#ff79c6">i</span>&gt;
-            &lt;<span style="color:#ff79c6">span</span>&gt;CONENTS&lt;/<span style="color:#ff79c6">span</span>&gt;
-        &lt;/<span style="color:#ff79c6">h2</span>&gt;
-    &lt;/<span style="color:#ff79c6">header</span>&gt;
-    &lt;<span style="color:#ff79c6">nav</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;TableOfContents&#34;</span>&gt;
-        &lt;<span style="color:#ff79c6">ul</span>&gt;
-            <span style="color:#6272a4">&lt;!--...--&gt;</span>
-            &lt;<span style="color:#ff79c6">li</span>&gt;&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#data&#34;</span>&gt;Heading 1&lt;/<span style="color:#ff79c6">a</span>&gt;
-                &lt;<span style="color:#ff79c6">ul</span>&gt;
-                    &lt;<span style="color:#ff79c6">li</span>&gt;&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#realm&#34;</span>&gt;Heading 1.1&lt;/<span style="color:#ff79c6">a</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
-                    &lt;<span style="color:#ff79c6">li</span>&gt;&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#realm&#34;</span>&gt;Heading 1.2&lt;/<span style="color:#ff79c6">a</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
-                    <span style="color:#6272a4">&lt;!--...--&gt;</span>
-                &lt;/<span style="color:#ff79c6">ul</span>&gt;
-            &lt;/<span style="color:#ff79c6">li</span>&gt;
-            <span style="color:#6272a4">&lt;!--...--&gt;</span>
-        &lt;/<span style="color:#ff79c6">ul</span>&gt;
-    &lt;/<span style="color:#ff79c6">nav</span>&gt;
-&lt;/<span style="color:#ff79c6">aside</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">aside</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;sidebar right-sidebar&#34;</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">header</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">h2</span><span style="color:#111">&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">i</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;fas fa-list&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">i</span><span style="color:#111">&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>CONENTS<span style="color:#111">&lt;/</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">h2</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">header</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#f92672">nav</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;TableOfContents&#34;</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span>
+            <span style="color:#75715e">&lt;!--...--&gt;</span>
+            <span style="color:#111">&lt;</span><span style="color:#f92672">li</span><span style="color:#111">&gt;&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#data&#34;</span><span style="color:#111">&gt;</span>Heading 1<span style="color:#111">&lt;/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>
+                <span style="color:#111">&lt;</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span>
+                    <span style="color:#111">&lt;</span><span style="color:#f92672">li</span><span style="color:#111">&gt;&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#realm&#34;</span><span style="color:#111">&gt;</span>Heading 1.1<span style="color:#111">&lt;/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">li</span><span style="color:#111">&gt;</span>
+                    <span style="color:#111">&lt;</span><span style="color:#f92672">li</span><span style="color:#111">&gt;&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#realm&#34;</span><span style="color:#111">&gt;</span>Heading 1.2<span style="color:#111">&lt;/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">li</span><span style="color:#111">&gt;</span>
+                    <span style="color:#75715e">&lt;!--...--&gt;</span>
+                <span style="color:#111">&lt;/</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span>
+            <span style="color:#111">&lt;/</span><span style="color:#f92672">li</span><span style="color:#111">&gt;</span>
+            <span style="color:#75715e">&lt;!--...--&gt;</span>
+        <span style="color:#111">&lt;/</span><span style="color:#f92672">ul</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">aside</span><span style="color:#111">&gt;</span></code></pre></div>
 <p>It basically scans the article body part for headings (<code>h1 h2 h3 h4 ...</code>), each
 of which was rendered with an <code>id</code> attribute. For each heading Hugo adds a <code>li</code>
 item in TOC at appropriate level.</p>
@@ -384,43 +384,43 @@ viewport offset.</p></li>
 </ol>
 
 <h1 id="full-code">Full code</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#8be9fd;font-style:italic">document</span>).ready(<span style="color:#8be9fd;font-style:italic">function</span>() {
-  $(<span style="color:#8be9fd;font-style:italic">window</span>).scroll(<span style="color:#8be9fd;font-style:italic">function</span>() {
-    $(<span style="color:#f1fa8c">&#34;#TableOfContents a&#34;</span>).removeClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
-    currentAnchor().addClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
-  })
-});
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#111">document</span><span style="color:#111">).</span><span style="color:#75af00">ready</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#111">window</span><span style="color:#111">).</span><span style="color:#75af00">scroll</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#d88200">&#34;#TableOfContents a&#34;</span><span style="color:#111">).</span><span style="color:#75af00">removeClass</span><span style="color:#111">(</span><span style="color:#d88200">&#34;current&#34;</span><span style="color:#111">)</span>
+    <span style="color:#75af00">currentAnchor</span><span style="color:#111">().</span><span style="color:#75af00">addClass</span><span style="color:#111">(</span><span style="color:#d88200">&#34;current&#34;</span><span style="color:#111">)</span>
+  <span style="color:#111">})</span>
+<span style="color:#111">});</span>
 
-<span style="color:#8be9fd;font-style:italic">function</span> tocItem(anchor) {
-  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[href=\&#34;&#34;</span> <span style="color:#ff79c6">+</span> anchor <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;\&#34;]&#34;</span>)
-}
+<span style="color:#00a8c8">function</span> <span style="color:#75af00">tocItem</span><span style="color:#111">(</span><span style="color:#75af00">anchor</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">return</span> <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#d88200">&#34;[href=\&#34;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#75af00">anchor</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;\&#34;]&#34;</span><span style="color:#111">)</span>
+<span style="color:#111">}</span>
 
-<span style="color:#8be9fd;font-style:italic">function</span> heading(anchor) {
-  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[id=&#34;</span> <span style="color:#ff79c6">+</span> anchor.substr(<span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;]&#34;</span>)
-}
+<span style="color:#00a8c8">function</span> <span style="color:#75af00">heading</span><span style="color:#111">(</span><span style="color:#75af00">anchor</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">return</span> <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#d88200">&#34;[id=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#75af00">anchor</span><span style="color:#111">.</span><span style="color:#75af00">substr</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;]&#34;</span><span style="color:#111">)</span>
+<span style="color:#111">}</span>
 
-<span style="color:#8be9fd;font-style:italic">var</span> _anchors <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span>
-<span style="color:#8be9fd;font-style:italic">function</span> anchors() {
-  <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>_anchors) {
-    _anchors <span style="color:#ff79c6">=</span> $(<span style="color:#f1fa8c">&#34;#TableOfContents a&#34;</span>).map(<span style="color:#8be9fd;font-style:italic">function</span>() {
-      <span style="color:#ff79c6">return</span> $(<span style="color:#ff79c6">this</span>).attr(<span style="color:#f1fa8c">&#34;href&#34;</span>)
-    })
-  }
-  <span style="color:#ff79c6">return</span> _anchors
-}
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">_anchors</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">null</span>
+<span style="color:#00a8c8">function</span> <span style="color:#75af00">anchors</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#75af00">_anchors</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">_anchors</span> <span style="color:#f92672">=</span> <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#d88200">&#34;#TableOfContents a&#34;</span><span style="color:#111">).</span><span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+      <span style="color:#00a8c8">return</span> <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">).</span><span style="color:#75af00">attr</span><span style="color:#111">(</span><span style="color:#d88200">&#34;href&#34;</span><span style="color:#111">)</span>
+    <span style="color:#111">})</span>
+  <span style="color:#111">}</span>
+  <span style="color:#00a8c8">return</span> <span style="color:#75af00">_anchors</span>
+<span style="color:#111">}</span>
 
-<span style="color:#8be9fd;font-style:italic">function</span> currentAnchor() {
-  <span style="color:#8be9fd;font-style:italic">var</span> winY <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.pageYOffset
-  <span style="color:#8be9fd;font-style:italic">var</span> currAnchor <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span>
-  anchors().each(<span style="color:#8be9fd;font-style:italic">function</span>() {
-    <span style="color:#8be9fd;font-style:italic">var</span> y <span style="color:#ff79c6">=</span> heading(<span style="color:#ff79c6">this</span>).position().top
-    <span style="color:#ff79c6">if</span> (y <span style="color:#ff79c6">&lt;</span> winY <span style="color:#ff79c6">+</span> <span style="color:#8be9fd;font-style:italic">window</span>.innerHeight <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">0.23</span>) {
-      currAnchor <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span>
-      <span style="color:#ff79c6">return</span>
-    }
-  })
-  <span style="color:#ff79c6">return</span> tocItem(currAnchor)
-}
+<span style="color:#00a8c8">function</span> <span style="color:#75af00">currentAnchor</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">var</span> <span style="color:#75af00">winY</span> <span style="color:#f92672">=</span> <span style="color:#111">window</span><span style="color:#111">.</span><span style="color:#75af00">pageYOffset</span>
+  <span style="color:#00a8c8">var</span> <span style="color:#75af00">currAnchor</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">null</span>
+  <span style="color:#75af00">anchors</span><span style="color:#111">().</span><span style="color:#75af00">each</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">var</span> <span style="color:#75af00">y</span> <span style="color:#f92672">=</span> <span style="color:#75af00">heading</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">).</span><span style="color:#75af00">position</span><span style="color:#111">().</span><span style="color:#75af00">top</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#75af00">y</span> <span style="color:#f92672">&lt;</span> <span style="color:#75af00">winY</span> <span style="color:#f92672">+</span> <span style="color:#111">window</span><span style="color:#111">.</span><span style="color:#75af00">innerHeight</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.23</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">currAnchor</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">this</span>
+      <span style="color:#00a8c8">return</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">})</span>
+  <span style="color:#00a8c8">return</span> <span style="color:#75af00">tocItem</span><span style="color:#111">(</span><span style="color:#75af00">currAnchor</span><span style="color:#111">)</span>
+<span style="color:#111">}</span>
 </code></pre></div>
             </div>
 

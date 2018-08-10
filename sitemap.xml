@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://mudox.github.io/post/rxswift-operators---creation/</loc>
+    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/post/rxswift-operators---error-handling/</loc>
+    <lastmod>2018-08-10T00:42:04+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/post/my-web-awesome-list/</loc>
     <lastmod>2018-08-05T15:48:22+08:00</lastmod>
   </url>
@@ -113,13 +123,25 @@
   
   <url>
     <loc>http://mudox.github.io/</loc>
-    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
+    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/post/</loc>
-    <lastmod>2018-08-05T15:48:22+08:00</lastmod>
+    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/rxswift/</loc>
+    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/series/rxswift-operators/</loc>
+    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -138,6 +160,12 @@
   <url>
     <loc>http://mudox.github.io/tags/snippets/</loc>
     <lastmod>2018-07-24T08:45:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/swift/</loc>
+    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   

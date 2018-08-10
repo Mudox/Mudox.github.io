@@ -48,7 +48,7 @@
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.9328693a28728eeb1a8f9107bbec2814a3e49309c302116551dfc89931ac8d98.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.de378d254de92c4900e921f2d792100cec4a4aa3695d97ed8503973d334acfe0.css">
 
 
 
@@ -132,7 +132,7 @@
     <header>
     <h2>
         <span>tags</span>
-        <i class="fas fa-tags fa-fw">
+        <i class="fas fa-tag fa-fw" data-fa-transform="shrink-0.5">
         </i>
     </h2>
 </header>
@@ -161,7 +161,7 @@
     <header>
     <h2>
         <span>pinned</span>
-        <i class="fas fa-thumbtack fa-fw"></i>
+        <i class="fas fa-thumbtack fa-fw" data-fa-transform="rotate-45 grow-2"></i>
     </h2>
 </header>
 <nav>
@@ -195,19 +195,19 @@
     <ul>
         
             <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---creation/">RxSwift Operators - Creation</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---error-handling/">RxSwift Operators - Error Handling</a>
+            </li>
+        
+            <li>
                 <a href="http://mudox.github.io/post/my-web-awesome-list/">My Web Awesome List</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/post/alternating-sidebar-menu/">Alternating Sidebar Menu</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
             </li>
         
     </ul>
@@ -451,74 +451,74 @@ ipsum quia dolor</p>
 <h2 id="swift">Swift</h2>
 
 <p>Use standard code fence markdown syntax.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">RxSwift</span>
-<span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">RxCocoa</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">import</span> <span style="color:#75af00">RxSwift</span>
+<span style="color:#00a8c8">import</span> <span style="color:#75af00">RxCocoa</span>
 
-<span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">observable</span> = Driver.just(<span style="color:#bd93f9">1</span>)
-  .flatMap { num -&gt; Driver&lt;<span style="color:#8be9fd;font-style:italic">Bool</span><span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">in</span>
-    <span style="color:#ff79c6">return</span> validate(num)
-  }
-  .flatMap { num -&gt; Driver&lt;<span style="color:#8be9fd;font-style:italic">String</span><span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">in</span>
-    <span style="color:#ff79c6">return</span> request(num)
-  }
-  .flatMap { num -&gt; Driver<span style="color:#ff79c6">&lt;</span>()<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">in</span>
-    <span style="color:#ff79c6">return</span> postValidate(num)
-  }</code></pre></div>
+<span style="color:#00a8c8">let</span> <span style="color:#111">observable</span> <span style="color:#111">=</span> <span style="color:#111">Driver</span><span style="color:#111">.</span><span style="color:#111">just</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">num</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Driver</span><span style="color:#111">&lt;</span><span style="color:#111">Bool</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">validate</span><span style="color:#111">(</span><span style="color:#111">num</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span>
+  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">num</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Driver</span><span style="color:#111">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">request</span><span style="color:#111">(</span><span style="color:#111">num</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span>
+  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">num</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Driver</span><span style="color:#f92672">&lt;</span><span style="color:#111">()</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">postValidate</span><span style="color:#111">(</span><span style="color:#111">num</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span></code></pre></div>
 <h2 id="javascript">Javascript</h2>
 
 <p>Use shortcode <code>highlight</code>, turn on line number with custom start number, and
 line highlighting.</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">199</span>$(<span style="color:#8be9fd;font-style:italic">document</span>).ready(<span style="color:#8be9fd;font-style:italic">function</span>() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">200</span>  $(<span style="color:#8be9fd;font-style:italic">window</span>).scroll(<span style="color:#8be9fd;font-style:italic">function</span>() {
-<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">201</span>    $(<span style="color:#f1fa8c">&#34;#TableOfContents a&#34;</span>).removeClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">202</span>    currentAnchor().addClass(<span style="color:#f1fa8c">&#34;current&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">203</span>  })
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">204</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">205</span>
-<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">206</span><span style="color:#8be9fd;font-style:italic">function</span> tocItem(anchor) {
-</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">207</span>  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[href=\&#34;&#34;</span> <span style="color:#ff79c6">+</span> anchor <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;\&#34;]&#34;</span>)
-</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">208</span>}
-</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">209</span>
-</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">210</span><span style="color:#8be9fd;font-style:italic">function</span> heading(anchor) {
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">211</span>  <span style="color:#ff79c6">return</span> $(<span style="color:#f1fa8c">&#34;[id=&#34;</span> <span style="color:#ff79c6">+</span> anchor.substr(<span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;]&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">212</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">213</span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">199</span><span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#111">document</span><span style="color:#111">).</span><span style="color:#75af00">ready</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">200</span>  <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#111">window</span><span style="color:#111">).</span><span style="color:#75af00">scroll</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+<span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">201</span>    <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#d88200">&#34;#TableOfContents a&#34;</span><span style="color:#111">).</span><span style="color:#75af00">removeClass</span><span style="color:#111">(</span><span style="color:#d88200">&#34;current&#34;</span><span style="color:#111">)</span>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">202</span>    <span style="color:#75af00">currentAnchor</span><span style="color:#111">().</span><span style="color:#75af00">addClass</span><span style="color:#111">(</span><span style="color:#d88200">&#34;current&#34;</span><span style="color:#111">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">203</span>  <span style="color:#111">})</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">204</span><span style="color:#111">});</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">205</span>
+<span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">206</span><span style="color:#00a8c8">function</span> <span style="color:#75af00">tocItem</span><span style="color:#111">(</span><span style="color:#75af00">anchor</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span><span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">207</span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#d88200">&#34;[href=\&#34;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#75af00">anchor</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;\&#34;]&#34;</span><span style="color:#111">)</span>
+</span><span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">208</span><span style="color:#111">}</span>
+</span><span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">209</span>
+</span><span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">210</span><span style="color:#00a8c8">function</span> <span style="color:#75af00">heading</span><span style="color:#111">(</span><span style="color:#75af00">anchor</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">211</span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">$</span><span style="color:#111">(</span><span style="color:#d88200">&#34;[id=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#75af00">anchor</span><span style="color:#111">.</span><span style="color:#75af00">substr</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;]&#34;</span><span style="color:#111">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">212</span><span style="color:#111">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">213</span></code></pre></div>
 
 <h2 id="python">Python</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ff79c6">import</span> os<span style="color:#ff79c6">,</span> sys
-<span style="color:#ff79c6">from</span> . <span style="color:#ff79c6">import</span> util
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#f92672">import</span> <span style="color:#111">os</span><span style="color:#f92672">,</span> <span style="color:#111">sys</span>
+<span style="color:#f92672">from</span> <span style="color:#111">.</span> <span style="color:#f92672">import</span> <span style="color:#111">util</span>
 
-<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">foo</span>():
-    <span style="color:#ff79c6">for</span> x <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">101</span>):
-	start_index_fizz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
-	f <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;fizz&#34;</span>[start_index_fizz::]
-	start_index_buzz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
-	b <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;buzz&#34;</span>[start_index_buzz::]
-	<span style="color:#ff79c6">print</span> ((f <span style="color:#ff79c6">+</span> b) <span style="color:#ff79c6">or</span> x)</code></pre></div>
+<span style="color:#00a8c8">def</span> <span style="color:#75af00">foo</span><span style="color:#111">():</span>
+    <span style="color:#00a8c8">for</span> <span style="color:#111">x</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">101</span><span style="color:#111">):</span>
+	<span style="color:#111">start_index_fizz</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span><span style="color:#111">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">4</span>
+	<span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;fizz&#34;</span><span style="color:#111">[</span><span style="color:#111">start_index_fizz</span><span style="color:#111">::]</span>
+	<span style="color:#111">start_index_buzz</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">5</span><span style="color:#111">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">4</span>
+	<span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;buzz&#34;</span><span style="color:#111">[</span><span style="color:#111">start_index_buzz</span><span style="color:#111">::]</span>
+	<span style="color:#00a8c8">print</span> <span style="color:#111">((</span><span style="color:#111">f</span> <span style="color:#f92672">+</span> <span style="color:#111">b</span><span style="color:#111">)</span> <span style="color:#f92672">or</span> <span style="color:#111">x</span><span style="color:#111">)</span></code></pre></div>
 <h2 id="go">Go</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// GetTitleFunc returns a func that can be used to transform a string to
-</span><span style="color:#6272a4">// title case.
-</span><span style="color:#6272a4">//
-</span><span style="color:#6272a4">// The supported styles are
-</span><span style="color:#6272a4">//
-</span><span style="color:#6272a4">// - &#34;Go&#34; (strings.Title)
-</span><span style="color:#6272a4">// - &#34;AP&#34; (see https://www.apstylebook.com/)
-</span><span style="color:#6272a4">// - &#34;Chicago&#34; (see http://www.chicagomanualofstyle.org/home.html)
-</span><span style="color:#6272a4">//
-</span><span style="color:#6272a4">// If an unknown or empty style is provided, AP style is what you get.
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> GetTitleFunc(style <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd;font-style:italic">func</span>(s <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
-  <span style="color:#ff79c6">switch</span> strings.ToLower(style) {
-  <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;go&#34;</span>:
-    <span style="color:#ff79c6">return</span> strings.Title
-  <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;chicago&#34;</span>:
-    tc <span style="color:#ff79c6">:=</span> transform.NewTitleConverter(transform.ChicagoStyle)
-    <span style="color:#ff79c6">return</span> tc.Title
-  <span style="color:#ff79c6">default</span>:
-    tc <span style="color:#ff79c6">:=</span> transform.NewTitleConverter(transform.APStyle)
-    <span style="color:#ff79c6">return</span> tc.Title
-  }
-}</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// GetTitleFunc returns a func that can be used to transform a string to
+</span><span style="color:#75715e">// title case.
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// The supported styles are
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// - &#34;Go&#34; (strings.Title)
+</span><span style="color:#75715e">// - &#34;AP&#34; (see https://www.apstylebook.com/)
+</span><span style="color:#75715e">// - &#34;Chicago&#34; (see http://www.chicagomanualofstyle.org/home.html)
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// If an unknown or empty style is provided, AP style is what you get.
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">func</span> <span style="color:#75af00">GetTitleFunc</span><span style="color:#111">(</span><span style="color:#75af00">style</span> <span style="color:#00a8c8">string</span><span style="color:#111">)</span> <span style="color:#00a8c8">func</span><span style="color:#111">(</span><span style="color:#75af00">s</span> <span style="color:#00a8c8">string</span><span style="color:#111">)</span> <span style="color:#00a8c8">string</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">switch</span> <span style="color:#75af00">strings</span><span style="color:#111">.</span><span style="color:#75af00">ToLower</span><span style="color:#111">(</span><span style="color:#75af00">style</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">case</span> <span style="color:#d88200">&#34;go&#34;</span><span style="color:#111">:</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">strings</span><span style="color:#111">.</span><span style="color:#75af00">Title</span>
+  <span style="color:#00a8c8">case</span> <span style="color:#d88200">&#34;chicago&#34;</span><span style="color:#111">:</span>
+    <span style="color:#75af00">tc</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">transform</span><span style="color:#111">.</span><span style="color:#75af00">NewTitleConverter</span><span style="color:#111">(</span><span style="color:#75af00">transform</span><span style="color:#111">.</span><span style="color:#75af00">ChicagoStyle</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">tc</span><span style="color:#111">.</span><span style="color:#75af00">Title</span>
+  <span style="color:#00a8c8">default</span><span style="color:#111">:</span>
+    <span style="color:#75af00">tc</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">transform</span><span style="color:#111">.</span><span style="color:#75af00">NewTitleConverter</span><span style="color:#111">(</span><span style="color:#75af00">transform</span><span style="color:#111">.</span><span style="color:#75af00">APStyle</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">tc</span><span style="color:#111">.</span><span style="color:#75af00">Title</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div>
 <h1 id="table">Table</h1>
 
 <table>
@@ -675,16 +675,16 @@ everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.<
 
 <p>Compare with locally rendered code box using code fence syntax. Left and
 rigtht sides are aligned to the local code box.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ff79c6">import</span> os<span style="color:#ff79c6">,</span> sys
-<span style="color:#ff79c6">from</span> . <span style="color:#ff79c6">import</span> util
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#f92672">import</span> <span style="color:#111">os</span><span style="color:#f92672">,</span> <span style="color:#111">sys</span>
+<span style="color:#f92672">from</span> <span style="color:#111">.</span> <span style="color:#f92672">import</span> <span style="color:#111">util</span>
 
-<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">foo</span>():
-    <span style="color:#ff79c6">for</span> x <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">101</span>):
-	start_index_fizz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
-	f <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;fizz&#34;</span>[start_index_fizz::]
-	start_index_buzz <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">4</span>
-	b <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;buzz&#34;</span>[start_index_buzz::]
-	<span style="color:#ff79c6">print</span> ((f <span style="color:#ff79c6">+</span> b) <span style="color:#ff79c6">or</span> x)</code></pre></div>
+<span style="color:#00a8c8">def</span> <span style="color:#75af00">foo</span><span style="color:#111">():</span>
+    <span style="color:#00a8c8">for</span> <span style="color:#111">x</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">101</span><span style="color:#111">):</span>
+	<span style="color:#111">start_index_fizz</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span><span style="color:#111">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">4</span>
+	<span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;fizz&#34;</span><span style="color:#111">[</span><span style="color:#111">start_index_fizz</span><span style="color:#111">::]</span>
+	<span style="color:#111">start_index_buzz</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">5</span><span style="color:#111">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">4</span>
+	<span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;buzz&#34;</span><span style="color:#111">[</span><span style="color:#111">start_index_buzz</span><span style="color:#111">::]</span>
+	<span style="color:#00a8c8">print</span> <span style="color:#111">((</span><span style="color:#111">f</span> <span style="color:#f92672">+</span> <span style="color:#111">b</span><span style="color:#111">)</span> <span style="color:#f92672">or</span> <span style="color:#111">x</span><span style="color:#111">)</span></code></pre></div>
 <h2 id="jsfiddle-code">JSFiddle code</h2>
 
 <p>Left and rigtht sides are aligned to the local code box.</p>

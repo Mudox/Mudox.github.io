@@ -56,12 +56,13 @@ Neovim + Tmux + iTerm2 provides the &amp;ldquo;IDE&amp;rdquo; environment.</desc
       <pubDate>Tue, 17 Apr 2018 22:09:38 +0800</pubDate>
       
       <guid>http://mudox.github.io/post/site-building---howtos/</guid>
-      <description>Uncategorised 2018-08 How control word casing?
+      <description>Uncategorised 2018-08 How to express {{&amp;lt; highlight &amp;gt;}}?
+Write &amp;lt;code&amp;gt;{{&amp;amp;lt; highlight &amp;amp;gt;}}&amp;lt;/code&amp;gt;.
+How control word casing?
 Use text-transform: [capitalize|uppercase|lowercase|...] to control text casing. Better render the text in all lowercase from template.
 The text-transform property should be applied to the immediate containing element the text.
 How to style a &amp;lt;hr&amp;gt;
-The horizontal ruler element is just a ordinary block element with no inner content (text). By default, their border-bottom is styled in be a 1px solid black line.
-How to controls indentation of &amp;lt;ul&amp;gt;, &amp;lt;ol&amp;gt; lists?</description>
+The horizontal ruler element is just a ordinary block element with no inner content (text). By default, their border-bottom is styled in be a 1px solid black line.</description>
     </item>
     
     <item>
@@ -70,10 +71,10 @@ How to controls indentation of &amp;lt;ul&amp;gt;, &amp;lt;ol&amp;gt; lists?</de
       <pubDate>Thu, 05 Apr 2018 22:09:44 +0800</pubDate>
       
       <guid>http://mudox.github.io/post/site-building---issues/</guid>
-      <description>Uncategorised 2018-08 Live reloading does not bring the latest change to browser?
-Google Chrome -&amp;gt; open Devtools window -&amp;gt; click Network tab -&amp;gt; check Disable cache box. Keep the window open during the testing.
-Sometime only the currently opened page got latest change to (e.g. css, js files &amp;hellip;), if I jump to other pages, reloading page or clear the browser cache does not work.
-Rerun the hugo server command with --gc --cleanDestinationDir=true switch.</description>
+      <description>Uncategorised 2018-08 When using Hugo shortcode highlight to generate code blocks, there always a trailing empty line?
+Dedent the ending {{&amp;lt; / highlight &amp;gt;}} to make sure there is no whitespace in the head of the line.
+Live reloading does not bring the latest change to browser?
+Google Chrome -&amp;gt; open Devtools window -&amp;gt; click Network tab -&amp;gt; check Disable cache box. Keep the window open during the testing.</description>
     </item>
     
   </channel>
