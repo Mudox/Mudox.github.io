@@ -49,7 +49,7 @@ of operators here have distinct use cases of their own.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.c3d12ca577473fe3d308c46a2a15fe3d74fdf3edb2e759da736c7d16074f2c97.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.28f550588ca101fd94b6b4d72f78661032c3bc754fd899a506ea778fdbc41b0f.css">
 
 
 
@@ -287,26 +287,26 @@ of operators here have distinct use cases of their own.
 <ul>
 <li><a href="#create-sequences-programmatically">Create Sequences Programmatically</a>
 <ul>
-<li><a href="#observable-create">Observable.create</a></li>
-<li><a href="#observable-deferred">Observable.deferred</a></li>
+<li><a href="#create">.create</a></li>
+<li><a href="#deferred">.deferred</a></li>
 </ul></li>
 <li><a href="#the-3-special-convenient-operators">The 3 Special Convenient Operators</a>
 <ul>
-<li><a href="#observable-error">Observable.error</a></li>
-<li><a href="#observable-empty">Observable.empty</a></li>
-<li><a href="#observable-never">Observable.never</a></li>
+<li><a href="#error">.error</a></li>
+<li><a href="#empty">.empty</a></li>
+<li><a href="#never">.never</a></li>
 </ul></li>
 <li><a href="#create-from-listed-elements">Create From Listed Elements</a>
 <ul>
-<li><a href="#observable-just">Observable.just</a></li>
-<li><a href="#observable-from">Observable.from</a></li>
-<li><a href="#observable-of">Observable.of</a></li>
+<li><a href="#just">.just</a></li>
+<li><a href="#from-and-of">.from and .of</a></li>
+<li><a href="#from-optional">.from(optional:)</a></li>
 </ul></li>
 <li><a href="#turn-swift-sequences-into-observable-sequences">Turn Swift Sequences Into Observable Sequences</a>
 <ul>
-<li><a href="#observable-range">Observable.range</a></li>
-<li><a href="#observable-repeatelement">Observable.repeatElement</a></li>
-<li><a href="#observable-generate">Observable.generate</a></li>
+<li><a href="#range">.range</a></li>
+<li><a href="#repeatelement">.repeatElement</a></li>
+<li><a href="#generate">.generate</a></li>
 </ul></li>
 <li><a href="#one-way-more-use-subjects-to-create-observable">One Way More - Use Subjects To Create Observable</a></li>
 </ul>
@@ -345,43 +345,174 @@ of operators here have distinct use cases of their own.
 
 <h1 id="create-sequences-programmatically">Create Sequences Programmatically</h1>
 
-<h2 id="observable-create">Observable.create</h2>
+<p>Although the RxSwift framework, combined with RxCocoa, provides a bunch of
+common and qualified predefined observables, the 2 operators in the this
+section provides the most fundamental yet flexible way to get a observable.</p>
 
-<p>This is the most fundamental yet flexible way to create a sequence.</p>
+<h2 id="create">.create</h2>
 
 <p>You bury into the parameter block the sequence emitting blueprint as well as
 necessary sequence tear-down details, then on subscription the sequence gets
 spawned as whatever you designed.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"></code></pre></div>
-<h2 id="observable-deferred">Observable.deferred</h2>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">let</span> <span style="color:#111">seq</span> <span style="color:#111">=</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">Int</span><span style="color:#f92672">&gt;</span><span style="color:#111">.</span><span style="color:#111">create</span> <span style="color:#111">{</span> <span style="color:#111">observer</span> <span style="color:#00a8c8">in</span>
+  <span style="color:#111">...</span>
+  <span style="color:#111">observer</span><span style="color:#111">.</span><span style="color:#111">on</span><span style="color:#111">(.</span><span style="color:#111">next</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">))</span>
+  <span style="color:#111">...</span>
+  <span style="color:#111">observer</span><span style="color:#111">.</span><span style="color:#111">onNext</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span>
+  <span style="color:#111">...</span>
+  <span style="color:#111">observer</span><span style="color:#111">.</span><span style="color:#111">onError</span><span style="color:#111">(</span><span style="color:#111">Error</span><span style="color:#111">.</span><span style="color:#111">someError</span><span style="color:#111">)</span>
+  <span style="color:#75715e">// Or</span>
+  <span style="color:#111">observer</span><span style="color:#111">.</span><span style="color:#111">onCompleted</span><span style="color:#111">()</span>
 
+  <span style="color:#75715e">// Do nothing in cleanup</span>
+  <span style="color:#00a8c8">return</span> <span style="color:#111">Disposables</span><span style="color:#111">.</span><span style="color:#111">create</span><span style="color:#111">()</span>
+  <span style="color:#75715e">// Or do something in cleanup</span>
+  <span style="color:#00a8c8">return</span> <span style="color:#111">Disposables</span><span style="color:#111">.</span><span style="color:#111">create</span> <span style="color:#111">{</span> <span style="color:#111">...</span> <span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div>
+<h2 id="deferred">.deferred</h2>
+
+<p>Before a sequence created by <code>Observable&lt;T&gt;.create</code> starts emitting elements,
+there are 2 relevant stages for it:</p>
+
+<ol>
+<li><p><strong>Creation Time</strong> is when the <code>.create</code> operator is invoked.</p></li>
+
+<li><p><strong>Subscription Time</strong> is when the <code>.subscribe</code> method is invoked.</p></li>
+</ol>
+
+<p>The block parameter of <code>.create</code> operator stores a time sequence chart of the
+sequence&rsquo;s event emitting. But it is fixed at the time of creation through this
+operator.</p>
+
+<p><code>.deferred</code> delay sequence shape determination from creation time to
+subscription time. The block passed to it simply return a <code>Observable</code>, so you
+can delay your determination of what the sequence should be till the last
+moment before element emitting.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">let</span> <span style="color:#111">seq</span> <span style="color:#111">=</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">Int</span><span style="color:#f92672">&gt;</span><span style="color:#111">.</span><span style="color:#111">deferred</span> <span style="color:#111">{</span> <span style="color:#111">()</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">Int</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
+  <span style="color:#00a8c8">switch</span> <span style="color:#111">someRuntimeEnvironment</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">case</span> <span style="color:#111">.</span><span style="color:#111">foo</span><span style="color:#111">:</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">makeObservableA</span><span style="color:#111">()</span>
+  <span style="color:#00a8c8">case</span> <span style="color:#111">.</span><span style="color:#111">hoo</span><span style="color:#111">:</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">makeObservableB</span><span style="color:#111">()</span>
+  <span style="color:#00a8c8">default</span><span style="color:#111">:</span>
+    <span style="color:#00a8c8">throw</span> <span style="color:#111">someError</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div>
 <h1 id="the-3-special-convenient-operators">The 3 Special Convenient Operators</h1>
 
-<h2 id="observable-error">Observable.error</h2>
+<h2 id="error">.error</h2>
 
-<h2 id="observable-empty">Observable.empty</h2>
+<p><code>Observable&lt;T&gt;.error(someError)</code> it creates a sequence emitting no element, on
+subscription it emits the given error object then terminates.</p>
 
-<h2 id="observable-never">Observable.never</h2>
+<p>It is commonly used in those operator block parameters which returns a new
+observable as its result. By <code>return .error(someError)</code>, the outer sequence
+usually gets terminated by the error object.</p>
+
+<h2 id="empty">.empty</h2>
+
+<p><code>Observable&lt;T&gt;.empty()</code> it creates a sequence emitting no element, it completes
+(by emitting <code>.completed</code> event) immediately on subscription.</p>
+
+<p>Terminate a sequence silently (without by emitting an error) making the source
+sequence never errors out, just complete silently which is useful in merging
+scenarios.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#111">seq</span><span style="color:#111">.</span><span style="color:#111">catchError</span> <span style="color:#111">{</span> <span style="color:#00a8c8">_</span> <span style="color:#00a8c8">in</span> <span style="color:#00a8c8">return</span> <span style="color:#111">.</span><span style="color:#111">empty</span><span style="color:#111">()</span> <span style="color:#111">}</span></code></pre></div>
+<p>Combine with <code>flatMap</code> to <strong>filter out</strong> some element from source sequence.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#111">seq</span><span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">value</span> <span style="color:#00a8c8">in</span>
+  <span style="color:#00a8c8">if</span> <span style="color:#111">needToFilter</span><span style="color:#111">(</span><span style="color:#111">value</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">.</span><span style="color:#111">empty</span><span style="color:#111">()</span>
+  <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">.</span><span style="color:#111">just</span><span style="color:#111">(</span><span style="color:#111">value</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div>
+<p>It achieves the same effect as the <code>filter</code> operator, but the later is
+optimized.</p>
+
+<h2 id="never">.never</h2>
+
+<p><code>Observable&lt;T&gt;.never()</code> it creates a sequence that emits nothing, and never
+complete by itself. Hence the only way to terminate the sequence is by
+explicitly calling <code>dispose()</code> method of the <code>Disposable</code> instance returned
+from its subscription.</p>
 
 <h1 id="create-from-listed-elements">Create From Listed Elements</h1>
 
-<h2 id="observable-just">Observable.just</h2>
+<h2 id="just">.just</h2>
 
-<h2 id="observable-from">Observable.from</h2>
+<p>Create a sequence containing only one element (the paramter) which is emitted
+immediately on subscription.</p>
 
-<h2 id="observable-of">Observable.of</h2>
+<p>Used to start a chain of steps</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">let</span> <span style="color:#111">imageURL</span> <span style="color:#111">=</span> <span style="color:#111">URL</span><span style="color:#111">(</span><span style="color:#111">string</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;...&#34;</span><span style="color:#111">)</span>
+<span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">URL</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#111">.</span><span style="color:#111">just</span><span style="color:#111">(</span><span style="color:#111">imageURL</span><span style="color:#111">)</span>
+  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">url</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">UIImage</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
+    <span style="color:#75715e">// Download</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">downloadImage</span><span style="color:#111">(</span><span style="color:#111">url</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span>
+  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">image</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">UIImage</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
+    <span style="color:#75715e">// Process image</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">processImage</span><span style="color:#111">(</span><span style="color:#111">image</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span>
+  <span style="color:#111">...</span></code></pre></div>
+<h2 id="from-and-of">.from and .of</h2>
+
+<p>Create an observable sequence from a array of elements.</p>
+
+<p>Combine with merging operators to fire multiple sequence.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">T</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#111">.</span><span style="color:#111">from</span><span style="color:#111">([</span><span style="color:#111">url_1</span><span style="color:#111">,</span> <span style="color:#111">url_2</span><span style="color:#111">,</span> <span style="color:#111">...,</span> <span style="color:#111">url_n</span><span style="color:#111">])</span>
+  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">url</span> <span style="color:#00a8c8">in</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">request</span><span style="color:#111">(</span><span style="color:#111">url</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span></code></pre></div>
+<p>The <code>.of</code> operator is the variatic version of <code>.from</code> operator for convenience.</p>
+
+<h2 id="from-optional">.from(optional:)</h2>
+
+<p>It accepts an optional value. If the value is not nil, the sequence acts like
+<code>.just</code> of the wrapped value, otherwise it is equivalent to <code>.empty()</code>. The
+created sequence can be seen as a weakly typed <code>Maybe</code> traits.</p>
+
+<p>It also has a second parameter specifying the scheduler to emits the only
+value.</p>
 
 <h1 id="turn-swift-sequences-into-observable-sequences">Turn Swift Sequences Into Observable Sequences</h1>
 
-<h2 id="observable-range">Observable.range</h2>
+<h2 id="range">.range</h2>
 
 <p>It is equivalent to <code>Observable&lt;T&gt;.from([T](start..&lt;(start + count)))</code></p>
 
-<h2 id="observable-repeatelement">Observable.repeatElement</h2>
+<h2 id="repeatelement">.repeatElement</h2>
 
-<h2 id="observable-generate">Observable.generate</h2>
+<h2 id="generate">.generate</h2>
 
 <h1 id="one-way-more-use-subjects-to-create-observable">One Way More - Use Subjects To Create Observable</h1>
+
+<p>A common way to bridge the traditional Cocoa Touch into reactive world is to
+use a subject to convert the prevalent delegate callbacks into observables.</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">class</span> <span style="color:#75af00">LocationService</span><span style="color:#111">:</span> <span style="color:#111">NSObject</span><span style="color:#111">,</span> <span style="color:#111">CLLocationManagerDelegate</span> <span style="color:#111">{</span>
+
+<span style="display:block;width:100%;background-color:#e1e1e1">  <span style="color:#00a8c8">let</span> <span style="color:#111">visitSubject</span> <span style="color:#111">=</span> <span style="color:#111">BehaviorSubject</span><span style="color:#111">(</span><span style="color:#111">value</span><span style="color:#111">:</span> <span style="color:#111">.</span><span style="color:#00a8c8">init</span><span style="color:#111">())</span>
+</span>
+  <span style="color:#00a8c8">var</span> <span style="color:#111">visits</span><span style="color:#111">:</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">CLVisit</span><span style="color:#f92672">&gt;</span> <span style="color:#111">{</span>
+<span style="display:block;width:100%;background-color:#e1e1e1">    <span style="color:#00a8c8">return</span> <span style="color:#111">locationSubject</span><span style="color:#111">.</span><span style="color:#111">asObservable</span><span style="color:#111">()</span>
+</span>  <span style="color:#111">}</span>
+
+  <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> CLLocationManagerDelegate</span>
+
+  <span style="color:#00a8c8">func</span> <span style="color:#75af00">locationManager</span><span style="color:#111">(</span><span style="color:#00a8c8">_</span> <span style="color:#111">manager</span><span style="color:#111">:</span> <span style="color:#111">CLLocationManager</span><span style="color:#111">,</span> <span style="color:#111">didFailWithError</span> <span style="color:#111">error</span><span style="color:#111">:</span> <span style="color:#111">Error</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+<span style="display:block;width:100%;background-color:#e1e1e1">    <span style="color:#111">visitSubject</span><span style="color:#111">.</span><span style="color:#111">onError</span><span style="color:#111">(</span><span style="color:#111">error</span><span style="color:#111">)</span>
+</span>  <span style="color:#111">}</span>
+
+  <span style="color:#00a8c8">func</span> <span style="color:#75af00">locationManager</span><span style="color:#111">(</span><span style="color:#00a8c8">_</span> <span style="color:#111">manager</span><span style="color:#111">:</span> <span style="color:#111">CLLocationManager</span><span style="color:#111">,</span> <span style="color:#111">didVisit</span> <span style="color:#111">visit</span><span style="color:#111">:</span> <span style="color:#111">CLVisit</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+<span style="display:block;width:100%;background-color:#e1e1e1">    <span style="color:#111">visitSubject</span><span style="color:#111">.</span><span style="color:#111">onNext</span><span style="color:#111">(</span><span style="color:#111">visit</span><span style="color:#111">)</span>
+</span>  <span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div>
+
+<p>After the exposed observable gets subscribed, the backing subject instance is
+<strong>retained</strong> by the sink chain created in memory.</p>
 
             </div>
 
