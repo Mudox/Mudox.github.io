@@ -19,7 +19,7 @@
       
       <guid>http://mudox.github.io/post/rxswift-operators---creation/</guid>
       <description>Create Sequences Programmatically Although the RxSwift framework, combined with RxCocoa, provides a bunch of common and qualified predefined observables, the 2 operators in the this section provides the most fundamental yet flexible way to get a observable.
-.create You bury into the parameter block the sequence emitting blueprint as well as necessary sequence tear-down details, then on subscription the sequence gets spawned as whatever you designed.
++create You bury into the parameter block the sequence emitting blueprint as well as necessary sequence tear-down details, then on subscription the sequence gets spawned as whatever you designed.
 let seq = Observable&amp;lt;Int&amp;gt;.</description>
     </item>
     

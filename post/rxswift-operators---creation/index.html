@@ -49,7 +49,7 @@ of operators here have distinct use cases of their own.
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.28f550588ca101fd94b6b4d72f78661032c3bc754fd899a506ea778fdbc41b0f.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.f250600ae93c75867635bc09340c1b8306e38ae9b00fcf789f04fdcd4e1961b1.css">
 
 
 
@@ -287,28 +287,29 @@ of operators here have distinct use cases of their own.
 <ul>
 <li><a href="#create-sequences-programmatically">Create Sequences Programmatically</a>
 <ul>
-<li><a href="#create">.create</a></li>
-<li><a href="#deferred">.deferred</a></li>
+<li><a href="#create">+create</a></li>
+<li><a href="#deferred">+deferred</a></li>
 </ul></li>
 <li><a href="#the-3-special-convenient-operators">The 3 Special Convenient Operators</a>
 <ul>
-<li><a href="#error">.error</a></li>
-<li><a href="#empty">.empty</a></li>
-<li><a href="#never">.never</a></li>
+<li><a href="#error">+error</a></li>
+<li><a href="#empty">+empty</a></li>
+<li><a href="#never">+never</a></li>
 </ul></li>
 <li><a href="#create-from-listed-elements">Create From Listed Elements</a>
 <ul>
-<li><a href="#just">.just</a></li>
-<li><a href="#from-and-of">.from and .of</a></li>
-<li><a href="#from-optional">.from(optional:)</a></li>
+<li><a href="#just">+just</a></li>
+<li><a href="#once">+once</a></li>
+<li><a href="#from-of">+from, +of</a></li>
+<li><a href="#from-optional">+from(optional:)</a></li>
 </ul></li>
 <li><a href="#turn-swift-sequences-into-observable-sequences">Turn Swift Sequences Into Observable Sequences</a>
 <ul>
-<li><a href="#range">.range</a></li>
-<li><a href="#repeatelement">.repeatElement</a></li>
-<li><a href="#generate">.generate</a></li>
+<li><a href="#range">+range</a></li>
+<li><a href="#repeatelement">+repeatElement</a></li>
+<li><a href="#generate">+generate</a></li>
 </ul></li>
-<li><a href="#one-way-more-use-subjects-to-create-observable">One Way More - Use Subjects To Create Observable</a></li>
+<li><a href="#one-more-way-use-subjects-to-create-observables">One More Way - Use Subjects To Create Observables</a></li>
 </ul>
 </nav>
 
@@ -349,7 +350,7 @@ of operators here have distinct use cases of their own.
 common and qualified predefined observables, the 2 operators in the this
 section provides the most fundamental yet flexible way to get a observable.</p>
 
-<h2 id="create">.create</h2>
+<h2 id="create">+create</h2>
 
 <p>You bury into the parameter block the sequence emitting blueprint as well as
 necessary sequence tear-down details, then on subscription the sequence gets
@@ -369,7 +370,7 @@ spawned as whatever you designed.</p>
   <span style="color:#75715e">// Or do something in cleanup</span>
   <span style="color:#00a8c8">return</span> <span style="color:#111">Disposables</span><span style="color:#111">.</span><span style="color:#111">create</span> <span style="color:#111">{</span> <span style="color:#111">...</span> <span style="color:#111">}</span>
 <span style="color:#111">}</span></code></pre></div>
-<h2 id="deferred">.deferred</h2>
+<h2 id="deferred">+deferred</h2>
 
 <p>Before a sequence created by <code>Observable&lt;T&gt;.create</code> starts emitting elements,
 there are 2 relevant stages for it:</p>
@@ -400,7 +401,7 @@ moment before element emitting.</p>
 <span style="color:#111">}</span></code></pre></div>
 <h1 id="the-3-special-convenient-operators">The 3 Special Convenient Operators</h1>
 
-<h2 id="error">.error</h2>
+<h2 id="error">+error</h2>
 
 <p><code>Observable&lt;T&gt;.error(someError)</code> it creates a sequence emitting no element, on
 subscription it emits the given error object then terminates.</p>
@@ -409,7 +410,7 @@ subscription it emits the given error object then terminates.</p>
 observable as its result. By <code>return .error(someError)</code>, the outer sequence
 usually gets terminated by the error object.</p>
 
-<h2 id="empty">.empty</h2>
+<h2 id="empty">+empty</h2>
 
 <p><code>Observable&lt;T&gt;.empty()</code> it creates a sequence emitting no element, it completes
 (by emitting <code>.completed</code> event) immediately on subscription.</p>
@@ -429,7 +430,7 @@ scenarios.</p>
 <p>It achieves the same effect as the <code>filter</code> operator, but the later is
 optimized.</p>
 
-<h2 id="never">.never</h2>
+<h2 id="never">+never</h2>
 
 <p><code>Observable&lt;T&gt;.never()</code> it creates a sequence that emits nothing, and never
 complete by itself. Hence the only way to terminate the sequence is by
@@ -438,9 +439,9 @@ from its subscription.</p>
 
 <h1 id="create-from-listed-elements">Create From Listed Elements</h1>
 
-<h2 id="just">.just</h2>
+<h2 id="just">+just</h2>
 
-<p>Create a sequence containing only one element (the paramter) which is emitted
+<p>Create a sequence containing only one element (the parameter) which is emitted
 immediately on subscription.</p>
 
 <p>Used to start a chain of steps</p>
@@ -456,38 +457,55 @@ immediately on subscription.</p>
     <span style="color:#00a8c8">return</span> <span style="color:#111">processImage</span><span style="color:#111">(</span><span style="color:#111">image</span><span style="color:#111">)</span>
   <span style="color:#111">}</span>
   <span style="color:#111">...</span></code></pre></div>
-<h2 id="from-and-of">.from and .of</h2>
+<h2 id="once">+once</h2>
+
+<p>This operator is provides by [RxSwiftExt] community project. It is similar to
+the <code>.just</code> operator but the promise that only the first subscriber can receive
+the only element, further subscribers get an empty sequence.</p>
+
+<p>The created sequence acts like a shared sequence with only one element and does
+not replay element.</p>
+
+<h2 id="from-of">+from, +of</h2>
 
 <p>Create an observable sequence from a array of elements.</p>
 
 <p>Combine with merging operators to fire multiple sequence.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">T</span><span style="color:#f92672">&gt;</span>
   <span style="color:#111">.</span><span style="color:#111">from</span><span style="color:#111">([</span><span style="color:#111">url_1</span><span style="color:#111">,</span> <span style="color:#111">url_2</span><span style="color:#111">,</span> <span style="color:#111">...,</span> <span style="color:#111">url_n</span><span style="color:#111">])</span>
-  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">url</span> <span style="color:#00a8c8">in</span>
+  <span style="color:#111">.</span><span style="color:#111">flatMap</span> <span style="color:#111">{</span> <span style="color:#111">url</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">Data</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
     <span style="color:#00a8c8">return</span> <span style="color:#111">request</span><span style="color:#111">(</span><span style="color:#111">url</span><span style="color:#111">)</span>
   <span style="color:#111">}</span></code></pre></div>
-<p>The <code>.of</code> operator is the variatic version of <code>.from</code> operator for convenience.</p>
+<p>A concurrency optimized version using <code>map</code> + <code>merge(maxConcurrency)</code>
+combination:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">T</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#111">.</span><span style="color:#111">from</span><span style="color:#111">([</span><span style="color:#111">url_1</span><span style="color:#111">,</span> <span style="color:#111">url_2</span><span style="color:#111">,</span> <span style="color:#111">...,</span> <span style="color:#111">url_n</span><span style="color:#111">])</span>
+  <span style="color:#111">.</span><span style="color:#111">map</span> <span style="color:#111">{</span> <span style="color:#111">url</span> <span style="color:#111">-&gt;</span> <span style="color:#111">Observable</span><span style="color:#111">&lt;</span><span style="color:#111">Data</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">in</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">request</span><span style="color:#111">(</span><span style="color:#111">url</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span>
+  <span style="color:#111">.</span><span style="color:#111">merge</span><span style="color:#111">(</span><span style="color:#111">macConcurrency</span><span style="color:#111">:</span> <span style="color:#ae81ff">4</span><span style="color:#111">)</span></code></pre></div>
+<p>The <strong>of</strong> operator is the variatic version of <code>.from</code> operator for convenience.</p>
 
-<h2 id="from-optional">.from(optional:)</h2>
+<h2 id="from-optional">+from(optional:)</h2>
 
 <p>It accepts an optional value. If the value is not nil, the sequence acts like
 <code>.just</code> of the wrapped value, otherwise it is equivalent to <code>.empty()</code>. The
 created sequence can be seen as a weakly typed <code>Maybe</code> traits.</p>
 
-<p>It also has a second parameter specifying the scheduler to emits the only
-value.</p>
+<p>It also has a second (optional) parameter specifying the scheduler to emits the
+only value.</p>
 
 <h1 id="turn-swift-sequences-into-observable-sequences">Turn Swift Sequences Into Observable Sequences</h1>
 
-<h2 id="range">.range</h2>
+<h2 id="range">+range</h2>
 
 <p>It is equivalent to <code>Observable&lt;T&gt;.from([T](start..&lt;(start + count)))</code></p>
 
-<h2 id="repeatelement">.repeatElement</h2>
+<h2 id="repeatelement">+repeatElement</h2>
 
-<h2 id="generate">.generate</h2>
+<h2 id="generate">+generate</h2>
 
-<h1 id="one-way-more-use-subjects-to-create-observable">One Way More - Use Subjects To Create Observable</h1>
+<h1 id="one-more-way-use-subjects-to-create-observables">One More Way - Use Subjects To Create Observables</h1>
 
 <p>A common way to bridge the traditional Cocoa Touch into reactive world is to
 use a subject to convert the prevalent delegate callbacks into observables.</p>
