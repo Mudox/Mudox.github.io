@@ -8,8 +8,7 @@
 
 
     
-        <meta property="description" content="Reuqirement: Crosss fade in the SEE ALSO menu when srolling up, cross fade in MENU
-list whne scolling down.
+        <meta property="description" content="Collects issues and solutinon I came across when developing in Xcode.
 ">
     
 
@@ -23,9 +22,9 @@ list whne scolling down.
 
 
     
-        <title>Alternating Sidebar Menu - Mudox</title>
+        <title>iOS Dev Issues - Mudox</title>
     
-    <meta property="og:title" content="Alternating Sidebar Menu - Mudox">
+    <meta property="og:title" content="iOS Dev Issues - Mudox">
 
 
 
@@ -142,15 +141,7 @@ list whne scolling down.
         
         
             <li>
-                <a href="/tags/web">Web</a>
-            </li>
-        
-            <li>
-                <a href="/tags/javascript">JavaScript</a>
-            </li>
-        
-            <li>
-                <a href="/tags/css">CSS</a>
+                <a href="/tags/xcode">Xcode</a>
             </li>
         
     </ul>
@@ -220,26 +211,6 @@ list whne scolling down.
     <section class="related-article-list">
         
 
-    <header>
-        <h2>
-            <span>see also</span>
-            <i class="fas fa-arrow-circle-right fa-fw" data-fa-transform="right-2"></i>
-        </h2>
-    </header>
-    <nav>
-        <ul>
-            
-            <li><a href="/post/my-web-awesome-list/">My Web Awesome List</a></li>
-            
-            <li><a href="/post/site-building---notes/">Site Building - Notes</a></li>
-            
-            <li><a href="/post/site-building---howtos/">Site Building - Howtos</a></li>
-            
-            <li><a href="/post/site-building---issues/">Site Building - Issues</a></li>
-            
-        </ul>
-    </nav>
-
 
     </section>
 
@@ -295,7 +266,7 @@ list whne scolling down.
 
         <nav id="TableOfContents">
 <ul>
-<li><a href="#title">Title</a></li>
+<li><a href="#uncategorized">Uncategorized</a></li>
 </ul>
 </nav>
 
@@ -308,21 +279,20 @@ list whne scolling down.
         <article class="article">
 
             
-            <h1 class="article-title">Alternating Sidebar Menu</h1>
+            <h1 class="article-title">iOS Dev Issues</h1>
 
             
             
                 <time>
                     <span class="article-date">
-                        Updated: 2018-08-02
+                        Updated: 2018-08-25
                     </span>
                 </time>
             
 
             
             
-                <blockquote class='article-summary'>Reuqirement: Crosss fade in the SEE ALSO menu when srolling up, cross fade in MENU
-list whne scolling down.
+                <blockquote class='article-summary'>Collects issues and solutinon I came across when developing in Xcode.
 </blockquote>
             
 
@@ -330,10 +300,36 @@ list whne scolling down.
             <div class="article-body">
                 
 
-<h1 id="title">Title</h1>
+<h1 id="uncategorized">Uncategorized</h1>
 
-<p>Content.</p>
+<p>When try to run app in real device, Xcode alerts:</p>
 
+<blockquote>
+<p>Could not connect to &hellip;</p>
+</blockquote>
+
+<p>Check if airline mode is on, turn off if yes and re-run the app.</p>
+
+<hr />
+
+<p>Use the <code>KeyPath</code> version of KVO after Swift 4, Xcode spits out:</p>
+
+<blockquote>
+<p>fatal error: Could not extract a String from KeyPath Swift.ReferenceWritableKeyPath &hellip;</p>
+</blockquote>
+
+<p>Add <code>@objcMember</code> to the KVO&rsquo;ed class, or add <code>@objc</code> to specific property.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">class</span> <span style="color:#75af00">B</span><span style="color:#111">:</span> <span style="color:#111">NSObject</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">@objc</span> <span style="color:#00a8c8">dynamic</span> <span style="color:#00a8c8">var</span> <span style="color:#111">value</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;a&#34;</span>
+<span style="color:#111">}</span>
+
+<span style="color:#00a8c8">let</span> <span style="color:#111">keyPath</span> <span style="color:#111">=</span> <span style="color:#111">...</span>
+<span style="color:#111">b</span><span style="color:#111">.</span><span style="color:#111">observe</span><span style="color:#111">(</span><span style="color:#111">keyPath</span><span style="color:#111">,</span> <span style="color:#111">options</span><span style="color:#111">:</span> <span style="color:#111">[.</span><span style="color:#111">new</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">old</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">prior</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">initial</span><span style="color:#111">])</span> <span style="color:#111">{</span> <span style="color:#111">value</span><span style="color:#111">,</span> <span style="color:#111">change</span> <span style="color:#00a8c8">in</span>
+  <span style="color:#00a8c8">if</span> <span style="color:#111">change</span><span style="color:#111">.</span><span style="color:#111">kind</span> <span style="color:#111">==</span> <span style="color:#111">.</span><span style="color:#111">setting</span> <span style="color:#111">{</span>
+    <span style="color:#111">dump</span><span style="color:#111">(</span><span style="color:#111">object</span><span style="color:#111">)</span>
+    <span style="color:#111">dump</span><span style="color:#111">(</span><span style="color:#111">change</span><span style="color:#111">)</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div>
             </div>
 
         </article>

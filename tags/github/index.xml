@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Mudox</title>
+    <link>http://mudox.github.io/tags/github/</link>
+    <description>Recent content in Github on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Sep 2018 02:34:27 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GitHub Credential Types</title>
+      <link>http://mudox.github.io/post/github-credential-types/</link>
+      <pubDate>Thu, 06 Sep 2018 02:34:27 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/github-credential-types/</guid>
+      <description>3 Roles OAuth App Owner The one who registered the app as GitHub OAuth app in the New OAuth App page. After the registration, the owner will get a key and secret (a.k.a. client ID and client secret) pair which identifying the registered app in GitHub. Often they are kept on the company&amp;rsquo;s server.
+OAuth App User The app&amp;rsquo;s end users, they need to provide their GitHub account credentials, that is a username+password pair, in order to login to GitHub service.</description>
+    </item>
+    
+  </channel>
+</rss>

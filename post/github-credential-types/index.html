@@ -8,8 +8,11 @@
 
 
     
-        <meta property="description" content="Reuqirement: Crosss fade in the SEE ALSO menu when srolling up, cross fade in MENU
-list whne scolling down.
+        <meta property="description" content="GitHub API provides quite a few endpoints, each of which represents a concrete
+operation that can be requested to perform on GitHub backing database. However
+different operations can only be performed on behalf of different roles, hence
+there are 3 kinds of credentials representing 3 different roles involved in
+GitHub API.
 ">
     
 
@@ -23,9 +26,9 @@ list whne scolling down.
 
 
     
-        <title>Alternating Sidebar Menu - Mudox</title>
+        <title>GitHub Credential Types - Mudox</title>
     
-    <meta property="og:title" content="Alternating Sidebar Menu - Mudox">
+    <meta property="og:title" content="GitHub Credential Types - Mudox">
 
 
 
@@ -142,15 +145,7 @@ list whne scolling down.
         
         
             <li>
-                <a href="/tags/web">Web</a>
-            </li>
-        
-            <li>
-                <a href="/tags/javascript">JavaScript</a>
-            </li>
-        
-            <li>
-                <a href="/tags/css">CSS</a>
+                <a href="/tags/github">GitHub</a>
             </li>
         
     </ul>
@@ -220,26 +215,6 @@ list whne scolling down.
     <section class="related-article-list">
         
 
-    <header>
-        <h2>
-            <span>see also</span>
-            <i class="fas fa-arrow-circle-right fa-fw" data-fa-transform="right-2"></i>
-        </h2>
-    </header>
-    <nav>
-        <ul>
-            
-            <li><a href="/post/my-web-awesome-list/">My Web Awesome List</a></li>
-            
-            <li><a href="/post/site-building---notes/">Site Building - Notes</a></li>
-            
-            <li><a href="/post/site-building---howtos/">Site Building - Howtos</a></li>
-            
-            <li><a href="/post/site-building---issues/">Site Building - Issues</a></li>
-            
-        </ul>
-    </nav>
-
 
     </section>
 
@@ -295,7 +270,11 @@ list whne scolling down.
 
         <nav id="TableOfContents">
 <ul>
-<li><a href="#title">Title</a></li>
+<li><a href="#3-roles">3 Roles</a></li>
+<li><a href="#the-problem-of-username-and-password-credential">The problem of username and password credential</a></li>
+<li><a href="#grants-and-authorizations">Grants And Authorizations</a></li>
+<li><a href="#roles-and-credentials">Roles And Credentials</a></li>
+<li><a href="#example-delete-vs-revoke">Example: Delete vs. Revoke</a></li>
 </ul>
 </nav>
 
@@ -308,21 +287,24 @@ list whne scolling down.
         <article class="article">
 
             
-            <h1 class="article-title">Alternating Sidebar Menu</h1>
+            <h1 class="article-title">GitHub Credential Types</h1>
 
             
             
                 <time>
                     <span class="article-date">
-                        Updated: 2018-08-02
+                        Updated: 2018-09-06
                     </span>
                 </time>
             
 
             
             
-                <blockquote class='article-summary'>Reuqirement: Crosss fade in the SEE ALSO menu when srolling up, cross fade in MENU
-list whne scolling down.
+                <blockquote class='article-summary'>GitHub API provides quite a few endpoints, each of which represents a concrete
+operation that can be requested to perform on GitHub backing database. However
+different operations can only be performed on behalf of different roles, hence
+there are 3 kinds of credentials representing 3 different roles involved in
+GitHub API.
 </blockquote>
             
 
@@ -330,9 +312,100 @@ list whne scolling down.
             <div class="article-body">
                 
 
-<h1 id="title">Title</h1>
+<h1 id="3-roles">3 Roles</h1>
 
-<p>Content.</p>
+<p><strong>OAuth App Owner</strong> The one who registered the app as GitHub OAuth app in the
+<a href="https://github.com/settings/applications/new">New OAuth App page</a>. After the registration, the owner will get a key and
+secret (a.k.a. client ID and client secret) pair which identifying the
+registered app in GitHub. Often they are kept on the company&rsquo;s server.</p>
+
+<p><strong>OAuth App User</strong> The app&rsquo;s end users, they need to provide their GitHub
+account credentials, that is a username+password pair, in order to login to
+GitHub service.</p>
+
+<p><strong>OAuth App</strong> Instead of directly using username+password to request any
+operation from GitHub, GitHub OAuth apps use <a href="https://developer.github.com/v3/oauth_authorizations">GitHub OAuth Authorization API</a>
+to request access tokens and use them to access most part of GitHub resources.</p>
+
+<h1 id="the-problem-of-username-and-password-credential">The problem of username and password credential</h1>
+
+<p><strong>It belongs to user, not the app</strong> The username and password identities a user
+to GitHub while a user may have more than one GitHub OAuth apps, each of which
+should own their own credentials to GitHub.</p>
+
+<p><strong>It is unrestricted</strong> The username and password credential grants app with
+unlimited permissions to access all informations of the user which is overkill
+in most cases. User should be able to specify which area of resources (scopes)
+can be accessed by the given app as well as revoking it.</p>
+
+<p><strong>The 2 factor authentication inconvenience</strong> If user enabled <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">2FA</a> feature,
+each operation would require an extra authorization code. The acquiring of
+authorization code is non-trivial, and the code expires shortly, hence it is
+not fit for most API requesting scenarios.</p>
+
+<h1 id="grants-and-authorizations">Grants And Authorizations</h1>
+
+<p>In GitHub API, a grant represents that a OAuth app is authorized to access a
+user&rsquo;s resources. But a OAuth app can request more than one access tokens to
+access different scopes of a user&rsquo;s resources. Hence a grant contains a group
+of authorizations (each corresponds to an access token).</p>
+
+<p>Each grant represents a combination of user and app.</p>
+
+<p>Each access token represents a combination of user, app and scopes.</p>
+
+<h1 id="roles-and-credentials">Roles And Credentials</h1>
+
+<p>For most of user operations, use access token as credential is enough.</p>
+
+<p>For some authorization related operation (i.e. operations applied to access
+tokens or unrelated to specific app), need to use username and password
+credential type.</p>
+
+<p>Some operation need to be performed by OAuth app owner (on the server side),
+use key and secret as credential.</p>
+
+<table>
+<thead>
+<tr>
+<th align="right">Role</th>
+<th align="left">Authorization Header</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="right">User</td>
+<td align="left">Authorization: Basic base64(username:password)</td>
+</tr>
+
+<tr>
+<td align="right">App Owner</td>
+<td align="left">Authorization: Basic base64(key:secret)</td>
+</tr>
+
+<tr>
+<td align="right">Authorization</td>
+<td align="left">Authorization: Token base64(token)</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="example-delete-vs-revoke">Example: Delete vs. Revoke</h1>
+
+<p>I was confused by these 2 groups of endpoints when I learn the GitHub API
+documentation.</p>
+
+<p>They both accomplish the same task - Invalidating the given authorization /
+grant. The difference is the they require different credential types:</p>
+
+<ul>
+<li><p>The delete endpoints require username and password, which implies these
+endpoints are provided for end users.</p></li>
+
+<li><p>The revoke endpoints require key and secret, which implies these endpoints
+are provided for company servers.</p></li>
+</ul>
 
             </div>
 

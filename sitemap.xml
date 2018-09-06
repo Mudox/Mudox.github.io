@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://mudox.github.io/post/github-credential-types/</loc>
+    <lastmod>2018-09-06T02:34:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/post/ios-dev-issues/</loc>
+    <lastmod>2018-08-25T20:57:08+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/post/rxswift-operators---creation/</loc>
     <lastmod>2018-08-10T16:36:06+08:00</lastmod>
   </url>
@@ -98,6 +108,12 @@
   </url>
   
   <url>
+    <loc>http://mudox.github.io/tags/github/</loc>
+    <lastmod>2018-09-06T02:34:27+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://mudox.github.io/tags/html/</loc>
     <lastmod>2018-08-05T15:48:22+08:00</lastmod>
     <priority>0</priority>
@@ -123,13 +139,13 @@
   
   <url>
     <loc>http://mudox.github.io/</loc>
-    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
+    <lastmod>2018-09-06T02:34:27+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://mudox.github.io/post/</loc>
-    <lastmod>2018-08-10T16:36:06+08:00</lastmod>
+    <lastmod>2018-09-06T02:34:27+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -184,6 +200,12 @@
   <url>
     <loc>http://mudox.github.io/tags/web/</loc>
     <lastmod>2018-08-05T15:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mudox.github.io/tags/xcode/</loc>
+    <lastmod>2018-08-25T20:57:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   

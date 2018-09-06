@@ -6,10 +6,34 @@
     <description>Recent content in Posts on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Aug 2018 16:36:06 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Sep 2018 02:34:27 +0800</lastBuildDate>
     
 	<atom:link href="http://mudox.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitHub Credential Types</title>
+      <link>http://mudox.github.io/post/github-credential-types/</link>
+      <pubDate>Thu, 06 Sep 2018 02:34:27 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/github-credential-types/</guid>
+      <description>3 Roles OAuth App Owner The one who registered the app as GitHub OAuth app in the New OAuth App page. After the registration, the owner will get a key and secret (a.k.a. client ID and client secret) pair which identifying the registered app in GitHub. Often they are kept on the company&amp;rsquo;s server.
+OAuth App User The app&amp;rsquo;s end users, they need to provide their GitHub account credentials, that is a username+password pair, in order to login to GitHub service.</description>
+    </item>
+    
+    <item>
+      <title>iOS Dev Issues</title>
+      <link>http://mudox.github.io/post/ios-dev-issues/</link>
+      <pubDate>Sat, 25 Aug 2018 20:57:08 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/ios-dev-issues/</guid>
+      <description>Uncategorized When try to run app in real device, Xcode alerts:
+ Could not connect to &amp;hellip;
+ Check if airline mode is on, turn off if yes and re-run the app.
+Use the KeyPath version of KVO after Swift 4, Xcode spits out:
+ fatal error: Could not extract a String from KeyPath Swift.ReferenceWritableKeyPath &amp;hellip;
+ Add @objcMember to the KVO&amp;rsquo;ed class, or add @objc to specific property.</description>
+    </item>
     
     <item>
       <title>RxSwift Operators - Creation</title>
