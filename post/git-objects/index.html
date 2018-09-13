@@ -8,7 +8,7 @@
 
 
     
-        <meta property="description" content="Collects issues and solutinon I came across when developing in Xcode.
+        <meta property="description" content="Article has not summary.
 ">
     
 
@@ -22,9 +22,9 @@
 
 
     
-        <title>iOS Dev Issues - Mudox</title>
+        <title>Git Objects - Mudox</title>
     
-    <meta property="og:title" content="iOS Dev Issues - Mudox">
+    <meta property="og:title" content="Git Objects - Mudox">
 
 
 
@@ -48,7 +48,7 @@
 
 
 
-<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.f250600ae93c75867635bc09340c1b8306e38ae9b00fcf789f04fdcd4e1961b1.css">
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.a8e0acfdde8fb4d6bf7be4170457a6eab78589b1d3edd4f332ead677177fd6f0.css">
 
 
 
@@ -141,7 +141,7 @@
         
         
             <li>
-                <a href="/tags/xcode">Xcode</a>
+                <a href="/tags/git">Git</a>
             </li>
         
     </ul>
@@ -187,19 +187,19 @@
     <ul>
         
             <li>
+                <a href="http://mudox.github.io/post/git-objects/">Git Objects</a>
+            </li>
+        
+            <li>
                 <a href="http://mudox.github.io/post/github-credential-types/">GitHub Credential Types</a>
             </li>
         
             <li>
-                <a href="http://mudox.github.io/post/ios-dev-issues/">iOS Dev Issues</a>
+                <a href="http://mudox.github.io/post/ios-dev-qa/">iOS Dev Q&amp;A</a>
             </li>
         
             <li>
                 <a href="http://mudox.github.io/post/rxswift-operators---creation/">RxSwift Operators - Creation</a>
-            </li>
-        
-            <li>
-                <a href="http://mudox.github.io/post/rxswift-operators---error-handling/">RxSwift Operators - Error Handling</a>
             </li>
         
     </ul>
@@ -266,7 +266,14 @@
 
         <nav id="TableOfContents">
 <ul>
-<li><a href="#uncategorized">Uncategorized</a></li>
+<li><a href="#git-object-database">Git Object Database</a></li>
+<li><a href="#4-kinds-of-git-objects">4 Kinds Of Git Objects</a>
+<ul>
+<li><a href="#blob">Blob</a></li>
+<li><a href="#tree">Tree</a></li>
+<li><a href="#commit">Commit</a></li>
+<li><a href="#references">References</a></li>
+</ul></li>
 </ul>
 </nav>
 
@@ -279,20 +286,20 @@
         <article class="article">
 
             
-            <h1 class="article-title">iOS Dev Issues</h1>
+            <h1 class="article-title">Git Objects</h1>
 
             
             
                 <time>
                     <span class="article-date">
-                        Updated: 2018-08-25
+                        Updated: 2018-09-12
                     </span>
                 </time>
             
 
             
             
-                <blockquote class='article-summary'>Collects issues and solutinon I came across when developing in Xcode.
+                <blockquote class='article-summary'>Article has not summary.
 </blockquote>
             
 
@@ -300,36 +307,52 @@
             <div class="article-body">
                 
 
-<h1 id="uncategorized">Uncategorized</h1>
+<h1 id="git-object-database">Git Object Database</h1>
 
-<p>When try to run app in real device, Xcode alerts:</p>
+<p>A git repository is essentially a key-value database, where the value is a git
+object and the key is a SHA-1 value which is is assigned to each value when
+firstly added into the database.</p>
 
-<blockquote>
-<p>Could not connect to &hellip;</p>
-</blockquote>
+<h1 id="4-kinds-of-git-objects">4 Kinds Of Git Objects</h1>
 
-<p>Check if airline mode is on, turn off if yes and re-run the app.</p>
+<p><strong>TL;DR</strong></p>
 
-<hr />
+<ol>
+<li><p>A <strong>tree</strong> (like directories in file systems) as a directory save metadata and
+address (the SHA-1 keys) to contained <strong>blob</strong> objects as well as sub-trees.</p></li>
 
-<p>Use the <code>KeyPath</code> version of KVO after Swift 4, Xcode spits out:</p>
+<li><p>A <strong>commit</strong> references to a root tree object as well as metadata the
+commit. It represents a backed history of the working tree. That is why git
+is called by someone as a file system.</p></li>
 
-<blockquote>
-<p>fatal error: Could not extract a String from KeyPath Swift.ReferenceWritableKeyPath &hellip;</p>
-</blockquote>
+<li><p><strong>Reference</strong> can be seen as the human friendly version of hash keys that
+git provides for user to reference to objects (e.g. commits) with special
+meanings. Using references is like declaring a constant variable in
+programming to store a fixed magic number (the hash values).</p></li>
+</ol>
 
-<p>Add <code>@objcMember</code> to the KVO&rsquo;ed class, or add <code>@objc</code> to specific property.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">class</span> <span style="color:#75af00">B</span><span style="color:#111">:</span> <span style="color:#111">NSObject</span> <span style="color:#111">{</span>
-  <span style="color:#00a8c8">@objc</span> <span style="color:#00a8c8">dynamic</span> <span style="color:#00a8c8">var</span> <span style="color:#111">value</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;a&#34;</span>
-<span style="color:#111">}</span>
+<h2 id="blob">Blob</h2>
 
-<span style="color:#00a8c8">let</span> <span style="color:#111">keyPath</span> <span style="color:#111">=</span> <span style="color:#111">...</span>
-<span style="color:#111">b</span><span style="color:#111">.</span><span style="color:#111">observe</span><span style="color:#111">(</span><span style="color:#111">keyPath</span><span style="color:#111">,</span> <span style="color:#111">options</span><span style="color:#111">:</span> <span style="color:#111">[.</span><span style="color:#111">new</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">old</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">prior</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">initial</span><span style="color:#111">])</span> <span style="color:#111">{</span> <span style="color:#111">value</span><span style="color:#111">,</span> <span style="color:#111">change</span> <span style="color:#00a8c8">in</span>
-  <span style="color:#00a8c8">if</span> <span style="color:#111">change</span><span style="color:#111">.</span><span style="color:#111">kind</span> <span style="color:#111">==</span> <span style="color:#111">.</span><span style="color:#111">setting</span> <span style="color:#111">{</span>
-    <span style="color:#111">dump</span><span style="color:#111">(</span><span style="color:#111">object</span><span style="color:#111">)</span>
-    <span style="color:#111">dump</span><span style="color:#111">(</span><span style="color:#111">change</span><span style="color:#111">)</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">}</span></code></pre></div>
+<p>All files (no matter what format it has) you submit to git are stored as blobs
+(binary large object 数据对象).</p>
+
+<p>They all reside under <code>&lt;your repo&gt;/.git/objects/</code>. Take the path
+<code>&lt;yourrepo&gt;/.git/objects/fe/287a3e58d3d65a47e82f521b11df80ed2e540f</code> for
+example, the <code>/fe/</code> directory represents the first 2 hash digits of all blobs
+stored under this folder, the <code>287a3e58d3d65a47e82f521b11df80ed2e540f</code> is the
+blob hash value (with the prefixing 2 digits <code>fe</code> stripped off).</p>
+
+<p>Use the <code>git hash-object</code> plumbing command to pack files into blobs as well as
+assigning a SHA-1 value as the key, then add the key-value pairs into database.</p>
+
+<p>The blobs can be inspected by the <code>git cat-file</code> plumbing command.</p>
+
+<h2 id="tree">Tree</h2>
+
+<h2 id="commit">Commit</h2>
+
+<h2 id="references">References</h2>
+
             </div>
 
         </article>

@@ -6,9 +6,20 @@
     <description>Recent content on Mudox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Sep 2018 02:34:27 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Sep 2018 16:10:16 +0800</lastBuildDate>
     
         <atom:link href="http://mudox.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>Git Objects</title>
+      <link>http://mudox.github.io/post/git-objects/</link>
+      <pubDate>Wed, 12 Sep 2018 16:10:16 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/git-objects/</guid>
+      <description>Git Object Database A git repository is essentially a key-value database, where the value is a git object and the key is a SHA-1 value which is is assigned to each value when firstly added into the database. 4 Kinds Of Git Objects TL;DR A tree (like directories in file systems) as a directory save metadata and address (the SHA-1 keys) to contained blob objects as well as sub-trees. A</description>
+    </item>
     
     
     
@@ -25,17 +36,15 @@ OAuth App User The app&amp;rsquo;s end users, they need to provide their GitHub 
     
     
     <item>
-      <title>iOS Dev Issues</title>
-      <link>http://mudox.github.io/post/ios-dev-issues/</link>
+      <title>iOS Dev Q&amp;A</title>
+      <link>http://mudox.github.io/post/ios-dev-qa/</link>
       <pubDate>Sat, 25 Aug 2018 20:57:08 +0800</pubDate>
       
-      <guid>http://mudox.github.io/post/ios-dev-issues/</guid>
-      <description>Uncategorized When try to run app in real device, Xcode alerts:
- Could not connect to &amp;hellip;
- Check if airline mode is on, turn off if yes and re-run the app.
-Use the KeyPath version of KVO after Swift 4, Xcode spits out:
- fatal error: Could not extract a String from KeyPath Swift.ReferenceWritableKeyPath &amp;hellip;
- Add @objcMember to the KVO&amp;rsquo;ed class, or add @objc to specific property.</description>
+      <guid>http://mudox.github.io/post/ios-dev-qa/</guid>
+      <description>Uncategorized Mix String and NSString in NSRegularExpression methods is error prone.
+String use UTF8 coding (it see characters with variable lengths) while NSString uses UTF16 behind (it sees characters all occupying 2 bytes).
+For example, an emoji character counts as 2 UTF16 code points in NSString, but count as 1 Unicode EGC (Extended Grapheme Cluster)code point in String.
+let s = &amp;#34;🌹&amp;#34; s.count // 1 let ss = s as NSString ss.</description>
     </item>
     
     

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    
+        <meta property="description" content="Collects issues and solution I came across when developing in Xcode.
+">
+    
+
+    
+
+
+<meta name="generator" content="Hugo 0.48" />
+
+
+
+
+
+    
+        <title>iOS Dev Q&amp;A - Mudox</title>
+    
+    <meta property="og:title" content="iOS Dev Q&amp;A - Mudox">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.jpg">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/normalize.css">
+
+
+
+<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="/css/fonts.css">
+
+
+
+<link rel="stylesheet" href="http://mudox.github.io/scss/main.min.a8e0acfdde8fb4d6bf7be4170457a6eab78589b1d3edd4f332ead677177fd6f0.css">
+
+
+
+
+
+
+<script src='/js/jquery-3.3.1.js'></script>
+
+<script src='/js/toc.js'></script>
+<script src='/js/nav.js'></script>
+
+
+
+
+
+
+</head>
+
+<body>
+    <div class="frame">
+
+        <header class="frame-header">
+            <nav class="top-navbar">
+
+    
+
+    <section class="top-navbar-left">
+        <a href="http://mudox.github.io/">
+            <img class="site-logo" src="http://mudox.github.io//images/logo.png">
+        </a>
+        <a href="http://mudox.github.io/">
+            <h1 class="site-title">MUDOX</h1>
+        </a>
+    </section>
+
+    
+
+    <section class="top-navbar-right">
+        <ul>
+            
+            <li>
+                <a href="/tags">
+                    
+                    <span>TAGS</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/my-projects">
+                    
+                    <span>PROJECTS</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/resume">
+                    
+                    <span>RESUME</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/mudox">
+                    <i class='fab fa-github' data-fa-transform='grow-12 up-2'></i>
+                    <span></span>
+                </a>
+            </li>
+            
+        </ul>
+    </section>
+
+</nav>
+
+        </header>
+
+        <div class="main-frame">
+            
+
+    <aside class="left-sidebar">
+        <section class="article-tag-list">
+    <header>
+    <h2>
+        <span>tags</span>
+        <i class="fas fa-tag fa-fw" data-fa-transform="shrink-0.5 right-2">
+        </i>
+    </h2>
+</header>
+<nav>
+    <ul>
+        
+        
+            <li>
+                <a href="/tags/xcode">Xcode</a>
+            </li>
+        
+    </ul>
+</nav>
+
+</section>
+
+<section class="pinned-article-list">
+    <header>
+    <h2>
+        <span>pinned</span>
+        <i class="fas fa-thumbtack fa-fw" data-fa-transform="rotate-45 grow-2 right-2"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
+        
+            <li>
+                <a href="http://mudox.github.io/post/site-building---notes/">Site Building - Notes</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/unburden-view-controller/">Unburden View Controller</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/theme-demo/">Theme Demo</a>
+            </li>
+        
+    </ul>
+</nav>
+
+</section>
+
+<section class="updated-article-list">
+    <header>
+    <h2>
+        <span>updated</span>
+        <i class="fas fa-calendar-alt fa-fw" data-fa-transform="right-2"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
+        
+            <li>
+                <a href="http://mudox.github.io/post/git-objects/">Git Objects</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/github-credential-types/">GitHub Credential Types</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/ios-dev-qa/">iOS Dev Q&amp;A</a>
+            </li>
+        
+            <li>
+                <a href="http://mudox.github.io/post/rxswift-operators---creation/">RxSwift Operators - Creation</a>
+            </li>
+        
+    </ul>
+</nav>
+
+</section>
+
+<section class="stage1">
+    <section class="related-article-list">
+        
+
+
+    </section>
+
+    <section class="sidebar-menu">
+        <header>
+    <h2>
+        <span>menu</span>
+        <i class="fas fa-home fa-fw" data-fa-transform="right-2"></i>
+    </h2>
+</header>
+<nav>
+    <ul>
+        <li>
+            <a href="/">
+            Home
+        </a>
+        </li>
+        
+            <li>
+                <a href="/tags">Tags</a>
+            </li>
+        
+            <li>
+                <a href="/my-projects">Projects</a>
+            </li>
+        
+            <li>
+                <a href="/resume">Resume</a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/mudox"></a>
+            </li>
+        
+    </ul>
+</nav>
+
+    </section>
+</section>
+
+    </aside>
+
+    <aside class="right-sidebar">
+         
+    <section>
+
+        <header>
+            <h2>
+                <i class="fas fa-list fa-fw" data-fa-transform="left-1"></i>
+                <span>contents</span>
+            </h2>
+        </header>
+
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+<li><a href="#xcode">Xcode</a></li>
+</ul>
+</nav>
+
+    </section>
+
+
+    </aside>
+
+    <main class="content" role="main">
+        <article class="article">
+
+            
+            <h1 class="article-title">iOS Dev Q&amp;A</h1>
+
+            
+            
+                <time>
+                    <span class="article-date">
+                        Updated: 2018-08-25
+                    </span>
+                </time>
+            
+
+            
+            
+                <blockquote class='article-summary'>Collects issues and solution I came across when developing in Xcode.
+</blockquote>
+            
+
+            
+            <div class="article-body">
+                
+
+<h1 id="uncategorized">Uncategorized</h1>
+
+<p>Mix <code>String</code> and <code>NSString</code> in <code>NSRegularExpression</code> methods is error prone.</p>
+
+<p><code>String</code> use <strong>UTF8</strong> coding (it see characters with variable lengths) while
+<code>NSString</code> uses <strong>UTF16</strong>  behind (it sees characters all occupying 2 bytes).</p>
+
+<p>For example, an emoji character counts as 2 UTF16 code points in <code>NSString</code>, but
+count as 1 Unicode EGC (Extended Grapheme Cluster)code point in <code>String</code>.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">let</span> <span style="color:#111">s</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;🌹&#34;</span>
+<span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#111">count</span>        <span style="color:#75715e">// 1</span>
+
+<span style="color:#00a8c8">let</span> <span style="color:#111">ss</span> <span style="color:#111">=</span> <span style="color:#111">s</span> <span style="color:#00a8c8">as</span> <span style="color:#111">NSString</span>
+<span style="color:#111">ss</span><span style="color:#111">.</span><span style="color:#111">length</span>      <span style="color:#75715e">// 2</span></code></pre></div>
+<p>Hence when matching</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#00a8c8">let</span> <span style="color:#111">text</span><span style="color:#111">:</span> <span style="color:#111">String</span> <span style="color:#111">=</span> <span style="color:#111">...</span>
+
+<span style="color:#00a8c8">let</span> <span style="color:#111">regex</span> <span style="color:#111">=</span> <span style="color:#111">...</span>
+
+<span style="color:#00a8c8">let</span> <span style="color:#111">msgMatch</span> <span style="color:#111">=</span> <span style="color:#111">msgRegex</span><span style="color:#111">.</span><span style="color:#111">firstMatch</span><span style="color:#111">(</span>
+  <span style="color:#00a8c8">in</span><span style="color:#111">:</span> <span style="color:#111">newText</span><span style="color:#111">,</span>
+  <span style="color:#111">options</span><span style="color:#111">:</span> <span style="color:#111">[],</span>
+  <span style="color:#111">range</span><span style="color:#111">:</span> <span style="color:#111">NSMakeRange</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#111">text</span><span style="color:#111">.</span><span style="color:#111">length</span><span style="color:#111">)</span>                  <span style="color:#75715e">// WRONG</span>
+  <span style="color:#111">range</span><span style="color:#111">:</span> <span style="color:#111">NSMakeRange</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#111">text</span> <span style="color:#00a8c8">as</span> <span style="color:#111">NSString</span><span style="color:#111">).</span><span style="color:#111">length</span><span style="color:#111">)</span>    <span style="color:#75715e">// RIGHT</span>
+<span style="color:#111">)</span><span style="color:#f92672">!</span>
+
+<span style="color:#75715e">// WRONG</span>
+<span style="color:#00a8c8">let</span> <span style="color:#111">captured</span> <span style="color:#111">=</span> <span style="color:#111">text</span><span style="color:#111">.</span><span style="color:#111">substring</span><span style="color:#111">(</span><span style="color:#111">with</span><span style="color:#111">:</span> <span style="color:#111">msgMatch</span><span style="color:#111">.</span><span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">at</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">))</span>
+<span style="color:#75715e">// RIGHT</span>
+<span style="color:#00a8c8">let</span> <span style="color:#111">captured</span> <span style="color:#111">=</span> <span style="color:#111">(</span><span style="color:#111">text</span> <span style="color:#00a8c8">as</span> <span style="color:#111">NSString</span><span style="color:#111">).</span><span style="color:#111">substring</span><span style="color:#111">(</span><span style="color:#111">with</span><span style="color:#111">:</span> <span style="color:#111">msgMatch</span><span style="color:#111">.</span><span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">at</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">))</span></code></pre></div>
+<p>About <code>Swift.Range</code> and <code>NSRange</code> see this
+<a href="https://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index">SO</a>
+article.</p>
+
+<hr />
+
+<p>Use the <code>KeyPath</code> version of KVO after Swift 4, Xcode panics with:</p>
+
+<blockquote>
+<p>fatal error: Could not extract a String from KeyPath Swift.ReferenceWritableKeyPath &hellip;</p>
+</blockquote>
+
+<p>Add <code>@objcMember</code> to the KVO&rsquo;ed class, or add <code>@objc</code> to KVO&rsquo;ed property.</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span><span style="color:#00a8c8">class</span> <span style="color:#75af00">B</span><span style="color:#111">:</span> <span style="color:#111">NSObject</span> <span style="color:#111">{</span>
+<span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span>  <span style="color:#00a8c8">@objc</span> <span style="color:#00a8c8">dynamic</span> <span style="color:#00a8c8">var</span> <span style="color:#111">value</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;a&#34;</span>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span><span style="color:#111">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span><span style="color:#00a8c8">let</span> <span style="color:#111">keyPath</span> <span style="color:#111">=</span> <span style="color:#111">...</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span><span style="color:#111">b</span><span style="color:#111">.</span><span style="color:#111">observe</span><span style="color:#111">(</span><span style="color:#111">keyPath</span><span style="color:#111">,</span> <span style="color:#111">options</span><span style="color:#111">:</span> <span style="color:#111">[.</span><span style="color:#111">new</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">old</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">prior</span><span style="color:#111">,</span> <span style="color:#111">.</span><span style="color:#111">initial</span><span style="color:#111">])</span> <span style="color:#111">{</span> <span style="color:#111">value</span><span style="color:#111">,</span> <span style="color:#111">change</span> <span style="color:#00a8c8">in</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span>  <span style="color:#00a8c8">if</span> <span style="color:#111">change</span><span style="color:#111">.</span><span style="color:#111">kind</span> <span style="color:#111">==</span> <span style="color:#111">.</span><span style="color:#111">setting</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span>    <span style="color:#111">dump</span><span style="color:#111">(</span><span style="color:#111">object</span><span style="color:#111">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span>    <span style="color:#111">dump</span><span style="color:#111">(</span><span style="color:#111">change</span><span style="color:#111">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span>  <span style="color:#111">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span><span style="color:#111">}</span></code></pre></div>
+
+<p>When declare <code>CodingKeys</code> for nested types Xcode panics with:</p>
+
+<blockquote>
+<p>Ambiguous reference to CodingKeys,</p>
+</blockquote>
+
+<p>Declare it as private <code>private enum CodingKeys: CodingKey, String</code></p>
+
+<h1 id="xcode">Xcode</h1>
+
+<p>When trying to run app in real device, Xcode alerts with:</p>
+
+<blockquote>
+<p>Could not connect to &hellip;</p>
+</blockquote>
+
+<ul>
+<li>Check if airline mode is on, turn off if yes and re-run the app.</li>
+</ul>
+
+<hr />
+
+            </div>
+
+        </article>
+    </main>
+
+
+        </div>
+
+        <footer class="frame-footer">
+            <nav class="bottom-navbar">
+    <span>This is a static site generated by</span>
+    <a href="https://gohugo.io">Hugo</a>
+    <span>With the theme evolved from</span>
+    <a href="https://github.com/mobybit/hugo-natrium-theme">Natrium</a>
+</nav>
+
+        </footer>
+
+    </div>
+</body>
+
+</html>

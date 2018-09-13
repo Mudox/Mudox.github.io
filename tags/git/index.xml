@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Mudox</title>
+    <link>http://mudox.github.io/tags/git/</link>
+    <description>Recent content in Git on Mudox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Sep 2018 16:10:16 +0800</lastBuildDate>
+    
+	<atom:link href="http://mudox.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Objects</title>
+      <link>http://mudox.github.io/post/git-objects/</link>
+      <pubDate>Wed, 12 Sep 2018 16:10:16 +0800</pubDate>
+      
+      <guid>http://mudox.github.io/post/git-objects/</guid>
+      <description>Git Object Database A git repository is essentially a key-value database, where the value is a git object and the key is a SHA-1 value which is is assigned to each value when firstly added into the database. 4 Kinds Of Git Objects TL;DR A tree (like directories in file systems) as a directory save metadata and address (the SHA-1 keys) to contained blob objects as well as sub-trees. A</description>
+    </item>
+    
+  </channel>
+</rss>
